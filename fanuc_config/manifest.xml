@@ -1,0 +1,14 @@
+<package>
+  <description brief="fanuc_config">
+
+     fanuc_config
+
+  </description>
+  <author>Christina Gomez</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/fanuc_config</url>
+
+</package>
+
+
