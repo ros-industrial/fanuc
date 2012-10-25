@@ -8,7 +8,7 @@
     <visual>
       <origin rpy="-1.578 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://fanuc_config/meshes/m_10iA/visual/base_link.STL"/>
+        <mesh filename="package://fanuc_config/meshes/m_10iA/visual/base_link.stl"/>
       </geometry>
       <material name="grey">
         <color rgba="0.75 0.75 0.75 1"/>
@@ -28,7 +28,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://fanuc_config/meshes/m_10iA/visual/link_1.STL"/>
+        <mesh filename="package://fanuc_config/meshes/m_10iA/visual/link_1.stl"/>
       </geometry>
       <material name="grey"/>
     </visual>
@@ -44,7 +44,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://fanuc_config/meshes/m_10iA/visual/link_2.STL"/>
+        <mesh filename="package://fanuc_config/meshes/m_10iA/visual/link_2.stl"/>
       </geometry>
       <material name="grey"/>
     </visual>
@@ -60,7 +60,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://fanuc_config/meshes/m_10iA/visual/link_3.STL"/>
+        <mesh filename="package://fanuc_config/meshes/m_10iA/visual/link_3.stl"/>
       </geometry>
       <material name="grey"/>
     </visual>
@@ -76,7 +76,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://fanuc_config/meshes/m_10iA/visual/link_4.STL"/>
+        <mesh filename="package://fanuc_config/meshes/m_10iA/visual/link_4.stl"/>
       </geometry>
       <material name="grey"/>
     </visual>
@@ -92,7 +92,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://fanuc_config/meshes/m_10iA/visual/link_5.STL"/>
+        <mesh filename="package://fanuc_config/meshes/m_10iA/visual/link_5.stl"/>
       </geometry>
       <material name="grey"/>
     </visual>
@@ -108,7 +108,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://fanuc_config/meshes/m_10iA/visual/link_6.STL"/>
+        <mesh filename="package://fanuc_config/meshes/m_10iA/visual/link_6.stl"/>
       </geometry>
       <material name="grey"/>
     </visual>

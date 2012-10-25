@@ -9,7 +9,7 @@
        			rpy="-1.578 0 0" />
       			<geometry>
         			<mesh
-          			filename="package://fanuc_config/meshes/m_10iA/visual/base_link.STL" />
+          			filename="package://fanuc_config/meshes/m_10iA/visual/base_link.stl" />
       			</geometry>
       			<material
         			name="grey">
@@ -37,7 +37,7 @@
         			rpy="0 0 0" />
       			<geometry>
         			<mesh
-          			filename="package://fanuc_config/meshes/m_10iA/visual/link_1.STL" />
+          			filename="package://fanuc_config/meshes/m_10iA/visual/link_1.stl" />
       			</geometry>
       			<material name="grey"/>
     		</visual>
@@ -59,7 +59,7 @@
         			rpy="0 0 0" />
       			<geometry>
         			<mesh
-          			filename="package://fanuc_config/meshes/m_10iA/visual/link_2.STL" />
+          			filename="package://fanuc_config/meshes/m_10iA/visual/link_2.stl" />
       			</geometry>
       			<material name="grey"/>
     		</visual>
@@ -81,7 +81,7 @@
 					rpy="0 0 0" />
 			  	<geometry>
 					<mesh
-				  	filename="package://fanuc_config/meshes/m_10iA/visual/link_3.STL" />
+				  	filename="package://fanuc_config/meshes/m_10iA/visual/link_3.stl" />
 			  	</geometry>
 			  	<material name="grey"/>
 			</visual>
@@ -103,7 +103,7 @@
 					rpy="0 0 0" />
 				  <geometry>
 					<mesh
-					  filename="package://fanuc_config/meshes/m_10iA/visual/link_4.STL" />
+					  filename="package://fanuc_config/meshes/m_10iA/visual/link_4.stl" />
 				  </geometry>
 				  <material name="grey"/>
 			</visual>
@@ -125,7 +125,7 @@
 					rpy="0 0 0" />
 				<geometry>
 					<mesh
-					  filename="package://fanuc_config/meshes/m_10iA/visual/link_5.STL" />
+					  filename="package://fanuc_config/meshes/m_10iA/visual/link_5.stl" />
 				</geometry>
 				<material name="grey"/>
 			</visual>
@@ -147,7 +147,7 @@
 					rpy="0 0 0" />
 				<geometry>
 					<mesh
-					  filename="package://fanuc_config/meshes/m_10iA/visual/link_6.STL" />
+					  filename="package://fanuc_config/meshes/m_10iA/visual/link_6.stl" />
 				</geometry>
 				<material name="grey"/>
 			</visual>
