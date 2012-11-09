@@ -1,0 +1,466 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+	<xacro:macro name="M16iB20" params="prefix">
+
+	<!-- links -->
+
+		  <link name="${prefix}base_link">
+		    <inertial>
+		      <origin
+			xyz="0 9.68920591007408E-05 0.538248432765216"
+			rpy="0 0 0" />
+		      <mass
+			value="48654.354928172" />
+		      <inertia
+			ixx="51563.7946245021"
+			ixy="0.552841467322453"
+			ixz="-212.267889356987"
+			iyy="49495.9076886951"
+			iyz="1.80688027777408"
+			izz="54368.3241585813" />
+		    </inertial>
+		    <visual>
+		      <origin
+			xyz="0 0 0"
+			rpy="0 0 0" />
+		      <geometry>
+			<mesh
+			  filename="package://fanuc_config/meshes/m_16iB20/visualization/base_link.STL" />
+		      </geometry>
+		      <material
+			name="">
+			<color
+			  rgba="1 1 0 1" />
+		      </material>
+		    </visual>
+		    <collision>
+		      <origin
+			xyz="0 0 0"
+			rpy="0 0 0" />
+		      <geometry>
+			<mesh
+			  filename="package://fanuc_config/meshes/m_16iB20/collision/base_link.STL" />
+		      </geometry>
+		    </collision>
+		  </link>
+
+		  <link name="${prefix}Link_1">
+		    <inertial>
+		      <origin
+			xyz="0.0335399435995477 9.68920591007463E-05 0.293476071945811"
+			rpy="0 0 0" />
+		      <mass
+			value="48654.354928172" />
+		      <inertia
+			ixx="51563.7946245021"
+			ixy="0.552841467322453"
+			ixz="-212.267889356987"
+			iyy="49495.9076886951"
+			iyz="1.80688027777408"
+			izz="54368.3241585813" />
+		    </inertial>
+		    <visual>
+		      <origin
+			xyz="0 0 0"
+			rpy="0 0 0" />
+		      <geometry>
+			<mesh
+			  filename="package://fanuc_config/meshes/m_16iB20/visualization/Link_1.STL" />
+		      </geometry>
+		      <material
+			name="">
+			<color
+			  rgba="1 1 0 1" />
+		      </material>
+		    </visual>
+		    <collision>
+		      <origin
+			xyz="0 0 0"
+			rpy="0 0 0" />
+		      <geometry>
+			<mesh
+			  filename="package://fanuc_config/meshes/m_16iB20/collision/Link_1.STL" />
+		      </geometry>
+		    </collision>
+		  </link>
+
+		  <link name="${prefix}Link_2">
+		    <inertial>
+		      <origin
+			xyz="-0.116459985096576 -0.187496105761522 0.0134762050463809"
+			rpy="0 0 0" />
+		      <mass
+			value="48654.354928172" />
+		      <inertia
+			ixx="51563.7946245021"
+			ixy="0.552841467322453"
+			ixz="-212.267889356987"
+			iyy="49495.9076886951"
+			iyz="1.80688027777408"
+			izz="54368.3241585813" />
+		    </inertial>
+		    <visual>
+		      <origin
+			xyz="0 0 0"
+			rpy="0 0 0" />
+		      <geometry>
+			<mesh
+			  filename="package://fanuc_config/meshes/m_16iB20/visualization/Link_2.STL" />
+		      </geometry>
+		      <material
+			name="">
+			<color
+			  rgba="1 1 0 1" />
+		      </material>
+		    </visual>
+		    <collision>
+		      <origin
+			xyz="0 0 0"
+			rpy="0 0 0" />
+		      <geometry>
+			<mesh
+			  filename="package://fanuc_config/meshes/m_16iB20/collision/Link_2.STL" />
+		      </geometry>
+		    </collision>
+		  </link>
+
+		  <link name="${prefix}Link_3">
+		    <inertial>
+		      <origin
+			xyz="-0.116459985097232 0.000649393837860671 -0.7565234388513"
+			rpy="0 0 0" />
+		      <mass
+			value="48654.354928172" />
+		      <inertia
+			ixx="51563.7946245021"
+			ixy="0.552841467322453"
+			ixz="-212.267889356987"
+			iyy="49495.9076886951"
+			iyz="1.80688027777408"
+			izz="54368.3241585813" />
+		    </inertial>
+		    <visual>
+		      <origin
+			xyz="0 0 0"
+			rpy="0 0 0" />
+		      <geometry>
+			<mesh
+			  filename="package://fanuc_config/meshes/m_16iB20/visualization/Link_3.STL" />
+		      </geometry>
+		      <material
+			name="">
+			<color
+			  rgba="1 1 0 1" />
+		      </material>
+		    </visual>
+		    <collision>
+		      <origin
+			xyz="0 0 0"
+			rpy="0 0 0" />
+		      <geometry>
+			<mesh
+			  filename="package://fanuc_config/meshes/m_16iB20/collision/Link_3.STL" />
+		      </geometry>
+		    </collision>
+		  </link>
+
+		  <link name="${prefix}Link_4">
+		    <inertial>
+		      <origin
+			xyz="-0.301157421773673 0.000649393837861561 -0.856523437562654"
+			rpy="0 0 0" />
+		      <mass
+			value="48654.354928172" />
+		      <inertia
+			ixx="51563.7946245021"
+			ixy="0.552841467322453"
+			ixz="-212.267889356987"
+			iyy="49495.9076886951"
+			iyz="1.80688027777408"
+			izz="54368.3241585813" />
+		    </inertial>
+		    <visual>
+		      <origin
+			xyz="0 0 0"
+			rpy="0 0 0" />
+		      <geometry>
+			<mesh
+			  filename="package://fanuc_config/meshes/m_16iB20/visualization/Link_4.STL" />
+		      </geometry>
+		      <material
+			name="">
+			<color
+			  rgba="1 1 0 1" />
+		      </material>
+		    </visual>
+		    <collision>
+		      <origin
+			xyz="0 0 0"
+			rpy="0 0 0" />
+		      <geometry>
+			<mesh
+			  filename="package://fanuc_config/meshes/m_16iB20/collision/Link_4.STL" />
+		      </geometry>
+		    </collision>
+		  </link>
+
+		  <link name="${prefix}Link_5">
+		    <inertial>
+		      <origin
+			xyz="-0.856906936709003 0.000456131051686355 -0.857257705801685"
+			rpy="0 0 0" />
+		      <mass
+			value="48654.354928172" />
+		      <inertia
+			ixx="51563.7946245021"
+			ixy="0.552841467322453"
+			ixz="-212.267889356987"
+			iyy="49495.9076886951"
+			iyz="1.80688027777408"
+			izz="54368.3241585813" />
+		    </inertial>
+		    <visual>
+		      <origin
+			xyz="0 0 0"
+			rpy="0 0 0" />
+		      <geometry>
+			<mesh
+			  filename="package://fanuc_config/meshes/m_16iB20/visualization/Link_5.STL" />
+		      </geometry>
+		      <material
+			name="">
+			<color
+			  rgba="1 1 0 1" />
+		      </material>
+		    </visual>
+		    <collision>
+		      <origin
+			xyz="0 0 0"
+			rpy="0 0 0" />
+		      <geometry>
+			<mesh
+			  filename="package://fanuc_config/meshes/m_16iB20/collision/Link_5.STL" />
+		      </geometry>
+		    </collision>
+		  </link>
+
+		  <link name="${prefix}Link_6">
+		    <inertial>
+		      <origin
+			xyz="-0.957051849301239 0.000456131051686355 -0.857390019418947"
+			rpy="0 0 0" />
+		      <mass
+			value="48654.354928172" />
+		      <inertia
+			ixx="51563.7946245021"
+			ixy="0.552841467322453"
+			ixz="-212.267889356987"
+			iyy="49495.9076886951"
+			iyz="1.80688027777408"
+			izz="54368.3241585813" />
+		    </inertial>
+		    <visual>
+		      <origin
+			xyz="0 0 0"
+			rpy="0 0 0" />
+		      <geometry>
+			<mesh
+			  filename="package://fanuc_config/meshes/m_16iB20/visualization/Link_6.STL" />
+		      </geometry>
+		      <material
+			name="">
+			<color
+			  rgba="1 1 0 1" />
+		      </material>
+		    </visual>
+		    <collision>
+		      <origin
+			xyz="0 0 0"
+			rpy="0 0 0" />
+		      <geometry>
+			<mesh
+			  filename="package://fanuc_config/meshes/m_16iB20/collision/Link_6.STL" />
+		      </geometry>
+		    </collision>
+		  </link>
+
+        	  <link name="${prefix}tool0"/>
+
+	<!-- joints -->
+
+		  <joint name="${prefix}Joint_1" type="revolute">
+		    <origin
+		      xyz="0 0 0.24477"
+		      rpy="0 0 0" />
+		    <parent
+		      link="base_link" />
+		    <child
+		      link="Link_1" />
+		    <axis
+		      xyz="0 0 1" />
+		    <limit
+		      lower="-2.967"
+		      upper="2.967"
+		      effort="0"
+		      velocity="0" />
+		    <calibration
+		      rising="0"
+		      falling="0" />
+		    <dynamics
+		      damping="0"
+		      friction="0" />
+		    <!--safety_controller
+		      soft_lower_limit="0"
+		      soft_upper_limit="0"
+		      k_position="0"
+		      k_velocity="0" /-->
+		  </joint>
+
+		  <joint name="${prefix}Joint_2" type="revolute">
+		    <origin
+		      xyz="0.15 0.18759 0.28"
+		      rpy="0 0 0" />
+		    <parent
+		      link="Link_1" />
+		    <child
+		      link="Link_2" />
+		    <axis
+		      xyz="0 -1 0" />
+		    <limit
+		      lower="-1.5708"
+		      upper="2.7925"
+		      effort="0"
+		      velocity="0" />
+		    <calibration
+		      rising="0"
+		      falling="0" />
+		    <dynamics
+		      damping="0"
+		      friction="0" />
+		    <!--safety_controller
+		      soft_lower_limit="0"
+		      soft_upper_limit="0"
+		      k_position="0"
+		      k_velocity="0" /-->
+		  </joint>
+		  
+		  <joint name="${prefix}Joint_3" type="revolute">
+		    <origin
+		      xyz="0 -0.18815 0.77"
+		      rpy="0 0 0" />
+		    <parent
+		      link="Link_2" />
+		    <child
+		      link="Link_3" />
+		    <axis
+		      xyz="0 1 0" />
+		    <limit
+		      lower="-2.9671"
+		      upper="5.0615"
+		      effort="0"
+		      velocity="0" />
+		    <calibration
+		      rising="0"
+		      falling="0" />
+		    <dynamics
+		      damping="0"
+		      friction="0" />
+		    <!--safety_controller
+		      soft_lower_limit="0"
+		      soft_upper_limit="0"
+		      k_position="0"
+		      k_velocity="0" /-->
+		  </joint>
+
+		  <joint name="${prefix}Joint_4" type="revolute">
+		    <origin
+		      xyz="0.1847 0 0.1"
+		      rpy="0 0 0" />
+		    <parent
+		      link="Link_3" />
+		    <child
+		      link="Link_4" />
+		    <axis
+		      xyz="-1 0 -0.0013212" />
+		    <limit
+		      lower="-3.4907"
+		      upper="3.4907"
+		      effort="0"
+		      velocity="0" />
+		    <calibration
+		      rising="0"
+		      falling="0" />
+		    <dynamics
+		      damping="0"
+		      friction="0" />
+		    <!--safety_controller
+		      soft_lower_limit="0"
+		      soft_upper_limit="0"
+		      k_position="0"
+		      k_velocity="0" /-->
+		  </joint>
+
+		  <joint name="${prefix}Joint_5" type="revolute">
+		    <origin
+		      xyz="0.55575 0.00019326 0.00073427"
+		      rpy="0 0 0" />
+		    <parent
+		      link="Link_4" />
+		    <child
+		      link="Link_5" />
+		    <axis
+		      xyz="0 1 0" />
+		    <limit
+		      lower="-2.4435"
+		      upper="2.4435"
+		      effort="0"
+		      velocity="0" />
+		    <calibration
+		      rising="0"
+		      falling="0" />
+		    <dynamics
+		      damping="0"
+		      friction="0" />
+		    <!--safety_controller
+		      soft_lower_limit="0"
+		      soft_upper_limit="0"
+		      k_position="0"
+		      k_velocity="0" /-->
+		  </joint>
+
+		  <joint name="${prefix}Joint_6" type="revolute">
+		    <origin
+		      xyz="0.10014 0 0.00013231"
+		      rpy="0 0 0" />
+		    <parent
+		      link="Link_5" />
+		    <child
+		      link="Link_6" />
+		    <axis
+		      xyz="-1 0 -0.0013212" />
+		    <limit
+		      lower="-7.85398"
+		      upper="7.85398"
+		      effort="0"
+		      velocity="0" />
+		    <calibration
+		      rising="0"
+		      falling="0" />
+		    <dynamics
+		      damping="0"
+		      friction="0" />
+		    <!--safety_controller
+		      soft_lower_limit="0"
+		      soft_upper_limit="0"
+		      k_position="0"
+		      k_velocity="0" /-->
+		  </joint>
+
+		  <joint name="${prefix}Joint_6-tool0" type="fixed">
+		      <parent link="${prefix}Link_6"/>
+	              <child link="${prefix}tool0"/>
+          	      <origin xyz="0 0 0" rpy="0 0 0"/>
+	          </joint>
+
+	</xacro:macro>
+</robot>
