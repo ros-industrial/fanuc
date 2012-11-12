@@ -328,7 +328,7 @@
 		      xyz="0 -1 0" />
 		    <limit
 		      lower="-1.5708"
-		      upper="2.7925"
+		      upper="1.9"
 		      effort="0"
 		      velocity="0" />
 		    <calibration
@@ -355,8 +355,8 @@
 		    <axis
 		      xyz="0 1 0" />
 		    <limit
-		      lower="-3.9671"
-		      upper="1.35"
+		      lower="-4.21"
+		      upper="1.45"
 		      effort="0"
 		      velocity="0" />
 		    <calibration
