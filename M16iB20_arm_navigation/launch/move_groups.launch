@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find M16iB20_arm_navigation)/launch/move_end_effector.launch" />
+    <include file="$(find M16iB20_arm_navigation)/launch/move_manipulator.launch" />
+</launch>

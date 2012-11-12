@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="move_arm" type="move_arm_simple_action" name="M16iB20_move_end_effector">
+        <param name="group" type="string" value="end_effector" />
+        <remap from="arm_ik" to="M16iB20_end_effector_kinematics/get_constraint_aware_ik" />
+        <param name="controller_action_name" type="string" value="end_effector_controller/follow_joint_trajectory" />
+    </node>
+</launch>
