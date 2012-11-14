@@ -1,0 +1,21 @@
+<package>
+  <description brief="m430iA2F_arm_navigation">
+
+     m430iA2F_arm_navigation
+
+  </description>
+  <author>G.A. vd. Hoorn</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/m430iA2F_arm_navigation</url>
+  <depend package="planning_environment"/>
+  <depend package="kinematics_base"/>
+  <depend package="arm_kinematics_constraint_aware"/>
+  <depend package="ompl_ros_interface"/>
+  <depend package="trajectory_filter_server"/>
+  <depend package="constraint_aware_spline_smoother"/>
+  <depend package="move_arm"/>
+
+</package>
+
+
