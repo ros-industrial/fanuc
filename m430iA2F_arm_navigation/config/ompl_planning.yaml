@@ -45,7 +45,7 @@ manipulator_cartesian:
     - SBLkConfig1
     - LBKPIECEkConfig1
   kinematics_solver: arm_kinematics_constraint_aware/KDLArmKinematicsPlugin
-  tip_name: link_5
+  tip_name: tool0
   root_name: base_link
   projection_evaluator: joint_state
   longest_valid_segment_fraction: 0.001

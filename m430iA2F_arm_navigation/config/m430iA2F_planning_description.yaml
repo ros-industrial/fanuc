@@ -6,7 +6,7 @@ multi_dof_joints:
 groups:
   - name: manipulator
     base_link: base_link
-    tip_link: link_5
+    tip_link: tool0
 default_collision_operations:
   - object1: base_link
     object2: link_1

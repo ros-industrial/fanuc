@@ -3,7 +3,7 @@
     <node pkg="arm_kinematics_constraint_aware" type="arm_kinematics_constraint_aware" name="m430iA2F_manipulator_kinematics">
         <param name="group" type="string" value="manipulator" />
         <param name="manipulator/root_name" type="string" value="base_link" />
-        <param name="manipulator/tip_name" type="string" value="link_5" />
+        <param name="manipulator/tip_name" type="string" value="tool0" />
         <param name="kinematics_solver" type="string" value="arm_kinematics_constraint_aware/KDLArmKinematicsPlugin" />
     </node>
 </launch>
