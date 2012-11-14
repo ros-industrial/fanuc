@@ -173,8 +173,8 @@
                 soft_upper_limit="0" k_position="0" k_velocity="0" / -->
 		</joint>
         <joint name="${prefix}joint_5-tool0" type="fixed">
-            <parent link="${prefix}${prefix}link_5"/>
-            <child link="${prefix}${prefix}tool0"/>
+            <parent link="${prefix}link_5"/>
+            <child link="${prefix}tool0"/>
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </joint>
 
