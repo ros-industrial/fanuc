@@ -9,13 +9,12 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/fanuc_common</url>
   <depend package="roscpp"/>
-  <depend package="actionlib"/>
-  <depend package="trajectory_msgs"/>
-  <depend package="actionlib_msgs"/>
-  <depend package="control_msgs"/>
+  <depend package="std_msgs"/>
   <depend package="sensor_msgs"/>
+  <depend package="control_msgs"/>
+  <depend package="trajectory_msgs"/>
   <depend package="simple_message"/>
+  <depend package="actionlib_msgs" />
+  <depend package="actionlib"/>
 
 </package>
-
-
