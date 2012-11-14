@@ -1,0 +1,226 @@
+-- Software License Agreement (BSD License)
+--
+-- Copyright (c) 2012, TU Delft Robotics Institute
+-- All rights reserved.
+--
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions
+-- are met:
+--
+--  * Redistributions of source code must retain the above copyright
+--    notice, this list of conditions and the following disclaimer.
+--  * Redistributions in binary form must reproduce the above
+--    copyright notice, this list of conditions and the following
+--    disclaimer in the documentation and/or other materials provided
+--    with the distribution.
+--  * Neither the name of the TU Delft Robotics Institute nor the names 
+--    of its contributors may be used to endorse or promote products 
+--    derived from this software without specific prior written 
+--    permission.
+--
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+-- FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+-- COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+-- INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+-- BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+-- LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+-- CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+-- LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+-- ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+-- POSSIBILITY OF SUCH DAMAGE.
+
+
+PROGRAM kl_type_sz
+--------------------------------------------------------------------------------
+-- 
+-- Info on size of different KAREL types.
+-- 
+-- Info from KAREL Operation Manual, B-83144EN/01, Section 3.2.7
+-- and KAREL Reference Manual, MARRC75KR07091E Rev C, Section 7.9, Table 7-17
+-- 
+-- author: G.A. vd. Hoorn
+-- 
+--------------------------------------------------------------------------------
+%NOLOCKGROUP
+%NOPAUSE = COMMAND + TPENABLE + ERROR
+%COMMENT = 'Karel sizeof()'
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- local routine prototypes
+-- 
+--------------------------------------------------------------------------------
+%INCLUDE karel_type_sz_h
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Empty body
+-- 
+--------------------------------------------------------------------------------
+BEGIN
+END kl_type_sz
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- sizeof(BYTE)
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sz_byte
+BEGIN
+    RETURN (1)
+END sz_byte
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- sizeof(SHORT)
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sz_short
+BEGIN
+    RETURN (2)
+END sz_short
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- sizeof(INTEGER)
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sz_int
+BEGIN
+    RETURN (4)
+END sz_int
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- sizeof(BOOLEAN)
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sz_bool
+BEGIN
+    RETURN (4)
+END sz_bool
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- sizeof(REAL)
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sz_real
+BEGIN
+    RETURN (4)
+END sz_real
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- sizeof(VECTOR)
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sz_vector
+BEGIN
+    RETURN (3 * sz_real)
+END sz_vector
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- sizeof(CONFIG)
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sz_config
+BEGIN
+    RETURN ((3 * sz_int) + (4 * sz_bool))
+END sz_config
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- sizeof(POSITION)
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sz_pos
+BEGIN
+    RETURN ((4 * sz_vector) + sz_config)
+END sz_pos
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- sizeof(XYZPWR)
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sz_xyzpwr
+BEGIN
+    RETURN ((6 * sz_real) + sz_config)
+END sz_xyzpwr
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- sizeof(XYZPWREXT)
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sz_xyzpwrext
+BEGIN
+    RETURN (sz_xyzpwr + (3 * sz_real))
+END sz_xyzpwrext
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- sizeof(JOINTPOSn)
+-- from KAREL Reference Manual, MARRC75KR07091E Rev C, Table 7-17
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sz_jposn
+BEGIN
+    RETURN (4 + (sz_real * n))
+END sz_jposn
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- sizeof(JOINTPOS9)
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sz_jpos9
+BEGIN
+    RETURN (sz_jposn(9))
+END sz_jpos9

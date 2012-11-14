@@ -1,0 +1,332 @@
+-- Software License Agreement (BSD License)
+--
+-- Copyright (c) 2012, TU Delft Robotics Institute
+-- All rights reserved.
+--
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions
+-- are met:
+--
+--  * Redistributions of source code must retain the above copyright
+--    notice, this list of conditions and the following disclaimer.
+--  * Redistributions in binary form must reproduce the above
+--    copyright notice, this list of conditions and the following
+--    disclaimer in the documentation and/or other materials provided
+--    with the distribution.
+--  * Neither the name of the TU Delft Robotics Institute nor the names 
+--    of its contributors may be used to endorse or promote products 
+--    derived from this software without specific prior written 
+--    permission.
+--
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+-- FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+-- COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+-- INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+-- BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+-- LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+-- CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+-- LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+-- ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+-- POSSIBILITY OF SUCH DAMAGE.
+
+
+PROGRAM libsock
+--------------------------------------------------------------------------------
+-- 
+-- Convenience wrapper around the KAREL Socket Programming extensions.
+-- 
+-- See also KAREL Reference Manual, MARRC75KR07091E Rev C, chap. 11
+-- 
+-- TODO:
+--  - add checking for properly configured server TAG
+-- 
+-- author: G.A. vd. Hoorn
+-- 
+--------------------------------------------------------------------------------
+%NOLOCKGROUP
+%NOPAUSE= COMMAND + TPENABLE + ERROR
+%COMMENT = 'Karel Sockets'
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- local types & constants
+-- 
+--------------------------------------------------------------------------------
+%INCLUDE libsock_t
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- local routine prototypes
+-- 
+--------------------------------------------------------------------------------
+%INCLUDE libsock_h
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Empty body
+-- 
+--------------------------------------------------------------------------------
+BEGIN
+END libsock
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Ping a host on the network. No connected socket necessary.
+-- 
+-- NB: hostname needs to be known to robot (setup DNS and / or 'Host Entry 
+--     table')
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sock_ping
+VAR
+    stat__ : INTEGER
+BEGIN
+    MSG_PING(host, stat__)
+    RETURN (stat__)
+END sock_ping
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Constructor: sets up member variables and initialises related robot 
+-- system variable.
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sock_ctor
+VAR
+    tmp_str__   : STRING[1] -- temp string for tag_nr to str conversion
+    entry__     : INTEGER   -- dummy var for set_var
+    ascii_one__ : INTEGER   -- ASCII val of '1' char
+BEGIN
+    -- setup instance variables
+    this.connected_ = FALSE
+    this.status_    = 0
+    this.port_      = tcp_port
+    this.tag_idx_   = tag_idx
+    this.tag_str_   = ''
+    this.hcfg_str_  = ''
+
+    -- construct server_port variable string
+    ascii_one__ = 48
+    -- ascii 'trick'
+    -- TODO: add proper range checking on tag_idx_
+    tmp_str__ = CHR(this.tag_idx_ + ascii_one__)
+
+    -- and set system variable
+    this.hcfg_str_ = '$HOSTS_CFG[' + tmp_str__ + '].$SERVER_PORT'
+
+    -- construct server tag string
+    this.tag_str_ = 'S' + tmp_str__ + ':'
+
+    -- [out] entry
+    -- [in]  prog_name
+    -- [in]  var_name
+    -- [in]  value
+    -- [out] status
+    SET_VAR(entry__, '*SYSTEM*', this.hcfg_str_, this.port_, this.status_)
+
+    -- done
+    RETURN (this.status_)
+END sock_ctor
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Dump string rep of the given instance to to file descriptor 'fd'.
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sock_dump
+BEGIN
+    WRITE fd('Sock instance:', CR, &
+            ' connected :', this.connected_, CR, &
+            ' port      :', this.port_, CR, &
+            ' tag_idx   :', this.tag_idx_, CR, &
+            ' tag_str   : ', this.tag_str_, CR, &
+            ' hcfg_str  : ', this.hcfg_str_, CR)
+END sock_dump
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Wait for a connection on the given socket instance, if not already connected
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sock_accept
+VAR
+    stat__ : INTEGER
+BEGIN
+    stat__ = 0
+    IF this.connected_ THEN
+        RETURN (S_ACPT_ERR)
+    ENDIF
+
+    -- msg_connect only returns after a client connects to the port
+    MSG_CONNECT(this.tag_str_, stat__)
+
+    IF stat__ = 0 THEN
+        this.connected_ = TRUE
+    ENDIF
+
+    RETURN (stat__)
+END sock_accept
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Disconnect the socket, if connected.
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sock_dconn
+BEGIN
+    IF this.connected_ = FALSE THEN
+        RETURN (S_NOTCON_ERR)
+    ENDIF
+
+    -- use other routine
+    RETURN (sock_dconn(this))
+END sock_dconn
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Disconnect the socket, unconditionally.
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sock_dconnf
+VAR
+    stat__ : INTEGER
+BEGIN
+    stat__ = 0
+    MSG_DISCO(this.tag_str_, stat__)
+
+    this.connected_ = FALSE
+
+    RETURN (stat__)
+END sock_dconnf
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Open a file descriptor on the given socket instance
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sock_ofd
+VAR
+    tmp__ : STRING[3]
+BEGIN
+    IF this.connected_ = FALSE THEN
+        RETURN (S_NOTCON_ERR)
+    ENDIF
+
+    -- TODO: why is this temporary variable necessary?
+    tmp__ = this.tag_str_
+    OPEN FILE fd(mode, tmp__)
+
+    RETURN (IO_STATUS(fd))
+END sock_ofd
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Close the given file descriptor (on the given socket instance)
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sock_cfd
+BEGIN
+    IF this.connected_ = FALSE THEN
+        RETURN (S_NOTCON_ERR)
+    ENDIF
+
+    -- close file desc
+    CLOSE FILE fd
+
+    -- according to Karel Ref Man, A.4.12, this will always return 0
+    RETURN (IO_STATUS(fd))
+END sock_cfd
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Wait for a connection on the given socket instance. If successful,
+-- open given file descriptor on it.
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sock_accept2
+VAR
+    stat__ : INTEGER
+BEGIN
+    stat__ = 0
+    -- use other routine
+    stat__ = sock_accept(this)
+
+    -- make sure it succeeded
+    IF stat__ <> 0 THEN
+        RETURN (stat__)
+    ENDIF
+
+    -- now open fd, read / write
+    stat__ = sock_ofd(this, fd, 'RW')
+
+    -- done
+    RETURN (stat__)
+END sock_accept2
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Disconnect the socket, if connected. Then close given file descriptor.
+-- 
+--------------------------------------------------------------------------------
+ROUTINE sock_dconn2
+VAR
+    stat__ : INTEGER
+BEGIN
+    stat__ = 0
+    IF this.connected_ = FALSE THEN
+        RETURN (S_NOTCON_ERR)
+    ENDIF
+
+    -- close fd first
+    -- TODO: fail on failure to close fd?
+    stat__ = sock_cfd(this, fd)
+
+    -- now socket
+    MSG_DISCO(this.tag_str_, stat__)
+
+    this.connected_ = FALSE
+
+    -- done
+    RETURN (stat__)
+END sock_dconn2

@@ -1,0 +1,213 @@
+-- Software License Agreement (BSD License)
+--
+-- Copyright (c) 2012, TU Delft Robotics Institute
+-- All rights reserved.
+--
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions
+-- are met:
+--
+--  * Redistributions of source code must retain the above copyright
+--    notice, this list of conditions and the following disclaimer.
+--  * Redistributions in binary form must reproduce the above
+--    copyright notice, this list of conditions and the following
+--    disclaimer in the documentation and/or other materials provided
+--    with the distribution.
+--  * Neither the name of the TU Delft Robotics Institute nor the names 
+--    of its contributors may be used to endorse or promote products 
+--    derived from this software without specific prior written 
+--    permission.
+--
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+-- FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+-- COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+-- INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+-- BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+-- LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+-- CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+-- LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+-- ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+-- POSSIBILITY OF SUCH DAMAGE.
+
+
+PROGRAM ros_state
+--------------------------------------------------------------------------------
+-- 
+-- ROS Industrial state proxy
+-- 
+-- Assumptions:
+--   - User Socket Messaging (USM) is supported by robot
+--   - TAG 'S3' used for USM
+--   - There is only 1 motion group
+-- 
+-- 
+-- author: G.A. vd. Hoorn
+-- 
+--------------------------------------------------------------------------------
+%NOLOCKGROUP
+%NOPAUSE= COMMAND + TPENABLE + ERROR
+%COMMENT = 'ROS Ind State Proxy'
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- remote types & constants
+-- 
+--------------------------------------------------------------------------------
+%INCLUDE libsock_t
+%INCLUDE libind_pkt_t
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- local types & constants
+-- 
+--------------------------------------------------------------------------------
+var
+    pkt_out    : ind_pkt_t   -- ROS industrial joint state packet
+    sock_      : sock_t      -- server socket instance
+    sock_fd_   : FILE        -- file descriptor associated with srvr socket
+    stat_      : INTEGER     -- status variable
+    cur_j_pos  : JOINTPOS    -- current position of robot joints
+    sleep_time : INTEGER
+
+
+const
+    -- which server tag to use
+    STATE_TAG = 4
+    -- Hz
+    LOOP_HZ = 25
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- remote routine prototypes
+-- 
+--------------------------------------------------------------------------------
+%INCLUDE libsock_h
+%INCLUDE libind_pkt_h
+%INCLUDE libind_log_h
+%INCLUDE libind_mth_h
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Main program
+-- 
+--------------------------------------------------------------------------------
+BEGIN
+    stat_      = 0
+    sleep_time = ROUND(1.0 / LOOP_HZ)
+
+
+    -- enable log output
+    log_clear
+
+
+    -- init packet
+    stat_ = ipkt_ctor(pkt_out)
+    USING pkt_out DO
+        msg_type_   = INDU_JNT_MSG
+        comm_type_  = INDU_TOPIC
+        reply_type_ = INDU_UNUSED
+        seq_nr_     = INDU_UNUSED
+    ENDUSING
+
+
+    -- init server socket
+    stat_ = sock_ctor(sock_, INDU_STATE, STATE_TAG)
+    IF stat_ <> 0 THEN
+        log_error_a('sock_ctor err:', stat_)
+        -- nothing we can do, abort
+        GOTO exit_on_err
+    ENDIF
+
+
+    -- make sure socket is closed
+    -- don t care about result
+    stat_ = sock_dconnf(sock_)
+
+    -- 
+    WHILE TRUE DO
+
+        -- inform user
+        log_info('Waiting for ROS state node .. ')
+
+        -- wait for connection
+        stat_ = sock_accept2(sock_, sock_fd_)
+        IF stat_ <> 0 THEN
+            log_error_a('sock_accept err:', stat_)
+            -- can't continue
+            GOTO exit_discon
+        ENDIF
+
+        -- set socket in 'binary mode' (unformatted)
+        -- KAREL Reference Manual, MARRC75KR07091E Rev C, sec 7.3.1
+        SET_FILE_ATR(sock_fd_, ATR_UF)
+
+        -- inform user
+        log_info('Connected')
+
+        -- got client, start joint_state relay loop
+        WHILE TRUE DO
+
+            -- get current joint angles
+            cur_j_pos = CURJPOS(0, 0)
+
+            -- convert to REAL array
+            CNV_JPOS_REL(cur_j_pos, pkt_out.joint_data_, stat_)
+
+            -- ROS expects radians, so convert
+            arr_deg2rad(pkt_out.joint_data_)
+
+            -- make J3 relative to J2
+            pkt_out.joint_data_[3] = pkt_out.joint_data_[3] - pkt_out.joint_data_[2]
+
+            -- serialise packet, write to socket file descriptor
+            stat_ = ipkt_srlise(pkt_out, sock_fd_)
+
+            -- check result
+            IF stat_ <> 0 THEN
+
+                log_error_a('ipkt_srlise err:', stat_)
+
+                -- remote probably disconnected
+                stat_ = sock_dconn2(sock_, sock_fd_)
+                log_error_a('Remote hung up (?):', stat_)
+
+                -- exit inner loop
+                GOTO exit_inner
+            ENDIF
+
+            -- sleep a little (1/T)
+            DELAY sleep_time
+
+        -- inner WHILE TRUE DO
+        ENDWHILE
+
+        -- exit with forced disconnect
+        exit_discon::
+            stat_ = sock_dconn2(sock_, sock_fd_)
+
+        -- exit inner loop
+        exit_inner::
+            -- nothing
+
+    -- outer WHILE TRUE DO
+    ENDWHILE
+
+
+exit_on_err::
+    -- nothing
+
+END ros_state
