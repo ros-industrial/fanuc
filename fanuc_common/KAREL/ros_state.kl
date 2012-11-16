@@ -37,6 +37,10 @@ PROGRAM ros_state
 -- 
 -- ROS Industrial state proxy
 -- 
+-- NB: This is a work in progress, and as such should NOT be used on real 
+--     hardware.
+-- 
+-- 
 -- Assumptions:
 --   - User Socket Messaging (USM) is supported by robot
 --   - TAG 'S3' used for USM

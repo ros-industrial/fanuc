@@ -41,6 +41,9 @@ PROGRAM ros_relay
 -- 
 -- Joint motion speed is limited (hard coded) to 50%.
 -- 
+-- NB: This is a work in progress, and as such should NOT be used on real 
+--     hardware.
+-- 
 -- Assumptions:
 --   - User Socket Messaging (USM) is supported by robot
 --   - TAG 'S4' used for USM
