@@ -84,7 +84,7 @@ var
 
 const
     -- which server tag to use
-    STATE_TAG = 4
+    STATE_TAG = 3
     -- Hz
     LOOP_HZ = 25
 

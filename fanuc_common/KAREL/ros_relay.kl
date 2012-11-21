@@ -93,7 +93,7 @@ var
 
 const
     -- which server tag to use
-    MOTION_TAG = 3
+    MOTION_TAG = 4
     -- use TP program for motion. See also comments below.
     USE_TP = FALSE
     -- speed to use with 'MOVE TO'
