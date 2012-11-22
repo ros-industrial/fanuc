@@ -300,7 +300,7 @@ END check_socket
 --------------------------------------------------------------------------------
 BEGIN
     stat_ = 0
-    sleep_time = ROUND(1.0 / LOOP_HZ)
+    sleep_time = ROUND(1000.0 / LOOP_HZ)
 
 
     -- enable log output
