@@ -53,7 +53,6 @@ PROGRAM ros_relay
 -- TODO
 --   - make position register used for storing trajectory points configurable
 --   - make joint motion speed configurable
---   - fix 'hang' upon unclean disconnect by motion_streaming_interface
 -- 
 -- 
 -- author: G.A. vd. Hoorn
@@ -210,7 +209,7 @@ BEGIN
     stat__ = ipkt_srlise(pkt_out, sock_fd_)
 
     -- done
-    RETURN (stat__)
+    RETURN (-stat__)
 END req_next
 
 
@@ -241,7 +240,7 @@ BEGIN
     stat__ = ipkt_srlise(pkt_out, sock_fd_)
 
     -- done
-    RETURN (stat__)
+    RETURN (-stat__)
 END send_err
 
 
@@ -269,7 +268,7 @@ BEGIN
 
     -- check nr of bytes in buffer
     BYTES_AHEAD(sock_fd_, bytes_ahd__, stat__)
-    IF stat__ <> 0 THEN RETURN (stat__); ENDIF
+    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
     -- is there enough for a packet?
     IF bytes_ahd__ >= indu_pkt_sz THEN
@@ -342,7 +341,7 @@ BEGIN
     WHILE TRUE DO
 
         -- inform user
-        log_info('Waiting for ROS traj relay node .. ')
+        log_info('Waiting for ROS traj relay')
 
         -- set socket in 'binary mode' (unformatted)
         -- KAREL Reference Manual, MARRC75KR07091E Rev C, sec 7.3.1
@@ -394,6 +393,7 @@ BEGIN
 
                     -- just 'a move'
                     ELSE:
+                        -- 
                         stat_ = exec_move(pkt_in)
                         IF stat_ <> 0 THEN
                             -- can't continue
