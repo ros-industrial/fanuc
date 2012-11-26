@@ -1,10 +1,11 @@
 <package>
   <description brief="fanuc_config">
 
-     fanuc_config
+     This package contains common configurations and 3D models for Fanuc 
+     manipulators.
 
   </description>
-  <author>Christina Gomez</author>
+  <author>Christina Gomez, G.A. vd. Hoorn/g.a.vanderhoorn@tudelft.nl</author>
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/fanuc_config</url>

@@ -1,10 +1,11 @@
 <package>
   <description brief="fanuc_common">
 
-     fanuc_common
+     This package contains nodes for interfacing with Fanuc industrial 
+     controllers that support the KAREL programming environment.
 
   </description>
-  <author>G.A. vd. Hoorn</author>
+  <author>G.A. vd. Hoorn/g.a.vanderhoorn@tudelft.nl</author>
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/fanuc_common</url>
