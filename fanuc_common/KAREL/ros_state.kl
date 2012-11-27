@@ -145,7 +145,7 @@ BEGIN
     WHILE TRUE DO
 
         -- inform user
-        log_info('Waiting for ROS state node .. ')
+        log_info('Waiting for ROS state proxy')
 
         -- set socket in 'binary mode' (unformatted)
         -- KAREL Reference Manual, MARRC75KR07091E Rev C, sec 7.3.1
@@ -187,7 +187,6 @@ BEGIN
 
                 -- remote probably disconnected
                 stat_ = sock_dconn2(sock_, sock_fd_)
-                log_error_a('Remote hung up (?):', stat_)
 
                 -- exit inner loop
                 GOTO exit_inner

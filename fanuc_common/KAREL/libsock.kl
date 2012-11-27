@@ -96,7 +96,7 @@ VAR
     stat__ : INTEGER
 BEGIN
     MSG_PING(host, stat__)
-    RETURN (stat__)
+    RETURN (-stat__)
 END sock_ping
 
 
@@ -142,7 +142,7 @@ BEGIN
     SET_VAR(entry__, '*SYSTEM*', this.hcfg_str_, this.port_, this.status_)
 
     -- done
-    RETURN (this.status_)
+    RETURN (-this.status_)
 END sock_ctor
 
 
@@ -187,7 +187,7 @@ BEGIN
         this.connected_ = TRUE
     ENDIF
 
-    RETURN (stat__)
+    RETURN (-stat__)
 END sock_accept
 
 
@@ -205,7 +205,7 @@ BEGIN
     ENDIF
 
     -- use other routine
-    RETURN (sock_dconn(this))
+    RETURN (sock_dconnf(this))
 END sock_dconn
 
 
@@ -225,7 +225,7 @@ BEGIN
 
     this.connected_ = FALSE
 
-    RETURN (stat__)
+    RETURN (-stat__)
 END sock_dconnf
 
 
@@ -238,7 +238,8 @@ END sock_dconnf
 --------------------------------------------------------------------------------
 ROUTINE sock_ofd
 VAR
-    tmp__ : STRING[3]
+    tmp__  : STRING[3]
+    stat__ : INTEGER
 BEGIN
     IF this.connected_ = FALSE THEN
         RETURN (S_NOTCON_ERR)
@@ -248,7 +249,8 @@ BEGIN
     tmp__ = this.tag_str_
     OPEN FILE fd(mode, tmp__)
 
-    RETURN (IO_STATUS(fd))
+    stat__ = IO_STATUS(fd)
+    RETURN (-stat__)
 END sock_ofd
 
 
@@ -260,6 +262,8 @@ END sock_ofd
 -- 
 --------------------------------------------------------------------------------
 ROUTINE sock_cfd
+VAR
+    stat__ : INTEGER
 BEGIN
     IF this.connected_ = FALSE THEN
         RETURN (S_NOTCON_ERR)
@@ -269,7 +273,8 @@ BEGIN
     CLOSE FILE fd
 
     -- according to Karel Ref Man, A.4.12, this will always return 0
-    RETURN (IO_STATUS(fd))
+    stat__ = IO_STATUS(fd)
+    RETURN (-stat__)
 END sock_cfd
 
 
@@ -291,14 +296,14 @@ BEGIN
 
     -- make sure it succeeded
     IF stat__ <> 0 THEN
-        RETURN (stat__)
+        RETURN (-stat__)
     ENDIF
 
     -- now open fd, read / write
     stat__ = sock_ofd(this, fd, 'RW')
 
     -- done
-    RETURN (stat__)
+    RETURN (-stat__)
 END sock_accept2
 
 
@@ -328,5 +333,5 @@ BEGIN
     this.connected_ = FALSE
 
     -- done
-    RETURN (stat__)
+    RETURN (-stat__)
 END sock_dconn2

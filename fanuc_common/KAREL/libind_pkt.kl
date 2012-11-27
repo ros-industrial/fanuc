@@ -90,7 +90,7 @@ END libind_pkt
 
 --------------------------------------------------------------------------------
 -- 
--- Constructor: just resets the packet (for now)
+-- Constructor: just resets the packet
 -- 
 --------------------------------------------------------------------------------
 ROUTINE ipkt_ctor
@@ -155,23 +155,23 @@ BEGIN
     -- write out all fields ..
     WRITE fd_sink(this.length_)
     stat__ = IO_STATUS(fd_sink)
-    IF stat__ <> 0 THEN RETURN (stat__); ENDIF
+    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
     WRITE fd_sink(this.msg_type_)
     stat__ = IO_STATUS(fd_sink)
-    IF stat__ <> 0 THEN RETURN (stat__); ENDIF
+    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
     WRITE fd_sink(this.comm_type_)
     stat__ = IO_STATUS(fd_sink)
-    IF stat__ <> 0 THEN RETURN (stat__); ENDIF
+    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
     WRITE fd_sink(this.reply_type_)
     stat__ = IO_STATUS(fd_sink)
-    IF stat__ <> 0 THEN RETURN (stat__); ENDIF
+    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
     WRITE fd_sink(this.seq_nr_)
     stat__ = IO_STATUS(fd_sink)
-    IF stat__ <> 0 THEN RETURN (stat__); ENDIF
+    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
     -- now the array
     FOR i__ = 1 TO array_sz__ DO
@@ -179,14 +179,15 @@ BEGIN
 
         -- check
         stat__ = IO_STATUS(fd_sink)
-        IF stat__ <> 0 THEN RETURN (stat__); ENDIF
+        IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
     ENDFOR
 
     -- .. and end with a CR
     WRITE fd_sink(CR)
 
     -- done
-    RETURN (IO_STATUS(fd_sink))
+    stat__ = IO_STATUS(fd_sink)
+    RETURN (-stat__)
 END ipkt_srlise
 
 
@@ -211,23 +212,23 @@ BEGIN
     -- write out all fields ..
     READ fd_sink(this.length_)
     stat__ = IO_STATUS(fd_sink)
-    IF stat__ <> 0 THEN RETURN (stat__); ENDIF
+    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
     READ fd_sink(this.msg_type_)
     stat__ = IO_STATUS(fd_sink)
-    IF stat__ <> 0 THEN RETURN (stat__); ENDIF
+    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
     READ fd_sink(this.comm_type_)
     stat__ = IO_STATUS(fd_sink)
-    IF stat__ <> 0 THEN RETURN (stat__); ENDIF
+    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
     READ fd_sink(this.reply_type_)
     stat__ = IO_STATUS(fd_sink)
-    IF stat__ <> 0 THEN RETURN (stat__); ENDIF
+    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
     READ fd_sink(this.seq_nr_)
     stat__ = IO_STATUS(fd_sink)
-    IF stat__ <> 0 THEN RETURN (stat__); ENDIF
+    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
     -- now the array
     FOR i__ = 1 TO array_sz__ DO
@@ -235,11 +236,12 @@ BEGIN
 
         -- check
         stat__ = IO_STATUS(fd_sink)
-        IF stat__ <> 0 THEN RETURN (stat__); ENDIF
+        IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
     ENDFOR
 
     -- done
-    RETURN (IO_STATUS(fd_sink))
+    stat__ = IO_STATUS(fd_sink)
+    RETURN (-stat__)
 END ipkt_dsrlse
 
 

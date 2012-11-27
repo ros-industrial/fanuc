@@ -96,6 +96,29 @@ END libind_log
 
 --------------------------------------------------------------------------------
 -- 
+-- Print the current time on the current line (as prefix for log lines)
+-- 
+--------------------------------------------------------------------------------
+ROUTINE prnt_time
+VAR
+    time_ : INTEGER
+    tmp_  : STRING[30]
+BEGIN
+    -- 
+    GET_TIME(time_)
+    -- keep only lower 16 bits: HH:MM:SS
+    time_ = time_ AND 65535
+    -- convert it to a string (raw, not using CNV_TIME_STR)
+    CNV_INT_STR(time_, 4, 10, tmp_)
+    -- write on current line
+    WRITE TPDISPLAY(tmp_)
+END prnt_time
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
 -- Clear and force the USER menu screen
 -- 
 --------------------------------------------------------------------------------
@@ -115,7 +138,8 @@ END log_clear
 --------------------------------------------------------------------------------
 ROUTINE log_info
 BEGIN
-    WRITE TPDISPLAY('INFO: ', s, CR)
+    prnt_time
+    WRITE TPDISPLAY(' INFO ', s, CR)
 END log_info
 
 
@@ -128,7 +152,8 @@ END log_info
 --------------------------------------------------------------------------------
 ROUTINE log_info_a
 BEGIN
-    WRITE TPDISPLAY('INFO: ', s, a, CR)
+    prnt_time
+    WRITE TPDISPLAY(' INFO ', s, a, CR)
 END log_info_a
 
 
@@ -141,10 +166,11 @@ END log_info_a
 --------------------------------------------------------------------------------
 ROUTINE log_warn
 BEGIN
+    prnt_time
     WRITE TPDISPLAY( &
         CHR(156), CHR(BG_BLACK), &
         CHR(155), CHR(ROS_WARN), &
-        'WARN: ', s, &
+        ' WARN ', s, &
         CHR(156), CHR(BG_DEFAULT), &
         CHR(155), CHR(FG_DEFAULT), &
         CR)
@@ -160,9 +186,10 @@ END log_warn
 --------------------------------------------------------------------------------
 ROUTINE log_warn_a
 BEGIN
+    prnt_time
     WRITE TPDISPLAY( &
         CHR(155), CHR(ROS_WARN), &
-        'WARN: ', s, a, &
+        ' WARN ', s, a, &
         CHR(155), CHR(FG_DEFAULT), &
         CR)
 END log_warn_a
@@ -177,9 +204,10 @@ END log_warn_a
 --------------------------------------------------------------------------------
 ROUTINE log_error
 BEGIN
+    prnt_time
     WRITE TPDISPLAY( &
         CHR(155), CHR(ROS_ERR), &
-        'ERR : ', s, &
+        ' ERR  ', s, &
         CHR(155), CHR(FG_DEFAULT), &
         CR)
 END log_error
@@ -194,9 +222,10 @@ END log_error
 --------------------------------------------------------------------------------
 ROUTINE log_error_a
 BEGIN
+    prnt_time
     WRITE TPDISPLAY( &
         CHR(155), CHR(ROS_ERR), &
-        'ERR : ', s, a, &
+        ' ERR  ', s, a, &
         CHR(155), CHR(FG_DEFAULT), 
         CR)
 END log_error_a
