@@ -1,6 +1,6 @@
 <stack>
   <description brief="fanuc">The fanuc stack constains libraries, configuration files, and ROS nodes for controlling a FANUC robot from ROS-Industrial</description>
-  <author>Christina Gomez(Southwest Research Institute)</author>
+  <author>Christina Gomez(Southwest Research Institute), G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
   <license>BSD</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/fanuc</url>
