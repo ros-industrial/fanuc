@@ -13,7 +13,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://fanuc_config/meshes/m_16iB20/visualization/base_link.STL"/>
+        <mesh filename="package://fanuc_config/meshes/m_16iB20/visual/base_link.STL"/>
       </geometry>
       <material name="">
         <color rgba="1 1 0 1"/>
@@ -35,7 +35,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://fanuc_config/meshes/m_16iB20/visualization/Link_1.STL"/>
+        <mesh filename="package://fanuc_config/meshes/m_16iB20/visual/Link_1.STL"/>
       </geometry>
       <material name="">
         <color rgba="1 1 0 1"/>
@@ -57,7 +57,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://fanuc_config/meshes/m_16iB20/visualization/Link_2.STL"/>
+        <mesh filename="package://fanuc_config/meshes/m_16iB20/visual/Link_2.STL"/>
       </geometry>
       <material name="">
         <color rgba="1 1 0 1"/>
@@ -79,7 +79,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://fanuc_config/meshes/m_16iB20/visualization/Link_3.STL"/>
+        <mesh filename="package://fanuc_config/meshes/m_16iB20/visual/Link_3.STL"/>
       </geometry>
       <material name="">
         <color rgba="1 1 0 1"/>
@@ -101,7 +101,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://fanuc_config/meshes/m_16iB20/visualization/Link_4.STL"/>
+        <mesh filename="package://fanuc_config/meshes/m_16iB20/visual/Link_4.STL"/>
       </geometry>
       <material name="">
         <color rgba="1 1 0 1"/>
@@ -123,7 +123,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://fanuc_config/meshes/m_16iB20/visualization/Link_5.STL"/>
+        <mesh filename="package://fanuc_config/meshes/m_16iB20/visual/Link_5.STL"/>
       </geometry>
       <material name="">
         <color rgba="1 1 0 1"/>
@@ -145,7 +145,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://fanuc_config/meshes/m_16iB20/visualization/Link_6.STL"/>
+        <mesh filename="package://fanuc_config/meshes/m_16iB20/visual/Link_6.STL"/>
       </geometry>
       <material name="">
         <color rgba="1 1 0 1"/>
