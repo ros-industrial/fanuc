@@ -39,7 +39,7 @@ PROGRAM ros_relay
 -- 
 -- Currently only supports joint position streaming.
 -- 
--- Joint motion speed is limited (hard coded) to 50%.
+-- Joint motion speed is limited (hard coded) to 20%.
 -- 
 -- NB: This is a work in progress, and as such should NOT be used on real 
 --     hardware.
@@ -94,9 +94,9 @@ const
     -- which server tag to use
     MOTION_TAG = 4
     -- use TP program for motion. See also comments below.
-    USE_TP = FALSE
+    USE_TP = TRUE
     -- speed to use with 'MOVE TO'
-    MOVE_SPEED = 500
+    MOVE_SPEED = 200
     -- Hz
     LOOP_HZ = 10
 
@@ -123,7 +123,7 @@ const
 -- 
 -- From KAREL Reference Manual, MARRC75KR07091E Rev C, sec B.8, page B-51
 -- 
--- 1:J PR[1] 50% FINE ;
+-- 1:J PR[1] 20% FINE ;
 -- 
 --------------------------------------------------------------------------------
 ROUTINE move_to_pr FROM move_to_pr
