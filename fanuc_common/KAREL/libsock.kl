@@ -113,6 +113,7 @@ VAR
     tmp_str__   : STRING[1] -- temp string for tag_nr to str conversion
     entry__     : INTEGER   -- dummy var for set_var
     ascii_one__ : INTEGER   -- ASCII val of '1' char
+    tag_state__ : INTEGER   -- TAG state
 BEGIN
     -- setup instance variables
     this.connected_ = FALSE
@@ -129,17 +130,28 @@ BEGIN
     tmp_str__ = CHR(this.tag_idx_ + ascii_one__)
 
     -- and set system variable
-    this.hcfg_str_ = '$HOSTS_CFG[' + tmp_str__ + '].$SERVER_PORT'
+    this.hcfg_str_ = '$HOSTS_CFG[' + tmp_str__ + ']'
 
     -- construct server tag string
     this.tag_str_ = 'S' + tmp_str__ + ':'
+
+    -- check state of tag, make sure it is STARTED
+    GET_VAR(entry__, '*SYSTEM*', this.hcfg_str_ + '.$STATE', tag_state__, this.status_)
+    IF (this.status_ <> 0) OR (tag_state__ <> TAG_STARTED) THEN
+        -- TAG config not correct, or couldn't read it
+        RETURN (TAG_CONF_ERR)
+    ENDIF
 
     -- [out] entry
     -- [in]  prog_name
     -- [in]  var_name
     -- [in]  value
     -- [out] status
-    SET_VAR(entry__, '*SYSTEM*', this.hcfg_str_, this.port_, this.status_)
+    SET_VAR(entry__, '*SYSTEM*', this.hcfg_str_ + '.$SERVER_PORT', this.port_, this.status_)
+    IF this.status_ <> 0 THEN
+        -- couldn't update TAG config
+        RETURN (TAG_CONF_ERR)
+    ENDIF
 
     -- done
     RETURN (-this.status_)
@@ -296,14 +308,15 @@ BEGIN
 
     -- make sure it succeeded
     IF stat__ <> 0 THEN
-        RETURN (-stat__)
+        -- stat already < 0 from sock_accept
+        RETURN (stat__)
     ENDIF
 
     -- now open fd, read / write
     stat__ = sock_ofd(this, fd, 'RW')
 
-    -- done
-    RETURN (-stat__)
+    -- done (stat already < 0 from sock_ofd)
+    RETURN (stat__)
 END sock_accept2
 
 

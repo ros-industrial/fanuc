@@ -62,3 +62,8 @@ const
     S_CONN_ERR   = -5 -- socket connect error: something went wrong waiting for clients to connect
     S_DISC_ERR   = -6 -- socket disconnect error: not connected, for instance
     S_NOTCON_ERR = -7 -- general 'not connected' error
+
+                      -- TAG status constants
+    TAG_UNDEFIND =  1 -- an 'undefined' TAG
+    TAG_DEFINED  =  2 -- a 'defined' TAG
+    TAG_STARTED  =  3 -- a 'started' TAG
