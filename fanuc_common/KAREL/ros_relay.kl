@@ -314,7 +314,11 @@ BEGIN
     -- init server socket
     stat_ = sock_ctor(sock_, INDU_MOTION, MOTION_TAG)
     IF stat_ <> 0 THEN
-        log_error_a('sock_ctor err:', stat_)
+        IF stat_ = TAG_CONF_ERR THEN
+            log_error_a('TAG config error. TAG nr:', MOTION_TAG)
+        ELSE
+            log_error_a('sock_ctor err:', stat_)
+        ENDIF
         -- nothing we can do, abort
         GOTO exit_on_err
     ENDIF
