@@ -267,14 +267,14 @@ BEGIN
     stat__ = 0
 
     -- check nr of bytes in buffer
-    BYTES_AHEAD(sock_fd_, bytes_ahd__, stat__)
+    BYTES_AHEAD(sock_fd, bytes_ahd__, stat__)
     IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
     -- is there enough for a packet?
     IF bytes_ahd__ >= indu_pkt_sz THEN
 
         -- deserialise
-        stat__ = ipkt_dsrlse(pkt, sock_fd_)
+        stat__ = ipkt_dsrlse(pkt, sock_fd)
         IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
         -- debug
