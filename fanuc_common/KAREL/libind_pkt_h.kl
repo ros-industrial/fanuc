@@ -111,3 +111,20 @@ ROUTINE ipkt_dsrlse(this : ind_pkt_t; fd : FILE) : INTEGER FROM libind_pkt
 -- 
 --------------------------------------------------------------------------------
 ROUTINE ipkt_dump(this : ind_pkt_t; fd : FILE) FROM libind_pkt
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Checks the number of bytes available in the given file descriptor 'fd', and 
+-- deserialises one packet into 'pkt' if there are enough.
+-- 
+-- [in    ]  fd      : file desc to check
+-- [in    ]  this    : the packet to deserialise into if 'fd' contains enough
+--                     bytes.
+-- [return]          : < 0 on any error, otherwise number of packets
+--                     deserialised (always max 1 in this implementation)
+-- 
+--------------------------------------------------------------------------------
+ROUTINE ipkt_checkfd(fd : FILE; pkt : ind_pkt_t) : INTEGER FROM libind_pkt

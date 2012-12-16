@@ -236,3 +236,36 @@ BEGIN
             ' reply_type :', this.reply_type_, CR, &
             ' seq_nr     :', this.seq_nr_, CR)
 END ipkt_dump
+
+
+
+
+ROUTINE ipkt_checkfd
+VAR
+    stat__      : INTEGER
+    bytes_ahd__ : INTEGER
+BEGIN
+
+    bytes_ahd__ = 0
+    stat__      = 0
+
+    -- check nr of bytes in buffer
+    BYTES_AHEAD(fd, bytes_ahd__, stat__)
+    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+
+    -- is there enough for a packet?
+    IF bytes_ahd__ >= INDU_PKT_SZ THEN
+
+        -- deserialise
+        stat__ = ipkt_dsrlse(pkt, fd)
+        IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+
+        -- notify user of packet we deserialised
+        RETURN (1)
+    -- 
+    ENDIF
+
+    -- done
+    RETURN (-stat__)
+
+END ipkt_checkfd

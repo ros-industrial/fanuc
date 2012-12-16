@@ -248,52 +248,6 @@ END send_err
 
 --------------------------------------------------------------------------------
 -- 
--- Check socket file desc for incoming bytes, deserialise into packet if enough
--- data received
--- 
--- [in-out]  pkt     : the packet to deserialise into
--- [in    ]  sock_fd : file descriptor of the open socket
--- [out   ]          : < 0 on any error, otherwise number of packets
---                     deserialised (always max 1 in this implementation)
--- 
---------------------------------------------------------------------------------
-ROUTINE check_socket(pkt : ind_pkt_t; sock_fd : FILE) : INTEGER
-VAR
-    stat__       : INTEGER
-    bytes_ahd__  : INTEGER
-BEGIN
-
-    bytes_ahd__ = 0
-    stat__ = 0
-
-    -- check nr of bytes in buffer
-    BYTES_AHEAD(sock_fd, bytes_ahd__, stat__)
-    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
-
-    -- is there enough for a packet?
-    IF bytes_ahd__ >= indu_pkt_sz THEN
-
-        -- deserialise
-        stat__ = ipkt_dsrlse(pkt, sock_fd)
-        IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
-
-        -- debug
-        --ipkt_dump(pkt, TPDISPLAY)
-
-        -- notify user of packet we deserialised
-        RETURN (1)
-    -- 
-    ENDIF
-
-    -- done
-    RETURN (stat__)
-END check_socket
-
-
-
-
---------------------------------------------------------------------------------
--- 
 -- Main program
 -- 
 --------------------------------------------------------------------------------
@@ -367,7 +321,7 @@ BEGIN
 
             -- get new packet from the socket
             -- TODO: this assumes 1 packet per iteration (ok for now)
-            stat_ = check_socket(pkt_in, sock_fd_)
+            stat_ = ipkt_checkfd(sock_fd_, pkt_in)
             IF stat_ < 0 THEN
                 log_error_a('check_socket err:', stat_)
 
