@@ -39,8 +39,6 @@ PROGRAM libsock
 -- 
 -- See also KAREL Reference Manual, MARRC75KR07091E Rev C, chap. 11
 -- 
--- TODO:
---  - add checking for properly configured server TAG
 -- 
 -- author: G.A. vd. Hoorn
 -- 
@@ -112,7 +110,6 @@ ROUTINE sock_ctor
 VAR
     tmp_str__   : STRING[1] -- temp string for tag_nr to str conversion
     entry__     : INTEGER   -- dummy var for set_var
-    ascii_one__ : INTEGER   -- ASCII val of '1' char
     tag_state__ : INTEGER   -- TAG state
 BEGIN
     -- setup instance variables
@@ -123,11 +120,14 @@ BEGIN
     this.tag_str_   = ''
     this.hcfg_str_  = ''
 
-    -- construct server_port variable string
-    ascii_one__ = 48
-    -- ascii 'trick'
-    -- TODO: add proper range checking on tag_idx_
-    tmp_str__ = CHR(this.tag_idx_ + ascii_one__)
+    -- check
+    IF (this.tag_idx_ < 1) OR (this.tag_idx_ > 8) THEN
+        -- cannot open TAGs that don't exist
+        RETURN (S_OPEN_ERR)
+    ENDIF
+
+    -- construct server_port variable string (ascii 'trick')
+    tmp_str__ = CHR(this.tag_idx_ + ORD('0', 1))
 
     -- and set system variable
     this.hcfg_str_ = '$HOSTS_CFG[' + tmp_str__ + ']'
@@ -142,11 +142,7 @@ BEGIN
         RETURN (TAG_CONF_ERR)
     ENDIF
 
-    -- [out] entry
-    -- [in]  prog_name
-    -- [in]  var_name
-    -- [in]  value
-    -- [out] status
+    -- set port of TAG
     SET_VAR(entry__, '*SYSTEM*', this.hcfg_str_ + '.$SERVER_PORT', this.port_, this.status_)
     IF this.status_ <> 0 THEN
         -- couldn't update TAG config
