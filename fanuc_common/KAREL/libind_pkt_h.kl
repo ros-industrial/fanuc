@@ -41,8 +41,73 @@
 -- 
 --------------------------------------------------------------------------------
 
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Constructor: resets the given packet.
+-- 
+-- [in    ]  this    : the packet to initialise
+-- [return]          :    0 IFF no error
+--                     <  0 on any error
+-- 
+--------------------------------------------------------------------------------
 ROUTINE ipkt_ctor(this : ind_pkt_t) : INTEGER FROM libind_pkt
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Reset state of the packet.
+-- 
+-- [in    ]  this    : the packet to reset
+-- 
+--------------------------------------------------------------------------------
 ROUTINE ipkt_reset(this : ind_pkt_t) FROM libind_pkt
-ROUTINE ipkt_srlise(this : ind_pkt_t; fd_sink : FILE) : INTEGER FROM libind_pkt
-ROUTINE ipkt_dsrlse(this : ind_pkt_t; fd_sink : FILE) : INTEGER FROM libind_pkt
-ROUTINE ipkt_dump(this : ind_pkt_t; fd_sink : FILE) FROM libind_pkt
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Serialise the packet. Write bytestream to 'fd'.
+-- 
+-- [in    ]  this    : the packet to serialise
+-- [in    ]  fd      : file desc to write to
+-- [return]          :    0 IFF no error
+--                     <  0 on any error
+-- 
+--------------------------------------------------------------------------------
+ROUTINE ipkt_srlise(this : ind_pkt_t; fd : FILE) : INTEGER FROM libind_pkt
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Deserialise a packet. Read bytestream from 'fd'.
+-- 
+-- Assumption: 'fd' contains enough bytes for at least one packet.
+-- 
+-- [in    ]  this    : the packet to deserialise into
+-- [in    ]  fd      : file desc to read from
+-- [return]          :    0 IFF no error
+--                     <  0 on any error
+-- 
+--------------------------------------------------------------------------------
+ROUTINE ipkt_dsrlse(this : ind_pkt_t; fd : FILE) : INTEGER FROM libind_pkt
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Dump string rep of pkt (excluding joint_data array) to file descriptor 'fd'.
+-- 
+-- [in    ]  this    : the packet to dump
+-- [in    ]  fd      : file desc to write string representation to.
+-- 
+--------------------------------------------------------------------------------
+ROUTINE ipkt_dump(this : ind_pkt_t; fd : FILE) FROM libind_pkt

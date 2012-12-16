@@ -88,11 +88,6 @@ END libind_pkt
 
 
 
---------------------------------------------------------------------------------
--- 
--- Constructor: just resets the packet
--- 
---------------------------------------------------------------------------------
 ROUTINE ipkt_ctor
 BEGIN
     -- just reset packet
@@ -104,11 +99,6 @@ END ipkt_ctor
 
 
 
---------------------------------------------------------------------------------
--- 
--- Reset state of the packet
--- 
---------------------------------------------------------------------------------
 ROUTINE ipkt_reset
 VAR
     len__ : INTEGER
@@ -136,11 +126,6 @@ END ipkt_reset
 
 
 
---------------------------------------------------------------------------------
--- 
--- Serialise the packet. Write bytestream to 'fd_sink'
--- 
---------------------------------------------------------------------------------
 ROUTINE ipkt_srlise
 VAR
     i__        : INTEGER
@@ -153,51 +138,46 @@ BEGIN
     array_sz__ = ARRAY_LEN(this.joint_data_)
 
     -- write out all fields ..
-    WRITE fd_sink(this.length_)
-    stat__ = IO_STATUS(fd_sink)
+    WRITE fd(this.length_)
+    stat__ = IO_STATUS(fd)
     IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    WRITE fd_sink(this.msg_type_)
-    stat__ = IO_STATUS(fd_sink)
+    WRITE fd(this.msg_type_)
+    stat__ = IO_STATUS(fd)
     IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    WRITE fd_sink(this.comm_type_)
-    stat__ = IO_STATUS(fd_sink)
+    WRITE fd(this.comm_type_)
+    stat__ = IO_STATUS(fd)
     IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    WRITE fd_sink(this.reply_type_)
-    stat__ = IO_STATUS(fd_sink)
+    WRITE fd(this.reply_type_)
+    stat__ = IO_STATUS(fd)
     IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    WRITE fd_sink(this.seq_nr_)
-    stat__ = IO_STATUS(fd_sink)
+    WRITE fd(this.seq_nr_)
+    stat__ = IO_STATUS(fd)
     IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
     -- now the array
     FOR i__ = 1 TO array_sz__ DO
-        WRITE fd_sink(this.joint_data_[i__])
+        WRITE fd(this.joint_data_[i__])
 
         -- check
-        stat__ = IO_STATUS(fd_sink)
+        stat__ = IO_STATUS(fd)
         IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
     ENDFOR
 
     -- .. and end with a CR
-    WRITE fd_sink(CR)
+    WRITE fd(CR)
 
     -- done
-    stat__ = IO_STATUS(fd_sink)
+    stat__ = IO_STATUS(fd)
     RETURN (-stat__)
 END ipkt_srlise
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Deserialise the industrial state packet. Read bytestream from 'fd_sink'
--- 
---------------------------------------------------------------------------------
 ROUTINE ipkt_dsrlse
 VAR
     i__        : INTEGER
@@ -210,52 +190,46 @@ BEGIN
     array_sz__ = ARRAY_LEN(this.joint_data_)
 
     -- write out all fields ..
-    READ fd_sink(this.length_)
-    stat__ = IO_STATUS(fd_sink)
+    READ fd(this.length_)
+    stat__ = IO_STATUS(fd)
     IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    READ fd_sink(this.msg_type_)
-    stat__ = IO_STATUS(fd_sink)
+    READ fd(this.msg_type_)
+    stat__ = IO_STATUS(fd)
     IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    READ fd_sink(this.comm_type_)
-    stat__ = IO_STATUS(fd_sink)
+    READ fd(this.comm_type_)
+    stat__ = IO_STATUS(fd)
     IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    READ fd_sink(this.reply_type_)
-    stat__ = IO_STATUS(fd_sink)
+    READ fd(this.reply_type_)
+    stat__ = IO_STATUS(fd)
     IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    READ fd_sink(this.seq_nr_)
-    stat__ = IO_STATUS(fd_sink)
+    READ fd(this.seq_nr_)
+    stat__ = IO_STATUS(fd)
     IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
     -- now the array
     FOR i__ = 1 TO array_sz__ DO
-        READ fd_sink(this.joint_data_[i__])
+        READ fd(this.joint_data_[i__])
 
         -- check
-        stat__ = IO_STATUS(fd_sink)
+        stat__ = IO_STATUS(fd)
         IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
     ENDFOR
 
     -- done
-    stat__ = IO_STATUS(fd_sink)
+    stat__ = IO_STATUS(fd)
     RETURN (-stat__)
 END ipkt_dsrlse
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Dump string rep of pkt (excluding joint_data array) to file descriptor 
--- 'fd_sink'.
--- 
---------------------------------------------------------------------------------
 ROUTINE ipkt_dump
 BEGIN
-    WRITE fd_sink('PKT Instance:', CR, &
+    WRITE fd('PKT Instance:', CR, &
             ' length     :', this.length_, CR, &
             ' msg_type   :', this.msg_type_, CR, &
             ' comm_type  :', this.comm_type_, CR, &
