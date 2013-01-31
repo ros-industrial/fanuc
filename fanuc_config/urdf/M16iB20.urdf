@@ -164,7 +164,7 @@
     <parent link="base_link"/>
     <child link="Link_1"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0" lower="-2.967" upper="2.967" velocity="0"/>
+    <limit effort="0" lower="-2.967" upper="2.967" velocity="2.8"/>
     <calibration falling="0" rising="0"/>
     <dynamics damping="0" friction="0"/>
     <!--safety_controller
@@ -178,7 +178,7 @@
     <parent link="Link_1"/>
     <child link="Link_2"/>
     <axis xyz="0 -1 0"/>
-    <limit effort="0" lower="-1.5708" upper="1.9" velocity="0"/>
+    <limit effort="0" lower="-1.5708" upper="1.9" velocity="2.8"/>
     <calibration falling="0" rising="0"/>
     <dynamics damping="0" friction="0"/>
     <!--safety_controller
@@ -192,7 +192,7 @@
     <parent link="Link_2"/>
     <child link="Link_3"/>
     <axis xyz="0 1 0"/>
-    <limit effort="0" lower="-4.21" upper="1.45" velocity="0"/>
+    <limit effort="0" lower="-4.21" upper="1.45" velocity="3.0"/>
     <calibration falling="0" rising="0"/>
     <dynamics damping="0" friction="0"/>
     <!--safety_controller
@@ -206,7 +206,7 @@
     <parent link="Link_3"/>
     <child link="Link_4"/>
     <axis xyz="-1 0 -0.0013212"/>
-    <limit effort="0" lower="-3.4907" upper="3.4907" velocity="0"/>
+    <limit effort="0" lower="-3.4907" upper="3.4907" velocity="6.1"/>
     <calibration falling="0" rising="0"/>
     <dynamics damping="0" friction="0"/>
     <!--safety_controller
@@ -220,7 +220,7 @@
     <parent link="Link_4"/>
     <child link="Link_5"/>
     <axis xyz="0 1 0"/>
-    <limit effort="0" lower="-2.4435" upper="2.4435" velocity="0"/>
+    <limit effort="0" lower="-2.4435" upper="2.4435" velocity="5.9"/>
     <calibration falling="0" rising="0"/>
     <dynamics damping="0" friction="0"/>
     <!--safety_controller
@@ -234,7 +234,7 @@
     <parent link="Link_5"/>
     <child link="Link_6"/>
     <axis xyz="-1 0 -0.0013212"/>
-    <limit effort="0" lower="-7.85398" upper="7.85398" velocity="0"/>
+    <limit effort="0" lower="-7.85398" upper="7.85398" velocity="9.0"/>
     <calibration falling="0" rising="0"/>
     <dynamics damping="0" friction="0"/>
     <!--safety_controller

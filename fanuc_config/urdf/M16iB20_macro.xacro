@@ -302,7 +302,7 @@
 		      lower="-2.967"
 		      upper="2.967"
 		      effort="0"
-		      velocity="0" />
+		      velocity="2.8" />
 		    <calibration
 		      rising="0"
 		      falling="0" />
@@ -330,7 +330,7 @@
 		      lower="-1.5708"
 		      upper="1.9"
 		      effort="0"
-		      velocity="0" />
+		      velocity="2.8" />
 		    <calibration
 		      rising="0"
 		      falling="0" />
@@ -358,7 +358,7 @@
 		      lower="-4.21"
 		      upper="1.45"
 		      effort="0"
-		      velocity="0" />
+		      velocity="3.0" />
 		    <calibration
 		      rising="0"
 		      falling="0" />
@@ -386,7 +386,7 @@
 		      lower="-3.4907"
 		      upper="3.4907"
 		      effort="0"
-		      velocity="0" />
+		      velocity="6.1" />
 		    <calibration
 		      rising="0"
 		      falling="0" />
@@ -414,7 +414,7 @@
 		      lower="-2.4435"
 		      upper="2.4435"
 		      effort="0"
-		      velocity="0" />
+		      velocity="5.9" />
 		    <calibration
 		      rising="0"
 		      falling="0" />
@@ -442,7 +442,7 @@
 		      lower="-7.85398"
 		      upper="7.85398"
 		      effort="0"
-		      velocity="0" />
+		      velocity="9.0" />
 		    <calibration
 		      rising="0"
 		      falling="0" />
