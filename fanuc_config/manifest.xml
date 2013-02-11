@@ -5,7 +5,7 @@
      manipulators.
 
   </description>
-  <author>Christina Gomez, G.A. vd. Hoorn/g.a.vanderhoorn@tudelft.nl</author>
+  <author>Christina Gomez, G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/fanuc_config</url>
