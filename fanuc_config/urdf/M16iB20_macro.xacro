@@ -44,7 +44,7 @@
 		    </collision>
 		  </link>
 
-		  <link name="${prefix}Link_1">
+		  <link name="${prefix}link_1">
 		    <inertial>
 		      <origin
 			xyz="0.0335399435995477 9.68920591007463E-05 0.293476071945811"
@@ -84,7 +84,7 @@
 		    </collision>
 		  </link>
 
-		  <link name="${prefix}Link_2">
+		  <link name="${prefix}link_2">
 		    <inertial>
 		      <origin
 			xyz="-0.116459985096576 -0.187496105761522 0.0134762050463809"
@@ -124,7 +124,7 @@
 		    </collision>
 		  </link>
 
-		  <link name="${prefix}Link_3">
+		  <link name="${prefix}link_3">
 		    <inertial>
 		      <origin
 			xyz="-0.116459985097232 0.000649393837860671 -0.7565234388513"
@@ -164,7 +164,7 @@
 		    </collision>
 		  </link>
 
-		  <link name="${prefix}Link_4">
+		  <link name="${prefix}link_4">
 		    <inertial>
 		      <origin
 			xyz="-0.301157421773673 0.000649393837861561 -0.856523437562654"
@@ -204,7 +204,7 @@
 		    </collision>
 		  </link>
 
-		  <link name="${prefix}Link_5">
+		  <link name="${prefix}link_5">
 		    <inertial>
 		      <origin
 			xyz="-0.856906936709003 0.000456131051686355 -0.857257705801685"
@@ -244,7 +244,7 @@
 		    </collision>
 		  </link>
 
-		  <link name="${prefix}Link_6">
+		  <link name="${prefix}link_6">
 		    <inertial>
 		      <origin
 			xyz="-0.957051849301239 0.000456131051686355 -0.857390019418947"
@@ -288,14 +288,14 @@
 
 	<!-- joints -->
 
-		  <joint name="${prefix}Joint_1" type="revolute">
+		  <joint name="${prefix}joint_1" type="revolute">
 		    <origin
 		      xyz="0 0 0.24477"
 		      rpy="0 0 0" />
 		    <parent
 		      link="base_link" />
 		    <child
-		      link="Link_1" />
+		      link="link_1" />
 		    <axis
 		      xyz="0 0 1" />
 		    <limit
@@ -316,19 +316,19 @@
 		      k_velocity="0" /-->
 		  </joint>
 
-		  <joint name="${prefix}Joint_2" type="revolute">
+		  <joint name="${prefix}joint_2" type="revolute">
 		    <origin
 		      xyz="0.15 0.18759 0.28"
 		      rpy="0 0 0" />
 		    <parent
-		      link="Link_1" />
+		      link="link_1" />
 		    <child
-		      link="Link_2" />
+		      link="link_2" />
 		    <axis
-		      xyz="0 -1 0" />
+		      xyz="0 1 0" />
 		    <limit
-		      lower="-1.5708"
-		      upper="1.9"
+		      lower="-1.38"
+		      upper="2.78"
 		      effort="0"
 		      velocity="2.8" />
 		    <calibration
@@ -344,19 +344,19 @@
 		      k_velocity="0" /-->
 		  </joint>
 		  
-		  <joint name="${prefix}Joint_3" type="revolute">
+		  <joint name="${prefix}joint_3" type="revolute">
 		    <origin
 		      xyz="0 -0.18815 0.77"
 		      rpy="0 0 0" />
 		    <parent
-		      link="Link_2" />
+		      link="link_2" />
 		    <child
-		      link="Link_3" />
+		      link="link_3" />
 		    <axis
-		      xyz="0 1 0" />
+		      xyz="0 -1 0" />
 		    <limit
-		      lower="-4.21"
-		      upper="1.45"
+		      lower="4.08"
+		      upper="1.38"
 		      effort="0"
 		      velocity="3.0" />
 		    <calibration
@@ -372,19 +372,19 @@
 		      k_velocity="0" /-->
 		  </joint>
 
-		  <joint name="${prefix}Joint_4" type="revolute">
+		  <joint name="${prefix}joint_4" type="revolute">
 		    <origin
 		      xyz="0.1847 0 0.1"
 		      rpy="0 0 0" />
 		    <parent
-		      link="Link_3" />
+		      link="link_3" />
 		    <child
-		      link="Link_4" />
+		      link="link_4" />
 		    <axis
-		      xyz="-1 0 -0.0013212" />
+		      xyz="-1 0 0" />
 		    <limit
-		      lower="-3.4907"
-		      upper="3.4907"
+		      lower="-3.48"
+		      upper="3.48"
 		      effort="0"
 		      velocity="6.1" />
 		    <calibration
@@ -400,19 +400,19 @@
 		      k_velocity="0" /-->
 		  </joint>
 
-		  <joint name="${prefix}Joint_5" type="revolute">
+		  <joint name="${prefix}joint_5" type="revolute">
 		    <origin
 		      xyz="0.55575 0.00019326 0.00073427"
 		      rpy="0 0 0" />
 		    <parent
-		      link="Link_4" />
+		      link="link_4" />
 		    <child
-		      link="Link_5" />
+		      link="link_5" />
 		    <axis
-		      xyz="0 1 0" />
+		      xyz="0 -1 0" />
 		    <limit
-		      lower="-2.4435"
-		      upper="2.4435"
+		      lower="-2.43"
+		      upper="2.43"
 		      effort="0"
 		      velocity="5.9" />
 		    <calibration
@@ -428,19 +428,19 @@
 		      k_velocity="0" /-->
 		  </joint>
 
-		  <joint name="${prefix}Joint_6" type="revolute">
+		  <joint name="${prefix}joint_6" type="revolute">
 		    <origin
 		      xyz="0.10014 0 0.00013231"
 		      rpy="0 0 0" />
 		    <parent
-		      link="Link_5" />
+		      link="link_5" />
 		    <child
-		      link="Link_6" />
+		      link="link_6" />
 		    <axis
-		      xyz="-1 0 -0.0013212" />
+		      xyz="-1 0 0" />
 		    <limit
-		      lower="-7.85398"
-		      upper="7.85398"
+		      lower="-7.84"
+		      upper="7.84"
 		      effort="0"
 		      velocity="9.0" />
 		    <calibration
@@ -456,8 +456,8 @@
 		      k_velocity="0" /-->
 		  </joint>
 
-		  <joint name="${prefix}Joint_6-tool0" type="fixed">
-		      <parent link="${prefix}Link_6"/>
+		  <joint name="${prefix}joint_6-tool0" type="fixed">
+		      <parent link="${prefix}link_6"/>
 	              <child link="${prefix}tool0"/>
           	      <origin xyz="0 0 0" rpy="0 0 0"/>
 	          </joint>
