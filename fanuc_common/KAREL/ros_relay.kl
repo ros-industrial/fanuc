@@ -189,7 +189,7 @@ ROUTINE req_next(pkt : ind_pkt_t; sock_fd : FILE) : INTEGER
 VAR
     stat__ : INTEGER
 BEGIN
-
+    -- 
     stat__ = 0
 
     -- copy seq_nr from packet we ack
@@ -200,7 +200,7 @@ BEGIN
     stat__ = ipkt_srlise(pkt_out, sock_fd_)
 
     -- done
-    RETURN (-stat__)
+    RETURN (-ABS(stat__))
 END req_next
 
 
@@ -219,7 +219,7 @@ ROUTINE send_err(pkt : ind_pkt_t; sock_fd : FILE) : INTEGER
 VAR
     stat__ : INTEGER
 BEGIN
-
+    -- 
     stat__ = 0
 
     -- copy seq_nr from the packet we NACK
@@ -231,7 +231,7 @@ BEGIN
     stat__ = ipkt_srlise(pkt_out, sock_fd_)
 
     -- done
-    RETURN (-stat__)
+    RETURN (-ABS(stat__))
 END send_err
 
 
@@ -243,6 +243,7 @@ END send_err
 -- 
 --------------------------------------------------------------------------------
 BEGIN
+    -- 
     stat_ = 0
     sleep_time = ROUND(1000.0 / LOOP_HZ)
 
