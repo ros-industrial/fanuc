@@ -53,10 +53,10 @@ PROGRAM libind_mth
 -- 
 --------------------------------------------------------------------------------
 const
-    M_PI       =  3.14159265359
-    M_1_PI     =  0.31830988618
-    M_1RAD_DEG = 57.29577951318
-    M_1DEG_RAD =  0.01745329252
+	M_PI       =  3.14159265359
+	M_1_PI     =  0.31830988618
+	M_1RAD_DEG = 57.29577951318
+	M_1DEG_RAD =  0.01745329252
 
 
 
@@ -89,7 +89,7 @@ END libind_mth
 --------------------------------------------------------------------------------
 ROUTINE deg_to_rad
 BEGIN
-    RETURN (r_deg * M_1DEG_RAD)
+	RETURN (r_deg * M_1DEG_RAD)
 END deg_to_rad
 
 
@@ -102,7 +102,7 @@ END deg_to_rad
 --------------------------------------------------------------------------------
 ROUTINE rad_to_deg
 BEGIN
-    RETURN (r_rad * M_1RAD_DEG)
+	RETURN (r_rad * M_1RAD_DEG)
 END rad_to_deg
 
 
@@ -115,13 +115,13 @@ END rad_to_deg
 --------------------------------------------------------------------------------
 ROUTINE arr_deg2rad
 VAR
-    len_ : INTEGER
-    d_   : INTEGER
+	len_ : INTEGER
+	d_   : INTEGER
 BEGIN
-    len_ = ARRAY_LEN(a)
-    FOR d_ = 1 TO len_ DO
-        a[d_] = deg_to_rad(a[d_])
-    ENDFOR
+	len_ = ARRAY_LEN(a)
+	FOR d_ = 1 TO len_ DO
+		a[d_] = deg_to_rad(a[d_])
+	ENDFOR
 END arr_deg2rad
 
 
@@ -134,11 +134,11 @@ END arr_deg2rad
 --------------------------------------------------------------------------------
 ROUTINE arr_rad2deg
 VAR
-    len_ : INTEGER
-    d_   : INTEGER
+	len_ : INTEGER
+	d_   : INTEGER
 BEGIN
-    len_ = ARRAY_LEN(a)
-    FOR d_ = 1 TO len_ DO
-        a[d_] = rad_to_deg(a[d_])
-    ENDFOR
+	len_ = ARRAY_LEN(a)
+	FOR d_ = 1 TO len_ DO
+		a[d_] = rad_to_deg(a[d_])
+	ENDFOR
 END arr_rad2deg

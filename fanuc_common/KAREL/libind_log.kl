@@ -56,25 +56,25 @@ PROGRAM libind_log
 -- 
 --------------------------------------------------------------------------------
 const
-    -- from KAREL Reference Manual, MARRC75KR07091E Rev C, table D-2
-    BG_DEFAULT = 127
-    BG_BLACK   =  48
+	-- from KAREL Reference Manual, MARRC75KR07091E Rev C, table D-2
+	BG_DEFAULT = 127
+	BG_BLACK   =  48
 
-    FG_DEFAULT = 127
-    FG_RED     =  49
-    FG_GREEN   =  50
-    FG_YELLOW  =  51
+	FG_DEFAULT = 127
+	FG_RED     =  49
+	FG_GREEN   =  50
+	FG_YELLOW  =  51
 
-    -- copied from rosconsole.cpp
-    ROS_WARN  = FG_YELLOW
-    ROS_ERR   = FG_RED
-    ROS_DEBUG = FG_GREEN
+	-- copied from rosconsole.cpp
+	ROS_WARN  = FG_YELLOW
+	ROS_ERR   = FG_RED
+	ROS_DEBUG = FG_GREEN
 
-    -- 
-    ROS_ERR_T   = ' E '
-    ROS_WARN_T  = ' W '
-    ROS_INFO_T  = ' I '
-    ROS_DEBUG_T = ' D '
+	-- 
+	ROS_ERR_T   = ' E '
+	ROS_WARN_T  = ' W '
+	ROS_INFO_T  = ' I '
+	ROS_DEBUG_T = ' D '
 
 
 
@@ -106,17 +106,17 @@ END libind_log
 --------------------------------------------------------------------------------
 ROUTINE prnt_time
 VAR
-    time_ : INTEGER
-    tmp_  : STRING[30]
+	time_ : INTEGER
+	tmp_  : STRING[30]
 BEGIN
-    -- 
-    GET_TIME(time_)
-    -- keep only lower 16 bits: HH:MM:SS
-    time_ = time_ AND 65535
-    -- convert it to a string (raw, not using CNV_TIME_STR)
-    CNV_INT_STR(time_, 4, 10, tmp_)
-    -- write on current line
-    WRITE TPDISPLAY(tmp_)
+	-- 
+	GET_TIME(time_)
+	-- keep only lower 16 bits: HH:MM:SS
+	time_ = time_ AND 65535
+	-- convert it to a string (raw, not using CNV_TIME_STR)
+	CNV_INT_STR(time_, 4, 10, tmp_)
+	-- write on current line
+	WRITE TPDISPLAY(tmp_)
 END prnt_time
 
 
@@ -129,8 +129,8 @@ END prnt_time
 --------------------------------------------------------------------------------
 ROUTINE log_clear
 BEGIN
-    WRITE(CHR(128), CR)
-    FORCE_SPMENU(TP_PANEL, SPI_TPUSER, 1)
+	WRITE(CHR(128), CR)
+	FORCE_SPMENU(TP_PANEL, SPI_TPUSER, 1)
 END log_clear
 
 
@@ -143,8 +143,8 @@ END log_clear
 --------------------------------------------------------------------------------
 ROUTINE log_info
 BEGIN
-    prnt_time
-    WRITE TPDISPLAY(ROS_INFO_T, s, CR)
+	prnt_time
+	WRITE TPDISPLAY(ROS_INFO_T, s, CR)
 END log_info
 
 
@@ -157,8 +157,8 @@ END log_info
 --------------------------------------------------------------------------------
 ROUTINE log_info_a
 BEGIN
-    prnt_time
-    WRITE TPDISPLAY(ROS_INFO_T, s, a, CR)
+	prnt_time
+	WRITE TPDISPLAY(ROS_INFO_T, s, a, CR)
 END log_info_a
 
 
@@ -171,14 +171,14 @@ END log_info_a
 --------------------------------------------------------------------------------
 ROUTINE log_warn
 BEGIN
-    prnt_time
-    WRITE TPDISPLAY( &
-        CHR(156), CHR(BG_BLACK), &
-        CHR(155), CHR(ROS_WARN), &
-        ROS_WARN_T, s, &
-        CHR(156), CHR(BG_DEFAULT), &
-        CHR(155), CHR(FG_DEFAULT), &
-        CR)
+	prnt_time
+	WRITE TPDISPLAY( &
+		CHR(156), CHR(BG_BLACK), &
+		CHR(155), CHR(ROS_WARN), &
+		ROS_WARN_T, s, &
+		CHR(156), CHR(BG_DEFAULT), &
+		CHR(155), CHR(FG_DEFAULT), &
+		CR)
 END log_warn
 
 
@@ -191,12 +191,12 @@ END log_warn
 --------------------------------------------------------------------------------
 ROUTINE log_warn_a
 BEGIN
-    prnt_time
-    WRITE TPDISPLAY( &
-        CHR(155), CHR(ROS_WARN), &
-        ROS_WARN_T, s, a, &
-        CHR(155), CHR(FG_DEFAULT), &
-        CR)
+	prnt_time
+	WRITE TPDISPLAY( &
+		CHR(155), CHR(ROS_WARN), &
+		ROS_WARN_T, s, a, &
+		CHR(155), CHR(FG_DEFAULT), &
+		CR)
 END log_warn_a
 
 
@@ -209,12 +209,12 @@ END log_warn_a
 --------------------------------------------------------------------------------
 ROUTINE log_error
 BEGIN
-    prnt_time
-    WRITE TPDISPLAY( &
-        CHR(155), CHR(ROS_ERR), &
-        ROS_ERR_T, s, &
-        CHR(155), CHR(FG_DEFAULT), &
-        CR)
+	prnt_time
+	WRITE TPDISPLAY( &
+		CHR(155), CHR(ROS_ERR), &
+		ROS_ERR_T, s, &
+		CHR(155), CHR(FG_DEFAULT), &
+		CR)
 END log_error
 
 
@@ -227,10 +227,10 @@ END log_error
 --------------------------------------------------------------------------------
 ROUTINE log_error_a
 BEGIN
-    prnt_time
-    WRITE TPDISPLAY( &
-        CHR(155), CHR(ROS_ERR), &
-        ROS_ERR_T, s, a, &
-        CHR(155), CHR(FG_DEFAULT), 
-        CR)
+	prnt_time
+	WRITE TPDISPLAY( &
+		CHR(155), CHR(ROS_ERR), &
+		ROS_ERR_T, s, a, &
+		CHR(155), CHR(FG_DEFAULT), 
+		CR)
 END log_error_a

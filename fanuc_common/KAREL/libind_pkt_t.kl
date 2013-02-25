@@ -42,33 +42,33 @@
 --------------------------------------------------------------------------------
 
 type
-    ind_pkt_t FROM libindu_pkt = STRUCTURE
-        length_     : INTEGER           -- length of payload
-        msg_type_   : INTEGER           -- type of message
-        comm_type_  : INTEGER           -- 
-        reply_type_ : INTEGER           -- 
-        seq_nr_     : INTEGER           -- 
-        joint_data_ : ARRAY[10] OF REAL -- joint data, radians (floats)
-    ENDSTRUCTURE
+	ind_pkt_t FROM libindu_pkt = STRUCTURE
+		length_     : INTEGER           -- length of payload
+		msg_type_   : INTEGER           -- type of message
+		comm_type_  : INTEGER           -- 
+		reply_type_ : INTEGER           -- 
+		seq_nr_     : INTEGER           -- 
+		joint_data_ : ARRAY[10] OF REAL -- joint data, radians (floats)
+	ENDSTRUCTURE
 
 
 
 
 const
-    INDU_SQ_END  = -1 -- 'indicates the end of a trajectory'
-    INDU_SQ_STOP = -2 -- 'indicates a stop'
-    INDU_PKT_SZ  = 60 -- in bytes, including 'length_' field
-    INDU_PAYL_SZ = 54 -- in bytes, excluding 'length_' field
-    INDU_SUCCESS =  1 -- reply: SUCCESS
-    INDU_FAILURE =  2 -- reply: FAILURE
+	INDU_SQ_END  = -1 -- 'indicates the end of a trajectory'
+	INDU_SQ_STOP = -2 -- 'indicates a stop'
+	INDU_PKT_SZ  = 60 -- in bytes, including 'length_' field
+	INDU_PAYL_SZ = 54 -- in bytes, excluding 'length_' field
+	INDU_SUCCESS =  1 -- reply: SUCCESS
+	INDU_FAILURE =  2 -- reply: FAILURE
 
-    INDU_UNUSED  =  0
-    INDU_TOPIC   =  1
-    INDU_REQUEST =  2
-    INDU_RESPNSE =  3
+	INDU_UNUSED  =  0
+	INDU_TOPIC   =  1
+	INDU_REQUEST =  2
+	INDU_RESPNSE =  3
 
-    INDU_JNT_MSG = 10
+	INDU_JNT_MSG = 10
 
-    -- from 'simple_message/include/simple_message/socket/simple_socket.h'
-    INDU_MOTION  = 11000
-    INDU_STATE   = 11002
+	-- from 'simple_message/include/simple_message/socket/simple_socket.h'
+	INDU_MOTION  = 11000
+	INDU_STATE   = 11002

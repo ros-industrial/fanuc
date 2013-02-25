@@ -42,28 +42,28 @@
 --------------------------------------------------------------------------------
 
 type
-    ssock_t FROM libssock = STRUCTURE
-        connected_ : BOOLEAN    -- connection status
-        status_    : INTEGER    -- multi-use status var (output status for KAREL statements)
-        port_      : INTEGER    -- TCP port number to listen on
-        tag_idx_   : INTEGER    -- index into the 'Server Tags' list
-        tag_str_   : STRING[3]  -- tag string (created with tag_idx_)
-        hcfg_str_  : STRING[30] -- complete host config system variable name
-    ENDSTRUCTURE
+	ssock_t FROM libssock = STRUCTURE
+		connected_ : BOOLEAN    -- connection status
+		status_    : INTEGER    -- multi-use status var (output status for KAREL statements)
+		port_      : INTEGER    -- TCP port number to listen on
+		tag_idx_   : INTEGER    -- index into the 'Server Tags' list
+		tag_str_   : STRING[3]  -- tag string (created with tag_idx_)
+		hcfg_str_  : STRING[30] -- complete host config system variable name
+	ENDSTRUCTURE
 
 
 
 
 const
-    TAG_CONF_ERR = -1
-    S_OPEN_ERR   = -2
-    S_FD_ERR     = -3
-    S_ACPT_ERR   = -4 -- socket accept error: already connected, for instance
-    S_CONN_ERR   = -5 -- socket connect error: something went wrong waiting for clients to connect
-    S_DISC_ERR   = -6 -- socket disconnect error: not connected, for instance
-    S_NOTCON_ERR = -7 -- general 'not connected' error
+	TAG_CONF_ERR = -1
+	S_OPEN_ERR   = -2
+	S_FD_ERR     = -3
+	S_ACPT_ERR   = -4 -- socket accept error: already connected, for instance
+	S_CONN_ERR   = -5 -- socket connect error: something went wrong waiting for clients to connect
+	S_DISC_ERR   = -6 -- socket disconnect error: not connected, for instance
+	S_NOTCON_ERR = -7 -- general 'not connected' error
 
-                      -- TAG status constants
-    TAG_UNDEFIND =  1 -- an 'undefined' TAG
-    TAG_DEFINED  =  2 -- a 'defined' TAG
-    TAG_STARTED  =  3 -- a 'started' TAG
+	-- TAG status constants
+	TAG_UNDEFIND =  1 -- an 'undefined' TAG
+	TAG_DEFINED  =  2 -- a 'defined' TAG
+	TAG_STARTED  =  3 -- a 'started' TAG

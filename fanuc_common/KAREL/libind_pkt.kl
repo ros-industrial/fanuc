@@ -90,10 +90,10 @@ END libind_pkt
 
 ROUTINE ipkt_ctor
 BEGIN
-    -- just reset packet
-    ipkt_reset(this)
-    -- cannot fail
-    RETURN (0)
+	-- just reset packet
+	ipkt_reset(this)
+	-- cannot fail
+	RETURN (0)
 END ipkt_ctor
 
 
@@ -101,26 +101,26 @@ END ipkt_ctor
 
 ROUTINE ipkt_reset
 VAR
-    len__ : INTEGER
-    d__   : INTEGER
+	len__ : INTEGER
+	d__   : INTEGER
 BEGIN
-    -- 
-    len__ = ARRAY_LEN(this.joint_data_)
-    d__   = 0
+	-- 
+	len__ = ARRAY_LEN(this.joint_data_)
+	d__   = 0
 
-    -- zero array with joint angles
-    FOR d__ = 1 TO len__ DO
-        this.joint_data_[d__] = 0.0
-    ENDFOR
+	-- zero array with joint angles
+	FOR d__ = 1 TO len__ DO
+		this.joint_data_[d__] = 0.0
+	ENDFOR
 
-    -- set up ROS industrial packet fields
-    USING this DO
-        length_     = (4 * SZ_INT) + (len__ * SZ_REAL)
-        msg_type_   =  0
-        comm_type_  =  0
-        reply_type_ =  0
-        seq_nr_     =  0
-    ENDUSING
+	-- set up ROS industrial packet fields
+	USING this DO
+		length_     = (4 * SZ_INT) + (len__ * SZ_REAL)
+		msg_type_   =  0
+		comm_type_  =  0
+		reply_type_ =  0
+		seq_nr_     =  0
+	ENDUSING
 END ipkt_reset
 
 
@@ -128,51 +128,51 @@ END ipkt_reset
 
 ROUTINE ipkt_srlise
 VAR
-    i__        : INTEGER
-    stat__     : INTEGER
-    array_sz__ : INTEGER
+	i__        : INTEGER
+	stat__     : INTEGER
+	array_sz__ : INTEGER
 BEGIN
-    --
-    i__ = 0
-    stat__ = 0
-    array_sz__ = ARRAY_LEN(this.joint_data_)
+	--
+	i__ = 0
+	stat__ = 0
+	array_sz__ = ARRAY_LEN(this.joint_data_)
 
-    -- write out all fields ..
-    WRITE fd(this.length_)
-    stat__ = IO_STATUS(fd)
-    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	-- write out all fields ..
+	WRITE fd(this.length_)
+	stat__ = IO_STATUS(fd)
+	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    WRITE fd(this.msg_type_)
-    stat__ = IO_STATUS(fd)
-    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	WRITE fd(this.msg_type_)
+	stat__ = IO_STATUS(fd)
+	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    WRITE fd(this.comm_type_)
-    stat__ = IO_STATUS(fd)
-    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	WRITE fd(this.comm_type_)
+	stat__ = IO_STATUS(fd)
+	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    WRITE fd(this.reply_type_)
-    stat__ = IO_STATUS(fd)
-    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	WRITE fd(this.reply_type_)
+	stat__ = IO_STATUS(fd)
+	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    WRITE fd(this.seq_nr_)
-    stat__ = IO_STATUS(fd)
-    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	WRITE fd(this.seq_nr_)
+	stat__ = IO_STATUS(fd)
+	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    -- now the array
-    FOR i__ = 1 TO array_sz__ DO
-        WRITE fd(this.joint_data_[i__])
+	-- now the array
+	FOR i__ = 1 TO array_sz__ DO
+		WRITE fd(this.joint_data_[i__])
 
-        -- check
-        stat__ = IO_STATUS(fd)
-        IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
-    ENDFOR
+		-- check
+		stat__ = IO_STATUS(fd)
+		IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	ENDFOR
 
-    -- .. and end with a CR
-    WRITE fd(CR)
+	-- .. and end with a CR
+	WRITE fd(CR)
 
-    -- done
-    stat__ = IO_STATUS(fd)
-    RETURN (-stat__)
+	-- done
+	stat__ = IO_STATUS(fd)
+	RETURN (-stat__)
 END ipkt_srlise
 
 
@@ -180,48 +180,48 @@ END ipkt_srlise
 
 ROUTINE ipkt_dsrlse
 VAR
-    i__        : INTEGER
-    stat__     : INTEGER
-    array_sz__ : INTEGER
+	i__        : INTEGER
+	stat__     : INTEGER
+	array_sz__ : INTEGER
 BEGIN
-    --
-    i__ = 0
-    stat__ = 0
-    array_sz__ = ARRAY_LEN(this.joint_data_)
+	--
+	i__ = 0
+	stat__ = 0
+	array_sz__ = ARRAY_LEN(this.joint_data_)
 
-    -- write out all fields ..
-    READ fd(this.length_)
-    stat__ = IO_STATUS(fd)
-    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	-- write out all fields ..
+	READ fd(this.length_)
+	stat__ = IO_STATUS(fd)
+	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    READ fd(this.msg_type_)
-    stat__ = IO_STATUS(fd)
-    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	READ fd(this.msg_type_)
+	stat__ = IO_STATUS(fd)
+	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    READ fd(this.comm_type_)
-    stat__ = IO_STATUS(fd)
-    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	READ fd(this.comm_type_)
+	stat__ = IO_STATUS(fd)
+	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    READ fd(this.reply_type_)
-    stat__ = IO_STATUS(fd)
-    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	READ fd(this.reply_type_)
+	stat__ = IO_STATUS(fd)
+	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    READ fd(this.seq_nr_)
-    stat__ = IO_STATUS(fd)
-    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	READ fd(this.seq_nr_)
+	stat__ = IO_STATUS(fd)
+	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    -- now the array
-    FOR i__ = 1 TO array_sz__ DO
-        READ fd(this.joint_data_[i__])
+	-- now the array
+	FOR i__ = 1 TO array_sz__ DO
+		READ fd(this.joint_data_[i__])
 
-        -- check
-        stat__ = IO_STATUS(fd)
-        IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
-    ENDFOR
+		-- check
+		stat__ = IO_STATUS(fd)
+		IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	ENDFOR
 
-    -- done
-    stat__ = IO_STATUS(fd)
-    RETURN (-stat__)
+	-- done
+	stat__ = IO_STATUS(fd)
+	RETURN (-stat__)
 END ipkt_dsrlse
 
 
@@ -229,12 +229,12 @@ END ipkt_dsrlse
 
 ROUTINE ipkt_dump
 BEGIN
-    WRITE fd('PKT Instance:', CR,
-            ' length     :', this.length_, CR,
-            ' msg_type   :', this.msg_type_, CR,
-            ' comm_type  :', this.comm_type_, CR,
-            ' reply_type :', this.reply_type_, CR,
-            ' seq_nr     :', this.seq_nr_, CR)
+	WRITE fd('PKT Instance:', CR,
+			' length     :', this.length_, CR,
+			' msg_type   :', this.msg_type_, CR,
+			' comm_type  :', this.comm_type_, CR,
+			' reply_type :', this.reply_type_, CR,
+			' seq_nr     :', this.seq_nr_, CR)
 END ipkt_dump
 
 
@@ -242,30 +242,30 @@ END ipkt_dump
 
 ROUTINE ipkt_checkfd
 VAR
-    stat__      : INTEGER
-    bytes_ahd__ : INTEGER
+	stat__      : INTEGER
+	bytes_ahd__ : INTEGER
 BEGIN
 
-    bytes_ahd__ = 0
-    stat__      = 0
+	bytes_ahd__ = 0
+	stat__      = 0
 
-    -- check nr of bytes in buffer
-    BYTES_AHEAD(fd, bytes_ahd__, stat__)
-    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	-- check nr of bytes in buffer
+	BYTES_AHEAD(fd, bytes_ahd__, stat__)
+	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-    -- is there enough for a packet?
-    IF bytes_ahd__ >= INDU_PKT_SZ THEN
+	-- is there enough for a packet?
+	IF bytes_ahd__ >= INDU_PKT_SZ THEN
 
-        -- deserialise
-        stat__ = ipkt_dsrlse(pkt, fd)
-        IF stat__ <> 0 THEN RETURN (-ABS(stat__)); ENDIF
+		-- deserialise
+		stat__ = ipkt_dsrlse(pkt, fd)
+		IF stat__ <> 0 THEN RETURN (-ABS(stat__)); ENDIF
 
-        -- notify user of packet we deserialised
-        RETURN (1)
-    -- 
-    ENDIF
+		-- notify user of packet we deserialised
+		RETURN (1)
+	-- 
+	ENDIF
 
-    -- done
-    RETURN (-ABS(stat__))
+	-- done
+	RETURN (-ABS(stat__))
 
 END ipkt_checkfd
