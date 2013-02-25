@@ -82,11 +82,6 @@ END libind_mth
 
 
 
---------------------------------------------------------------------------------
--- 
--- Convert given argument (in degrees) to radians
--- 
---------------------------------------------------------------------------------
 ROUTINE deg_to_rad
 BEGIN
 	RETURN (r_deg * M_1DEG_RAD)
@@ -95,11 +90,6 @@ END deg_to_rad
 
 
 
---------------------------------------------------------------------------------
--- 
--- Convert given argument (in radians) to degrees
--- 
---------------------------------------------------------------------------------
 ROUTINE rad_to_deg
 BEGIN
 	RETURN (r_rad * M_1RAD_DEG)
@@ -108,11 +98,6 @@ END rad_to_deg
 
 
 
---------------------------------------------------------------------------------
--- 
--- Convert all elements of given array (in degrees) to radians
--- 
---------------------------------------------------------------------------------
 ROUTINE arr_deg2rad
 VAR
 	len_ : INTEGER
@@ -127,11 +112,6 @@ END arr_deg2rad
 
 
 
---------------------------------------------------------------------------------
--- 
--- Convert all elements of given array (in radians) to degrees
--- 
---------------------------------------------------------------------------------
 ROUTINE arr_rad2deg
 VAR
 	len_ : INTEGER
