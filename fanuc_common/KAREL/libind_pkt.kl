@@ -229,11 +229,11 @@ END ipkt_dsrlse
 
 ROUTINE ipkt_dump
 BEGIN
-    WRITE fd('PKT Instance:', CR, &
-            ' length     :', this.length_, CR, &
-            ' msg_type   :', this.msg_type_, CR, &
-            ' comm_type  :', this.comm_type_, CR, &
-            ' reply_type :', this.reply_type_, CR, &
+    WRITE fd('PKT Instance:', CR,
+            ' length     :', this.length_, CR,
+            ' msg_type   :', this.msg_type_, CR,
+            ' comm_type  :', this.comm_type_, CR,
+            ' reply_type :', this.reply_type_, CR,
             ' seq_nr     :', this.seq_nr_, CR)
 END ipkt_dump
 
@@ -258,7 +258,7 @@ BEGIN
 
         -- deserialise
         stat__ = ipkt_dsrlse(pkt, fd)
-        IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+        IF stat__ <> 0 THEN RETURN (-ABS(stat__)); ENDIF
 
         -- notify user of packet we deserialised
         RETURN (1)
@@ -266,6 +266,6 @@ BEGIN
     ENDIF
 
     -- done
-    RETURN (-stat__)
+    RETURN (-ABS(stat__))
 
 END ipkt_checkfd
