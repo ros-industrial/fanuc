@@ -93,8 +93,6 @@ var
 const
     -- which server tag to use
     MOTION_TAG = 4
-    -- use TP program for motion. See also comments below.
-    USE_TP = TRUE
     -- speed to use with 'MOVE TO'
     MOVE_SPEED = 200
     -- Hz
@@ -165,18 +163,11 @@ BEGIN
     ENDIF
 
     -- move to point
-    IF USE_TP THEN
-        -- store ('move_to_pr' expects positions in reg 1)
-        SET_JPOS_REG(1, new_j_pos, stat__)
-        IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+    SET_JPOS_REG(1, new_j_pos, stat__)
+    IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
-        -- exec
-        move_to_pr
-    ELSE
-        -- TODO: make sure 'MOVE TO' is still ok to use
-        WITH $SPEED = MOVE_SPEED, $MOTYPE = JOINT --, $TERMTYPE = NODECEL
-            MOVE TO new_j_pos --NOWAIT
-    ENDIF
+    -- exec
+    move_to_pr
 
     -- done
     RETURN (0)
@@ -258,11 +249,6 @@ BEGIN
 
     -- enable log output
     log_clear
-
-    -- inform user
-    IF USE_TP = FALSE THEN
-        log_warn('Using MOVE TO for motion')
-    ENDIF
 
 
     -- init server socket
