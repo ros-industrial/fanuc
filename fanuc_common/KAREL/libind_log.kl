@@ -58,18 +58,23 @@ PROGRAM libind_log
 const
     -- from KAREL Reference Manual, MARRC75KR07091E Rev C, table D-2
     BG_DEFAULT = 127
-    BG_BLACK = 48
+    BG_BLACK   =  48
 
     FG_DEFAULT = 127
-    FG_RED = 49
-    FG_GREEN = 50
-    FG_YELLOW = 51
+    FG_RED     =  49
+    FG_GREEN   =  50
+    FG_YELLOW  =  51
 
     -- copied from rosconsole.cpp
-    ROS_WARN = FG_YELLOW
-    ROS_ERR = FG_RED
+    ROS_WARN  = FG_YELLOW
+    ROS_ERR   = FG_RED
     ROS_DEBUG = FG_GREEN
 
+    -- 
+    ROS_ERR_T   = ' E '
+    ROS_WARN_T  = ' W '
+    ROS_INFO_T  = ' I '
+    ROS_DEBUG_T = ' D '
 
 
 
@@ -139,7 +144,7 @@ END log_clear
 ROUTINE log_info
 BEGIN
     prnt_time
-    WRITE TPDISPLAY(' INFO ', s, CR)
+    WRITE TPDISPLAY(ROS_INFO_T, s, CR)
 END log_info
 
 
@@ -153,7 +158,7 @@ END log_info
 ROUTINE log_info_a
 BEGIN
     prnt_time
-    WRITE TPDISPLAY(' INFO ', s, a, CR)
+    WRITE TPDISPLAY(ROS_INFO_T, s, a, CR)
 END log_info_a
 
 
@@ -161,7 +166,7 @@ END log_info_a
 
 --------------------------------------------------------------------------------
 -- 
--- Write WARN level string to display 51
+-- Write WARN level string to display
 -- 
 --------------------------------------------------------------------------------
 ROUTINE log_warn
@@ -170,7 +175,7 @@ BEGIN
     WRITE TPDISPLAY( &
         CHR(156), CHR(BG_BLACK), &
         CHR(155), CHR(ROS_WARN), &
-        ' WARN ', s, &
+        ROS_WARN_T, s, &
         CHR(156), CHR(BG_DEFAULT), &
         CHR(155), CHR(FG_DEFAULT), &
         CR)
@@ -189,7 +194,7 @@ BEGIN
     prnt_time
     WRITE TPDISPLAY( &
         CHR(155), CHR(ROS_WARN), &
-        ' WARN ', s, a, &
+        ROS_WARN_T, s, a, &
         CHR(155), CHR(FG_DEFAULT), &
         CR)
 END log_warn_a
@@ -207,7 +212,7 @@ BEGIN
     prnt_time
     WRITE TPDISPLAY( &
         CHR(155), CHR(ROS_ERR), &
-        ' ERR  ', s, &
+        ROS_ERR_T, s, &
         CHR(155), CHR(FG_DEFAULT), &
         CR)
 END log_error
@@ -225,7 +230,7 @@ BEGIN
     prnt_time
     WRITE TPDISPLAY( &
         CHR(155), CHR(ROS_ERR), &
-        ' ERR  ', s, a, &
+        ROS_ERR_T, s, a, &
         CHR(155), CHR(FG_DEFAULT), 
         CR)
 END log_error_a
