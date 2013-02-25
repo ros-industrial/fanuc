@@ -53,6 +53,7 @@ PROGRAM libind_pkt
 -- 
 --------------------------------------------------------------------------------
 %INCLUDE libind_pkt_t
+%INCLUDE ktype_sz_t
 
 
 
@@ -62,7 +63,6 @@ PROGRAM libind_pkt
 -- remote routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE karel_type_sz_h
 
 
 
@@ -115,7 +115,7 @@ BEGIN
 
     -- set up ROS industrial packet fields
     USING this DO
-        length_     = (4 * sz_int) + (len__ * sz_real)
+        length_     = (4 * SZ_INT) + (len__ * SZ_REAL)
         msg_type_   =  0
         comm_type_  =  0
         reply_type_ =  0
