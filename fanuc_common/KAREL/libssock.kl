@@ -32,10 +32,11 @@
 -- POSSIBILITY OF SUCH DAMAGE.
 
 
-PROGRAM libsock
+PROGRAM libssock
 --------------------------------------------------------------------------------
 -- 
--- Convenience wrapper around the KAREL Socket Programming extensions.
+-- Convenience wrapper around the KAREL Socket Programming extensions. Only
+-- works for Server TAGs right now.
 -- 
 -- See also KAREL Reference Manual, MARRC75KR07091E Rev C, chap. 11
 -- 
@@ -45,7 +46,7 @@ PROGRAM libsock
 --------------------------------------------------------------------------------
 %NOLOCKGROUP
 %NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'Karel Sockets'
+%COMMENT = 'Karel Srvr Socks'
 
 
 
@@ -55,7 +56,7 @@ PROGRAM libsock
 -- local types & constants
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libsock_t
+%INCLUDE libssock_t
 
 
 
@@ -65,7 +66,7 @@ PROGRAM libsock
 -- local routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libsock_h
+%INCLUDE libssock_h
 
 
 
@@ -76,37 +77,23 @@ PROGRAM libsock
 -- 
 --------------------------------------------------------------------------------
 BEGIN
-END libsock
+END libssock
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Ping a host on the network. No connected socket necessary.
--- 
--- NB: hostname needs to be known to robot (setup DNS and / or 'Host Entry 
---     table')
--- 
---------------------------------------------------------------------------------
-ROUTINE sock_ping
+ROUTINE ssock_ping
 VAR
     stat__ : INTEGER
 BEGIN
     MSG_PING(host, stat__)
     RETURN (-stat__)
-END sock_ping
+END ssock_ping
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Constructor: sets up member variables and initialises related robot 
--- system variable.
--- 
---------------------------------------------------------------------------------
-ROUTINE sock_ctor
+ROUTINE ssock_ctor
 VAR
     tmp_str__   : STRING[1] -- temp string for tag_nr to str conversion
     entry__     : INTEGER   -- dummy var for set_var
@@ -151,17 +138,12 @@ BEGIN
 
     -- done
     RETURN (-this.status_)
-END sock_ctor
+END ssock_ctor
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Dump string rep of the given instance to to file descriptor 'fd'.
--- 
---------------------------------------------------------------------------------
-ROUTINE sock_dump
+ROUTINE ssock_dump
 BEGIN
     WRITE fd('Sock instance:', CR, &
             ' connected :', this.connected_, CR, &
@@ -169,17 +151,12 @@ BEGIN
             ' tag_idx   :', this.tag_idx_, CR, &
             ' tag_str   : ', this.tag_str_, CR, &
             ' hcfg_str  : ', this.hcfg_str_, CR)
-END sock_dump
+END ssock_dump
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Wait for a connection on the given socket instance, if not already connected
--- 
---------------------------------------------------------------------------------
-ROUTINE sock_accept
+ROUTINE ssock_accept
 VAR
     stat__ : INTEGER
 BEGIN
@@ -196,35 +173,25 @@ BEGIN
     ENDIF
 
     RETURN (-stat__)
-END sock_accept
+END ssock_accept
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Disconnect the socket, if connected.
--- 
---------------------------------------------------------------------------------
-ROUTINE sock_dconn
+ROUTINE ssock_dconn
 BEGIN
     IF this.connected_ = FALSE THEN
         RETURN (S_NOTCON_ERR)
     ENDIF
 
     -- use other routine
-    RETURN (sock_dconnf(this))
-END sock_dconn
+    RETURN (ssock_dconnf(this))
+END ssock_dconn
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Disconnect the socket, unconditionally.
--- 
---------------------------------------------------------------------------------
-ROUTINE sock_dconnf
+ROUTINE ssock_dconnf
 VAR
     stat__ : INTEGER
 BEGIN
@@ -234,17 +201,12 @@ BEGIN
     this.connected_ = FALSE
 
     RETURN (-stat__)
-END sock_dconnf
+END ssock_dconnf
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Open a file descriptor on the given socket instance
--- 
---------------------------------------------------------------------------------
-ROUTINE sock_ofd
+ROUTINE ssock_ofd
 VAR
     tmp__  : STRING[3]
     stat__ : INTEGER
@@ -259,17 +221,12 @@ BEGIN
 
     stat__ = IO_STATUS(fd)
     RETURN (-stat__)
-END sock_ofd
+END ssock_ofd
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Close the given file descriptor (on the given socket instance)
--- 
---------------------------------------------------------------------------------
-ROUTINE sock_cfd
+ROUTINE ssock_cfd
 VAR
     stat__ : INTEGER
 BEGIN
@@ -283,47 +240,36 @@ BEGIN
     -- according to Karel Ref Man, A.4.12, this will always return 0
     stat__ = IO_STATUS(fd)
     RETURN (-stat__)
-END sock_cfd
+END ssock_cfd
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Wait for a connection on the given socket instance. If successful,
--- open given file descriptor on it.
--- 
---------------------------------------------------------------------------------
-ROUTINE sock_accept2
+ROUTINE ssock_accpt2
 VAR
     stat__ : INTEGER
 BEGIN
     stat__ = 0
     -- use other routine
-    stat__ = sock_accept(this)
+    stat__ = ssock_accept(this)
 
     -- make sure it succeeded
     IF stat__ <> 0 THEN
-        -- stat already < 0 from sock_accept
+        -- stat already < 0 from ssock_accept
         RETURN (stat__)
     ENDIF
 
     -- now open fd, read / write
-    stat__ = sock_ofd(this, fd, 'RW')
+    stat__ = ssock_ofd(this, fd, 'RW')
 
-    -- done (stat already < 0 from sock_ofd)
+    -- done (stat already < 0 from ssock_ofd)
     RETURN (stat__)
-END sock_accept2
+END ssock_accpt2
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Disconnect the socket, if connected. Then close given file descriptor.
--- 
---------------------------------------------------------------------------------
-ROUTINE sock_dconn2
+ROUTINE ssock_dconn2
 VAR
     stat__ : INTEGER
 BEGIN
@@ -334,7 +280,7 @@ BEGIN
 
     -- close fd first
     -- TODO: fail on failure to close fd?
-    stat__ = sock_cfd(this, fd)
+    stat__ = ssock_cfd(this, fd)
 
     -- now socket
     MSG_DISCO(this.tag_str_, stat__)
@@ -343,4 +289,4 @@ BEGIN
 
     -- done
     RETURN (-stat__)
-END sock_dconn2
+END ssock_dconn2
