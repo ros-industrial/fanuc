@@ -69,7 +69,7 @@ PROGRAM ros_relay
 -- remote types & constants
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libsock_t
+%INCLUDE libssock_t
 %INCLUDE libind_pkt_t
 
 
@@ -81,7 +81,7 @@ PROGRAM ros_relay
 -- 
 --------------------------------------------------------------------------------
 var
-    sock_        : sock_t
+    sock_        : ssock_t
     sock_fd_     : FILE       -- file descriptor has to be declared here
     pkt_in       : ind_pkt_t  -- incoming joint commands
     pkt_out      : ind_pkt_t  -- outgoing reply msgs
@@ -108,7 +108,7 @@ const
 -- remote routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libsock_h
+%INCLUDE libssock_h
 %INCLUDE libind_pkt_h
 %INCLUDE libind_log_h
 %INCLUDE libind_mth_h
@@ -266,12 +266,12 @@ BEGIN
 
 
     -- init server socket
-    stat_ = sock_ctor(sock_, INDU_MOTION, MOTION_TAG)
+    stat_ = ssock_ctor(sock_, INDU_MOTION, MOTION_TAG)
     IF stat_ <> 0 THEN
         IF stat_ = TAG_CONF_ERR THEN
             log_error_a('TAG config error. TAG nr:', MOTION_TAG)
         ELSE
-            log_error_a('sock_ctor err:', stat_)
+            log_error_a('ssock_ctor err:', stat_)
         ENDIF
         -- nothing we can do, abort
         GOTO exit_on_err
@@ -293,7 +293,7 @@ BEGIN
 
     -- make sure socket is closed
     -- don t care about result
-    stat_ = sock_dconnf(sock_)
+    stat_ = ssock_dconnf(sock_)
 
     -- 
     WHILE TRUE DO
@@ -306,7 +306,7 @@ BEGIN
         SET_FILE_ATR(sock_fd_, ATR_UF)
 
         -- wait for connection
-        stat_ = sock_accept2(sock_, sock_fd_)
+        stat_ = ssock_accpt2(sock_, sock_fd_)
         IF stat_ <> 0 THEN
             log_error_a('sock_accept err:', stat_)
             -- can't continue
@@ -382,7 +382,7 @@ BEGIN
 
         -- exit with forced disconnect
 exit_discon::
-        stat_ = sock_dconn2(sock_, sock_fd_)
+        stat_ = ssock_dconn2(sock_, sock_fd_)
 
     -- outer WHILE TRUE DO
     ENDWHILE

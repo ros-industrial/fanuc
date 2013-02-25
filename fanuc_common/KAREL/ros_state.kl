@@ -62,7 +62,7 @@ PROGRAM ros_state
 -- remote types & constants
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libsock_t
+%INCLUDE libssock_t
 %INCLUDE libind_pkt_t
 
 
@@ -75,7 +75,7 @@ PROGRAM ros_state
 --------------------------------------------------------------------------------
 var
     pkt_out    : ind_pkt_t   -- ROS industrial joint state packet
-    sock_      : sock_t      -- server socket instance
+    sock_      : ssock_t     -- server socket instance
     sock_fd_   : FILE        -- file descriptor associated with srvr socket
     stat_      : INTEGER     -- status variable
     cur_j_pos  : JOINTPOS    -- current position of robot joints
@@ -96,7 +96,7 @@ const
 -- remote routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libsock_h
+%INCLUDE libssock_h
 %INCLUDE libind_pkt_h
 %INCLUDE libind_log_h
 %INCLUDE libind_mth_h
@@ -129,12 +129,12 @@ BEGIN
 
 
     -- init server socket
-    stat_ = sock_ctor(sock_, INDU_STATE, STATE_TAG)
+    stat_ = ssock_ctor(sock_, INDU_STATE, STATE_TAG)
     IF stat_ <> 0 THEN
         IF stat_ = TAG_CONF_ERR THEN
             log_error_a('TAG config error. TAG nr:', STATE_TAG)
         ELSE
-            log_error_a('sock_ctor err:', stat_)
+            log_error_a('ssock_ctor err:', stat_)
         ENDIF
         -- nothing we can do, abort
         GOTO exit_on_err
@@ -143,7 +143,7 @@ BEGIN
 
     -- make sure socket is closed
     -- don t care about result
-    stat_ = sock_dconnf(sock_)
+    stat_ = ssock_dconnf(sock_)
 
     -- 
     WHILE TRUE DO
@@ -156,7 +156,7 @@ BEGIN
         SET_FILE_ATR(sock_fd_, ATR_UF)
 
         -- wait for connection
-        stat_ = sock_accept2(sock_, sock_fd_)
+        stat_ = ssock_accpt2(sock_, sock_fd_)
         IF stat_ <> 0 THEN
             log_error_a('sock_accept err:', stat_)
             -- can't continue
@@ -190,7 +190,7 @@ BEGIN
                 log_error_a('ipkt_srlise err:', stat_)
 
                 -- remote probably disconnected
-                stat_ = sock_dconn2(sock_, sock_fd_)
+                stat_ = ssock_dconn2(sock_, sock_fd_)
 
                 -- exit inner loop
                 GOTO exit_inner
@@ -204,7 +204,7 @@ BEGIN
 
         -- exit with forced disconnect
         exit_discon::
-            stat_ = sock_dconn2(sock_, sock_fd_)
+            stat_ = ssock_dconn2(sock_, sock_fd_)
 
         -- exit inner loop
         exit_inner::
