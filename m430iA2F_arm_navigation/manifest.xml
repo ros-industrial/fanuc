@@ -1,7 +1,7 @@
 <package>
   <description brief="m430iA2F_arm_navigation">
 
-     m430iA2F_arm_navigation
+     m430iA2F_arm_navigation package for the Fanuc M-430iA/2F manipulator.
 
   </description>
   <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
@@ -15,7 +15,4 @@
   <depend package="trajectory_filter_server"/>
   <depend package="constraint_aware_spline_smoother"/>
   <depend package="move_arm"/>
-
 </package>
-
-
