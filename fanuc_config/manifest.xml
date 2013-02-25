@@ -5,11 +5,11 @@
      manipulators.
 
   </description>
-  <author>Christina Gomez, G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+  <author>
+    Christina Gomez (Southwest Research Institute), 
+    G.A. vd. Hoorn (TU Delft Robotics Institute)
+  </author>
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/fanuc_config</url>
-
 </package>
-
-
