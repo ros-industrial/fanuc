@@ -73,7 +73,7 @@ PROGRAM ros_state
 -- local types & constants
 -- 
 --------------------------------------------------------------------------------
-var
+VAR
 	pkt_out    : ind_pkt_t   -- ROS industrial joint state packet
 	sock_      : ssock_t     -- server socket instance
 	sock_fd_   : FILE        -- file descriptor associated with srvr socket
@@ -82,7 +82,9 @@ var
 	sleep_time : INTEGER
 
 
-const
+CONST
+	-- 
+	LOG_PFIX = 'RSTA '
 	-- which server tag to use
 	STATE_TAG = 3
 	-- Hz
@@ -132,9 +134,9 @@ BEGIN
 	stat_ = ssock_ctor(sock_, INDU_STATE, STATE_TAG)
 	IF stat_ <> 0 THEN
 		IF stat_ = TAG_CONF_ERR THEN
-			log_error_a('TAG config error. TAG nr:', STATE_TAG)
+			log_error_a(LOG_PFIX + 'TAG config error. TAG nr:', STATE_TAG)
 		ELSE
-			log_error_a('ssock_ctor err:', stat_)
+			log_error_a(LOG_PFIX + 'ssock_ctor err:', stat_)
 		ENDIF
 		-- nothing we can do, abort
 		GOTO exit_on_err
@@ -149,7 +151,7 @@ BEGIN
 	WHILE TRUE DO
 
 		-- inform user
-		log_info('Waiting for ROS state proxy')
+		log_info(LOG_PFIX + 'Waiting for ROS state proxy')
 
 		-- set socket in 'binary mode' (unformatted)
 		-- KAREL Reference Manual, MARRC75KR07091E Rev C, sec 7.3.1
@@ -158,13 +160,13 @@ BEGIN
 		-- wait for connection
 		stat_ = ssock_accpt2(sock_, sock_fd_)
 		IF stat_ <> 0 THEN
-			log_error_a('sock_accept err:', stat_)
+			log_error_a(LOG_PFIX + 'sock_accept err:', stat_)
 			-- can't continue
 			GOTO exit_discon
 		ENDIF
 
 		-- inform user
-		log_info('Connected')
+		log_info(LOG_PFIX + 'Connected')
 
 		-- got client, start joint_state relay loop
 		WHILE TRUE DO
@@ -187,7 +189,7 @@ BEGIN
 			-- check result
 			IF stat_ <> 0 THEN
 
-				log_error_a('ipkt_srlise err:', stat_)
+				log_error_a(LOG_PFIX + 'ipkt_srlise err:', stat_)
 
 				-- remote probably disconnected
 				stat_ = ssock_dconn2(sock_, sock_fd_)

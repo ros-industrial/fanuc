@@ -82,7 +82,7 @@ PROGRAM ros_relay
 -- local types & constants
 -- 
 --------------------------------------------------------------------------------
-var
+VAR
 	sock_        : ssock_t
 	sock_fd_     : FILE       -- file descriptor has to be declared here
 	pkt_in       : ind_pkt_t  -- incoming joint commands
@@ -92,7 +92,9 @@ var
 	sleep_time   : INTEGER
 
 
-const
+CONST
+	-- 
+	LOG_PFIX = 'RREL '
 	-- which server tag to use
 	MOTION_TAG = 4
 	-- speed to use with movj_to_pr (percentage of maximum)
@@ -262,9 +264,9 @@ BEGIN
 	stat_ = ssock_ctor(sock_, INDU_MOTION, MOTION_TAG)
 	IF stat_ <> 0 THEN
 		IF stat_ = TAG_CONF_ERR THEN
-			log_error_a('TAG config error. TAG nr:', MOTION_TAG)
+			log_error_a(LOG_PFIX + 'TAG config error. TAG nr:', MOTION_TAG)
 		ELSE
-			log_error_a('ssock_ctor err:', stat_)
+			log_error_a(LOG_PFIX + 'ssock_ctor err:', stat_)
 		ENDIF
 		-- nothing we can do, abort
 		GOTO exit_on_err
@@ -292,7 +294,7 @@ BEGIN
 	WHILE TRUE DO
 
 		-- inform user
-		log_info('Waiting for ROS traj relay')
+		log_info(LOG_PFIX + 'Waiting for ROS traj relay')
 
 		-- set socket in 'binary mode' (unformatted)
 		-- KAREL Reference Manual, MARRC75KR07091E Rev C, sec 7.3.1
@@ -301,13 +303,13 @@ BEGIN
 		-- wait for connection
 		stat_ = ssock_accpt2(sock_, sock_fd_)
 		IF stat_ <> 0 THEN
-			log_error_a('sock_accept err:', stat_)
+			log_error_a(LOG_PFIX + 'sock_accept err:', stat_)
 			-- can't continue
 			GOTO exit_discon
 		ENDIF
 
 		-- inform user
-		log_info('Connected')
+		log_info(LOG_PFIX + 'Connected')
 
 		-- got client, start relay loop
 		WHILE TRUE DO
@@ -316,7 +318,7 @@ BEGIN
 			-- TODO: this assumes 1 packet per iteration (ok for now)
 			stat_ = ipkt_checkfd(sock_fd_, pkt_in)
 			IF stat_ < 0 THEN
-				log_error_a('check_socket err:', stat_)
+				log_error_a(LOG_PFIX + 'check_socket err:', stat_)
 
 				-- can't continue
 				GOTO exit_discon
@@ -330,14 +332,14 @@ BEGIN
 
 					-- 'end of trajectory'
 					CASE (INDU_SQ_END):
-						log_info('INDU_SQ_END')
+						log_info(LOG_PFIX + 'INDU_SQ_END')
 						-- TODO: what should we do here? If there are no more
 						--       points to move to, arm will just stop
 
 
 					-- 'indicates a stop'
 					CASE (INDU_SQ_STOP):
-						log_info('INDU_SQ_STOP')
+						log_info(LOG_PFIX + 'INDU_SQ_STOP')
 						-- TODO: Test: not sure if this works as intended.
 						CANCEL
 
@@ -349,7 +351,7 @@ BEGIN
 						IF stat_ <> 0 THEN
 							-- can't continue
 							-- TODO: send ERR return to ROS
-							log_error_a('exec_move err:', stat_)
+							log_error_a(LOG_PFIX + 'exec_move err:', stat_)
 							GOTO exit_discon
 						ENDIF
 
@@ -357,7 +359,7 @@ BEGIN
 						stat_ = req_next(pkt_in, sock_fd_)
 						IF stat_ <> 0 THEN
 							-- can't continue
-							log_error_a('req_next err:', stat_)
+							log_error_a(LOG_PFIX + 'req_next err:', stat_)
 							GOTO exit_discon
 						ENDIF
 				ENDSELECT
