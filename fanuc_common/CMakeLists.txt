@@ -29,25 +29,31 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #target_link_libraries(${PROJECT_NAME} another_library)
 #rosbuild_add_boost_directories()
 #rosbuild_link_boost(${PROJECT_NAME} thread)
-rosbuild_add_executable(robot_state 
-  src/robot_state.cpp
-  src/joint_relay_handler.cpp)
-target_link_libraries(robot_state simple_message_bswap)
 
+
+# Little Endian Fanuc specific robot state node
+rosbuild_add_executable(robot_state
+    src/fanuc_robot_state_node.cpp
+    src/fanuc_utils.cpp)
+target_link_libraries(robot_state industrial_robot_client)
+
+# Little Endian Fanuc specific motion streaming interface
 rosbuild_add_executable(motion_streaming_interface
-  src/motion_streaming_interface.cpp
-  src/joint_trajectory_handler.cpp)
-rosbuild_link_boost(motion_streaming_interface thread)
-target_link_libraries(motion_streaming_interface simple_message_bswap)
-
-rosbuild_add_executable(motion_download_interface
-  src/motion_download_interface.cpp
-  src/joint_trajectory_downloader.cpp)
-rosbuild_link_boost(motion_download_interface thread)
-target_link_libraries(motion_download_interface simple_message_bswap)
-
-rosbuild_add_executable(joint_trajectory_action src/joint_trajectory_action.cpp)
-target_link_libraries(joint_trajectory_action simple_message_bswap)
-rosbuild_link_boost(joint_trajectory_action thread)
+    src/fanuc_joint_streamer_node.cpp
+    src/fanuc_utils.cpp)
+target_link_libraries(motion_streaming_interface
+    industrial_robot_client)
 
 
+# Big Endian Fanuc specific robot state node
+rosbuild_add_executable(robot_state_bswap 
+    src/fanuc_robot_state_node.cpp
+    src/fanuc_utils.cpp)
+target_link_libraries(robot_state_bswap industrial_robot_client_bswap)
+
+# Big Endian Fanuc specific motion streaming interface
+rosbuild_add_executable(motion_streaming_interface_bswap
+    src/fanuc_joint_streamer_node.cpp
+    src/fanuc_utils.cpp)
+target_link_libraries(motion_streaming_interface_bswap
+    industrial_robot_client_bswap)
