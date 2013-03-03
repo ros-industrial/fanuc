@@ -183,6 +183,7 @@ VAR
 	i__        : INTEGER
 	stat__     : INTEGER
 	array_sz__ : INTEGER
+	dummy_     : INTEGER
 BEGIN
 	--
 	i__ = 0
@@ -218,6 +219,16 @@ BEGIN
 		stat__ = IO_STATUS(fd)
 		IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 	ENDFOR
+
+	-- TODO: remove temp ignored velocity / duration fields
+	READ fd(dummy_)
+	stat__ = IO_STATUS(fd)
+	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+
+	-- TODO: remove temp ignored velocity / duration fields
+	READ fd(dummy_)
+	stat__ = IO_STATUS(fd)
+	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
 	-- done
 	stat__ = IO_STATUS(fd)
@@ -273,7 +284,8 @@ BEGIN
 	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
 	-- is there enough for a packet?
-	IF bytes_ahd__ >= INDU_PKT_SZ THEN
+	-- TODO: remove temp +8 for ignored velocity / duration fields
+	IF bytes_ahd__ >= (INDU_PKT_SZ + 8) THEN
 
 		-- deserialise
 		stat__ = ipkt_dsrlse(pkt, fd)
