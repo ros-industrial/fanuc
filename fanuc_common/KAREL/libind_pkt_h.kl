@@ -104,7 +104,7 @@ ROUTINE ipkt_dsrlse(this : ind_pkt_t; fd : FILE) : INTEGER FROM libind_pkt
 
 --------------------------------------------------------------------------------
 -- 
--- Return representation rep of pkt (excluding joint_data array).
+-- Return string representation of pkt (excluding joint_data array).
 -- 
 -- [in    ]  this    : the packet.
 -- [return]          : string representation of given packet.
