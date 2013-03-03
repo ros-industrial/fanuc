@@ -104,6 +104,19 @@ ROUTINE ipkt_dsrlse(this : ind_pkt_t; fd : FILE) : INTEGER FROM libind_pkt
 
 --------------------------------------------------------------------------------
 -- 
+-- Return representation rep of pkt (excluding joint_data array).
+-- 
+-- [in    ]  this    : the packet.
+-- [return]          : string representation of given packet.
+-- 
+--------------------------------------------------------------------------------
+ROUTINE ipkt_tostr(this : ind_pkt_t) : STRING FROM libind_pkt
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
 -- Dump string rep of pkt (excluding joint_data array) to file descriptor 'fd'.
 -- 
 -- [in    ]  this    : the packet to dump

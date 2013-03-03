@@ -227,14 +227,33 @@ END ipkt_dsrlse
 
 
 
+ROUTINE ipkt_tostr
+VAR
+	len_str__ : STRING[20]
+	mt_str__  : STRING[20]
+	ct_str__  : STRING[20]
+	rt_str__  : STRING[20]
+	nr_str__  : STRING[30]
+BEGIN
+	-- TODO: check for 'uninitialised' data and handle 
+	--       those (add 'unknown' or something)
+	CNV_INT_STR(this.length_     , 1, 10, len_str__)
+	CNV_INT_STR(this.msg_type_   , 1, 10, mt_str__)
+	CNV_INT_STR(this.comm_type_  , 1, 10, ct_str__)
+	CNV_INT_STR(this.reply_type_ , 1, 10, rt_str__)
+	CNV_INT_STR(this.seq_nr_     , 1, 10, nr_str__)
+
+	-- done
+	RETURN ('pkt (l,mt,ct,rt,seq):' + len_str__ + ';' + mt_str__ + ';' &
+		+ ct_str__ + ';' + rt_str__ + ';' + nr_str__)
+END ipkt_tostr
+
+
+
+
 ROUTINE ipkt_dump
 BEGIN
-	WRITE fd('PKT Instance:', CR,
-			' length     :', this.length_, CR,
-			' msg_type   :', this.msg_type_, CR,
-			' comm_type  :', this.comm_type_, CR,
-			' reply_type :', this.reply_type_, CR,
-			' seq_nr     :', this.seq_nr_, CR)
+	WRITE fd(ipkt_tostr(this), CR)
 END ipkt_dump
 
 
