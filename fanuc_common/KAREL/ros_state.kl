@@ -180,9 +180,6 @@ BEGIN
 			-- ROS expects radians, so convert
 			arr_deg2rad(pkt_out.joint_data_)
 
-			-- make J3 relative to J2
-			pkt_out.joint_data_[3] = pkt_out.joint_data_[3] - pkt_out.joint_data_[2]
-
 			-- serialise packet, write to socket file descriptor
 			stat_ = ipkt_srlise(pkt_out, sock_fd_)
 

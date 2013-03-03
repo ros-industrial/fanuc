@@ -154,9 +154,6 @@ BEGIN
 	-- ROS sends radians, so convert
 	arr_rad2deg(pkt.joint_data_)
 
-	-- compensate J3
-	pkt.joint_data_[3] = pkt.joint_data_[3] + pkt.joint_data_[2]
-
 	-- convert reals to jointpos
 	CNV_REL_JPOS(pkt.joint_data_, new_j_pos, stat__)
 	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
