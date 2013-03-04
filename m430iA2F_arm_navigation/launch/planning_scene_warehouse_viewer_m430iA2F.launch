@@ -1,11 +1,11 @@
 <launch>
   <param name="/use_sim_time" value="true" />
   <include file="$(find m430iA2F_arm_navigation)/launch/m430iA2F_planning_environment.launch" />
-  <node pkg="planning_environment" name="wall_clock_server" type="fake_time.py" />
+  <node pkg="industrial_depricated" name="wall_clock_server" type="fake_time.py" />
 
   <param name="warehouse_host" value="localhost"/>
   <param name="warehouse_port" value="27020"/>
-  <node name="mongo" type="wrapper.py" pkg="mongodb">
+  <node name="mongo" type="mongo_wrapper_ros.py" pkg="warehouse_ros">
     <param name="overwrite" value="false"/>
     <param name="database_path" value="arm_navigation_dbs/m430iA2F"/>
   </node>
@@ -31,7 +31,7 @@
     <param name="consistent_angle" type="double" value="1.05"/>
   </node>
 
-  <node pkg="rviz" type="rviz" name='rviz_warehouse_viewer' args="-d $(find m430iA2F_arm_navigation)/config/planning_scene_warehouse_viewer.vcg" />
+  <node pkg="rviz" type="rviz" name='rviz_warehouse_viewer' args="-d $(find m430iA2F_arm_navigation)/config/planning_scene_warehouse_viewer.rviz" />
   
   <!-- Called when left arm executes trajectory using controllers -->
   <param name="execute_left_trajectory" value="none" />

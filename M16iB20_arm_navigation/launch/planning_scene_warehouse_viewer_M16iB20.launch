@@ -1,7 +1,7 @@
 <launch>
   <param name="/use_sim_time" value="true" />
   <include file="$(find M16iB20_arm_navigation)/launch/M16iB20_planning_environment.launch" />
-  <node pkg="planning_environment" name="wall_clock_server" type="fake_time.py" />
+  <node pkg="industrial_depricated" name="wall_clock_server" type="fake_time.py" />
 
   <param name="warehouse_host" value="localhost"/>
   <param name="warehouse_port" value="27020"/>

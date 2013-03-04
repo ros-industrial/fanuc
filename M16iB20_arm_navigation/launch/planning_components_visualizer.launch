@@ -1,6 +1,6 @@
 <launch>
     <include file="$(find M16iB20_arm_navigation)/launch/M16iB20_planning_environment.launch" />
-    <include file="$(find planning_environment)/launch/planning_environment_visualization_prerequisites.launch" />
+    <include file="$(find industrial_depricated)/launch/planning_environment_visualization_prerequisites.launch" />
     <include file="$(find M16iB20_arm_navigation)/launch/constraint_aware_kinematics.launch" />
     <include file="$(find M16iB20_arm_navigation)/launch/ompl_planning.launch" />
     <include file="$(find M16iB20_arm_navigation)/launch/trajectory_filter_server.launch" />

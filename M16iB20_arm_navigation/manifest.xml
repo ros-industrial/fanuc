@@ -20,7 +20,7 @@
   <depend package="interpolated_ik_motion_planner"/>
   <depend package="rviz"/>
   <depend package="move_arm_warehouse"/>
-
+  <depend package="industrial_depricated"/>
 </package>
 
 

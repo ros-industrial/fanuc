@@ -15,4 +15,10 @@
   <depend package="trajectory_filter_server"/>
   <depend package="constraint_aware_spline_smoother"/>
   <depend package="move_arm"/>
+  <depend package="warehouse_ros"/>
+  <depend package="robot_state_publisher"/>
+  <depend package="interpolated_ik_motion_planner"/>
+  <depend package="rviz"/>
+  <depend package="move_arm_warehouse"/>
+  <depend package="industrial_depricated"/>
 </package>
