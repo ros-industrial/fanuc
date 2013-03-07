@@ -39,7 +39,8 @@ PROGRAM ros_relay
 -- 
 -- Currently only supports joint position streaming.
 -- 
--- Joint motion speed is limited (hard coded) to 20%.
+-- Joint motion speed is limited (hard coded) to 20%. Termination is hard 
+-- coded at CNT 90%
 -- 
 -- NB: This is a work in progress, and as such should NOT be used on real 
 --     hardware.
@@ -50,7 +51,7 @@ PROGRAM ros_relay
 --   - There is only 1 motion group
 --   - The TP program 'movj_to_pr' exists on the robot (see comment later on)
 --   - Position register 1 is available for use by movj_to_pr
---   - Integer register 1 is available for use by movj_to_pr
+--   - Integer registers 1 & 2 are available for use by movj_to_pr
 -- 
 -- TODO
 --   - make position register used for storing trajectory points configurable
@@ -60,7 +61,7 @@ PROGRAM ros_relay
 -- author: G.A. vd. Hoorn
 -- 
 --------------------------------------------------------------------------------
-%LOCKGROUP = 1
+%NOLOCKGROUP
 %COMMENT = 'ROS Ind Traj Relay'
 
 
@@ -90,17 +91,23 @@ VAR
 	new_j_pos    : JOINTPOS
 	stat_        : INTEGER
 	sleep_time   : INTEGER
+	do_it        : BOOLEAN
+
 
 
 CONST
-	-- 
-	LOG_PFIX = 'RREL '
-	-- which server tag to use
-	MOTION_TAG = 4
-	-- speed to use with movj_to_pr (percentage of maximum)
-	MOVE_SPEED = 20
-	-- Hz
-	LOOP_HZ = 10
+	LOG_PFIX     = 'RREL '  -- 
+
+	MOTION_TAG   =  4       -- which server tag to use
+
+	MOVE_PREG    =  1       -- position register to use with movj_to_pr
+	MOVE_SPD_REG =  1       -- integer registers to use with movj_to_pr
+	MOVE_CNT_REG =  2       -- 
+
+	MOVE_SPEED   = 20       -- speed to use with movj_to_pr (percentage of maximum)
+	MOVE_CNT     = 90       -- CNT value to use with movj_to_pr
+
+	LOOP_HZ      = 10       -- Hz
 
 
 
@@ -123,9 +130,9 @@ CONST
 -- TP program for 'exec_move' to use if configured as such. Create as TP program
 -- on robot. See the USE_TP constant declaration and routine 'exec_move'.
 -- 
--- From KAREL Reference Manual, MARRC75KR07091E Rev C, sec B.8, page B-51
+-- Based on KAREL Reference Manual, MARRC75KR07091E Rev C, sec B.8, page B-51
 -- 
--- 1:J PR[1] R[1]% FINE ;
+-- 1:J PR[1] R[1]% CNT R[2] ;
 -- 
 --------------------------------------------------------------------------------
 ROUTINE movj_to_pr FROM movj_to_pr
@@ -137,9 +144,8 @@ ROUTINE movj_to_pr FROM movj_to_pr
 -- 
 -- Update joint positions according to contents of ROS Industrial packet.
 -- 
--- This routine can use either the 'MOVE TO' instruction, or a TP program. See 
--- the USE_TP constant declaration and routine 'move_to_pr'.
--- 
+-- This routine uses a TP program to execute the move. See declaration of 
+-- the routine 'move_to_pr' earlier in this file.
 -- 
 -- [in    ]  pkt     : packet containing new joint positions
 -- [out   ]          :    0 IFF no error
@@ -165,10 +171,15 @@ BEGIN
 
 	-- setup registers
 	-- init position
-	SET_JPOS_REG(1, new_j_pos, stat__)
+	SET_JPOS_REG(MOVE_PREG, new_j_pos, stat__)
 	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+
 	-- init motion speed (constant for now)
-	SET_INT_REG(1, MOVE_SPEED, stat__)
+	SET_INT_REG(MOVE_SPD_REG, MOVE_SPEED, stat__)
+	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+
+	-- init motion termination (constant for now)
+	SET_INT_REG(MOVE_CNT_REG, MOVE_CNT, stat__)
 	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
 	-- exec
@@ -251,6 +262,7 @@ BEGIN
 	-- 
 	stat_ = 0
 	sleep_time = ROUND(1000.0 / LOOP_HZ)
+	do_it = TRUE
 
 
 	-- enable log output
@@ -288,7 +300,7 @@ BEGIN
 	stat_ = ssock_dconnf(sock_)
 
 	-- 
-	WHILE TRUE DO
+	WHILE do_it DO
 
 		-- inform user
 		log_info(LOG_PFIX + 'Waiting for ROS traj relay')
@@ -309,7 +321,7 @@ BEGIN
 		log_info(LOG_PFIX + 'Connected')
 
 		-- got client, start relay loop
-		WHILE TRUE DO
+		WHILE do_it DO
 
 			-- get new packet from the socket
 			-- TODO: this assumes 1 packet per iteration (ok for now)
