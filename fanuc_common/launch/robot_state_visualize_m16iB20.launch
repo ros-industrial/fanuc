@@ -27,6 +27,6 @@
 
   <include file="$(find fanuc_config)/launch/load_m16iB20.launch" />
 
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fanuc_config)/config/rviz.rviz" required="true" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find industrial_robot_client)/config/robot_state_visualize.rviz" required="true" />
 </launch>
 
