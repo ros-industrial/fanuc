@@ -1,6 +1,6 @@
 -- Software License Agreement (BSD License)
 --
--- Copyright (c) 2012, TU Delft Robotics Institute
+-- Copyright (c) 2012, 2013, TU Delft Robotics Institute
 -- All rights reserved.
 --
 -- Redistribution and use in source and binary forms, with or without
@@ -122,16 +122,17 @@ BEGIN
 
 	-- init packet
 	stat_ = ipkt_ctor(pkt_out)
+	-- we reply with JOINT_POSITION packets
 	USING pkt_out DO
-		msg_type_   = INDU_JNT_MSG
-		comm_type_  = INDU_TOPIC
-		reply_type_ = INDU_UNUSED
-		seq_nr_     = INDU_UNUSED
+		length_    = (RI_SZ_HDR + RI_SZB_JPOS)
+		msg_type_  = RI_MT_JOINTP
+		comm_type_ = RI_CT_TOPIC
+		-- rest is set by ctor
 	ENDUSING
 
 
 	-- init server socket
-	stat_ = ssock_ctor(sock_, INDU_STATE, STATE_TAG)
+	stat_ = ssock_ctor(sock_, RI_TCP_STATE, STATE_TAG)
 	IF stat_ <> 0 THEN
 		IF stat_ = TAG_CONF_ERR THEN
 			log_error_a(LOG_PFIX + 'TAG config error. TAG nr:', STATE_TAG)
