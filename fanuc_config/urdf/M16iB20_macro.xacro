@@ -5,20 +5,6 @@
 	<!-- links -->
 
 		  <link name="${prefix}base_link">
-		    <inertial>
-		      <origin
-			xyz="0 9.68920591007408E-05 0.538248432765216"
-			rpy="0 0 0" />
-		      <mass
-			value="48654.354928172" />
-		      <inertia
-			ixx="51563.7946245021"
-			ixy="0.552841467322453"
-			ixz="-212.267889356987"
-			iyy="49495.9076886951"
-			iyz="1.80688027777408"
-			izz="54368.3241585813" />
-		    </inertial>
 		    <visual>
 		      <origin
 			xyz="0 0 0"
@@ -45,20 +31,6 @@
 		  </link>
 
 		  <link name="${prefix}link_1">
-		    <inertial>
-		      <origin
-			xyz="0.0335399435995477 9.68920591007463E-05 0.293476071945811"
-			rpy="0 0 0" />
-		      <mass
-			value="48654.354928172" />
-		      <inertia
-			ixx="51563.7946245021"
-			ixy="0.552841467322453"
-			ixz="-212.267889356987"
-			iyy="49495.9076886951"
-			iyz="1.80688027777408"
-			izz="54368.3241585813" />
-		    </inertial>
 		    <visual>
 		      <origin
 			xyz="0 0 0"
@@ -85,20 +57,6 @@
 		  </link>
 
 		  <link name="${prefix}link_2">
-		    <inertial>
-		      <origin
-			xyz="-0.116459985096576 -0.187496105761522 0.0134762050463809"
-			rpy="0 0 0" />
-		      <mass
-			value="48654.354928172" />
-		      <inertia
-			ixx="51563.7946245021"
-			ixy="0.552841467322453"
-			ixz="-212.267889356987"
-			iyy="49495.9076886951"
-			iyz="1.80688027777408"
-			izz="54368.3241585813" />
-		    </inertial>
 		    <visual>
 		      <origin
 			xyz="0 0 0"
@@ -125,20 +83,6 @@
 		  </link>
 
 		  <link name="${prefix}link_3">
-		    <inertial>
-		      <origin
-			xyz="-0.116459985097232 0.000649393837860671 -0.7565234388513"
-			rpy="0 0 0" />
-		      <mass
-			value="48654.354928172" />
-		      <inertia
-			ixx="51563.7946245021"
-			ixy="0.552841467322453"
-			ixz="-212.267889356987"
-			iyy="49495.9076886951"
-			iyz="1.80688027777408"
-			izz="54368.3241585813" />
-		    </inertial>
 		    <visual>
 		      <origin
 			xyz="0 0 0"
@@ -165,20 +109,6 @@
 		  </link>
 
 		  <link name="${prefix}link_4">
-		    <inertial>
-		      <origin
-			xyz="-0.301157421773673 0.000649393837861561 -0.856523437562654"
-			rpy="0 0 0" />
-		      <mass
-			value="48654.354928172" />
-		      <inertia
-			ixx="51563.7946245021"
-			ixy="0.552841467322453"
-			ixz="-212.267889356987"
-			iyy="49495.9076886951"
-			iyz="1.80688027777408"
-			izz="54368.3241585813" />
-		    </inertial>
 		    <visual>
 		      <origin
 			xyz="0 0 0"
@@ -205,20 +135,6 @@
 		  </link>
 
 		  <link name="${prefix}link_5">
-		    <inertial>
-		      <origin
-			xyz="-0.856906936709003 0.000456131051686355 -0.857257705801685"
-			rpy="0 0 0" />
-		      <mass
-			value="48654.354928172" />
-		      <inertia
-			ixx="51563.7946245021"
-			ixy="0.552841467322453"
-			ixz="-212.267889356987"
-			iyy="49495.9076886951"
-			iyz="1.80688027777408"
-			izz="54368.3241585813" />
-		    </inertial>
 		    <visual>
 		      <origin
 			xyz="0 0 0"
@@ -245,20 +161,6 @@
 		  </link>
 
 		  <link name="${prefix}link_6">
-		    <inertial>
-		      <origin
-			xyz="-0.957051849301239 0.000456131051686355 -0.857390019418947"
-			rpy="0 0 0" />
-		      <mass
-			value="48654.354928172" />
-		      <inertia
-			ixx="51563.7946245021"
-			ixy="0.552841467322453"
-			ixz="-212.267889356987"
-			iyy="49495.9076886951"
-			iyz="1.80688027777408"
-			izz="54368.3241585813" />
-		    </inertial>
 		    <visual>
 		      <origin
 			xyz="0 0 0"
@@ -284,13 +186,13 @@
 		    </collision>
 		  </link>
 
-        	  <link name="${prefix}tool0"/>
+          <link name="${prefix}tool0"/>
 
 	<!-- joints -->
 
 		  <joint name="${prefix}joint_1" type="revolute">
 		    <origin
-		      xyz="0 0 0.24477"
+		      xyz="0 0 0.245"
 		      rpy="0 0 0" />
 		    <parent
 		      link="base_link" />
@@ -302,18 +204,7 @@
 		      lower="-2.967"
 		      upper="2.967"
 		      effort="0"
-		      velocity="2.8" />
-		    <calibration
-		      rising="0"
-		      falling="0" />
-		    <dynamics
-		      damping="0"
-		      friction="0" />
-		    <!--safety_controller
-		      soft_lower_limit="0"
-		      soft_upper_limit="0"
-		      k_position="0"
-		      k_velocity="0" /-->
+		      velocity="2.879" />
 		  </joint>
 
 		  <joint name="${prefix}joint_2" type="revolute">
@@ -330,23 +221,12 @@
 		      lower="-1.38"
 		      upper="2.78"
 		      effort="0"
-		      velocity="2.8" />
-		    <calibration
-		      rising="0"
-		      falling="0" />
-		    <dynamics
-		      damping="0"
-		      friction="0" />
-		    <!--safety_controller
-		      soft_lower_limit="0"
-		      soft_upper_limit="0"
-		      k_position="0"
-		      k_velocity="0" /-->
+		      velocity="2.879" />
 		  </joint>
 		  
 		  <joint name="${prefix}joint_3" type="revolute">
 		    <origin
-		      xyz="0 -0.18815 0.77"
+		      xyz="0 -0.18759 0.77"
 		      rpy="0 0 0" />
 		    <parent
 		      link="link_2" />
@@ -355,26 +235,15 @@
 		    <axis
 		      xyz="0 -1 0" />
 		    <limit
-		      lower="4.08"
+		      lower="-4.08"
 		      upper="1.38"
 		      effort="0"
-		      velocity="3.0" />
-		    <calibration
-		      rising="0"
-		      falling="0" />
-		    <dynamics
-		      damping="0"
-		      friction="0" />
-		    <!--safety_controller
-		      soft_lower_limit="0"
-		      soft_upper_limit="0"
-		      k_position="0"
-		      k_velocity="0" /-->
+		      velocity="3.054" />
 		  </joint>
 
 		  <joint name="${prefix}joint_4" type="revolute">
 		    <origin
-		      xyz="0.1847 0 0.1"
+		      xyz="0.18425 0 0.1"
 		      rpy="0 0 0" />
 		    <parent
 		      link="link_3" />
@@ -386,23 +255,12 @@
 		      lower="-3.48"
 		      upper="3.48"
 		      effort="0"
-		      velocity="6.1" />
-		    <calibration
-		      rising="0"
-		      falling="0" />
-		    <dynamics
-		      damping="0"
-		      friction="0" />
-		    <!--safety_controller
-		      soft_lower_limit="0"
-		      soft_upper_limit="0"
-		      k_position="0"
-		      k_velocity="0" /-->
+		      velocity="6.108" />
 		  </joint>
 
 		  <joint name="${prefix}joint_5" type="revolute">
 		    <origin
-		      xyz="0.55575 0.00019326 0.00073427"
+		      xyz="0.55575 0 0"
 		      rpy="0 0 0" />
 		    <parent
 		      link="link_4" />
@@ -414,23 +272,12 @@
 		      lower="-2.43"
 		      upper="2.43"
 		      effort="0"
-		      velocity="5.9" />
-		    <calibration
-		      rising="0"
-		      falling="0" />
-		    <dynamics
-		      damping="0"
-		      friction="0" />
-		    <!--safety_controller
-		      soft_lower_limit="0"
-		      soft_upper_limit="0"
-		      k_position="0"
-		      k_velocity="0" /-->
+		      velocity="5.934" />
 		  </joint>
 
 		  <joint name="${prefix}joint_6" type="revolute">
 		    <origin
-		      xyz="0.10014 0 0.00013231"
+		      xyz="0.1 0 0"
 		      rpy="0 0 0" />
 		    <parent
 		      link="link_5" />
@@ -442,18 +289,7 @@
 		      lower="-7.84"
 		      upper="7.84"
 		      effort="0"
-		      velocity="9.0" />
-		    <calibration
-		      rising="0"
-		      falling="0" />
-		    <dynamics
-		      damping="0"
-		      friction="0" />
-		    <!--safety_controller
-		      soft_lower_limit="0"
-		      soft_upper_limit="0"
-		      k_position="0"
-		      k_velocity="0" /-->
+		      velocity="9.075" />
 		  </joint>
 
 		  <joint name="${prefix}joint_6-tool0" type="fixed">

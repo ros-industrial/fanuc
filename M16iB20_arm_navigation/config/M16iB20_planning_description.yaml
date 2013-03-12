@@ -4,17 +4,9 @@ multi_dof_joints:
     parent_frame_id: base_link
     child_frame_id: base_link
 groups:
-  - name: end_effector
-    joints:
-      - joint_1
-      - joint_2
-      - joint_3
-      - joint_4
-      - joint_5
-      - joint_6
   - name: manipulator
     base_link: base_link
-    tip_link: link_6
+    tip_link: tool0
 default_collision_operations:
   - object1: base_link
     object2: link_1
@@ -37,27 +29,15 @@ default_collision_operations:
   - object1: link_6
     object2: tool0
     operation: disable  # Adjacent in collision
+  - object1: base_link
+    object2: link_3
+    operation: disable  # Never in collision
   - object1: link_1
     object2: link_3
     operation: disable  # Never in collision
-  - object1: link_2
-    object2: link_4
-    operation: disable  # Never in collision
-  - object1: link_2
-    object2: link_5
-    operation: disable  # Never in collision
-  - object1: link_2
-    object2: link_6
-    operation: disable  # Never in collision
-  - object1: link_2
-    object2: base_link
-    operation: disable  # Never in collision
   - object1: link_3
     object2: link_5
     operation: disable  # Never in collision
   - object1: link_3
     object2: link_6
-    operation: disable  # Never in collision
-  - object1: link_3
-    object2: base_link
     operation: disable  # Never in collision

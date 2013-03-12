@@ -5,11 +5,6 @@
 <!-- =================================================================================== -->
 <robot name="M16iB20" xmlns:xacro="http://ros.org/wiki/xacro">
   <link name="base_link">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 9.68920591007408E-05 0.538248432765216"/>
-      <mass value="48654.354928172"/>
-      <inertia ixx="51563.7946245021" ixy="0.552841467322453" ixz="-212.267889356987" iyy="49495.9076886951" iyz="1.80688027777408" izz="54368.3241585813"/>
-    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -27,11 +22,6 @@
     </collision>
   </link>
   <link name="link_1">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0335399435995477 9.68920591007463E-05 0.293476071945811"/>
-      <mass value="48654.354928172"/>
-      <inertia ixx="51563.7946245021" ixy="0.552841467322453" ixz="-212.267889356987" iyy="49495.9076886951" iyz="1.80688027777408" izz="54368.3241585813"/>
-    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -49,11 +39,6 @@
     </collision>
   </link>
   <link name="link_2">
-    <inertial>
-      <origin rpy="0 0 0" xyz="-0.116459985096576 -0.187496105761522 0.0134762050463809"/>
-      <mass value="48654.354928172"/>
-      <inertia ixx="51563.7946245021" ixy="0.552841467322453" ixz="-212.267889356987" iyy="49495.9076886951" iyz="1.80688027777408" izz="54368.3241585813"/>
-    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -71,11 +56,6 @@
     </collision>
   </link>
   <link name="link_3">
-    <inertial>
-      <origin rpy="0 0 0" xyz="-0.116459985097232 0.000649393837860671 -0.7565234388513"/>
-      <mass value="48654.354928172"/>
-      <inertia ixx="51563.7946245021" ixy="0.552841467322453" ixz="-212.267889356987" iyy="49495.9076886951" iyz="1.80688027777408" izz="54368.3241585813"/>
-    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -93,11 +73,6 @@
     </collision>
   </link>
   <link name="link_4">
-    <inertial>
-      <origin rpy="0 0 0" xyz="-0.301157421773673 0.000649393837861561 -0.856523437562654"/>
-      <mass value="48654.354928172"/>
-      <inertia ixx="51563.7946245021" ixy="0.552841467322453" ixz="-212.267889356987" iyy="49495.9076886951" iyz="1.80688027777408" izz="54368.3241585813"/>
-    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -115,11 +90,6 @@
     </collision>
   </link>
   <link name="link_5">
-    <inertial>
-      <origin rpy="0 0 0" xyz="-0.856906936709003 0.000456131051686355 -0.857257705801685"/>
-      <mass value="48654.354928172"/>
-      <inertia ixx="51563.7946245021" ixy="0.552841467322453" ixz="-212.267889356987" iyy="49495.9076886951" iyz="1.80688027777408" izz="54368.3241585813"/>
-    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -137,11 +107,6 @@
     </collision>
   </link>
   <link name="link_6">
-    <inertial>
-      <origin rpy="0 0 0" xyz="-0.957051849301239 0.000456131051686355 -0.857390019418947"/>
-      <mass value="48654.354928172"/>
-      <inertia ixx="51563.7946245021" ixy="0.552841467322453" ixz="-212.267889356987" iyy="49495.9076886951" iyz="1.80688027777408" izz="54368.3241585813"/>
-    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -160,88 +125,46 @@
   </link>
   <link name="tool0"/>
   <joint name="joint_1" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0 0.24477"/>
+    <origin rpy="0 0 0" xyz="0 0 0.245"/>
     <parent link="base_link"/>
     <child link="link_1"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0" lower="-2.967" upper="2.967" velocity="2.8"/>
-    <calibration falling="0" rising="0"/>
-    <dynamics damping="0" friction="0"/>
-    <!--safety_controller
-		      soft_lower_limit="0"
-		      soft_upper_limit="0"
-		      k_position="0"
-		      k_velocity="0" /-->
+    <limit effort="0" lower="-2.967" upper="2.967" velocity="2.879"/>
   </joint>
   <joint name="joint_2" type="revolute">
     <origin rpy="0 0 0" xyz="0.15 0.18759 0.28"/>
     <parent link="link_1"/>
     <child link="link_2"/>
     <axis xyz="0 1 0"/>
-    <limit effort="0" lower="-1.39" upper="2.78" velocity="2.8"/>
-    <calibration falling="0" rising="0"/>
-    <dynamics damping="0" friction="0"/>
-    <!--safety_controller
-		      soft_lower_limit="0"
-		      soft_upper_limit="0"
-		      k_position="0"
-		      k_velocity="0" /-->
+    <limit effort="0" lower="-1.38" upper="2.78" velocity="2.879"/>
   </joint>
   <joint name="joint_3" type="revolute">
-    <origin rpy="0 0 0" xyz="0 -0.18815 0.77"/>
+    <origin rpy="0 0 0" xyz="0 -0.18759 0.77"/>
     <parent link="link_2"/>
     <child link="link_3"/>
     <axis xyz="0 -1 0"/>
-    <limit effort="0" lower="-4.21" upper="1.45" velocity="3.0"/>
-    <calibration falling="0" rising="0"/>
-    <dynamics damping="0" friction="0"/>
-    <!--safety_controller
-		      soft_lower_limit="0"
-		      soft_upper_limit="0"
-		      k_position="0"
-		      k_velocity="0" /-->
+    <limit effort="0" lower="-4.08" upper="1.38" velocity="3.054"/>
   </joint>
   <joint name="joint_4" type="revolute">
-    <origin rpy="0 0 0" xyz="0.1847 0 0.1"/>
+    <origin rpy="0 0 0" xyz="0.18425 0 0.1"/>
     <parent link="link_3"/>
     <child link="link_4"/>
     <axis xyz="-1 0 0"/>
-    <limit effort="0" lower="-3.48" upper="3.48" velocity="6.1"/>
-    <calibration falling="0" rising="0"/>
-    <dynamics damping="0" friction="0"/>
-    <!--safety_controller
-		      soft_lower_limit="0"
-		      soft_upper_limit="0"
-		      k_position="0"
-		      k_velocity="0" /-->
+    <limit effort="0" lower="-3.48" upper="3.48" velocity="6.108"/>
   </joint>
   <joint name="joint_5" type="revolute">
-    <origin rpy="0 0 0" xyz="0.55575 0.00019326 0.00073427"/>
+    <origin rpy="0 0 0" xyz="0.55575 0 0"/>
     <parent link="link_4"/>
     <child link="link_5"/>
     <axis xyz="0 -1 0"/>
-    <limit effort="0" lower="-2.44" upper="2.44" velocity="5.9"/>
-    <calibration falling="0" rising="0"/>
-    <dynamics damping="0" friction="0"/>
-    <!--safety_controller
-		      soft_lower_limit="0"
-		      soft_upper_limit="0"
-		      k_position="0"
-		      k_velocity="0" /-->
+    <limit effort="0" lower="-2.43" upper="2.43" velocity="5.934"/>
   </joint>
   <joint name="joint_6" type="revolute">
-    <origin rpy="0 0 0" xyz="0.10014 0 0.00013231"/>
+    <origin rpy="0 0 0" xyz="0.1 0 0"/>
     <parent link="link_5"/>
     <child link="link_6"/>
-    <axis xyz="-1 0 -0.0013212"/>
-    <limit effort="0" lower="-7.85" upper="7.85" velocity="9.0"/>
-    <calibration falling="0" rising="0"/>
-    <dynamics damping="0" friction="0"/>
-    <!--safety_controller
-		      soft_lower_limit="0"
-		      soft_upper_limit="0"
-		      k_position="0"
-		      k_velocity="0" /-->
+    <axis xyz="-1 0 0"/>
+    <limit effort="0" lower="-7.84" upper="7.84" velocity="9.075"/>
   </joint>
   <joint name="joint_6-tool0" type="fixed">
     <parent link="link_6"/>

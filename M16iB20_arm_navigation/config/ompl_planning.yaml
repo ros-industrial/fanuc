@@ -4,15 +4,8 @@ planner_configs:
   LBKPIECEkConfig1:
     type: kinematic::LBKPIECE
 groups:
-  - end_effector
   - manipulator
   - manipulator_cartesian
-end_effector:
-  planner_type: JointPlanner
-  planner_configs:
-    - SBLkConfig1
-    - LBKPIECEkConfig1
-  projection_evaluator: joint_state
 manipulator:
   planner_type: JointPlanner
   planner_configs:
@@ -52,7 +45,7 @@ manipulator_cartesian:
     - SBLkConfig1
     - LBKPIECEkConfig1
   kinematics_solver: arm_kinematics_constraint_aware/KDLArmKinematicsPlugin
-  tip_name: link_6
+  tip_name: tool0
   root_name: base_link
   projection_evaluator: joint_state
   longest_valid_segment_fraction: 0.001
