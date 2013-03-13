@@ -21,6 +21,7 @@
   <depend package="interpolated_ik_motion_planner"/>
   <depend package="rviz"/>
   <depend package="move_arm_warehouse"/>
+  <depend package="industrial_deprecated"/>
   <export>
     <kinematics_base plugin="${prefix}/kinematics_plugins.xml"/>
   </export>
