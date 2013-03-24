@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-	<xacro:macro name="m10iA" params="prefix">
+	<xacro:macro name="m10ia" params="prefix">
 		<!-- link list -->
 		<link name="${prefix}base_link">
 			<visual>
@@ -9,7 +9,7 @@
        			rpy="-1.578 0 0" />
       			<geometry>
         			<mesh
-          			filename="package://fanuc_config/meshes/m_10iA/visual/base_link.stl" />
+          			filename="package://fanuc_config/meshes/m10ia/visual/base_link.stl" />
       			</geometry>
       			<material
         			name="grey">
@@ -22,7 +22,7 @@
         		xyz="0 0 0"
        			rpy="-1.578 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_10iA/collision/base_link.stl" />
+					<mesh filename="package://fanuc_config/meshes/m10ia/collision/base_link.stl" />
 				</geometry>
 				<material name="yellow">
 					<color rgba="1 1 0 1"/>
@@ -37,7 +37,7 @@
         			rpy="0 0 0" />
       			<geometry>
         			<mesh
-          			filename="package://fanuc_config/meshes/m_10iA/visual/link_1.stl" />
+          			filename="package://fanuc_config/meshes/m10ia/visual/link_1.stl" />
       			</geometry>
       			<material name="grey"/>
     		</visual>
@@ -46,7 +46,7 @@
         			xyz="0 0 0"
         			rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_10iA/collision/link_1.stl" />
+					<mesh filename="package://fanuc_config/meshes/m10ia/collision/link_1.stl" />
 				</geometry>
 				<material name="yellow"/>
 			</collision>
@@ -59,7 +59,7 @@
         			rpy="0 0 0" />
       			<geometry>
         			<mesh
-          			filename="package://fanuc_config/meshes/m_10iA/visual/link_2.stl" />
+          			filename="package://fanuc_config/meshes/m10ia/visual/link_2.stl" />
       			</geometry>
       			<material name="grey"/>
     		</visual>
@@ -68,7 +68,7 @@
         			xyz="0 0 0"
         			rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_10iA/collision/link_2.stl" />
+					<mesh filename="package://fanuc_config/meshes/m10ia/collision/link_2.stl" />
 				</geometry>
 				<material name="yellow"/>
 			</collision>
@@ -81,7 +81,7 @@
 					rpy="0 0 0" />
 			  	<geometry>
 					<mesh
-				  	filename="package://fanuc_config/meshes/m_10iA/visual/link_3.stl" />
+				  	filename="package://fanuc_config/meshes/m10ia/visual/link_3.stl" />
 			  	</geometry>
 			  	<material name="grey"/>
 			</visual>
@@ -90,7 +90,7 @@
         			xyz="0 0 0"
         			rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_10iA/collision/link_3.stl" />
+					<mesh filename="package://fanuc_config/meshes/m10ia/collision/link_3.stl" />
 				</geometry>
 				<material name="yellow"/>
 			</collision>
@@ -103,7 +103,7 @@
 					rpy="0 0 0" />
 				  <geometry>
 					<mesh
-					  filename="package://fanuc_config/meshes/m_10iA/visual/link_4.stl" />
+					  filename="package://fanuc_config/meshes/m10ia/visual/link_4.stl" />
 				  </geometry>
 				  <material name="grey"/>
 			</visual>
@@ -112,7 +112,7 @@
         			xyz="0 0 0"
         			rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_10iA/collision/link_4.stl" />
+					<mesh filename="package://fanuc_config/meshes/m10ia/collision/link_4.stl" />
 				</geometry>
 				<material name="yellow"/>
 			</collision>
@@ -125,7 +125,7 @@
 					rpy="0 0 0" />
 				<geometry>
 					<mesh
-					  filename="package://fanuc_config/meshes/m_10iA/visual/link_5.stl" />
+					  filename="package://fanuc_config/meshes/m10ia/visual/link_5.stl" />
 				</geometry>
 				<material name="grey"/>
 			</visual>
@@ -134,7 +134,7 @@
         			xyz="0 0 0"
         			rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_10iA/collision/link_5.stl" />
+					<mesh filename="package://fanuc_config/meshes/m10ia/collision/link_5.stl" />
 				</geometry>
 				<material name="yellow"/>
 			</collision>
@@ -147,7 +147,7 @@
 					rpy="0 0 0" />
 				<geometry>
 					<mesh
-					  filename="package://fanuc_config/meshes/m_10iA/visual/link_6.stl" />
+					  filename="package://fanuc_config/meshes/m10ia/visual/link_6.stl" />
 				</geometry>
 				<material name="grey"/>
 			</visual>
@@ -156,7 +156,7 @@
         			xyz="0 0 0"
         			rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_10iA/collision/link_6.stl" />
+					<mesh filename="package://fanuc_config/meshes/m10ia/collision/link_6.stl" />
 				</geometry>
 				<material name="yellow"/>
 			</collision>

@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-    <xacro:macro name="m430iA2F" params="prefix">
+    <xacro:macro name="m430ia2f" params="prefix">
 
         <!-- links -->
 		<link name="${prefix}base_link">
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_430iA/visual/base_link.stl" />
+					<mesh filename="package://fanuc_config/meshes/m430ia2f/visual/base_link.stl" />
 				</geometry>
 				<material name="white">
 					<color rgba="1 1 1 1" />
@@ -16,7 +16,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_430iA/collision/base_link.stl" />
+					<mesh filename="package://fanuc_config/meshes/m430ia2f/collision/base_link.stl" />
 				</geometry>
 			</collision>
 		</link>
@@ -24,7 +24,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_430iA/visual/link_1.stl" />
+					<mesh filename="package://fanuc_config/meshes/m430ia2f/visual/link_1.stl" />
 				</geometry>
 				<material name="">
 					<color rgba="0.89804 0.89804 0.89804 1" />
@@ -33,7 +33,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_430iA/collision/link_1.stl" />
+					<mesh filename="package://fanuc_config/meshes/m430ia2f/collision/link_1.stl" />
 				</geometry>
 			</collision>
 		</link>
@@ -41,7 +41,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_430iA/visual/link_2.stl" />
+					<mesh filename="package://fanuc_config/meshes/m430ia2f/visual/link_2.stl" />
 				</geometry>
 				<material name="">
 					<color rgba="0.89804 0.89804 0.89804 1" />
@@ -50,7 +50,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_430iA/collision/link_2.stl" />
+					<mesh filename="package://fanuc_config/meshes/m430ia2f/collision/link_2.stl" />
 				</geometry>
 			</collision>
 		</link>
@@ -58,7 +58,7 @@
 			<visual>
 				<origin xyz="0 0 0.053" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_430iA/visual/link_3.stl" />
+					<mesh filename="package://fanuc_config/meshes/m430ia2f/visual/link_3.stl" />
 				</geometry>
 				<material name="">
 					<color rgba="0.89804 0.89804 0.89804 1" />
@@ -67,7 +67,7 @@
 			<collision>
 				<origin xyz="0 0 0.053" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_430iA/collision/link_3.stl" />
+					<mesh filename="package://fanuc_config/meshes/m430ia2f/collision/link_3.stl" />
 				</geometry>
 			</collision>
 		</link>
@@ -75,7 +75,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_430iA/visual/link_4.stl" />
+					<mesh filename="package://fanuc_config/meshes/m430ia2f/visual/link_4.stl" />
 				</geometry>
 				<material name="">
 					<color rgba="0.89804 0.89804 0.89804 1" />
@@ -84,7 +84,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_430iA/collision/link_4.stl" />
+					<mesh filename="package://fanuc_config/meshes/m430ia2f/collision/link_4.stl" />
 				</geometry>
 			</collision>
 		</link>
@@ -92,7 +92,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_430iA/visual/link_5.stl" />
+					<mesh filename="package://fanuc_config/meshes/m430ia2f/visual/link_5.stl" />
 				</geometry>
 				<material name="">
 					<color rgba="0.75294 0.75294 0.75294 1" />
@@ -101,7 +101,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://fanuc_config/meshes/m_430iA/collision/link_5.stl" />
+					<mesh filename="package://fanuc_config/meshes/m430ia2f/collision/link_5.stl" />
 				</geometry>
 			</collision>
 		</link>
