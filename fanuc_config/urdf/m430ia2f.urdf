@@ -113,10 +113,6 @@
     <child link="link_1"/>
     <axis xyz="0 0 1"/>
     <limit effort="0" lower="-3.1415" upper="3.1415" velocity="5.23598775598"/>
-    <!-- calibration rising="0" falling="0" />
-            <dynamics damping="0" friction="0" />
-            <safety_controller soft_lower_limit="0"
-                soft_upper_limit="0" k_position="0" k_velocity="0" / -->
   </joint>
   <joint name="joint_2" type="revolute">
     <origin rpy="0 0 0" xyz="-1.4097E-17 0.171 -4.4409E-16"/>
@@ -124,10 +120,6 @@
     <child link="link_2"/>
     <axis xyz="0 1 0"/>
     <limit effort="0" lower="-2.00707" upper="2.00707" velocity="5.58505360638"/>
-    <!-- calibration rising="0" falling="0" />
-            <dynamics damping="0" friction="0" />
-            <safety_controller soft_lower_limit="0"
-                soft_upper_limit="0" k_position="0" k_velocity="0" / -->
   </joint>
   <joint name="joint_3" type="revolute">
     <!-- origin xyz="1.2197E-19 -0.171 0.403" rpy="0 0 0" / -->
@@ -136,10 +128,6 @@
     <child link="link_3"/>
     <axis xyz="0 1 0"/>
     <limit effort="0" lower="-1.771457" upper="1.771457" velocity="5.58505360638"/>
-    <!-- calibration rising="0" falling="0" />
-            <dynamics damping="0" friction="0" />
-            <safety_controller soft_lower_limit="0"
-                soft_upper_limit="0" k_position="0" k_velocity="0" / -->
   </joint>
   <joint name="joint_4" type="revolute">
     <!-- origin xyz="-2.6075E-17 -0.06 0.497" rpy="0 0 0" / -->
@@ -148,10 +136,6 @@
     <child link="link_4"/>
     <axis xyz="0 1 0"/>
     <limit effort="0" lower="-2.617917" upper="2.617917" velocity="6.28318530718"/>
-    <!-- calibration rising="0" falling="0" />
-            <dynamics damping="0" friction="0" />
-            <safety_controller soft_lower_limit="0"
-                soft_upper_limit="0" k_position="0" k_velocity="0" / -->
   </joint>
   <joint name="joint_5" type="revolute">
     <origin rpy="0 0 0" xyz="1.4734E-16 -0.035 0.065"/>
@@ -159,10 +143,6 @@
     <child link="link_5"/>
     <axis xyz="0 0 1"/>
     <limit effort="0" lower="-4.71225" upper="4.71225" velocity="20.9439510239"/>
-    <!-- calibration rising="0" falling="0" />
-            <dynamics damping="0" friction="0" />
-            <safety_controller soft_lower_limit="0"
-                soft_upper_limit="0" k_position="0" k_velocity="0" / -->
   </joint>
   <joint name="joint_5-tool0" type="fixed">
     <parent link="link_5"/>
