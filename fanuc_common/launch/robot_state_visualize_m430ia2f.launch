@@ -7,7 +7,7 @@
    - 5 joints
 
   Usage:
-    visualize_m430iA2F.launch robot_ip:=<value>
+    visualize_m430ia2f.launch robot_ip:=<value>
  -->
 <launch>
   <arg name="robot_ip" />
@@ -25,7 +25,7 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" 
       type="state_publisher" />
 
-  <include file="$(find fanuc_config)/launch/load_m430iA2F.launch" />
+  <include file="$(find fanuc_config)/launch/load_m430ia2f.launch" />
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find industrial_robot_client)/config/robot_state_visualize.rviz" required="true" />
 </launch>
