@@ -29,15 +29,6 @@ default_collision_operations:
   - object1: base_link
     object2: link_2
     operation: disable  # Never in collision
-  - object1: base_link
-    object2: link_4
-    operation: disable  # Never in collision
-  - object1: base_link
-    object2: link_5
-    operation: disable  # Never in collision
-  - object1: link_1
-    object2: link_3
-    operation: disable  # Never in collision
   - object1: link_1
     object2: link_4
     operation: disable  # Never in collision
