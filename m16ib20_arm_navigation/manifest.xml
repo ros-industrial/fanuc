@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='ASCII'?>
 <package>
-  <description brief="M16iB20_arm_navigation">
+  <description brief="m16ib20_arm_navigation">
 
-     M16iB20_arm_navigation
+     m16ib20_arm_navigation
 
   </description>
   <author>Michael O. Blanton Jr</author>
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/M16iB20_arm_navigation</url>
+  <url>http://ros.org/wiki/m16ib20_arm_navigation</url>
   <depend package="planning_environment"/>
   <depend package="kinematics_base"/>
   <depend package="arm_kinematics_constraint_aware"/>
