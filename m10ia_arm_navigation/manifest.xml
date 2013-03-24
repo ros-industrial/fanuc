@@ -1,13 +1,13 @@
 <package>
-  <description brief="m10iA_arm_navigation">
+  <description brief="m10ia_arm_navigation">
 
-     m10iA_arm_navigation
+     m10ia_arm_navigation
 
   </description>
   <author>Christina Gomez (Southwest Research Institute)</author>
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/m10iA_arm_navigation</url>
+  <url>http://ros.org/wiki/m10ia_arm_navigation</url>
   <depend package="planning_environment"/>
   <depend package="kinematics_base"/>
   <depend package="arm_kinematics_constraint_aware"/>

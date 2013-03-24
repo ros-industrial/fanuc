@@ -1,3 +1,3 @@
 <launch>
-    <include file="$(find m430iA2F_arm_navigation)/launch/move_manipulator.launch" />
+    <include file="$(find m430ia2f_arm_navigation)/launch/move_manipulator.launch" />
 </launch>

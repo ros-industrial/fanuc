@@ -4,17 +4,17 @@ planner_configs:
   LBKPIECEkConfig1:
     type: kinematic::LBKPIECE
 groups:
-  - m10iA_manipulator
-  - m10iA_manipulator_cartesian
-m10iA_manipulator:
+  - m10ia_manipulator
+  - m10ia_manipulator_cartesian
+m10ia_manipulator:
   planner_type: JointPlanner
   planner_configs:
     - SBLkConfig1
     - LBKPIECEkConfig1
   projection_evaluator: joint_state
-m10iA_manipulator_cartesian:
+m10ia_manipulator_cartesian:
   parent_frame: base_link
-  physical_group: m10iA_manipulator
+  physical_group: m10ia_manipulator
   planner_type: RPYIKTaskSpacePlanner
   state_spaces:
     - x
