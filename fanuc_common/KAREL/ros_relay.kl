@@ -233,20 +233,29 @@ BEGIN
 						-- 
 						CASE (RI_SEQ_STRJD):
 							log_info(LOG_PFIX + 'Download start')
+							log_warn(LOG_PFIX + 'Trajectory downloading not supported')
 
 						-- 
 						CASE (RI_SEQ_STRJS):
 							log_info(LOG_PFIX + 'Stream start')
+							log_warn(LOG_PFIX + 'Trajectory stream start unhandled, ignoring point')
 
 						-- 
 						CASE (RI_SEQ_ETRAJ):
 							log_info(LOG_PFIX + 'Trajectory end')
+							log_warn(LOG_PFIX + 'Trajectory end unhandled, not supported')
 
 						-- 
 						CASE (RI_SEQ_STPRJ):
 							log_info(LOG_PFIX + 'Trajectory stop')
 							-- cancel motion (if any)
 							CANCEL
+							stat_ = req_next(pkt_in, sock_fd_)
+							IF stat_ <> 0 THEN
+								-- can't continue
+								log_error_a(LOG_PFIX + 'Failed to ack stop, err:', stat_)
+								GOTO exit_discon
+							ENDIF
 
 						-- unknown special sequence nr
 						ELSE:
