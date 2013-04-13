@@ -102,7 +102,7 @@ ROUTINE ihdr_reset
 BEGIN
 
 	USING this DO
-		length_     =  RI_SZ_HDR
+		length_     =  0
 		msg_type_   =  RI_MT_INVAL
 		comm_type_  =  RI_CT_INVAL
 		reply_type_ =  RI_RT_INVAL
