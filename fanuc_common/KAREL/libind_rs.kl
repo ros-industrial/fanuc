@@ -155,7 +155,18 @@ BEGIN
    -- e-stop
    this.e_stopped_ = TS_UNKNOWN
    
+   -- (VERIFIED) in motion
+   IF irs_in_mtn  THEN
+   	this.in_motion_ = TS_TRUE
+   ELSE
+   	this.in_motion_ = TS_FALSE
+   ENDIF
+   
+   
+   -- POTENTIALLY CAUSES ISSUE ON CONTROLLERS WITHOUT EXTENED IO BOARD
+   -- (OPIN/OUT > 16 MAY NOT BE PRESENT
    -- drive power (see table 15-4, KAREL Reference Manual)
+   
    IF OPOUT[17] THEN
       this.drv_pwd_ = TS_TRUE
    ENDIF
@@ -163,13 +174,6 @@ BEGIN
    -- motion enable (see table 15-3, KAREL Reference Manual)
    IF OPIN[23] THEN
       this.mtn_psble_ = TS_TRUE
-   ENDIF
-   
-   -- (VERIFIED) in motion
-   IF irs_in_mtn  THEN
-   	this.in_motion_ = TS_TRUE
-   ELSE
-   	this.in_motion_ = TS_FALSE
    ENDIF
    
    -- fault indicator (see table 15-4, KAREL Reference Manual)
