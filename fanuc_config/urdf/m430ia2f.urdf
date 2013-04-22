@@ -11,7 +11,7 @@
         <mesh filename="package://fanuc_config/meshes/m430ia2f/visual/base_link.stl"/>
       </geometry>
       <material name="white">
-        <color rgba="1 1 1 1"/>
+        <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
@@ -57,6 +57,10 @@
   </link>
   <link name="link_3">
     <visual>
+      <!-- coordinate origin for link_3 is not at mate centre, -->
+      <!-- so compensate (53mm dZ between link_3-link_2 mate -->
+      <!-- and coordinate origin) -->
+      <!-- origin xyz="0 0 0" rpy="0 0 0"/ -->
       <origin rpy="0 0 0" xyz="0 0 0.053"/>
       <geometry>
         <mesh filename="package://fanuc_config/meshes/m430ia2f/visual/link_3.stl"/>
@@ -66,6 +70,8 @@
       </material>
     </visual>
     <collision>
+      <!-- see earlier comment -->
+      <!-- origin xyz="0 0 0" rpy="0 0 0"/ -->
       <origin rpy="0 0 0" xyz="0 0 0.053"/>
       <geometry>
         <mesh filename="package://fanuc_config/meshes/m430ia2f/collision/link_3.stl"/>
@@ -108,37 +114,39 @@
   </link>
   <link name="tool0"/>
   <joint name="joint_1" type="revolute">
-    <origin rpy="0 0 0" xyz="-6.0758E-19 1.2493E-16 0.44"/>
+    <origin rpy="0 0 0" xyz="0 0 0.44"/>
     <parent link="base_link"/>
     <child link="link_1"/>
     <axis xyz="0 0 1"/>
     <limit effort="0" lower="-3.1415" upper="3.1415" velocity="5.24"/>
   </joint>
   <joint name="joint_2" type="revolute">
-    <origin rpy="0 0 0" xyz="-1.4097E-17 0.171 -4.4409E-16"/>
+    <origin rpy="0 0 0" xyz="0 0.171 0"/>
     <parent link="link_1"/>
     <child link="link_2"/>
     <axis xyz="0 1 0"/>
     <limit effort="0" lower="-2.01" upper="2.01" velocity="5.59"/>
   </joint>
   <joint name="joint_3" type="revolute">
-    <!-- origin xyz="1.2197E-19 -0.171 0.403" rpy="0 0 0" / -->
-    <origin rpy="0 0 0" xyz="1.2197E-19 -0.171 0.350"/>
+    <!-- see earlier comment -->
+    <!-- origin xyz="0 -0.171 0.403" rpy="0 0 0"/ -->
+    <origin rpy="0 0 0" xyz="0 -0.171 0.35"/>
     <parent link="link_2"/>
     <child link="link_3"/>
     <axis xyz="0 1 0"/>
-    <limit effort="0" lower="-3.49" upper="3.49" velocity="5.59"/>
+    <limit effort="0" lower="-3.34" upper="3.34" velocity="5.59"/>
   </joint>
   <joint name="joint_4" type="revolute">
-    <!-- origin xyz="-2.6075E-17 -0.06 0.497" rpy="0 0 0" / -->
-    <origin rpy="0 0 0" xyz="-2.6075E-17 -0.06 0.55"/>
+    <!-- see earlier comment -->
+    <!-- origin xyz="0 -0.06 0.497" rpy="0 0 0"/ -->
+    <origin rpy="0 0 0" xyz="0 -0.06 0.55"/>
     <parent link="link_3"/>
     <child link="link_4"/>
     <axis xyz="0 1 0"/>
     <limit effort="0" lower="-2.62" upper="2.62" velocity="6.28"/>
   </joint>
   <joint name="joint_5" type="revolute">
-    <origin rpy="0 0 0" xyz="1.4734E-16 -0.035 0.065"/>
+    <origin rpy="0 0 0" xyz="0 -0.035 0.065"/>
     <parent link="link_4"/>
     <child link="link_5"/>
     <axis xyz="0 0 1"/>
