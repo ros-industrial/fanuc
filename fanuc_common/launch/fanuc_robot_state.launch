@@ -25,4 +25,3 @@
   <node unless="$(arg use_bswap)" name="joint_state" 
     pkg="fanuc_common" type="robot_state" />
 </launch>
-

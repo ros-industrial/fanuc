@@ -19,10 +19,9 @@
   <param name="/robot_ip_address" type="str" value="$(arg robot_ip)" />
   <param name="/J23_factor"       type="int" value="$(arg J23_factor)" />
 
-  <!-- load the correct version of the robot state node -->
+  <!-- load the correct version of the motion streaming node -->
   <node if="$(arg use_bswap)" name="motion_streaming_interface"
     pkg="fanuc_common" type="motion_streaming_interface_bswap" />
   <node unless="$(arg use_bswap)" name="motion_streaming_interface"
     pkg="fanuc_common" type="motion_streaming_interface" />
 </launch>
-
