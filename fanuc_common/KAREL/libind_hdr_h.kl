@@ -72,8 +72,8 @@ ROUTINE ihdr_reset(this : ind_hdr_t) FROM libind_hdr
 
 --------------------------------------------------------------------------------
 -- 
--- Serialise the packet. Write bytestream to 'fd'.f  A 'CR' is not sent as part
--- of this routine.  It is up to the specific message structure to send a 'CR'
+-- Serialise the packet. Write bytestream to 'fd'. A 'CR' is not sent as part
+-- of this routine. It is up to the specific message structure to send a 'CR'
 -- at the end of the data payload.
 -- 
 -- [in    ]  this    : the packet to serialise
@@ -126,4 +126,3 @@ ROUTINE ihdr_tostr(this : ind_hdr_t) : STRING FROM libind_hdr
 -- 
 --------------------------------------------------------------------------------
 ROUTINE ihdr_dump(this : ind_hdr_t; fd : FILE) FROM libind_hdr
-

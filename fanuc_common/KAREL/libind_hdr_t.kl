@@ -43,10 +43,10 @@
 
 TYPE
 	ind_hdr_t FROM libind_hdr = STRUCTURE
-		length_     : INTEGER           -- length of payload
-		msg_type_   : INTEGER           -- type of message (unique ID)
-		comm_type_  : INTEGER           --  type of comms (service or topic-like)
-		reply_type_ : INTEGER           --  reply (succes or failure)
+		length_      : INTEGER  -- length of payload
+		msg_type_    : INTEGER  -- type of message (unique ID)
+		comm_type_   : INTEGER  -- type of comms (service or topic-like)
+		reply_type_  : INTEGER  -- reply (succes or failure)
 	ENDSTRUCTURE
 
 --CONST

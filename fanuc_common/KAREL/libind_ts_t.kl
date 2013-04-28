@@ -41,31 +41,28 @@
 -- 
 --------------------------------------------------------------------------------
 
+
+
+
 --------------------------------------------------------------------------------
 -- 
 -- local types & constants (tristate)
 -- 
 --------------------------------------------------------------------------------
-
 CONST
-    
-    --
-    -- Tristate 
-    --
-    
-    -- Unknown or unavailable 
-    TS_UNKNOWN   = -1  
+	--
+	-- Tristate 
+	--
+	TS_UNKNOWN   =  -1  -- Unknown or unavailable 
 
-    -- High state                       
-    TS_TRUE      = 1
-    TS_ON        = 1
-    TS_ENABLED   = 1
-    TS_HIGH      = 1
-    TS_CLOSED    = 1
+	TS_TRUE      =   1  -- High states
+	TS_ON        =   1  -- 
+	TS_ENABLED   =   1  -- 
+	TS_HIGH      =   1  -- 
+	TS_CLOSED    =   1  -- 
 
-    -- Low state
-    TS_FALSE     = 0
-    TS_OFF       = 0
-    TS_DISABLED  = 0
-    TS_LOW       = 0
-    TS_OPEN      = 0
+	TS_FALSE     =   0  -- Low states
+	TS_OFF       =   0  
+	TS_DISABLED  =   0  
+	TS_LOW       =   0  
+	TS_OPEN      =   0  

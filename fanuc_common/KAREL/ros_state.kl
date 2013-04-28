@@ -54,7 +54,7 @@ PROGRAM ros_state
 %COMMENT = 'r11'
 %NOBUSYLAMP
 %NOLOCKGROUP
-%NOPAUSE= COMMAND + TPENABLE + ERROR
+%NOPAUSE = COMMAND + TPENABLE + ERROR
 
 
 
@@ -78,11 +78,11 @@ PROGRAM ros_state
 --------------------------------------------------------------------------------
 VAR
 	jnt_pkt_out: ind_pkt_t   -- ROS industrial joint state packet
- 	rs_pkt_out : ind_rs_t    -- ROS industrial robot status packet
+	rs_pkt_out : ind_rs_t    -- ROS industrial robot status packet
 	sock_      : ssock_t     -- server socket instance
 	sock_fd_   : FILE        -- file descriptor associated with srvr socket
 	stat_      : INTEGER     -- status variable
-	stat_count_: INTEGER -- status loop counter
+	stat_count_: INTEGER     -- status loop counter
 	cur_j_pos  : JOINTPOS    -- current position of robot joints
 	sleep_time : INTEGER
 
@@ -121,9 +121,9 @@ CONST
 -- 
 --------------------------------------------------------------------------------
 BEGIN
-	stat_      = 0
+	stat_       = 0
 	stat_count_ = 0
-	sleep_time = ROUND(1000.0 / LOOP_HZ)
+	sleep_time  = ROUND(1000.0 / LOOP_HZ)
 
 
 	-- enable log output
@@ -143,8 +143,8 @@ BEGIN
 
 	-- init server socket
 	stat_ = ssock_ctor(sock_, RI_TCP_STATE, STATE_TAG)
-	IF stat_ <> 0 THEN
-		IF stat_ = TAG_CONF_ERR THEN
+	IF (stat_ <> 0) THEN
+		IF (stat_ = TAG_CONF_ERR) THEN
 			log_error_a(LOG_PFIX + 'TAG config error. TAG nr:', STATE_TAG)
 		ELSE
 			log_error_a(LOG_PFIX + 'ssock_ctor err:', stat_)
@@ -170,7 +170,7 @@ BEGIN
 
 		-- wait for connection
 		stat_ = ssock_accpt2(sock_, sock_fd_)
-		IF stat_ <> 0 THEN
+		IF (stat_ <> 0) THEN
 			log_error_a(LOG_PFIX + 'sock_accept err:', stat_)
 			-- can't continue
 			GOTO exit_discon
@@ -195,8 +195,8 @@ BEGIN
 			stat_ = ipkt_srlise(jnt_pkt_out, sock_fd_)
 
 			-- check result
-			IF stat_ <> 0 THEN
-
+			IF (stat_ <> 0) THEN
+				-- 
 				log_error_a(LOG_PFIX + 'jnt_pkt_srlise err:', stat_)
 
 				-- remote probably disconnected
@@ -206,33 +206,35 @@ BEGIN
 				GOTO exit_inner
 			ENDIF
 
-         
-			IF stat_count_ >=  STAT_LP_CNT THEN       
-	        			 --Build up robot status packer
-	         			irs_update(rs_pkt_out)
-	         
-	         			-- serialise packet, write to socket file descriptor
+			-- 
+			IF (stat_count_ >=  STAT_LP_CNT) THEN
+				--Build up robot status packer
+				irs_update(rs_pkt_out)
+
+				-- serialise packet, write to socket file descriptor
 				stat_ = irs_tpc_srl(rs_pkt_out, sock_fd_)
+
 				-- some debug printing
 				--log_info(ihdr_tostr(rs_pkt_out.header_))
 				--log_info(irs_tostr(rs_pkt_out))
-	
+
 				-- check result
-				IF stat_ <> 0 THEN
-	
+				IF (stat_ <> 0) THEN
+					-- 
 					log_error_a(LOG_PFIX + 'rs_pkt_srlise err:', stat_)
-	
+
 					-- remote probably disconnected
 					stat_ = ssock_dconn2(sock_, sock_fd_)
-	
+
 					-- exit inner loop
 					GOTO exit_inner
 				ENDIF
+
 				stat_count_ = 0
 			ELSE
 				stat_count_ = stat_count_ + 1
 			ENDIF
-			
+
 			-- sleep a little (1/T)
 			DELAY sleep_time
 

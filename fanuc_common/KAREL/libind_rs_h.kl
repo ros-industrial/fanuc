@@ -48,7 +48,7 @@
 -- 
 -- Constructor: creates a fully initialized message
 -- 
--- [in    ]  this                : the message to initialise
+-- [in    ]  this      : the message to initialise
 -- [return]            :    0 IF no error
 --                       <  0 on any error
 -- 
@@ -66,6 +66,7 @@ ROUTINE irs_ctor(this : ind_rs_t) FROM libind_rs
 -- 
 --------------------------------------------------------------------------------
 ROUTINE irs_reset(this : ind_rs_t) FROM libind_rs
+
 
 
 
@@ -122,11 +123,10 @@ ROUTINE irs_tostr(this : ind_rs_t) : STRING FROM libind_rs
 
 --------------------------------------------------------------------------------
 -- 
--- Dump string rep of  to file descriptor 'fd'.
+-- Dump string rep of message to file descriptor 'fd'.
 -- 
 -- [in    ]  this    : the packet to dump
 -- [in    ]  fd      : file desc to write string representation to.
 -- 
 --------------------------------------------------------------------------------
 ROUTINE irs_dump(this : ind_rs_t; fd : FILE) FROM libind_rs
-

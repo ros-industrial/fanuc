@@ -59,6 +59,7 @@ PROGRAM libind_rs
 
 
 
+
 --------------------------------------------------------------------------------
 -- 
 -- remote routine prototypes
@@ -75,6 +76,7 @@ PROGRAM libind_rs
 --------------------------------------------------------------------------------
 %INCLUDE libind_rs_h
 %INCLUDE libind_hdr_h
+
 
 
 
@@ -99,20 +101,18 @@ END irs_ctor
 
 ROUTINE irs_reset
 BEGIN
-
 	USING this DO
-    
-        ihdr_reset(header_)
-        header_.msg_type_ = RI_MT_STATUS
-        
-        mode_             = RS_M_UNKNWN
-        e_stopped_        = TS_UNKNOWN
-        drv_pwd_   = TS_UNKNOWN
-        mtn_psble_  = TS_UNKNOWN
-        in_motion_        = TS_UNKNOWN
-        in_error_         = TS_UNKNOWN
-        error_code_       = TS_UNKNOWN
 
+		ihdr_reset(header_)
+		header_.msg_type_ = RI_MT_STATUS
+
+		mode_             = RS_M_UNKNWN
+		e_stopped_        = TS_UNKNOWN
+		drv_pwd_          = TS_UNKNOWN
+		mtn_psble_        = TS_UNKNOWN
+		in_motion_        = TS_UNKNOWN
+		in_error_         = TS_UNKNOWN
+		error_code_       = TS_UNKNOWN
 	ENDUSING
 END irs_reset
 
@@ -130,11 +130,13 @@ BEGIN
 
 	-- Check for not in position (indicates motion)
 	FOR d__ = 1 TO len__ DO
-		IF NOT $MOR_GRP[1].$IN_POSITION[d__] THEN
-			RETURN(TRUE)
+		IF (NOT $MOR_GRP[1].$IN_POSITION[d__]) THEN
+			RETURN (TRUE)
 		ENDIF
 	ENDFOR
-	RETURN(FALSE)
+
+	-- 
+	RETURN (FALSE)
 END irs_in_mtn
 
 
@@ -142,75 +144,78 @@ END irs_in_mtn
 
 ROUTINE irs_update
 BEGIN
-	
-   irs_reset(this)
-         
-   -- (VERIFIED) teach pendant enabled (see table 15-2, KAREL Reference Manual)
-   IF OPOUT[7] THEN
-      this.mode_ = RS_M_MAN
-   ELSE
-      this.mode_ = RS_M_AUTO
-   ENDIF
-   
-   -- e-stop
-   this.e_stopped_ = TS_UNKNOWN
-   
-   -- (VERIFIED) in motion
-   IF irs_in_mtn  THEN
-   	this.in_motion_ = TS_TRUE
-   ELSE
-   	this.in_motion_ = TS_FALSE
-   ENDIF
-   
-   
-   -- POTENTIALLY CAUSES ISSUE ON CONTROLLERS WITHOUT EXTENED IO BOARD
-   -- (OPIN/OUT > 16 MAY NOT BE PRESENT
-   -- drive power (see table 15-4, KAREL Reference Manual)
-   
-   IF OPOUT[17] THEN
-      this.drv_pwd_ = TS_TRUE
-   ENDIF
-   
-   -- motion enable (see table 15-3, KAREL Reference Manual)
-   IF OPIN[23] THEN
-      this.mtn_psble_ = TS_TRUE
-   ENDIF
-   
-   -- fault indicator (see table 15-4, KAREL Reference Manual)
-   IF OPOUT[21] THEN
-      this.in_error_  = TS_TRUE
-   ENDIF
-   
-   
-   
-END irs_update
+	-- 
+	irs_reset(this)
 
+	-- (VERIFIED) teach pendant enabled (see table 15-2, KAREL Reference Manual)
+	IF (OPOUT[7]) THEN
+		this.mode_ = RS_M_MAN
+	ELSE
+		this.mode_ = RS_M_AUTO
+	ENDIF
+
+	-- e-stop
+	this.e_stopped_ = TS_UNKNOWN
+
+	-- (VERIFIED) in motion
+	IF (irs_in_mtn) THEN
+		this.in_motion_ = TS_TRUE
+	ELSE
+		this.in_motion_ = TS_FALSE
+	ENDIF
+
+	-- POTENTIALLY CAUSES ISSUE ON CONTROLLERS WITHOUT EXTENED IO BOARD
+	-- (OPIN/OUT > 16 MAY NOT BE PRESENT
+	-- drive power (see table 15-4, KAREL Reference Manual)
+	IF (OPOUT[17]) THEN
+		this.drv_pwd_ = TS_TRUE
+	ENDIF
+
+	-- motion enable (see table 15-3, KAREL Reference Manual)
+	IF (OPIN[23]) THEN
+		this.mtn_psble_ = TS_TRUE
+	ENDIF
+
+	-- fault indicator (see table 15-4, KAREL Reference Manual)
+	IF (OPOUT[21]) THEN
+		this.in_error_  = TS_TRUE
+	ENDIF
+END irs_update
 
 
 
 
 ROUTINE irs_tpc_srl
 VAR
-	stat__     : INTEGER
+	stat__ : INTEGER
 BEGIN
 	--
 	stat__ = 0
 
-    this.header_.length_     = RS_SZ_TOPIC
-    this.header_.msg_type_ = RI_MT_STATUS
-    this.header_.comm_type_   = RI_CT_TOPIC
-    this.header_.reply_type_ = RI_RT_INVAL
-    
-    stat__ = ihdr_srlise(this.header_, fd)
-   IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	this.header_.length_     = RS_SZ_TOPIC
+	this.header_.msg_type_   = RI_MT_STATUS
+	this.header_.comm_type_  = RI_CT_TOPIC
+	this.header_.reply_type_ = RI_RT_INVAL
 
-  -- write out all fields ..
-  WRITE fd( this.drv_pwd_,  this.e_stopped_, this.error_code_, & 
-  		 this.in_error_,  this.in_motion_, this.mode_, this.mtn_psble_, CR)
-   stat__ = IO_STATUS(fd)
+	stat__ = ihdr_srlise(this.header_, fd)
+	IF (stat__ <> 0) THEN RETURN (-ABS(stat__)); ENDIF
 
-   RETURN (-stat__)
+	-- write out all fields ..
+	WRITE fd(this.drv_pwd_, 
+		this.e_stopped_, 
+		this.error_code_,
+		this.in_error_,
+		this.in_motion_,
+		this.mode_,
+		this.mtn_psble_, 
+	CR)
+
+	stat__ = IO_STATUS(fd)
+
+	-- 
+	RETURN (-stat__)
 END irs_tpc_srl
+
 
 
 
@@ -228,16 +233,16 @@ BEGIN
 	--       those (add 'unknown' or something)
 	CNV_INT_STR(this.mode_            , 1, 10, md_str__)
 	CNV_INT_STR(this.e_stopped_       , 1, 10, es_str__)
-	CNV_INT_STR(this.drv_pwd_  , 1, 10, dp_str__)
-	CNV_INT_STR(this.mtn_psble_ , 1, 10, mp_str__)
+	CNV_INT_STR(this.drv_pwd_         , 1, 10, dp_str__)
+	CNV_INT_STR(this.mtn_psble_       , 1, 10, mp_str__)
 	CNV_INT_STR(this.in_motion_       , 1, 10, im_str__)
 	CNV_INT_STR(this.in_error_        , 1, 10, ie_str__)
 	CNV_INT_STR(this.error_code_      , 1, 10, ec_str__)
 
 	-- done
-	RETURN ('rs(dsceimp):' + dp_str__  + '' + es_str__ + ''  &
-		+ ec_str__  + '' + ie_str__ + '' +  im_str__ + '' + ''  &
-        		+ md_str__ + '' +  mp_str__)
+	RETURN ('rs(dsceimp):' + dp_str__  + '' + es_str__ + '' &
+		+ ec_str__  + '' + ie_str__ + '' +  im_str__ + '' + '' &
+		+ md_str__ + '' +  mp_str__)
 END irs_tostr
 
 
@@ -248,6 +253,3 @@ BEGIN
 	WRITE fd(ihdr_tostr(this.header_), CR)
 	WRITE fd(irs_tostr(this), CR)
 END irs_dump
-
-
-
