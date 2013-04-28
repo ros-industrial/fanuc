@@ -50,9 +50,11 @@ PROGRAM ros_state
 -- author: G.A. vd. Hoorn
 -- 
 --------------------------------------------------------------------------------
+%ALPHABETIZE
+%COMMENT = 'r11'
+%NOBUSYLAMP
 %NOLOCKGROUP
 %NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'ROS Ind State Proxy'
 
 
 

@@ -40,7 +40,7 @@ PROGRAM ros_relay
 -- Currently only supports joint trajectory point streaming.
 -- 
 -- Joint motion speed is limited (hard coded) to 20%. Termination is hard 
--- coded at CNT 80%.
+-- coded at CNT 50%.
 -- 
 -- NB: This is a work in progress, and as such should NOT be run on real 
 --     hardware.
@@ -60,8 +60,11 @@ PROGRAM ros_relay
 -- author: G.A. vd. Hoorn
 -- 
 --------------------------------------------------------------------------------
+%ALPHABETIZE
+%COMMENT = 'r14'
+%NOBUSYLAMP
 %NOLOCKGROUP
-%COMMENT = 'ROS Ind Traj Relay'
+%NOPAUSE= COMMAND + TPENABLE + ERROR
 
 
 
@@ -104,12 +107,12 @@ CONST
 	MOVE_CNT_REG =  2       -- 
 
 	MOVE_SPEED   = 20       -- speed to use with ros_movesm (percentage of maximum)
-	MOVE_CNT     = 80       -- CNT value to use with ros_movesm
+	MOVE_CNT     = 50       -- CNT value to use with ros_movesm
 
 	LOOP_HZ      = 40       -- Hz
 
-	RI_MSM_GO    =  1       -- signal movesm to execute motion
-	RI_MSM_BUSY  =  2       -- used by movesm
+	RI_MSM_RDY   =  1       -- ros_movesm ready signal (waits for new point)
+	RI_MSM_DRDY  =  2       -- relay data ready signal (reset by ros_movesm)
 
 
 
@@ -344,8 +347,7 @@ BEGIN
 	ENDIF
 
 	-- sync
-	WAIT FOR FLG[RI_MSM_BUSY] = OFF
-	FLG[RI_MSM_GO] = OFF
+	WAIT FOR (FLG[RI_MSM_RDY] = ON)
 
 	-- setup registers
 	-- init position
@@ -361,7 +363,8 @@ BEGIN
 	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
 
 	-- exec
-	FLG[RI_MSM_GO] = ON
+	FLG[RI_MSM_DRDY] = ON
+	WAIT FOR (FLG[RI_MSM_DRDY] = OFF)
 
 	-- done
 	RETURN (0)
