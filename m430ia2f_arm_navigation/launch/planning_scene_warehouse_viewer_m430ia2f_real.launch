@@ -32,7 +32,7 @@
   </node>
 
   <arg name="robot_ip" />
-  <arg name="use_bswap" default="false" />
+  <arg name="use_bswap" default="true" />
   <include file="$(find fanuc_common)/launch/robot_interface_streaming_m430ia2f.launch">
     <arg name="robot_ip"   value="$(arg robot_ip)" />
     <arg name="use_bswap"  value="$(arg use_bswap)" />
