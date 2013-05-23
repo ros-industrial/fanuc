@@ -91,8 +91,7 @@ int main(int argc, char** argv)
 	// replace the generic JointRelayHandler with our Fanuc specific one as
 	// we need to correct the reported joint angles
 	Fanuc_JointRelayHandler jointHandler;
-	std::vector<std::string> joint_names;
-	getJointNames("controller_joint_names", joint_names);
+	std::vector<std::string> joint_names = rsi.get_joint_names();
 	jointHandler.init(rsi.get_connection(), joint_names);
 	rsi.add_handler(&jointHandler);
 
