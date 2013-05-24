@@ -1,6 +1,0 @@
-<?xml version="1.0" ?>
-
-<robot name="lrmate200ic5h" xmlns:xacro="http://ros.org/wiki/xacro">
-	<include filename="$(find fanuc_config)/urdf/lrmate200ic5h_macro.xacro"/>
-	<xacro:lrmate200ic5h prefix=""/>
-</robot>
