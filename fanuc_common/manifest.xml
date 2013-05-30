@@ -1,9 +1,10 @@
 <package>
-  <description brief="fanuc_common">
-
-     This package contains nodes for interfacing with Fanuc industrial 
-     controllers that support the KAREL programming environment.
-
+  <description brief="ROS Industrial nodes for interfacing with Fanuc robot controllers.">
+     <p>
+     This package is part of the ROS Industrial program and contains nodes 
+     for interfacing with Fanuc industrial robot controllers that support 
+     the KAREL programming environment.
+     </p>
   </description>
   <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
   <license>BSD</license>

@@ -1,9 +1,15 @@
 <package>
-  <description brief="fanuc_config">
-
-     This package contains common configurations and 3D models for Fanuc 
+  <description brief="URDFs, meshes and launchfiles for Fanuc M-10iA, M-16iB20 and M-430iA/2f manipulators.">
+     <p>
+     This package is part of the ROS Industrial program and contains URDFs, 
+     meshes and launch files for Fanuc M-10iA, M-16iB20 and M-430iA/2F 
      manipulators.
-
+     </p>
+     <p>
+     Before using any of the configuration files and / or meshes included 
+     in this package, be sure to check they are correct for the particular 
+     robot model and configuration you intend to use them with.
+     </p>
   </description>
   <author>
     Christina Gomez (Southwest Research Institute), 
