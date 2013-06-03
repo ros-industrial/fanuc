@@ -16,8 +16,8 @@
   <arg name="use_bswap" />
 
   <!-- put them on the parameter server -->
-  <param name="/robot_ip_address" type="str" value="$(arg robot_ip)" />
-  <param name="/J23_factor"       type="int" value="$(arg J23_factor)" />
+  <param name="robot_ip_address" type="str" value="$(arg robot_ip)" />
+  <param name="J23_factor"       type="int" value="$(arg J23_factor)" />
 
   <!-- load the correct version of the robot state node -->
   <node if="$(arg use_bswap)" name="joint_state" 
