@@ -23,7 +23,7 @@
   </include>
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" 
-    type="state_publisher" />
+    type="robot_state_publisher" />
 
   <include file="$(find fanuc_config)/launch/load_m430ia2f.launch" />
 
