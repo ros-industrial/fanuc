@@ -161,7 +161,7 @@
   <joint name="joint_6-tool0" type="fixed">
     <parent link="link_6"/>
     <child link="tool0"/>
-    <origin rpy="0 0 0" xyz="0.1 0.0565 0"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
   </joint>
 </robot>
 

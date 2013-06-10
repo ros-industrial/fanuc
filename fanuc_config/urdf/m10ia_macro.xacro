@@ -164,7 +164,7 @@
 		<joint name="${prefix}joint_6-tool0" type="fixed">
 			<parent link="${prefix}link_6"/>
 			<child link="${prefix}tool0"/>
-			<origin xyz="0.1 0.0565 0" rpy="0 0 0"/>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
 		</joint>
 
 	</xacro:macro>
