@@ -58,6 +58,11 @@ PROGRAM libind_rs
 %INCLUDE libind_pkt_t
 
 
+CONST
+	SI_CECR_B0   =   8    -- CE/CR Select b0 - SOP input signal8
+	SI_CECR_B1   =   9    -- CE/CR Select b1 - SOP input signal9
+
+
 
 
 --------------------------------------------------------------------------------
@@ -147,10 +152,15 @@ BEGIN
 	-- 
 	irs_reset(this)
 
-	-- (VERIFIED) teach pendant enabled (see table 15-2, KAREL Reference Manual)
-	IF (OPOUT[7]) THEN
-		this.mode_ = RS_M_MAN
-	ELSE
+	-- check state of mode select switch using 'CE/CR Select' bits:
+	--   both high == AUTO
+	-- 
+	-- TP can be (dis,en)abled without changing mode select switch
+	-- so it isn't a reliable indicator of robot mode.
+	-- 
+	-- Table 14-1, Karel Reference Manual, MARRC75KR07091E Rev C
+	this.mode_ = RS_M_MAN
+	IF (OPIN[SI_CECR_B0] AND OPIN[SI_CECR_B0]) THEN
 		this.mode_ = RS_M_AUTO
 	ENDIF
 
