@@ -93,7 +93,7 @@ CONST
 	-- which server tag to use
 	STATE_TAG = 3
 	-- Main loop freq (Hz)
-	LOOP_HZ = 25
+	LOOP_HZ = 40
 	-- Number of main loop iterations for each status message
 	STAT_LP_CNT = 10
 
