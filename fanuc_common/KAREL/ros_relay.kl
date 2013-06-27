@@ -114,6 +114,8 @@ CONST
 	RI_MSM_RDY   =  1       -- ros_movesm ready signal (waits for new point)
 	RI_MSM_DRDY  =  2       -- relay data ready signal (reset by ros_movesm)
 
+	MOVERR_OOR   = -1       -- Requested JPOS is out-of-range
+
 
 
 
@@ -285,8 +287,11 @@ BEGIN
 						log_error_a(LOG_PFIX + 'exec_move err:', stat_)
 						-- can't continue, send error
 						stat_ = send_err(pkt_in, sock_fd_)
-						-- 
-						GOTO exit_discon
+						-- disconnect if anything else than OOR error
+						IF (stat_ <> MOVERR_OOR) THEN
+							-- 
+							GOTO exit_discon
+						ENDIF
 					ENDIF
 
 				ENDIF
@@ -343,7 +348,7 @@ BEGIN
 
 	-- check to make sure point can be reached before performing motion
 	IF J_IN_RANGE(new_j_pos) = FALSE THEN
-		RETURN (-1)
+		RETURN (MOVERR_OOR)
 	ENDIF
 
 	-- sync
