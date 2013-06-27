@@ -51,7 +51,7 @@ PROGRAM ros_state
 -- 
 --------------------------------------------------------------------------------
 %ALPHABETIZE
-%COMMENT = 'r11'
+%COMMENT = 'r14'
 %NOBUSYLAMP
 %NOLOCKGROUP
 %NOPAUSE = COMMAND + TPENABLE + ERROR
