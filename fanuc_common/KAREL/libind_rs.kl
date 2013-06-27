@@ -219,17 +219,10 @@ BEGIN
 		this.error_code_ = get_err_
 	ENDIF
 
-	-- POTENTIALLY CAUSES ISSUE ON CONTROLLERS WITHOUT EXTENED IO BOARD
-	-- (OPIN/OUT > 16 MAY NOT BE PRESENT
-	-- drive power (see table 15-4, KAREL Reference Manual)
-	--IF (OPOUT[17]) THEN
-		this.drv_pwd_ = TS_UNKNOWN
-	--ENDIF
-
-	-- motion enable (see table 15-3, KAREL Reference Manual)
-	--IF (OPIN[23]) THEN
-		this.mtn_psble_ = TS_UNKNOWN
-	--ENDIF
+	-- 'drives powered' and 'motion enabled' are UNKNOWN for now (presence of 
+	--  OPOUT[17] and OPIN[23] depends on specific IO configuration)
+	this.drv_pwd_   = TS_UNKNOWN
+	this.mtn_psble_ = TS_UNKNOWN
 END irs_update
 
 
