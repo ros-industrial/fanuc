@@ -59,8 +59,9 @@ PROGRAM libind_rs
 
 
 CONST
-	SI_CECR_B0   =   8    -- CE/CR Select b0 - SOP input signal8
-	SI_CECR_B1   =   9    -- CE/CR Select b1 - SOP input signal9
+	SO_FAULT_LED =   3    -- FAULT LED       - SOP output signal3
+	SI_CECR_B0   =   8    -- CE/CR Select b0 - SOP input  signal8
+	SI_CECR_B1   =   9    -- CE/CR Select b1 - SOP input  signal9
 
 
 
@@ -147,6 +148,29 @@ END irs_in_mtn
 
 
 
+ROUTINE get_err_ : INTEGER
+VAR
+	seq_num__    : INTEGER
+	err_code__   : INTEGER
+	cause_code__ : INTEGER
+	time_int__   : INTEGER
+	severity__   : INTEGER
+	err_str__    : STRING[64]
+	cause_str__  : STRING[64]
+	prog_name__  : STRING[32]
+BEGIN
+	-- MAXINT requests most recent error
+	seq_num__ = MAXINT
+
+	ERR_DATA(seq_num__, err_code__, err_str__, cause_code__, 
+		cause_str__, time_int__, severity__, prog_name__)
+
+	RETURN (err_code__)
+END get_err_
+
+
+
+
 ROUTINE irs_update
 BEGIN
 	-- 
@@ -174,6 +198,22 @@ BEGIN
 		this.in_motion_ = TS_FALSE
 	ENDIF
 
+	-- use state of FAULT LED as fault indicator, and report most recent error.
+	-- 
+	-- The 'FAULT' signal (OPOUT[21]) is only available when UOP signals have 
+	-- been properly configured, so use the 'FAULT LED' as an indirect 
+	-- indicator.
+	-- 
+	-- Table 14-2, Karel Reference Manual, MARRC75KR07091E Rev C
+	this.in_error_   = TS_FALSE
+	this.error_code_ = 0
+	IF (OPOUT[SO_FAULT_LED]) THEN
+		-- NOTE: this is not necessarily the code of the error that caused the
+		--       robot to go into error mode, just the most recent one
+		this.in_error_ = TS_TRUE
+		this.error_code_ = get_err_
+	ENDIF
+
 	-- POTENTIALLY CAUSES ISSUE ON CONTROLLERS WITHOUT EXTENED IO BOARD
 	-- (OPIN/OUT > 16 MAY NOT BE PRESENT
 	-- drive power (see table 15-4, KAREL Reference Manual)
@@ -184,11 +224,6 @@ BEGIN
 	-- motion enable (see table 15-3, KAREL Reference Manual)
 	--IF (OPIN[23]) THEN
 		this.mtn_psble_ = TS_UNKNOWN
-	--ENDIF
-
-	-- fault indicator (see table 15-4, KAREL Reference Manual)
-	--IF (OPOUT[21]) THEN
-		this.in_error_  = TS_UNKNOWN
 	--ENDIF
 END irs_update
 
