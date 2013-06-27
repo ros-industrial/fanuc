@@ -43,7 +43,7 @@ PROGRAM libind_hdr
 --------------------------------------------------------------------------------
 %NOLOCKGROUP
 %NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'ROS Ind Header Packets'
+%COMMENT = 'r1'
 
 
 

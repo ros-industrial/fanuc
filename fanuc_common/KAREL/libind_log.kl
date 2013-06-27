@@ -45,7 +45,7 @@ PROGRAM libind_log
 --------------------------------------------------------------------------------
 %NOLOCKGROUP
 %NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'ROS Ind Log'
+%COMMENT = 'r1'
 
 
 

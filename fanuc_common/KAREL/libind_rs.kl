@@ -43,7 +43,7 @@ PROGRAM libind_rs
 --------------------------------------------------------------------------------
 %NOLOCKGROUP
 %NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'ROS Ind Robot Status Packets'
+%COMMENT = 'r1'
 
 
 

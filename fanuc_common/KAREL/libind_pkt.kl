@@ -48,7 +48,7 @@ PROGRAM libind_pkt
 --------------------------------------------------------------------------------
 %NOLOCKGROUP
 %NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'ROS Ind Packets'
+%COMMENT = 'r1'
 
 
 

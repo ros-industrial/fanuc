@@ -46,7 +46,7 @@ PROGRAM libssock
 --------------------------------------------------------------------------------
 %NOLOCKGROUP
 %NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'Karel Srvr Socks'
+%COMMENT = 'r1'
 
 
 
