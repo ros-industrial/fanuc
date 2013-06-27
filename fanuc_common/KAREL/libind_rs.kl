@@ -59,9 +59,10 @@ PROGRAM libind_rs
 
 
 CONST
-	SO_FAULT_LED =   3    -- FAULT LED       - SOP output signal3
-	SI_CECR_B0   =   8    -- CE/CR Select b0 - SOP input  signal8
-	SI_CECR_B1   =   9    -- CE/CR Select b1 - SOP input  signal9
+	TP_ESTOP     = 250    -- EMERGENCY STOP  - TP input   signal 250
+	SO_FAULT_LED =   3    -- FAULT LED       - SOP output signal   3
+	SI_CECR_B0   =   8    -- CE/CR Select b0 - SOP input  signal   8
+	SI_CECR_B1   =   9    -- CE/CR Select b1 - SOP input  signal   9
 
 
 
@@ -188,15 +189,19 @@ BEGIN
 		this.mode_ = RS_M_AUTO
 	ENDIF
 
-	-- e-stop
-	this.e_stopped_ = TS_UNKNOWN
+	-- Determine state of E-Stop
+	-- 
+	-- NOTE: this currently only works for E-Stop on TP, NOT for
+	--       the button on the controller itself.
+	-- TODO: add read-out of E-Stop on controller cabinet
+	-- 
+	-- Table 14-5, Karel Reference Manual, MARRC75KR07091E Rev C
+	this.e_stopped_ = TS_FALSE
+	IF (TPIN[TP_ESTOP]) THEN this.e_stopped_ = TS_TRUE; ENDIF
 
-	-- (VERIFIED) in motion
-	IF (irs_in_mtn) THEN
-		this.in_motion_ = TS_TRUE
-	ELSE
-		this.in_motion_ = TS_FALSE
-	ENDIF
+	-- is robot currently moving?
+	this.in_motion_ = TS_FALSE
+	IF (irs_in_mtn) THEN this.in_motion_ = TS_TRUE; ENDIF
 
 	-- use state of FAULT LED as fault indicator, and report most recent error.
 	-- 
