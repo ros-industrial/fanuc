@@ -280,11 +280,11 @@ BEGIN
 
 					-- 
 					stat_ = exec_move(pkt_in)
-					IF stat_ <> 0 THEN
+					IF (stat_ <> 0) THEN
+						-- 
+						log_error_a(LOG_PFIX + 'exec_move err:', stat_)
 						-- can't continue, send error
 						stat_ = send_err(pkt_in, sock_fd_)
-						-- don't care about result
-						log_error_a(LOG_PFIX + 'exec_move err:', stat_)
 						-- 
 						GOTO exit_discon
 					ENDIF
