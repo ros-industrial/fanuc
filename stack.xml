@@ -1,11 +1,12 @@
 <stack>
-  <description brief="fanuc">
-     The Fanuc stack constains libraries, configuration files, and ROS nodes 
-     for controlling a Fanuc robot from ROS-Industrial.
+  <description brief="ROS Industrial support for various Fanuc manipulators">
+    <p>
+      The Fanuc stack constains libraries, configuration files, and ROS nodes 
+      for controlling a Fanuc manipulator from ROS-Industrial.
+    </p>
   </description>
   <author>
-    G.A. vd. Hoorn (TU Delft Robotics Institute), 
-    Christina Gomez (Southwest Research Institute)
+    G.A. vd. Hoorn (TU Delft Robotics Institute)
   </author>
   <license>BSD</license>  
   <review status="unreviewed" notes=""/>
