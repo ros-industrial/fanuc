@@ -38,12 +38,13 @@ PROGRAM libind_rs
 -- Library routines for creating / processing ROS Industrial robot status packets
 -- 
 -- 
--- author: Shaun Edwards
+-- author: Shaun Edwards (Southwest Research Institute)
+-- author: G.A. vd. Hoorn (TU Delft Robotics Institute)
 -- 
 --------------------------------------------------------------------------------
 %NOLOCKGROUP
 %NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'r1'
+%COMMENT = 'r4'
 
 
 
@@ -59,10 +60,29 @@ PROGRAM libind_rs
 
 
 CONST
-	TP_ESTOP     = 250    -- EMERGENCY STOP  - TP input   signal 250
-	SO_FAULT_LED =   3    -- FAULT LED       - SOP output signal   3
-	SI_CECR_B0   =   8    -- CE/CR Select b0 - SOP input  signal   8
-	SI_CECR_B1   =   9    -- CE/CR Select b1 - SOP input  signal   9
+	                      -- Table 14-1, -2, Karel Reference Manual, 
+	                      --   MARRC75KR07091E Rev C
+	TP_SHIFT     =   0    -- TP LEFT/RIGHT SHIFT - TP input   signal   0
+	SO_HOLD      =   2    -- HOLD                - SOP output signal   2
+	SO_FAULT_LED =   3    -- FAULT LED           - SOP output signal   3
+	SO_TP_ENBLD  =   7    -- TP ENABLED          - SOP output signal   7
+	SI_CECR_B0   =   8    -- CE/CR Select b0     - SOP input  signal   8
+	SI_CECR_B1   =   9    -- CE/CR Select b1     - SOP input  signal   9
+
+
+	                     -- '$MOR.$safety_stat', R-J3iC Software Reference Manual, 
+	                     --   MARACSSRF03061E Rev A
+	MFS_EMGOP    =    1  -- E-Stop SOP
+	MFS_EMGTP    =    2  -- E-Stop TP
+	MFS_DEADMAN  =    4  -- TP Deadman
+	MFS_FENCE    =    8  -- Fence Open
+	MFS_ROT      =   16  -- Over Travel
+	MFS_HBK      =   32  -- Hand Broken
+	MFS_EMGEX    =   64  -- External E-Stop
+	MFS_PPABN    =  128  -- ?
+	MFS_BLTBREAK =  256  -- Belt Broken
+	MFS_ENABLE   =  512  -- TP Enable
+	MFS_FALM     = 1024  -- Alarm?
 
 
 
@@ -126,29 +146,6 @@ END irs_reset
 
 
 
-ROUTINE irs_in_mtn
-VAR
-	len__ : INTEGER
-	d__   : INTEGER
-BEGIN
-	-- 
-	len__ = ARRAY_LEN($MOR_GRP[1].$IN_POSITION)
-	d__   = 0
-
-	-- Check for not in position (indicates motion)
-	FOR d__ = 1 TO len__ DO
-		IF (NOT $MOR_GRP[1].$IN_POSITION[d__]) THEN
-			RETURN (TRUE)
-		ENDIF
-	ENDFOR
-
-	-- 
-	RETURN (FALSE)
-END irs_in_mtn
-
-
-
-
 ROUTINE get_err_ : INTEGER
 VAR
 	seq_num__    : INTEGER
@@ -172,7 +169,40 @@ END get_err_
 
 
 
+ROUTINE mot_poss_(this : ind_rs_t; sstat : INTEGER) : BOOLEAN
+BEGIN
+	-- any error prevents motion, so return early
+	IF (this.in_error_ <> TS_FALSE) THEN RETURN (FALSE); ENDIF
+
+	-- HOLD prevents motion as well, so return
+	IF (OPOUT[SO_HOLD] = ON) THEN RETURN (FALSE); ENDIF
+
+	-- drives need to be powered for motion to be possible
+	IF (this.drv_pwd_ <> TS_TRUE) THEN RETURN (FALSE); ENDIF
+
+	-- rest depends on TP status and controller mode
+	IF (this.mode_ <> RS_M_AUTO) AND (OPOUT[SO_TP_ENBLD] = ON) THEN
+		-- manual mode and TP is ON, motion requires:
+		--   - no errors, HOLD not depressed, drives powered (already checked)
+		--   - deadman depressed
+		--   - shift depressed
+		RETURN (((sstat AND MFS_DEADMAN) = 0) AND (TPIN[TP_SHIFT] = ON))
+	ENDIF
+
+	-- following cases are trapped by check on 'in_error_' field:
+	--  - 'TP OFF, mode == MANUAL'
+	--  - 'TP ON , mode == AUTO'
+
+	-- sufficient conditions checked, motion should be possible
+	RETURN (TRUE)
+END mot_poss_
+
+
+
+
 ROUTINE irs_update
+VAR
+	sstat__ : INTEGER
 BEGIN
 	-- 
 	irs_reset(this)
@@ -189,19 +219,25 @@ BEGIN
 		this.mode_ = RS_M_AUTO
 	ENDIF
 
+	-- read current 'safety state' system variable
+	sstat__ = $MOR.$SAFETY_STAT
+
 	-- Determine state of E-Stop
 	-- 
-	-- NOTE: this currently only works for E-Stop on TP, NOT for
-	--       the button on the controller itself.
-	-- TODO: add read-out of E-Stop on controller cabinet
+	-- NOTE: this checks TP E-Stop, Controller Cabinet E-Stop 
+	--       AND External E-Stop
 	-- 
-	-- Table 14-5, Karel Reference Manual, MARRC75KR07091E Rev C
+	-- '$MOR.$safety_stat', R-J3iC Software Reference Manual, 
+	-- MARACSSRF03061E Rev A
 	this.e_stopped_ = TS_FALSE
-	IF (TPIN[TP_ESTOP]) THEN this.e_stopped_ = TS_TRUE; ENDIF
+	IF ((sstat__ AND (MFS_EMGOP OR MFS_EMGTP OR MFS_EMGEX)) <> 0) THEN
+		this.e_stopped_ = TS_TRUE
+	ENDIF
 
-	-- is robot currently moving?
+	-- use 'rob_move' system variable to determine if robot is currently
+	-- moving
 	this.in_motion_ = TS_FALSE
-	IF (irs_in_mtn) THEN this.in_motion_ = TS_TRUE; ENDIF
+	IF ($MOR_GRP[1].$ROB_MOVE) THEN this.in_motion_ = TS_TRUE; ENDIF
 
 	-- use state of FAULT LED as fault indicator, and report most recent error.
 	-- 
@@ -212,17 +248,24 @@ BEGIN
 	-- Table 14-2, Karel Reference Manual, MARRC75KR07091E Rev C
 	this.in_error_   = TS_FALSE
 	this.error_code_ = 0
-	IF (OPOUT[SO_FAULT_LED]) THEN
+	IF (OPOUT[SO_FAULT_LED] = ON) THEN
 		-- NOTE: this is not necessarily the code of the error that caused the
 		--       robot to go into error mode, just the most recent one
 		this.in_error_ = TS_TRUE
 		this.error_code_ = get_err_
 	ENDIF
 
-	-- 'drives powered' and 'motion enabled' are UNKNOWN for now (presence of 
-	--  OPOUT[17] and OPIN[23] depends on specific IO configuration)
-	this.drv_pwd_   = TS_UNKNOWN
+	-- Use 'servo_ready' system variable as indicator for 'SYSRDY' (OPOUT[17])
+	-- '$MOR_GRP[1].$servo_ready', R-J3iC Software Reference Manual, 
+	-- MARACSSRF03061E Rev A
+	this.drv_pwd_   = TS_FALSE
+	IF ($MOR_GRP[1].$SERVO_READY) THEN this.drv_pwd_ = TS_TRUE; ENDIF
+
+	-- Derive 'motion possible' from various system variables and in/output 
+	-- signals.
 	this.mtn_psble_ = TS_UNKNOWN
+	IF (mot_poss_(this, sstat__)) THEN this.mtn_psble_ = TS_TRUE;
+	ELSE                               this.mtn_psble_ = TS_FALSE; ENDIF
 END irs_update
 
 
