@@ -7,8 +7,8 @@
     </p>
     <p>
       Joint limits and max joint velocities are based on the information in 
-      the <em>TODO</em> 
-      version <em>TODO</em>. All URDFs / XACROs are based on the 
+      the <em>FANUC Robot M-16iB/20 Mechanical Unit Maintenance Manual</em> 
+      version <em>B-81765EN/02</em>. All URDFs / XACROs are based on the 
       default motion and joint velocity limits, unless noted otherwise (ie: 
       no support for high speed joints, extended / limited motion ranges or 
       other options).

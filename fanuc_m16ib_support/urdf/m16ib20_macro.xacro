@@ -117,42 +117,42 @@
 			<parent link="${prefix}base_link"/>
 			<child link="${prefix}link_1"/>
 			<axis xyz="0 0 1"/>
-			<limit lower="-2.967" upper="2.967" effort="0" velocity="2.879"/>
+			<limit effort="0" lower="-2.9671" upper="2.9671" velocity="2.8798" />
 		</joint>
 		<joint name="${prefix}joint_2" type="revolute">
 			<origin xyz="0.15 0.18759 0.28" rpy="0 0 0"/>
 			<parent link="${prefix}link_1"/>
 			<child link="${prefix}link_2"/>
 			<axis xyz="0 1 0"/>
-			<limit lower="-1.38" upper="2.78" effort="0" velocity="2.879"/>
+			<limit effort="0" lower="-1.5708" upper="2.7925" velocity="2.8798" />
 		</joint>
 		<joint name="${prefix}joint_3" type="revolute">
 			<origin xyz="0 -0.18759 0.77" rpy="0 0 0"/>
 			<parent link="${prefix}link_2"/>
 			<child link="${prefix}link_3"/>
 			<axis xyz="0 -1 0"/>
-			<limit lower="-4.08" upper="1.38" effort="0" velocity="3.054"/>
+			<limit effort="0" lower="-2.9671" upper="5.0615" velocity="3.0543" />
 		</joint>
 		<joint name="${prefix}joint_4" type="revolute">
 			<origin xyz="0.18425 0 0.1" rpy="0 0 0"/>
 			<parent link="${prefix}link_3"/>
 			<child link="${prefix}link_4"/>
 			<axis xyz="-1 0 0"/>
-			<limit lower="-3.48" upper="3.48" effort="0" velocity="6.108"/>
+			<limit effort="0" lower="-3.4907" upper="3.4907" velocity="6.1087" />
 		</joint>
 		<joint name="${prefix}joint_5" type="revolute">
 			<origin xyz="0.55575 0 0" rpy="0 0 0"/>
 			<parent link="${prefix}link_4"/>
 			<child link="${prefix}link_5"/>
 			<axis xyz="0 -1 0"/>
-			<limit lower="-2.43" upper="2.43" effort="0" velocity="5.934"/>
+			<limit effort="0" lower="-2.4435" upper="2.4435" velocity="5.9341" />
 		</joint>
 		<joint name="${prefix}joint_6" type="revolute">
 			<origin xyz="0.1 0 0" rpy="0 0 0"/>
 			<parent link="${prefix}link_5"/>
 			<child link="${prefix}link_6"/>
 			<axis xyz="-1 0 0"/>
-			<limit lower="-7.84" upper="7.84" effort="0" velocity="9.075"/>
+			<limit effort="0" lower="-7.8540" upper="7.8540" velocity="9.0757" />
 		</joint>
 		<joint name="${prefix}joint_6-tool0" type="fixed">
 			<parent link="${prefix}link_6"/>
