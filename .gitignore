@@ -1,0 +1,29 @@
+# Object files
+*.slo
+*.lo
+*.o
+
+# Libraries
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# ROS specific directories
+build/
+bin/
+lib/
+
+# Eclipse stuff
+.pydevproject
+.project
+.cproject
