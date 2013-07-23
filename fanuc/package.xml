@@ -1,0 +1,24 @@
+<package>
+  <name>fanuc</name>
+  <version>0.1.0</version>
+  <description>ROS Industrial support for Fanuc manipulators.</description>
+  <author email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+  <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/fanuc</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>fanuc_assets</run_depend>
+  <run_depend>fanuc_driver</run_depend>
+  <run_depend>fanuc_m10ia_support</run_depend>
+  <run_depend>fanuc_m16ib_support</run_depend>
+  <run_depend>fanuc_m430ia_support</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

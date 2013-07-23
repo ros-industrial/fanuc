@@ -1,5 +1,10 @@
 <package>
-  <description brief="ROS Industrial support for the Fanuc M-430iA (and variants)">
+  <name>fanuc_m430ia_support</name>
+  <version>0.1.0</version>
+  <description>
+    <p>
+      ROS Industrial support for the Fanuc M-430iA (and variants).
+    </p>
     <p>
       This package contains configuration data, 3D models and launch files 
       for Fanuc M-430iA manipulators. This currently includes the 2F variant 
@@ -19,14 +24,17 @@
       robot model and configuration you intend to use them with.
     </p>
   </description>
-  <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+  <author email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+  <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
   <license>BSD</license>
-  <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/fanuc_m430ia_support</url>
 
-  <depend package="fanuc_assets"/>
-  <depend package="fanuc_driver"/>
-  <depend package="xacro"/>
-  <depend package="urdf"/>
+  <url type="website">http://ros.org/wiki/fanuc_m430ia_support</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc</url>
 
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>fanuc_assets</run_depend>
+  <run_depend>fanuc_driver</run_depend>
 </package>
+

@@ -1,38 +1,82 @@
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+cmake_minimum_required(VERSION 2.8.3)
 
-rosbuild_init()
+project(fanuc_driver)
 
-# The definition is copied from the CMakeList for the simple_message package.
-add_definitions(-DLINUXSOCKETS=1)  #build using LINUX SOCKETS libraries
+find_package(catkin REQUIRED COMPONENTS industrial_robot_client)
 
-#set the default path for built executables to the "bin" directory
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-#set the default path for built libraries to the "lib" directory
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+catkin_package(
+    CATKIN_DEPENDS industrial_robot_client
+)
+
+# these nodes run on the host computer, so use Linux sockets for
+# simple_message sockets
+add_definitions(-DLINUXSOCKETS=1)
+
+include_directories(
+    include
+    ${catkin_INCLUDE_DIRS}
+)
+
 
 # Little Endian Fanuc specific robot state node
-rosbuild_add_executable(robot_state
+add_executable(fanuc_robot_state
     src/fanuc_robot_state_node.cpp
     src/fanuc_utils.cpp)
-target_link_libraries(robot_state industrial_robot_client)
+target_link_libraries(fanuc_robot_state
+    industrial_robot_client
+    industrial_utils)
+set_target_properties(fanuc_robot_state
+    PROPERTIES OUTPUT_NAME robot_state
+    PREFIX "")
 
-# Little Endian Fanuc specific motion streaming interface
-rosbuild_add_executable(motion_streaming_interface
-    src/fanuc_joint_streamer_node.cpp
-    src/fanuc_utils.cpp)
-target_link_libraries(motion_streaming_interface
-    industrial_robot_client)
 
 # Big Endian Fanuc specific robot state node
-rosbuild_add_executable(robot_state_bswap 
+add_executable(fanuc_robot_state_bswap
     src/fanuc_robot_state_node.cpp
     src/fanuc_utils.cpp)
-target_link_libraries(robot_state_bswap industrial_robot_client_bswap)
+target_link_libraries(fanuc_robot_state_bswap
+    industrial_robot_client_bswap
+    industrial_utils)
+set_target_properties(fanuc_robot_state_bswap
+    PROPERTIES OUTPUT_NAME robot_state_bswap
+    PREFIX "")
 
-# Big Endian Fanuc specific motion streaming interface
-rosbuild_add_executable(motion_streaming_interface_bswap
+
+# Little Endian Fanuc specific motion streaming interface
+add_executable(fanuc_motion_streaming_interface
     src/fanuc_joint_streamer_node.cpp
     src/fanuc_utils.cpp)
-target_link_libraries(motion_streaming_interface_bswap
-    industrial_robot_client_bswap)
+target_link_libraries(fanuc_motion_streaming_interface
+    industrial_robot_client
+    industrial_utils)
+set_target_properties(fanuc_motion_streaming_interface
+    PROPERTIES OUTPUT_NAME motion_streaming_interface
+    PREFIX "")
+
+
+# Big Endian Fanuc specific motion streaming interface
+add_executable(fanuc_motion_streaming_interface_bswap
+    src/fanuc_joint_streamer_node.cpp
+    src/fanuc_utils.cpp)
+target_link_libraries(fanuc_motion_streaming_interface_bswap
+    industrial_robot_client_bswap
+    industrial_utils)
+set_target_properties(fanuc_motion_streaming_interface_bswap
+    PROPERTIES OUTPUT_NAME motion_streaming_interface_bswap
+    PREFIX "")
+
+
+install(TARGETS
+    fanuc_robot_state
+    fanuc_robot_state_bswap
+
+    fanuc_motion_streaming_interface
+    fanuc_motion_streaming_interface_bswap
+
+    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+foreach(dir KAREL launch TPE)
+   install(DIRECTORY ${dir}/
+      DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
+endforeach(dir)
