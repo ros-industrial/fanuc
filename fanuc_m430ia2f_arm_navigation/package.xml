@@ -1,0 +1,38 @@
+<package>
+  <name>fanuc_m430ia2f_arm_navigation</name>
+  <version>0.1.0</version>
+  <description>
+    <p>
+      Arm navigation package for the Fanuc M-430iA/2F.
+    </p>
+    <p>
+      This package provides arm navigation support for the Fanuc M-10iA 
+      manipulator.
+    </p>
+  </description>
+  <author email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+  <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/fanuc_m430ia2f_arm_navigation</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>planning_environment</run_depend>
+  <run_depend>kinematics_base</run_depend>
+  <run_depend>arm_kinematics_constraint_aware</run_depend>
+  <run_depend>ompl_ros_interface</run_depend>
+  <run_depend>trajectory_filter_server</run_depend>
+  <run_depend>constraint_aware_spline_smoother</run_depend>
+  <run_depend>move_arm</run_depend>
+  <run_depend>warehouse_ros</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>interpolated_ik_motion_planner</run_depend>
+  <run_depend>rviz</run_depend>
+  <run_depend>move_arm_warehouse</run_depend>
+  <run_depend>industrial_deprecated</run_depend>
+
+  <run_depend>fanuc_m430ia_support</run_depend>
+</package>
