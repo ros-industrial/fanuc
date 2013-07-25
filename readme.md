@@ -1,6 +1,6 @@
 # Fanuc
 
-[ROS-Industrial][] support for Fanuc manipulators. See the [ROS wiki][] page on the
+[ROS-Industrial][] support for Fanuc manipulators. See the [ROS wiki][] page 
 for more information.
 
 
