@@ -42,7 +42,7 @@ PROGRAM libind_mth
 --------------------------------------------------------------------------------
 %NOLOCKGROUP
 %NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'ROS Ind Math'
+%COMMENT = 'r1'
 
 
 
