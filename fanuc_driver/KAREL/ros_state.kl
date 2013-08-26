@@ -37,9 +37,6 @@ PROGRAM ros_state
 -- 
 -- ROS Industrial state proxy
 -- 
--- NB: This is a work in progress, and as such should NOT be used on real 
---     hardware.
--- 
 -- 
 -- Assumptions:
 --   - User Socket Messaging (USM) is supported by robot
@@ -159,7 +156,7 @@ BEGIN
 	stat_ = ssock_dconnf(sock_)
 
 	-- 
-	WHILE TRUE DO
+	WHILE (TRUE) DO
 
 		-- inform user
 		log_info(LOG_PFIX + 'Waiting for ROS state proxy')
@@ -180,7 +177,7 @@ BEGIN
 		log_info(LOG_PFIX + 'Connected')
 
 		-- got client, start joint_state relay loop
-		WHILE TRUE DO
+		WHILE (TRUE) DO
 
 			-- get current joint angles
 			cur_j_pos = CURJPOS(0, 0)
@@ -213,10 +210,6 @@ BEGIN
 
 				-- serialise packet, write to socket file descriptor
 				stat_ = irs_tpc_srl(rs_pkt_out, sock_fd_)
-
-				-- some debug printing
-				--log_info(ihdr_tostr(rs_pkt_out.header_))
-				--log_info(irs_tostr(rs_pkt_out))
 
 				-- check result
 				IF (stat_ <> 0) THEN
