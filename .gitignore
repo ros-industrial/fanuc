@@ -27,3 +27,7 @@ lib/
 .pydevproject
 .project
 .cproject
+
+# Roboguide / Fanuc
+*.pc
+*.tp
