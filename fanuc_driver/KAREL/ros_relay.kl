@@ -56,7 +56,7 @@ PROGRAM ros_relay
 -- 
 --------------------------------------------------------------------------------
 %ALPHABETIZE
-%COMMENT = 'r17'
+%COMMENT = 'r18'
 %NOBUSYLAMP
 %NOLOCKGROUP
 %NOPAUSE = COMMAND + TPENABLE + ERROR
