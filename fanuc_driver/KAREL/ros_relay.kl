@@ -42,8 +42,6 @@ PROGRAM ros_relay
 -- Joint motion speed is limited (hard coded) to 20%. Termination is hard 
 -- coded at CNT 50%.
 -- 
--- NB: This is a work in progress, and as such should NOT be run on real 
---     hardware.
 -- 
 -- Assumptions:
 --   - User Socket Messaging (USM) is supported by robot
@@ -53,15 +51,12 @@ PROGRAM ros_relay
 --   - Position register 1 is available
 --   - Integer registers 1 & 2 are available
 -- 
--- TODO:
---   - use motion speed from JOINT_TRAJ_PT message
 -- 
--- 
--- author: G.A. vd. Hoorn
+-- author: G.A. vd. Hoorn (TU Delft Robotics Institute)
 -- 
 --------------------------------------------------------------------------------
 %ALPHABETIZE
-%COMMENT = 'r17'
+%COMMENT = 'r18'
 %NOBUSYLAMP
 %NOLOCKGROUP
 %NOPAUSE = COMMAND + TPENABLE + ERROR
@@ -111,8 +106,8 @@ CONST
 
 	LOOP_HZ      = 40       -- Hz
 
-	RI_MSM_RDY   =  1       -- ros_movesm ready signal (waits for new point)
-	RI_MSM_DRDY  =  2       -- relay data ready signal (reset by ros_movesm)
+	RI_MSM_RDY   =  1       -- ros_movesm ready signal flag (waits for new point)
+	RI_MSM_DRDY  =  2       -- relay data ready signal flag (reset by ros_movesm)
 
 	MOVERR_OOR   = -1       -- Requested JPOS is out-of-range
 
@@ -162,8 +157,8 @@ BEGIN
 
 	-- init server socket
 	stat_ = ssock_ctor(sock_, RI_TCP_TRAJR, MOTION_TAG)
-	IF stat_ <> 0 THEN
-		IF stat_ = TAG_CONF_ERR THEN
+	IF (stat_ <> 0) THEN
+		IF (stat_ = TAG_CONF_ERR) THEN
 			log_error_a(LOG_PFIX + 'TAG config error. TAG nr:', MOTION_TAG)
 		ELSE
 			log_error_a(LOG_PFIX + 'ssock_ctor err:', stat_)
@@ -195,7 +190,7 @@ BEGIN
 
 
 	-- 
-	WHILE do_it DO
+	WHILE (do_it) DO
 
 		-- inform user
 		log_info(LOG_PFIX + 'Waiting for ROS traj relay')
@@ -206,7 +201,7 @@ BEGIN
 
 		-- wait for connection
 		stat_ = ssock_accpt2(sock_, sock_fd_)
-		IF stat_ <> 0 THEN
+		IF (stat_ <> 0) THEN
 			log_error_a(LOG_PFIX + 'sock_accept err:', stat_)
 			-- can't continue
 			GOTO exit_discon
@@ -216,12 +211,12 @@ BEGIN
 		log_info(LOG_PFIX + 'Connected')
 
 		-- got client, start relay loop
-		WHILE do_it DO
+		WHILE (do_it) DO
 
 			-- get new packet from the socket
 			-- TODO: this assumes 1 packet per iteration (ok for now)
 			stat_ = ipkt_checkfd(sock_fd_, pkt_in)
-			IF stat_ < 0 THEN
+			IF (stat_ < 0) THEN
 				log_error_a(LOG_PFIX + 'check_socket err:', stat_)
 
 				-- can't continue
@@ -229,12 +224,12 @@ BEGIN
 			ENDIF
 
 			-- see if there were any packets
-			IF stat_ > 0 THEN
+			IF (stat_ > 0) THEN
 
 				-- check sequence number for special values
 				IF (pkt_in.seq_nr_ < 0) THEN
 					-- 
-					SELECT pkt_in.seq_nr_ OF
+					SELECT (pkt_in.seq_nr_) OF
 						-- 
 						CASE (RI_SEQ_STRJD):
 							log_info(LOG_PFIX + 'Download start')
@@ -274,7 +269,7 @@ BEGIN
 
 					-- notify ROS node we want a new trajectory node
 					stat_ = req_next(pkt_in, sock_fd_)
-					IF stat_ <> 0 THEN
+					IF (stat_ <> 0) THEN
 						-- can't continue
 						log_error_a(LOG_PFIX + 'req_next err:', stat_)
 						GOTO exit_discon
@@ -344,10 +339,10 @@ BEGIN
 
 	-- convert reals to jointpos
 	CNV_REL_JPOS(pkt.joint_data_, new_j_pos, stat__)
-	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	IF (stat__ <> 0) THEN RETURN (-stat__); ENDIF
 
 	-- check to make sure point can be reached before performing motion
-	IF J_IN_RANGE(new_j_pos) = FALSE THEN
+	IF (NOT J_IN_RANGE(new_j_pos)) THEN
 		RETURN (MOVERR_OOR)
 	ENDIF
 
@@ -357,15 +352,15 @@ BEGIN
 	-- setup registers
 	-- init position
 	SET_JPOS_REG(MOVE_PREG, new_j_pos, stat__)
-	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	IF (stat__ <> 0) THEN RETURN (-stat__); ENDIF
 
 	-- init motion speed (constant for now)
 	SET_INT_REG(MOVE_SPD_REG, MOVE_SPEED, stat__)
-	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	IF (stat__ <> 0) THEN RETURN (-stat__); ENDIF
 
 	-- init motion termination (constant for now)
 	SET_INT_REG(MOVE_CNT_REG, MOVE_CNT, stat__)
-	IF stat__ <> 0 THEN RETURN (-stat__); ENDIF
+	IF (stat__ <> 0) THEN RETURN (-stat__); ENDIF
 
 	-- exec
 	FLG[RI_MSM_DRDY] = ON

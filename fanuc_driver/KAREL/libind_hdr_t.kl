@@ -37,7 +37,8 @@
 -- 
 -- libind_hdr shared type / constant decls
 -- 
--- author: G.A. vd. Hoorn, Shaun Edwards
+-- author: Shaun Edwards (Southwest Research Institute)
+-- author: G.A. vd. Hoorn (TU Delft Robotics Institute)
 -- 
 --------------------------------------------------------------------------------
 

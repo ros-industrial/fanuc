@@ -1,6 +1,6 @@
 -- Software License Agreement (BSD License)
 --
--- Copyright (c) 2012, TU Delft Robotics Institute
+-- Copyright (c) 2012, 2013, TU Delft Robotics Institute
 -- All rights reserved.
 --
 -- Redistribution and use in source and binary forms, with or without
@@ -37,12 +37,12 @@ PROGRAM libind_mth
 -- 
 -- Shared math functionality
 -- 
--- author: G.A. vd. Hoorn
+-- author: G.A. vd. Hoorn (TU Delft Robotics Institute)
 -- 
 --------------------------------------------------------------------------------
 %NOLOCKGROUP
 %NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'ROS Ind Math'
+%COMMENT = 'r1'
 
 
 

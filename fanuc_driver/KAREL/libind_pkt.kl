@@ -43,7 +43,7 @@ PROGRAM libind_pkt
 -- TODO: handle other types of incoming messages properly.
 -- 
 -- 
--- author: G.A. vd. Hoorn
+-- author: G.A. vd. Hoorn (TU Delft Robotics Institute)
 -- 
 --------------------------------------------------------------------------------
 %NOLOCKGROUP
