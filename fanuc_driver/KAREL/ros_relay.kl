@@ -57,7 +57,7 @@ PROGRAM ros_relay
 --   - use motion speed from JOINT_TRAJ_PT message
 -- 
 -- 
--- author: G.A. vd. Hoorn
+-- author: G.A. vd. Hoorn (TU Delft Robotics Institute)
 -- 
 --------------------------------------------------------------------------------
 %ALPHABETIZE

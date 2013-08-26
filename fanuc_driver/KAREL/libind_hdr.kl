@@ -38,7 +38,8 @@ PROGRAM libind_hdr
 -- Library routines for creating / processing ROS Industrial header packets
 -- 
 -- 
--- author: G.A. vd. Hoorn, Shaun Edwards
+-- author: Shaun Edwards (Southwest Research Institute)
+-- author: G.A. vd. Hoorn (TU Delft Robotics Institute)
 -- 
 --------------------------------------------------------------------------------
 %NOLOCKGROUP

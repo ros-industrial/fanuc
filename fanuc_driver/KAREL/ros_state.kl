@@ -47,7 +47,7 @@ PROGRAM ros_state
 --   - There is only 1 motion group
 -- 
 -- 
--- author: G.A. vd. Hoorn
+-- author: G.A. vd. Hoorn (TU Delft Robotics Institute)
 -- 
 --------------------------------------------------------------------------------
 %ALPHABETIZE
