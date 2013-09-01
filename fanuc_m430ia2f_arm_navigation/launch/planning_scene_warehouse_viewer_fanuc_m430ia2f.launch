@@ -1,6 +1,6 @@
 <launch>
   <param name="/use_sim_time" value="true" />
-  <include file="$(find m430ia2f_arm_navigation)/launch/m430ia2f_planning_environment.launch" />
+  <include file="$(find fanuc_m430ia2f_arm_navigation)/launch/fanuc_m430ia2f_planning_environment.launch" />
   <node pkg="industrial_deprecated" name="wall_clock_server" type="fake_time.py" />
 
   <param name="warehouse_host" value="localhost"/>
@@ -14,9 +14,9 @@
     <arg name="use_monitor" value="false" />
     <arg name="use_collision_map" value="false" />
   </include>
-  <include file="$(find m430ia2f_arm_navigation)/launch/constraint_aware_kinematics.launch" />
-  <include file="$(find m430ia2f_arm_navigation)/launch/ompl_planning.launch" />
-  <include file="$(find m430ia2f_arm_navigation)/launch/trajectory_filter_server.launch" />
+  <include file="$(find fanuc_m430ia2f_arm_navigation)/launch/constraint_aware_kinematics.launch" />
+  <include file="$(find fanuc_m430ia2f_arm_navigation)/launch/ompl_planning.launch" />
+  <include file="$(find fanuc_m430ia2f_arm_navigation)/launch/trajectory_filter_server.launch" />
   <node pkg="robot_state_publisher" type="state_publisher" name="rob_st_pub" />
   <node name="planning_scene_warehouse_viewer" pkg="move_arm_warehouse" type="planning_scene_warehouse_viewer"/>
 
@@ -38,13 +38,13 @@
   <!-- Called when right arm executes trajectory using controllers -->
   <param name="execute_right_trajectory" value="none" />
   <!-- Called to get left arm inverse kinematics with collision checking -->
-  <param name="left_ik_name" value="/m430ia2f_manipulator_kinematics/get_constraint_aware_ik" />
+  <param name="left_ik_name" value="/fanuc_m430ia2f_manipulator_kinematics/get_constraint_aware_ik" />
   <!-- Called to get right arm inverse kinematics with collision checking -->
-  <param name="right_ik_name" value="/m430ia2f_none_kinematics/get_constraint_aware_ik" />
+  <param name="right_ik_name" value="/fanuc_m430ia2f_none_kinematics/get_constraint_aware_ik" />
   <!-- Called to get left arm inverse kinematics without collision checking -->
-  <param name="non_coll_left_ik_name" value="/m430ia2f_manipulator_kinematics/get_ik" />
+  <param name="non_coll_left_ik_name" value="/fanuc_m430ia2f_manipulator_kinematics/get_ik" />
   <!-- Called to get right arm inverse kinematics without collision checking -->
-  <param name="non_coll_right_ik_name" value="/m430ia2f_none_kinematics/get_ik" />
+  <param name="non_coll_right_ik_name" value="/fanuc_m430ia2f_none_kinematics/get_ik" />
   <!-- Kinematic chain group name representing the left arm -->
   <param name="left_arm_group" value="manipulator" />
   <!-- Kinematic chain group name representing the right arm -->
