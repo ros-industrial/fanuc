@@ -6,7 +6,7 @@
       Arm navigation package for the Fanuc M-430iA/2F.
     </p>
     <p>
-      This package provides arm navigation support for the Fanuc M-10iA 
+      This package provides arm navigation support for the Fanuc M-430iA/2F 
       manipulator.
     </p>
   </description>
@@ -33,6 +33,8 @@
   <run_depend>rviz</run_depend>
   <run_depend>move_arm_warehouse</run_depend>
   <run_depend>industrial_deprecated</run_depend>
+  <run_depend>industrial_robot_simulator</run_depend>
+  <run_depend>industrial_robot_client</run_depend>
 
   <run_depend>fanuc_m430ia_support</run_depend>
 </package>
