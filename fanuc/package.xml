@@ -18,7 +18,7 @@
   <run_depend>fanuc_m10ia_arm_navigation</run_depend>
   <run_depend>fanuc_m16ib_support</run_depend>
   <run_depend>fanuc_m430ia_support</run_depend>
-  <run_depend>fanuc_m430ia_arm_navigation</run_depend>
+  <run_depend>fanuc_m430ia2f_arm_navigation</run_depend>
 
   <export>
     <metapackage/>

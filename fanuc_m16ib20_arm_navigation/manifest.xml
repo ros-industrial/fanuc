@@ -22,6 +22,8 @@
   <depend package="rviz"/>
   <depend package="move_arm_warehouse"/>
   <depend package="industrial_deprecated"/>
+  <depend package="industrial_robot_simulator"/>
+  <depend package="industrial_robot_client"/>
 
   <depend package="fanuc_m16ib_support"/>
 
