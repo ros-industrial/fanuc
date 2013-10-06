@@ -1,16 +1,13 @@
 # Fanuc
 
-[ROS-Industrial][] support for Fanuc manipulators. See the [ROS wiki][] page 
-for more information.
-
+[ROS-Industrial][] Fanuc meta-package. See the [ROS wiki][] page for more 
+information.
 
 ## Contents
 
-This repository contains packages that have been migrated from rosbuild to catkin. 
-For the rosbuild versions of these packages, see the Google Code repository SVN: 
-http://swri-ros-pkg.googlecode.com/svn/trunk/fanuc.
-
-
+This repository holds source code for all ROS versions > Groovy. For those 
+versions <= Groovy see: [SVN repo][]
 
 [ROS-Industrial]: http://www.ros.org/wiki/Industrial
-[ROS wiki]: http://www.ros.org/wiki/fanuc
+[ROS wiki]: http://ros.org/wiki/fanuc
+[SVN repo]: https://code.google.com/p/swri-ros-pkg/source/browse
