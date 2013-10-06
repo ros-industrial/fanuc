@@ -6,7 +6,7 @@ information.
 ## Contents
 
 This repository holds source code for all ROS versions > Groovy. For those 
-versions <= Groovy see: [SVN repo][]
+versions <= Groovy see: [SVN repo][].
 
 [ROS-Industrial]: http://www.ros.org/wiki/Industrial
 [ROS wiki]: http://ros.org/wiki/fanuc
