@@ -19,59 +19,59 @@ include_directories(
 
 
 # Little Endian Fanuc specific robot state node
-add_executable(fanuc_robot_state
+add_executable(${PROJECT_NAME}_robot_state
     src/fanuc_robot_state_node.cpp
     src/fanuc_utils.cpp)
-target_link_libraries(fanuc_robot_state
+target_link_libraries(${PROJECT_NAME}_robot_state
     industrial_robot_client
     industrial_utils)
-set_target_properties(fanuc_robot_state
+set_target_properties(${PROJECT_NAME}_robot_state
     PROPERTIES OUTPUT_NAME robot_state
     PREFIX "")
 
 
 # Big Endian Fanuc specific robot state node
-add_executable(fanuc_robot_state_bswap
+add_executable(${PROJECT_NAME}_robot_state_bswap
     src/fanuc_robot_state_node.cpp
     src/fanuc_utils.cpp)
-target_link_libraries(fanuc_robot_state_bswap
+target_link_libraries(${PROJECT_NAME}_robot_state_bswap
     industrial_robot_client_bswap
     industrial_utils)
-set_target_properties(fanuc_robot_state_bswap
+set_target_properties(${PROJECT_NAME}_robot_state_bswap
     PROPERTIES OUTPUT_NAME robot_state_bswap
     PREFIX "")
 
 
 # Little Endian Fanuc specific motion streaming interface
-add_executable(fanuc_motion_streaming_interface
+add_executable(${PROJECT_NAME}_motion_streaming_interface
     src/fanuc_joint_streamer_node.cpp
     src/fanuc_utils.cpp)
-target_link_libraries(fanuc_motion_streaming_interface
+target_link_libraries(${PROJECT_NAME}_motion_streaming_interface
     industrial_robot_client
     industrial_utils)
-set_target_properties(fanuc_motion_streaming_interface
+set_target_properties(${PROJECT_NAME}_motion_streaming_interface
     PROPERTIES OUTPUT_NAME motion_streaming_interface
     PREFIX "")
 
 
 # Big Endian Fanuc specific motion streaming interface
-add_executable(fanuc_motion_streaming_interface_bswap
+add_executable(${PROJECT_NAME}_motion_streaming_interface_bswap
     src/fanuc_joint_streamer_node.cpp
     src/fanuc_utils.cpp)
-target_link_libraries(fanuc_motion_streaming_interface_bswap
+target_link_libraries(${PROJECT_NAME}_motion_streaming_interface_bswap
     industrial_robot_client_bswap
     industrial_utils)
-set_target_properties(fanuc_motion_streaming_interface_bswap
+set_target_properties(${PROJECT_NAME}_motion_streaming_interface_bswap
     PROPERTIES OUTPUT_NAME motion_streaming_interface_bswap
     PREFIX "")
 
 
 install(TARGETS
-    fanuc_robot_state
-    fanuc_robot_state_bswap
+    ${PROJECT_NAME}_robot_state
+    ${PROJECT_NAME}_robot_state_bswap
 
-    fanuc_motion_streaming_interface
-    fanuc_motion_streaming_interface_bswap
+    ${PROJECT_NAME}_motion_streaming_interface
+    ${PROJECT_NAME}_motion_streaming_interface_bswap
 
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
