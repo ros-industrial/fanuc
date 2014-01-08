@@ -24,4 +24,8 @@
   <url type="repository">https://github.com/ros-industrial/fanuc</url>
 
   <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+    <architecture_independent />
+  </export>
 </package>

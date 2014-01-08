@@ -43,5 +43,6 @@
       This package will be removed in Hydro. Please see the M-430iA/2F MoveIt
       configuration package for a possible replacement.
     </deprecated>
+    <architecture_independent />
   </export>
 </package>
