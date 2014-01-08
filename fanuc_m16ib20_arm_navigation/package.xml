@@ -37,4 +37,11 @@
   <run_depend>industrial_robot_client</run_depend>
 
   <run_depend>fanuc_m16ib_support</run_depend>
+
+  <export>
+    <deprecated>
+      This package will be removed in Hydro. Please see the M-16iB/20 MoveIt
+      configuration package for a possible replacement.
+    </deprecated>
+  </export>
 </package>
