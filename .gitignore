@@ -23,6 +23,9 @@ build/
 bin/
 lib/
 
+# Other ROS stuff
+CATKIN_IGNORE*
+
 # Eclipse stuff
 .pydevproject
 .project
