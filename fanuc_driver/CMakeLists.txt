@@ -25,6 +25,7 @@ add_executable(${PROJECT_NAME}_robot_state
     src/fanuc_utils.cpp)
 target_link_libraries(${PROJECT_NAME}_robot_state
     industrial_robot_client
+    simple_message
     ${catkin_LIBRARIES})
 set_target_properties(${PROJECT_NAME}_robot_state
     PROPERTIES OUTPUT_NAME robot_state
@@ -37,6 +38,7 @@ add_executable(${PROJECT_NAME}_robot_state_bswap
     src/fanuc_utils.cpp)
 target_link_libraries(${PROJECT_NAME}_robot_state_bswap
     industrial_robot_client_bswap
+    simple_message_bswap
     ${catkin_LIBRARIES})
 set_target_properties(${PROJECT_NAME}_robot_state_bswap
     PROPERTIES OUTPUT_NAME robot_state_bswap
@@ -49,6 +51,7 @@ add_executable(${PROJECT_NAME}_motion_streaming_interface
     src/fanuc_utils.cpp)
 target_link_libraries(${PROJECT_NAME}_motion_streaming_interface
     industrial_robot_client
+    simple_message
     ${catkin_LIBRARIES})
 set_target_properties(${PROJECT_NAME}_motion_streaming_interface
     PROPERTIES OUTPUT_NAME motion_streaming_interface
@@ -61,6 +64,7 @@ add_executable(${PROJECT_NAME}_motion_streaming_interface_bswap
     src/fanuc_utils.cpp)
 target_link_libraries(${PROJECT_NAME}_motion_streaming_interface_bswap
     industrial_robot_client_bswap
+    simple_message_bswap
     ${catkin_LIBRARIES})
 set_target_properties(${PROJECT_NAME}_motion_streaming_interface_bswap
     PROPERTIES OUTPUT_NAME motion_streaming_interface_bswap
