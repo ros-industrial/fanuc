@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 
 project(fanuc_driver)
 
+# let industrial_robot_client pull in all other dependencies
 find_package(catkin REQUIRED COMPONENTS industrial_robot_client)
 
 catkin_package(
@@ -24,7 +25,7 @@ add_executable(${PROJECT_NAME}_robot_state
     src/fanuc_utils.cpp)
 target_link_libraries(${PROJECT_NAME}_robot_state
     industrial_robot_client
-    industrial_utils)
+    ${catkin_LIBRARIES})
 set_target_properties(${PROJECT_NAME}_robot_state
     PROPERTIES OUTPUT_NAME robot_state
     PREFIX "")
@@ -36,7 +37,7 @@ add_executable(${PROJECT_NAME}_robot_state_bswap
     src/fanuc_utils.cpp)
 target_link_libraries(${PROJECT_NAME}_robot_state_bswap
     industrial_robot_client_bswap
-    industrial_utils)
+    ${catkin_LIBRARIES})
 set_target_properties(${PROJECT_NAME}_robot_state_bswap
     PROPERTIES OUTPUT_NAME robot_state_bswap
     PREFIX "")
@@ -48,7 +49,7 @@ add_executable(${PROJECT_NAME}_motion_streaming_interface
     src/fanuc_utils.cpp)
 target_link_libraries(${PROJECT_NAME}_motion_streaming_interface
     industrial_robot_client
-    industrial_utils)
+    ${catkin_LIBRARIES})
 set_target_properties(${PROJECT_NAME}_motion_streaming_interface
     PROPERTIES OUTPUT_NAME motion_streaming_interface
     PREFIX "")
@@ -60,7 +61,7 @@ add_executable(${PROJECT_NAME}_motion_streaming_interface_bswap
     src/fanuc_utils.cpp)
 target_link_libraries(${PROJECT_NAME}_motion_streaming_interface_bswap
     industrial_robot_client_bswap
-    industrial_utils)
+    ${catkin_LIBRARIES})
 set_target_properties(${PROJECT_NAME}_motion_streaming_interface_bswap
     PROPERTIES OUTPUT_NAME motion_streaming_interface_bswap
     PREFIX "")
