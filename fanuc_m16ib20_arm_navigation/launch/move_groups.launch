@@ -1,3 +1,0 @@
-<launch>
-    <include file="$(find fanuc_m16ib20_arm_navigation)/launch/move_manipulator.launch" />
-</launch>

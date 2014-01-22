@@ -1,4 +1,0 @@
-<launch>
-    <param name="robot_description" textfile="$(find fanuc_m16ib_support)/urdf/m16ib20.urdf" />
-    <rosparam command="load" ns="robot_description_planning" file="$(find fanuc_m16ib20_arm_navigation)/config/fanuc_m16ib20_planning_description.yaml" />
-</launch>
