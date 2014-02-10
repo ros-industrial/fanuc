@@ -207,17 +207,10 @@ BEGIN
 	-- 
 	irs_reset(this)
 
-	-- check state of mode select switch using 'CE/CR Select' bits:
-	--   both high == AUTO
-	-- 
-	-- TP can be (dis,en)abled without changing mode select switch
-	-- so it isn't a reliable indicator of robot mode.
-	-- 
-	-- Table 14-1, Karel Reference Manual, MARRC75KR07091E Rev C
+	-- 'CE/CR Select' don't work in Roboguide, so use IN_AUTO_MODE()
+	-- built-in.
 	this.mode_ = RS_M_MAN
-	IF (OPIN[SI_CECR_B0] AND OPIN[SI_CECR_B0]) THEN
-		this.mode_ = RS_M_AUTO
-	ENDIF
+	IF IN_AUTO_MODE THEN this.mode_ = RS_M_AUTO; ENDIF
 
 	-- read current 'safety state' system variable
 	sstat__ = $MOR.$SAFETY_STAT
