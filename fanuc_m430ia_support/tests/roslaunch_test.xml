@@ -1,0 +1,78 @@
+<launch>
+  <arg name="ip_str" value="127.0.0.1" />
+
+  <group ns="load_m430ia2f__">
+    <include file="$(find fanuc_m430ia_support)/launch/load_m430ia2f.launch"/>
+  </group>
+
+  <group ns="test_m430ia2f__">
+    <include file="$(find fanuc_m430ia_support)/launch/test_m430ia2f.launch"/>
+  </group>
+
+  <group ns="robot_interface_streaming_m430ia2f__">
+    <include file="$(find fanuc_m430ia_support)/launch/robot_interface_streaming_m430ia2f.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+    </include>
+  </group>
+
+  <group ns="robot_state_visualize_m430ia2f__">
+    <include file="$(find fanuc_m430ia_support)/launch/robot_state_visualize_m430ia2f.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+    </include>
+  </group>
+
+
+  <!-- without bswap -->
+  <group ns="robot_interface_streaming_m430ia2f_f__">
+    <include file="$(find fanuc_m430ia_support)/launch/robot_interface_streaming_m430ia2f.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+      <arg name="use_bswap" value="false" />
+    </include>
+  </group>
+
+  <group ns="robot_state_visualize_m430ia2f_f__">
+    <include file="$(find fanuc_m430ia_support)/launch/robot_state_visualize_m430ia2f.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+      <arg name="use_bswap" value="false" />
+    </include>
+  </group>
+
+
+
+
+  <group ns="load_m430ia2p__">
+    <include file="$(find fanuc_m430ia_support)/launch/load_m430ia2p.launch"/>
+  </group>
+
+  <group ns="test_m430ia2p__">
+    <include file="$(find fanuc_m430ia_support)/launch/test_m430ia2p.launch"/>
+  </group>
+
+  <group ns="robot_interface_streaming_m430ia2p__">
+    <include file="$(find fanuc_m430ia_support)/launch/robot_interface_streaming_m430ia2p.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+    </include>
+  </group>
+
+  <group ns="robot_state_visualize_m430ia2p__">
+    <include file="$(find fanuc_m430ia_support)/launch/robot_state_visualize_m430ia2p.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+    </include>
+  </group>
+
+
+  <!-- without bswap -->
+  <group ns="robot_state_visualize_m430ia2p_f__">
+    <include file="$(find fanuc_m430ia_support)/launch/robot_state_visualize_m430ia2p.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+      <arg name="use_bswap" value="false" />
+    </include>
+  </group>
+
+  <group ns="robot_interface_streaming_m430ia2p_f__">
+    <include file="$(find fanuc_m430ia_support)/launch/robot_interface_streaming_m430ia2p.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+      <arg name="use_bswap" value="false" />
+    </include>
+  </group>
+</launch>

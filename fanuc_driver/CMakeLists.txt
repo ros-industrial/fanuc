@@ -71,6 +71,12 @@ set_target_properties(${PROJECT_NAME}_motion_streaming_interface_bswap
     PREFIX "")
 
 
+if (CATKIN_ENABLE_TESTING)
+    find_package(roslaunch REQUIRED)
+    roslaunch_add_file_check(tests/roslaunch_test.xml)
+endif()
+
+
 install(TARGETS
     ${PROJECT_NAME}_robot_state
     ${PROJECT_NAME}_robot_state_bswap
