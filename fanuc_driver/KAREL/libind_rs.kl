@@ -44,7 +44,7 @@ PROGRAM libind_rs
 --------------------------------------------------------------------------------
 %NOLOCKGROUP
 %NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'r4'
+%COMMENT = 'r5'
 
 
 
