@@ -397,7 +397,7 @@ END check_cfg_
 -- Update joint positions according to contents of ROS Industrial packet.
 -- 
 -- This routine communicates the new joint positions to the 'Move SM' TPE 
--- program using the 'MOVE_PREG' position register.
+-- program using the configured flags, and position & integer registers.
 -- 
 -- [in    ]  pkt     : packet containing new joint positions
 -- [out   ]          :    0 IFF no error
