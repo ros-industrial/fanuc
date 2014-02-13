@@ -111,6 +111,9 @@ CONST
 
 	MOVERR_OOR   = -1       -- Requested JPOS is out-of-range
 
+	HOST_CTAG_ER = 67144    -- HOST-144 Comm Tag error
+	SEV_ABORT    =  2       -- ABORT severity
+
 
 
 
@@ -164,7 +167,7 @@ BEGIN
 			log_error_a(LOG_PFIX + 'ssock_ctor err:', stat_)
 		ENDIF
 		-- nothing we can do, abort
-		GOTO exit_on_err
+		POST_ERR(HOST_CTAG_ER, '', 0, SEV_ABORT)
 	ENDIF
 
 
