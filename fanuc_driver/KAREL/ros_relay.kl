@@ -120,10 +120,11 @@ CONST
 	CFG_OK       =    0  -- config ok
 	CFG_NOTDONE  =   -1  -- configuration not checked: user action required
 
-	MOVERR_OOR   =   -1  -- Requested JPOS is out-of-range
-
+	FILE_ILL_PRM =  2032 -- FILE-032 Illegal parameter
 	HOST_CTAG_ER = 67144 -- HOST-144 Comm Tag error
 	SEV_ABORT    =    2  -- ABORT severity
+
+	MOVERR_OOR   =   -1  -- Requested JPOS is out-of-range
 
 	-- Configuration defaults
 	MOTION_TAG   =    4  -- Server tag
@@ -182,7 +183,9 @@ BEGIN
 	IF (stat_ <> CFG_OK) THEN
 		log_error_a(LOG_PFIX + 'cfg error:', stat_)
 		log_error(LOG_PFIX + 'check cfg')
+		-- errors with config always force user to log window
 		log_force
+		POST_ERR(FILE_ILL_PRM, '', 0, SEV_ABORT)
 		RETURN
 	ENDIF
 
