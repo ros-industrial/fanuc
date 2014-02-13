@@ -48,7 +48,7 @@ PROGRAM ros_state
 -- 
 --------------------------------------------------------------------------------
 %ALPHABETIZE
-%COMMENT = 'r15'
+%COMMENT = 'r16'
 %NOBUSYLAMP
 %NOLOCKGROUP
 %NOPAUSE = COMMAND + TPENABLE + ERROR
@@ -142,7 +142,7 @@ BEGIN
 	stat_ = ssock_ctor(sock_, RI_TCP_STATE, STATE_TAG)
 	IF (stat_ <> 0) THEN
 		IF (stat_ = TAG_CONF_ERR) THEN
-			log_error_a(LOG_PFIX + 'TAG config error. TAG nr:', STATE_TAG)
+			log_error_a(LOG_PFIX + 'cfg err, TAG idx:', STATE_TAG)
 		ELSE
 			log_error_a(LOG_PFIX + 'ssock_ctor err:', stat_)
 		ENDIF
