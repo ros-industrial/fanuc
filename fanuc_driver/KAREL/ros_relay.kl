@@ -108,7 +108,6 @@ VAR
 	sock_fd_               : FILE           -- file descriptor has to be declared here
 	pkt_in_                : ind_pkt_t      -- incoming joint commands
 	pkt_out_               : ind_pkt_t      -- outgoing reply msgs
-	new_j_pos_             : JOINTPOS
 	stat_                  : INTEGER
 	sleep_time_            : INTEGER
 	do_it_                 : BOOLEAN
@@ -407,17 +406,18 @@ END check_cfg_
 --------------------------------------------------------------------------------
 ROUTINE exec_move_
 VAR
-	stat__ : INTEGER
+	stat__       : INTEGER
+	new_j_pos__  : JOINTPOS
 BEGIN
 	-- ROS sends radians, so convert
 	arr_rad2deg(pkt.joint_data_)
 
 	-- convert reals to jointpos
-	CNV_REL_JPOS(pkt.joint_data_, new_j_pos_, stat__)
+	CNV_REL_JPOS(pkt.joint_data_, new_j_pos__, stat__)
 	IF (stat__ <> 0) THEN RETURN (-stat__); ENDIF
 
 	-- check to make sure point can be reached before performing motion
-	IF (NOT J_IN_RANGE(new_j_pos_)) THEN
+	IF (NOT J_IN_RANGE(new_j_pos__)) THEN
 		RETURN (MOVERR_OOR)
 	ENDIF
 
@@ -426,7 +426,7 @@ BEGIN
 
 	-- setup registers
 	-- init position
-	SET_JPOS_REG(cfg.pr_move, new_j_pos_, stat__)
+	SET_JPOS_REG(cfg.pr_move, new_j_pos__, stat__)
 	IF (stat__ <> 0) THEN RETURN (-stat__); ENDIF
 
 	-- init motion speed (from config)
