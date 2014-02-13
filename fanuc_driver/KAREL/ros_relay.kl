@@ -165,8 +165,8 @@ CONST
 --------------------------------------------------------------------------------
 ROUTINE check_cfg_(cfg : rrelay_cfg_t) : INTEGER FROM ros_relay
 ROUTINE exec_move_(pkt : ind_pkt_t; cfg : rrelay_cfg_t) : INTEGER FROM ros_relay
-ROUTINE req_next_(pkt : ind_pkt_t; sock_fd : FILE) : INTEGER FROM ros_relay
-ROUTINE send_err_(pkt : ind_pkt_t; sock_fd : FILE) : INTEGER FROM ros_relay
+ROUTINE req_next_(pkt_in : ind_pkt_t; pkt_out : ind_pkt_t; sock_fd : FILE) : INTEGER FROM ros_relay
+ROUTINE send_err_(pkt_in : ind_pkt_t; pkt_out : ind_pkt_t; sock_fd : FILE) : INTEGER FROM ros_relay
 
 
 
@@ -294,7 +294,7 @@ BEGIN
 							log_info(LOG_PFIX + 'Trajectory stop')
 							-- cancel motion (if any)
 							CANCEL
-							stat_ = req_next_(pkt_in_, sock_fd_)
+							stat_ = req_next_(pkt_in_, pkt_out_, sock_fd_)
 							IF stat_ <> 0 THEN
 								-- can't continue
 								log_error_a(LOG_PFIX + 'Failed to ack stop, err:', stat_)
@@ -312,7 +312,7 @@ BEGIN
 				ELSE
 
 					-- notify ROS node we want a new trajectory node
-					stat_ = req_next_(pkt_in_, sock_fd_)
+					stat_ = req_next_(pkt_in_, pkt_out_, sock_fd_)
 					IF (stat_ <> 0) THEN
 						-- can't continue
 						log_error_a(LOG_PFIX + 'req_next err:', stat_)
@@ -325,7 +325,7 @@ BEGIN
 						-- 
 						log_error_a(LOG_PFIX + 'exec_move err:', stat_)
 						-- can't continue, send error
-						stat_ = send_err_(pkt_in_, sock_fd_)
+						stat_ = send_err_(pkt_in_, pkt_out_, sock_fd_)
 						-- disconnect if anything else than OOR error
 						IF (stat_ <> MOVERR_OOR) THEN
 							-- 
@@ -452,7 +452,8 @@ END exec_move_
 -- 
 -- Request next trajectory point from ROS node. Also sort of 'Send ACK'.
 --
--- [in    ]  pkt     : the packet to send
+-- [in    ]  pkt_in  : the packet received
+-- [in    ]  pkt_out : the packet to send
 -- [in    ]  sock_fd : file descriptor on the open socket
 -- [out   ]          : 0 IFF no error
 -- 
@@ -464,13 +465,12 @@ BEGIN
 	-- 
 	stat__ = 0
 
-	-- copy seq_nr from packet we ack
-	-- this is NOT done by the sedwards protocol implementations (debugging aid)
-	pkt_out_.seq_nr_ = pkt.seq_nr_
-	pkt_out_.reply_type_ = RI_RT_SUCC
+	-- copy seq_nr from packet we ack (done as a debugging aid)
+	pkt_out.seq_nr_ = pkt_in.seq_nr_
+	pkt_out.reply_type_ = RI_RT_SUCC
 
 	-- send ROS node request for next point
-	stat__ = ipkt_srlise(pkt_out_, sock_fd_)
+	stat__ = ipkt_srlise(pkt_out, sock_fd)
 
 	-- done
 	RETURN (-ABS(stat__))
@@ -483,7 +483,8 @@ END req_next_
 -- 
 -- Send NACK to ROS node. Something erred
 --
--- [in    ]  pkt     : the packet to send
+-- [in    ]  pkt_in  : the packet received
+-- [in    ]  pkt_out : the packet to send
 -- [in    ]  sock_fd : file descriptor on the open socket
 -- [out   ]          : 0 IFF no error
 -- 
@@ -495,13 +496,12 @@ BEGIN
 	-- 
 	stat__ = 0
 
-	-- copy seq_nr from the packet we NACK
-	-- this is NOT done by the sedwards protocol implementations (debugging aid)
-	pkt_out_.seq_nr_     = pkt.seq_nr_
-	pkt_out_.reply_type_ = RI_RT_FAIL
+	-- copy seq_nr from the packet we NACK (done as a debugging aid)
+	pkt_out.seq_nr_     = pkt_in.seq_nr_
+	pkt_out.reply_type_ = RI_RT_FAIL
 
-	-- send ROS node request for next point
-	stat__ = ipkt_srlise(pkt_out_, sock_fd_)
+	-- send nack to ROS node
+	stat__ = ipkt_srlise(pkt_out, sock_fd)
 
 	-- done
 	RETURN (-ABS(stat__))
