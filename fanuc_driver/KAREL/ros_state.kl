@@ -1,6 +1,6 @@
 -- Software License Agreement (BSD License)
 --
--- Copyright (c) 2012, 2013, TU Delft Robotics Institute
+-- Copyright (c) 2012-2014, TU Delft Robotics Institute
 -- All rights reserved.
 --
 -- Redistribution and use in source and binary forms, with or without
@@ -35,20 +35,24 @@
 PROGRAM ros_state
 --------------------------------------------------------------------------------
 -- 
--- ROS Industrial state proxy
+-- ROS Industrial state proxy.
 -- 
 -- 
 -- Assumptions:
 --   - User Socket Messaging (USM) is supported by robot
---   - TAG 'S3' used for USM
 --   - There is only 1 motion group
+-- 
+-- 
+-- Configuration defaults:
+--   - TAG 'S3' used for USM
+--   - State TCP port ROS-I default (11002)
 -- 
 -- 
 -- author: G.A. vd. Hoorn (TU Delft Robotics Institute)
 -- 
 --------------------------------------------------------------------------------
 %ALPHABETIZE
-%COMMENT = 'r15'
+%COMMENT = 'r22'
 %NOBUSYLAMP
 %NOLOCKGROUP
 %NOPAUSE = COMMAND + TPENABLE + ERROR
@@ -73,26 +77,46 @@ PROGRAM ros_state
 -- local types & constants
 -- 
 --------------------------------------------------------------------------------
+TYPE
+	rstate_cfg_t = STRUCTURE
+		checked      : BOOLEAN  -- user flagged: config checked
+		loop_hz      : INTEGER  -- main loop update rate (in Hz)
+		sloop_div    : INTEGER  -- robot_status main loop divider
+		s_tcp_nr     : INTEGER  -- TCP port to listen on
+		s_tag_nr     : INTEGER  -- server TAG number to use
+		um_clear     : BOOLEAN  -- clear user menu on start
+	ENDSTRUCTURE
+
+
 VAR
-	jnt_pkt_out: ind_pkt_t   -- ROS industrial joint state packet
-	rs_pkt_out : ind_rs_t    -- ROS industrial robot status packet
-	sock_      : ssock_t     -- server socket instance
-	sock_fd_   : FILE        -- file descriptor associated with srvr socket
-	stat_      : INTEGER     -- status variable
-	stat_count_: INTEGER     -- status loop counter
-	cur_j_pos  : JOINTPOS    -- current position of robot joints
-	sleep_time : INTEGER
+	cfg_         IN SHADOW : rstate_cfg_t -- configuration
+
+	jnt_pkt_out_           : ind_pkt_t    -- ROS industrial joint state packet
+	rs_pkt_out_            : ind_rs_t     -- ROS industrial robot status packet
+	sock_                  : ssock_t      -- server socket instance
+	sock_fd_               : FILE         -- file descriptor associated with srvr socket
+	stat_                  : INTEGER      -- status variable
+	stat_count_            : INTEGER      -- status loop counter
+	cur_j_pos_             : JOINTPOS     -- current position of robot joints
+	sleep_time_            : INTEGER
 
 
 CONST
 	-- 
-	LOG_PFIX = 'RSTA '
-	-- which server tag to use
-	STATE_TAG = 3
-	-- Main loop freq (Hz)
-	LOOP_HZ = 40
-	-- Number of main loop iterations for each status message
-	STAT_LP_CNT = 10
+	LOG_PFIX     = 'RSTA '
+
+	CFG_OK       =    0  -- config ok
+	CFG_NOTDONE  =   -1  -- configuration not checked: user action required
+
+	HOST_CTAG_ER = 67144 -- HOST-144 Comm Tag error
+	FILE_ILL_PRM =  2032 -- FILE-032 Illegal parameter
+	SEV_ABORT    =    2  -- ABORT severity
+
+	-- Configuration defaults
+	STATE_TAG    =    3  -- Server tag
+	STATE_TCP_P  = RI_TCP_STATE
+	LOOP_HZ      =   40  -- Main loop freq (Hz)
+	STAT_LP_CNT  =   10  -- Main loop divider for robot_status
 
 
 
@@ -114,23 +138,46 @@ CONST
 
 --------------------------------------------------------------------------------
 -- 
+-- local routine prototypes
+-- 
+--------------------------------------------------------------------------------
+ROUTINE check_cfg_(cfg : rstate_cfg_t) : INTEGER FROM ros_state
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
 -- Main program
 -- 
 --------------------------------------------------------------------------------
 BEGIN
-	stat_       = 0
-	stat_count_ = 0
-	sleep_time  = ROUND(1000.0 / LOOP_HZ)
+	-- check config
+	stat_ = check_cfg_(cfg_)
+	IF (stat_ <> CFG_OK) THEN
+		log_error_a(LOG_PFIX + 'cfg error:', stat_)
+		log_error(LOG_PFIX + 'check cfg')
+		-- errors with config always force user to log window
+		log_force
+		POST_ERR(FILE_ILL_PRM, '', 0, SEV_ABORT)
+		RETURN
+	ENDIF
+
+
+	-- 
+	stat_        = 0
+	stat_count_  = 0
+	sleep_time_  = ROUND(1000.0 / cfg_.loop_hz)
 
 
 	-- enable log output
-	log_clear
+	IF (cfg_.um_clear) THEN log_clear; ENDIF
 
 
 	-- init packet
-	stat_ = ipkt_ctor(jnt_pkt_out)
+	stat_ = ipkt_ctor(jnt_pkt_out_)
 	-- we reply with JOINT_POSITION packets
-	USING jnt_pkt_out DO
+	USING jnt_pkt_out_ DO
 		length_    = (RI_SZ_HDR + RI_SZB_JPOS)
 		msg_type_  = RI_MT_JOINTP
 		comm_type_ = RI_CT_TOPIC
@@ -139,15 +186,15 @@ BEGIN
 
 
 	-- init server socket
-	stat_ = ssock_ctor(sock_, RI_TCP_STATE, STATE_TAG)
+	stat_ = ssock_ctor(sock_, cfg_.s_tcp_nr,  cfg_.s_tag_nr)
 	IF (stat_ <> 0) THEN
 		IF (stat_ = TAG_CONF_ERR) THEN
-			log_error_a(LOG_PFIX + 'TAG config error. TAG nr:', STATE_TAG)
+			log_error_a(LOG_PFIX + 'cfg err, TAG idx:', cfg_.s_tag_nr)
 		ELSE
 			log_error_a(LOG_PFIX + 'ssock_ctor err:', stat_)
 		ENDIF
 		-- nothing we can do, abort
-		GOTO exit_on_err
+		POST_ERR(HOST_CTAG_ER, '', 0, SEV_ABORT)
 	ENDIF
 
 
@@ -180,16 +227,16 @@ BEGIN
 		WHILE (TRUE) DO
 
 			-- get current joint angles
-			cur_j_pos = CURJPOS(0, 0)
+			cur_j_pos_ = CURJPOS(0, 0)
 
 			-- convert to REAL array
-			CNV_JPOS_REL(cur_j_pos, jnt_pkt_out.joint_data_, stat_)
+			CNV_JPOS_REL(cur_j_pos_, jnt_pkt_out_.joint_data_, stat_)
 
 			-- ROS expects radians, so convert
-			arr_deg2rad(jnt_pkt_out.joint_data_)
+			arr_deg2rad(jnt_pkt_out_.joint_data_)
 
 			-- serialise packet, write to socket file descriptor
-			stat_ = ipkt_srlise(jnt_pkt_out, sock_fd_)
+			stat_ = ipkt_srlise(jnt_pkt_out_, sock_fd_)
 
 			-- check result
 			IF (stat_ <> 0) THEN
@@ -204,12 +251,12 @@ BEGIN
 			ENDIF
 
 			-- 
-			IF (stat_count_ >=  STAT_LP_CNT) THEN
+			IF (stat_count_ >= cfg_.sloop_div) THEN
 				--Build up robot status packer
-				irs_update(rs_pkt_out)
+				irs_update(rs_pkt_out_)
 
 				-- serialise packet, write to socket file descriptor
-				stat_ = irs_tpc_srl(rs_pkt_out, sock_fd_)
+				stat_ = irs_tpc_srl(rs_pkt_out_, sock_fd_)
 
 				-- check result
 				IF (stat_ <> 0) THEN
@@ -229,7 +276,7 @@ BEGIN
 			ENDIF
 
 			-- sleep a little (1/T)
-			DELAY sleep_time
+			DELAY sleep_time_
 
 		-- inner WHILE TRUE DO
 		ENDWHILE
@@ -250,3 +297,27 @@ exit_on_err::
 	-- nothing
 
 END ros_state
+
+
+
+
+ROUTINE check_cfg_
+VAR
+	a__ : BOOLEAN
+BEGIN
+	a__ = FALSE
+
+	-- set defaults for any uninitialised entries
+	IF (UNINIT(cfg.loop_hz  )) THEN cfg.loop_hz   = LOOP_HZ    ; a__ = TRUE; ENDIF
+	IF (UNINIT(cfg.sloop_div)) THEN cfg.sloop_div = STAT_LP_CNT; a__ = TRUE; ENDIF
+	IF (UNINIT(cfg.s_tcp_nr )) THEN cfg.s_tcp_nr  = STATE_TCP_P; a__ = TRUE; ENDIF
+	IF (UNINIT(cfg.s_tag_nr )) THEN cfg.s_tag_nr  = STATE_TAG  ; a__ = TRUE; ENDIF
+	IF (UNINIT(cfg.um_clear )) THEN cfg.um_clear  = TRUE       ; a__ = TRUE; ENDIF
+	IF (UNINIT(cfg.checked  )) THEN cfg.checked   = FALSE      ; a__ = TRUE; ENDIF
+
+	-- make sure user has checked configuration
+	IF ((NOT cfg.checked) OR a__) THEN RETURN (CFG_NOTDONE); ENDIF
+
+	-- all ok
+	RETURN (CFG_OK)
+END check_cfg_

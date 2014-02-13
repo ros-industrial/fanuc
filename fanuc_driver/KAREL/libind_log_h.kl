@@ -42,6 +42,7 @@
 --------------------------------------------------------------------------------
 
 ROUTINE log_clear FROM libind_log
+ROUTINE log_force FROM libind_log
 ROUTINE log_info(s : STRING) FROM libind_log
 ROUTINE log_info_a(s : STRING; a : INTEGER) FROM libind_log
 ROUTINE log_warn(s : STRING) FROM libind_log

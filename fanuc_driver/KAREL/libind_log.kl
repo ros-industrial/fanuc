@@ -45,7 +45,7 @@ PROGRAM libind_log
 --------------------------------------------------------------------------------
 %NOLOCKGROUP
 %NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'r1'
+%COMMENT = 'r2'
 
 
 
@@ -130,8 +130,21 @@ END prnt_time
 ROUTINE log_clear
 BEGIN
 	WRITE(CHR(128), CR)
-	FORCE_SPMENU(TP_PANEL, SPI_TPUSER, 1)
+	log_force
 END log_clear
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Force the USER menu screen
+-- 
+--------------------------------------------------------------------------------
+ROUTINE log_force
+BEGIN
+	FORCE_SPMENU(TP_PANEL, SPI_TPUSER, 1)
+END log_force
 
 
 
