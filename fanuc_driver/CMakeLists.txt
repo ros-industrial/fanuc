@@ -87,7 +87,7 @@ install(TARGETS
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-foreach(dir KAREL launch TPE)
+foreach(dir karel launch tpe)
   install(
     DIRECTORY ${dir}/
     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
