@@ -19,7 +19,7 @@ include_directories(
 )
 
 
-# Little Endian Fanuc specific robot state node
+# non-swapping Fanuc specific robot state node
 add_executable(${PROJECT_NAME}_robot_state
   src/fanuc_robot_state_node.cpp
   src/fanuc_utils.cpp)
@@ -32,7 +32,7 @@ set_target_properties(${PROJECT_NAME}_robot_state
   PREFIX "")
 
 
-# Big Endian Fanuc specific robot state node
+# byte-swapping Fanuc specific robot state node
 add_executable(${PROJECT_NAME}_robot_state_bswap
   src/fanuc_robot_state_node.cpp
   src/fanuc_utils.cpp)
@@ -45,7 +45,7 @@ set_target_properties(${PROJECT_NAME}_robot_state_bswap
   PREFIX "")
 
 
-# Little Endian Fanuc specific motion streaming interface
+# non-swapping Fanuc specific motion streaming interface
 add_executable(${PROJECT_NAME}_motion_streaming_interface
   src/fanuc_joint_streamer_node.cpp
   src/fanuc_utils.cpp)
@@ -58,7 +58,7 @@ set_target_properties(${PROJECT_NAME}_motion_streaming_interface
   PREFIX "")
 
 
-# Big Endian Fanuc specific motion streaming interface
+# byte-swapping Fanuc specific motion streaming interface
 add_executable(${PROJECT_NAME}_motion_streaming_interface_bswap
   src/fanuc_joint_streamer_node.cpp
   src/fanuc_utils.cpp)
@@ -91,4 +91,4 @@ foreach(dir karel launch tpe)
   install(
     DIRECTORY ${dir}/
     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
-endforeach(dir)
+endforeach()
