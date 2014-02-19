@@ -1,5 +1,5 @@
 <package>
-  <name>fanuc_assets</name>
+  <name>fanuc_resources</name>
   <version>0.1.0</version>
   <description>
     <p>
@@ -19,7 +19,7 @@
   <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
   <license>BSD</license>
 
-  <url type="website">http://ros.org/wiki/fanuc_assets</url>
+  <url type="website">http://ros.org/wiki/fanuc_resources</url>
   <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
   <url type="repository">https://github.com/ros-industrial/fanuc</url>
 
@@ -27,6 +27,5 @@
 
   <export>
     <architecture_independent />
-    <deprecated>This package has been deprecated in Hydro, and will be removed in Indigo. Please use the 'fanuc_resources' package as a replacement.</deprecated>
   </export>
 </package>

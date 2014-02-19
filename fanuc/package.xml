@@ -17,6 +17,7 @@
   <run_depend>fanuc_m10ia_support</run_depend>
   <run_depend>fanuc_m16ib_support</run_depend>
   <run_depend>fanuc_m430ia_support</run_depend>
+  <run_depend>fanuc_resources</run_depend>
 
   <export>
     <metapackage/>

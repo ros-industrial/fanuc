@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<!-- RAL 1021 -->
+	<xacro:property name="color_fanuc_yellow"   value="0.96 0.76 0.13 1.0" />
+	<!-- RAL 9002 -->
+	<xacro:property name="color_fanuc_white"    value="0.86 0.85 0.81 1.0" />
+	<!-- RAL 7024 -->
+	<xacro:property name="color_fanuc_grey"     value="0.34 0.35 0.36 1.0" />
+
+	<!-- approximations -->
+	<xacro:property name="color_fanuc_black"    value="0.15 0.15 0.15 1.0" />
+	<xacro:property name="color_fanuc_greyish"  value="0.75 0.75 0.75 1.0" />
+
+</robot>
