@@ -1,7 +1,7 @@
 <package>
   <name>fanuc</name>
   <version>0.1.0</version>
-  <description>ROS Industrial support for Fanuc manipulators.</description>
+  <description>ROS Industrial support for Fanuc manipulators (metapackage).</description>
   <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
   <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
   <license>BSD</license>
