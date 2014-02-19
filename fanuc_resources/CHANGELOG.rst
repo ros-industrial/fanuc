@@ -2,7 +2,7 @@
 Changelog for package fanuc_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
+0.2.0 (2014-02-19)
 ------------------
 * first Hydro release.
 * deprecate `fanuc_assets`, introduce `fanuc_resources`

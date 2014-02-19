@@ -2,7 +2,7 @@
 Changelog for package fanuc
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
+0.2.0 (2014-02-19)
 ------------------
 * first Hydro release.
 * remove arm_navigation pkgs (`#61 <https://github.com/ros-industrial/fanuc/issues/61>`_)

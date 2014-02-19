@@ -2,7 +2,7 @@
 Changelog for package fanuc_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
+0.2.0 (2014-02-19)
 ------------------
 * first Hydro release.
 * Karel driver updates:
