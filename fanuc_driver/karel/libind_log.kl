@@ -122,11 +122,6 @@ END prnt_time
 
 
 
---------------------------------------------------------------------------------
--- 
--- Clear and force the USER menu screen
--- 
---------------------------------------------------------------------------------
 ROUTINE log_clear
 BEGIN
 	WRITE(CHR(128), CR)
@@ -136,11 +131,6 @@ END log_clear
 
 
 
---------------------------------------------------------------------------------
--- 
--- Force the USER menu screen
--- 
---------------------------------------------------------------------------------
 ROUTINE log_force
 BEGIN
 	FORCE_SPMENU(TP_PANEL, SPI_TPUSER, 1)
@@ -149,46 +139,31 @@ END log_force
 
 
 
---------------------------------------------------------------------------------
--- 
--- Write INFO level string to display
--- 
---------------------------------------------------------------------------------
 ROUTINE log_info
 BEGIN
 	prnt_time
-	WRITE TPDISPLAY(ROS_INFO_T, s, CR)
+	WRITE TPDISPLAY(ROS_INFO_T, msg, CR)
 END log_info
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Write INFO level string and 1 integer parameter to display
--- 
---------------------------------------------------------------------------------
 ROUTINE log_info_a
 BEGIN
 	prnt_time
-	WRITE TPDISPLAY(ROS_INFO_T, s, a, CR)
+	WRITE TPDISPLAY(ROS_INFO_T, msg, prm, CR)
 END log_info_a
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Write WARN level string to display
--- 
---------------------------------------------------------------------------------
 ROUTINE log_warn
 BEGIN
 	prnt_time
 	WRITE TPDISPLAY( &
 		CHR(156), CHR(BG_BLACK), &
 		CHR(155), CHR(ROS_WARN), &
-		ROS_WARN_T, s, &
+		ROS_WARN_T, msg, &
 		CHR(156), CHR(BG_DEFAULT), &
 		CHR(155), CHR(FG_DEFAULT), &
 		CR)
@@ -197,17 +172,12 @@ END log_warn
 
 
 
---------------------------------------------------------------------------------
--- 
--- Write WARN level string and 1 integer parameter to display
--- 
---------------------------------------------------------------------------------
 ROUTINE log_warn_a
 BEGIN
 	prnt_time
 	WRITE TPDISPLAY( &
 		CHR(155), CHR(ROS_WARN), &
-		ROS_WARN_T, s, a, &
+		ROS_WARN_T, msg, prm, &
 		CHR(155), CHR(FG_DEFAULT), &
 		CR)
 END log_warn_a
@@ -215,17 +185,12 @@ END log_warn_a
 
 
 
---------------------------------------------------------------------------------
--- 
--- Write ERROR level string to display
--- 
---------------------------------------------------------------------------------
 ROUTINE log_error
 BEGIN
 	prnt_time
 	WRITE TPDISPLAY( &
 		CHR(155), CHR(ROS_ERR), &
-		ROS_ERR_T, s, &
+		ROS_ERR_T, msg, &
 		CHR(155), CHR(FG_DEFAULT), &
 		CR)
 END log_error
@@ -233,17 +198,12 @@ END log_error
 
 
 
---------------------------------------------------------------------------------
--- 
--- Write ERROR level string and 1 integer parameter to display
--- 
---------------------------------------------------------------------------------
 ROUTINE log_error_a
 BEGIN
 	prnt_time
 	WRITE TPDISPLAY( &
 		CHR(155), CHR(ROS_ERR), &
-		ROS_ERR_T, s, a, &
+		ROS_ERR_T, msg, prm, &
 		CHR(155), CHR(FG_DEFAULT), 
 		CR)
 END log_error_a
