@@ -160,12 +160,12 @@ END log_info_a
 ROUTINE log_warn
 BEGIN
 	prnt_time
-	WRITE TPDISPLAY( &
-		CHR(156), CHR(BG_BLACK), &
-		CHR(155), CHR(ROS_WARN), &
-		ROS_WARN_T, msg, &
-		CHR(156), CHR(BG_DEFAULT), &
-		CHR(155), CHR(FG_DEFAULT), &
+	WRITE TPDISPLAY(
+		CHR(156), CHR(BG_BLACK),
+		CHR(155), CHR(ROS_WARN),
+		ROS_WARN_T, msg,
+		CHR(156), CHR(BG_DEFAULT),
+		CHR(155), CHR(FG_DEFAULT),
 		CR)
 END log_warn
 
@@ -175,10 +175,10 @@ END log_warn
 ROUTINE log_warn_a
 BEGIN
 	prnt_time
-	WRITE TPDISPLAY( &
-		CHR(155), CHR(ROS_WARN), &
-		ROS_WARN_T, msg, prm, &
-		CHR(155), CHR(FG_DEFAULT), &
+	WRITE TPDISPLAY(
+		CHR(155), CHR(ROS_WARN),
+		ROS_WARN_T, msg, prm,
+		CHR(155), CHR(FG_DEFAULT),
 		CR)
 END log_warn_a
 
@@ -188,10 +188,10 @@ END log_warn_a
 ROUTINE log_error
 BEGIN
 	prnt_time
-	WRITE TPDISPLAY( &
-		CHR(155), CHR(ROS_ERR), &
-		ROS_ERR_T, msg, &
-		CHR(155), CHR(FG_DEFAULT), &
+	WRITE TPDISPLAY(
+		CHR(155), CHR(ROS_ERR),
+		ROS_ERR_T, msg,
+		CHR(155), CHR(FG_DEFAULT),
 		CR)
 END log_error
 
@@ -201,9 +201,9 @@ END log_error
 ROUTINE log_error_a
 BEGIN
 	prnt_time
-	WRITE TPDISPLAY( &
-		CHR(155), CHR(ROS_ERR), &
-		ROS_ERR_T, msg, prm, &
+	WRITE TPDISPLAY(
+		CHR(155), CHR(ROS_ERR),
+		ROS_ERR_T, msg, prm,
 		CHR(155), CHR(FG_DEFAULT), 
 		CR)
 END log_error_a
