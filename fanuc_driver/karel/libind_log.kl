@@ -52,23 +52,24 @@ PROGRAM libind_log
 
 --------------------------------------------------------------------------------
 -- 
+-- remote types & constants
+-- 
+--------------------------------------------------------------------------------
+%INCLUDE klevccdf
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
 -- local types & constants
 -- 
 --------------------------------------------------------------------------------
-const
-	-- from KAREL Reference Manual, MARRC75KR07091E Rev C, table D-2
-	BG_DEFAULT = 127
-	BG_BLACK   =  48
-
-	FG_DEFAULT = 127
-	FG_RED     =  49
-	FG_GREEN   =  50
-	FG_YELLOW  =  51
-
-	-- copied from rosconsole.cpp
-	ROS_WARN  = FG_YELLOW
-	ROS_ERR   = FG_RED
-	ROS_DEBUG = FG_GREEN
+CONST
+	-- use klevccdf constants for colours from rosconsole.cpp
+	ROS_WARN  = cc_yellow
+	ROS_ERR   = cc_red
+	ROS_DEBUG = cc_green
 
 	-- 
 	ROS_ERR_T   = ' E '
@@ -78,12 +79,14 @@ const
 
 
 
+
 --------------------------------------------------------------------------------
 -- 
 -- local routine prototypes
 -- 
 --------------------------------------------------------------------------------
 %INCLUDE libind_log_h
+%INCLUDE klrdutil
 
 
 
@@ -123,8 +126,11 @@ END prnt_time
 
 
 ROUTINE log_clear
+VAR
+	stat__ : INTEGER
 BEGIN
-	WRITE(CHR(128), CR)
+	-- from klrdutil
+	clear_win(TPDISPLAY, stat__)
 	log_force
 END log_clear
 
@@ -161,11 +167,11 @@ ROUTINE log_warn
 BEGIN
 	prnt_time
 	WRITE TPDISPLAY(
-		CHR(156), CHR(BG_BLACK),
-		CHR(155), CHR(ROS_WARN),
+		CHR(cc_bgcolor), CHR(cc_black),
+		CHR(cc_fgcolor), CHR(ROS_WARN),
 		ROS_WARN_T, msg,
-		CHR(156), CHR(BG_DEFAULT),
-		CHR(155), CHR(FG_DEFAULT),
+		CHR(cc_bgcolor), CHR(cc_dfcolor),
+		CHR(cc_fgcolor), CHR(cc_dfcolor),
 		CR)
 END log_warn
 
@@ -176,9 +182,9 @@ ROUTINE log_warn_a
 BEGIN
 	prnt_time
 	WRITE TPDISPLAY(
-		CHR(155), CHR(ROS_WARN),
+		CHR(cc_fgcolor), CHR(ROS_WARN),
 		ROS_WARN_T, msg, prm,
-		CHR(155), CHR(FG_DEFAULT),
+		CHR(cc_fgcolor), CHR(cc_dfcolor),
 		CR)
 END log_warn_a
 
@@ -189,9 +195,9 @@ ROUTINE log_error
 BEGIN
 	prnt_time
 	WRITE TPDISPLAY(
-		CHR(155), CHR(ROS_ERR),
+		CHR(cc_fgcolor), CHR(ROS_ERR),
 		ROS_ERR_T, msg,
-		CHR(155), CHR(FG_DEFAULT),
+		CHR(cc_fgcolor), CHR(cc_dfcolor),
 		CR)
 END log_error
 
@@ -202,8 +208,8 @@ ROUTINE log_error_a
 BEGIN
 	prnt_time
 	WRITE TPDISPLAY(
-		CHR(155), CHR(ROS_ERR),
+		CHR(cc_fgcolor), CHR(ROS_ERR),
 		ROS_ERR_T, msg, prm,
-		CHR(155), CHR(FG_DEFAULT), 
+		CHR(cc_fgcolor), CHR(cc_dfcolor),
 		CR)
 END log_error_a
