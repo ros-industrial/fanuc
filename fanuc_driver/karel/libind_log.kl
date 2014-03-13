@@ -107,7 +107,7 @@ END libind_log
 -- Print the current time on the current line (as prefix for log lines)
 -- 
 --------------------------------------------------------------------------------
-ROUTINE prnt_time
+ROUTINE prnt_time_
 VAR
 	time_ : INTEGER
 	tmp_  : STRING[30]
@@ -120,7 +120,7 @@ BEGIN
 	CNV_INT_STR(time_, 4, 10, tmp_)
 	-- write on current line
 	WRITE TPDISPLAY(tmp_)
-END prnt_time
+END prnt_time_
 
 
 
@@ -147,7 +147,7 @@ END log_force
 
 ROUTINE log_info
 BEGIN
-	prnt_time
+	prnt_time_
 	WRITE TPDISPLAY(ROS_INFO_T, msg, CR)
 END log_info
 
@@ -156,7 +156,7 @@ END log_info
 
 ROUTINE log_info_a
 BEGIN
-	prnt_time
+	prnt_time_
 	WRITE TPDISPLAY(ROS_INFO_T, msg, prm, CR)
 END log_info_a
 
@@ -165,7 +165,7 @@ END log_info_a
 
 ROUTINE log_warn
 BEGIN
-	prnt_time
+	prnt_time_
 	WRITE TPDISPLAY(
 		CHR(cc_bgcolor), CHR(cc_black),
 		CHR(cc_fgcolor), CHR(ROS_WARN),
@@ -180,7 +180,7 @@ END log_warn
 
 ROUTINE log_warn_a
 BEGIN
-	prnt_time
+	prnt_time_
 	WRITE TPDISPLAY(
 		CHR(cc_fgcolor), CHR(ROS_WARN),
 		ROS_WARN_T, msg, prm,
@@ -193,7 +193,7 @@ END log_warn_a
 
 ROUTINE log_error
 BEGIN
-	prnt_time
+	prnt_time_
 	WRITE TPDISPLAY(
 		CHR(cc_fgcolor), CHR(ROS_ERR),
 		ROS_ERR_T, msg,
@@ -206,7 +206,7 @@ END log_error
 
 ROUTINE log_error_a
 BEGIN
-	prnt_time
+	prnt_time_
 	WRITE TPDISPLAY(
 		CHR(cc_fgcolor), CHR(ROS_ERR),
 		ROS_ERR_T, msg, prm,
