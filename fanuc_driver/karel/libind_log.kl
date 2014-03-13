@@ -1,6 +1,6 @@
 -- Software License Agreement (BSD License)
 --
--- Copyright (c) 2012, 2013, TU Delft Robotics Institute
+-- Copyright (c) 2012-2014, TU Delft Robotics Institute
 -- All rights reserved.
 --
 -- Redistribution and use in source and binary forms, with or without
@@ -43,9 +43,21 @@ PROGRAM libind_log
 -- author: G.A. vd. Hoorn (TU Delft Robotics Institute)
 -- 
 --------------------------------------------------------------------------------
+%ALPHABETIZE
+%COMMENT = 'r3'
+%NOBUSYLAMP
 %NOLOCKGROUP
-%NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'r2'
+%NOPAUSE = COMMAND + TPENABLE + ERROR
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- remote types & constants
+-- 
+--------------------------------------------------------------------------------
+%INCLUDE klevccdf
 
 
 
@@ -55,20 +67,11 @@ PROGRAM libind_log
 -- local types & constants
 -- 
 --------------------------------------------------------------------------------
-const
-	-- from KAREL Reference Manual, MARRC75KR07091E Rev C, table D-2
-	BG_DEFAULT = 127
-	BG_BLACK   =  48
-
-	FG_DEFAULT = 127
-	FG_RED     =  49
-	FG_GREEN   =  50
-	FG_YELLOW  =  51
-
-	-- copied from rosconsole.cpp
-	ROS_WARN  = FG_YELLOW
-	ROS_ERR   = FG_RED
-	ROS_DEBUG = FG_GREEN
+CONST
+	-- use klevccdf constants for colours from rosconsole.cpp
+	ROS_WARN  = cc_yellow
+	ROS_ERR   = cc_red
+	ROS_DEBUG = cc_green
 
 	-- 
 	ROS_ERR_T   = ' E '
@@ -78,12 +81,14 @@ const
 
 
 
+
 --------------------------------------------------------------------------------
 -- 
 -- local routine prototypes
 -- 
 --------------------------------------------------------------------------------
 %INCLUDE libind_log_h
+%INCLUDE klrdutil
 
 
 
@@ -104,7 +109,7 @@ END libind_log
 -- Print the current time on the current line (as prefix for log lines)
 -- 
 --------------------------------------------------------------------------------
-ROUTINE prnt_time
+ROUTINE prnt_time_
 VAR
 	time_ : INTEGER
 	tmp_  : STRING[30]
@@ -117,30 +122,23 @@ BEGIN
 	CNV_INT_STR(time_, 4, 10, tmp_)
 	-- write on current line
 	WRITE TPDISPLAY(tmp_)
-END prnt_time
+END prnt_time_
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Clear and force the USER menu screen
--- 
---------------------------------------------------------------------------------
 ROUTINE log_clear
+VAR
+	stat__ : INTEGER
 BEGIN
-	WRITE(CHR(128), CR)
+	-- from klrdutil
+	clear_win(TPDISPLAY, stat__)
 	log_force
 END log_clear
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Force the USER menu screen
--- 
---------------------------------------------------------------------------------
 ROUTINE log_force
 BEGIN
 	FORCE_SPMENU(TP_PANEL, SPI_TPUSER, 1)
@@ -149,101 +147,71 @@ END log_force
 
 
 
---------------------------------------------------------------------------------
--- 
--- Write INFO level string to display
--- 
---------------------------------------------------------------------------------
 ROUTINE log_info
 BEGIN
-	prnt_time
-	WRITE TPDISPLAY(ROS_INFO_T, s, CR)
+	prnt_time_
+	WRITE TPDISPLAY(ROS_INFO_T, msg, CR)
 END log_info
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Write INFO level string and 1 integer parameter to display
--- 
---------------------------------------------------------------------------------
 ROUTINE log_info_a
 BEGIN
-	prnt_time
-	WRITE TPDISPLAY(ROS_INFO_T, s, a, CR)
+	prnt_time_
+	WRITE TPDISPLAY(ROS_INFO_T, msg, prm, CR)
 END log_info_a
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Write WARN level string to display
--- 
---------------------------------------------------------------------------------
 ROUTINE log_warn
 BEGIN
-	prnt_time
-	WRITE TPDISPLAY( &
-		CHR(156), CHR(BG_BLACK), &
-		CHR(155), CHR(ROS_WARN), &
-		ROS_WARN_T, s, &
-		CHR(156), CHR(BG_DEFAULT), &
-		CHR(155), CHR(FG_DEFAULT), &
+	prnt_time_
+	WRITE TPDISPLAY(
+		CHR(cc_bgcolor), CHR(cc_black),
+		CHR(cc_fgcolor), CHR(ROS_WARN),
+		ROS_WARN_T, msg,
+		CHR(cc_bgcolor), CHR(cc_dfcolor),
+		CHR(cc_fgcolor), CHR(cc_dfcolor),
 		CR)
 END log_warn
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Write WARN level string and 1 integer parameter to display
--- 
---------------------------------------------------------------------------------
 ROUTINE log_warn_a
 BEGIN
-	prnt_time
-	WRITE TPDISPLAY( &
-		CHR(155), CHR(ROS_WARN), &
-		ROS_WARN_T, s, a, &
-		CHR(155), CHR(FG_DEFAULT), &
+	prnt_time_
+	WRITE TPDISPLAY(
+		CHR(cc_fgcolor), CHR(ROS_WARN),
+		ROS_WARN_T, msg, prm,
+		CHR(cc_fgcolor), CHR(cc_dfcolor),
 		CR)
 END log_warn_a
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Write ERROR level string to display
--- 
---------------------------------------------------------------------------------
 ROUTINE log_error
 BEGIN
-	prnt_time
-	WRITE TPDISPLAY( &
-		CHR(155), CHR(ROS_ERR), &
-		ROS_ERR_T, s, &
-		CHR(155), CHR(FG_DEFAULT), &
+	prnt_time_
+	WRITE TPDISPLAY(
+		CHR(cc_fgcolor), CHR(ROS_ERR),
+		ROS_ERR_T, msg,
+		CHR(cc_fgcolor), CHR(cc_dfcolor),
 		CR)
 END log_error
 
 
 
 
---------------------------------------------------------------------------------
--- 
--- Write ERROR level string and 1 integer parameter to display
--- 
---------------------------------------------------------------------------------
 ROUTINE log_error_a
 BEGIN
-	prnt_time
-	WRITE TPDISPLAY( &
-		CHR(155), CHR(ROS_ERR), &
-		ROS_ERR_T, s, a, &
-		CHR(155), CHR(FG_DEFAULT), 
+	prnt_time_
+	WRITE TPDISPLAY(
+		CHR(cc_fgcolor), CHR(ROS_ERR),
+		ROS_ERR_T, msg, prm,
+		CHR(cc_fgcolor), CHR(cc_dfcolor),
 		CR)
 END log_error_a

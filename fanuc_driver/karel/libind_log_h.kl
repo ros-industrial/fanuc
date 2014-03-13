@@ -41,11 +41,97 @@
 -- 
 --------------------------------------------------------------------------------
 
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Clear and force the USER menu screen
+-- 
+--------------------------------------------------------------------------------
 ROUTINE log_clear FROM libind_log
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Force the USER menu screen
+-- 
+--------------------------------------------------------------------------------
 ROUTINE log_force FROM libind_log
-ROUTINE log_info(s : STRING) FROM libind_log
-ROUTINE log_info_a(s : STRING; a : INTEGER) FROM libind_log
-ROUTINE log_warn(s : STRING) FROM libind_log
-ROUTINE log_warn_a(s : STRING; a : INTEGER) FROM libind_log
-ROUTINE log_error(s : STRING) FROM libind_log
-ROUTINE log_error_a(s : STRING; a : INTEGER) FROM libind_log
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Write INFO level string to the logging fd
+-- 
+-- [in    ]  msg          : the msg to print
+-- 
+--------------------------------------------------------------------------------
+ROUTINE log_info(msg : STRING) FROM libind_log
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Write INFO level string and 1 integer parameter to the logging fd
+-- 
+-- [in    ]  msg          : the msg to print
+-- [in    ]  prm          : the parameter to print
+-- 
+--------------------------------------------------------------------------------
+ROUTINE log_info_a(msg : STRING; prm : INTEGER) FROM libind_log
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Write WARN level string to the logging fd
+-- 
+-- [in    ]  msg          : the msg to print
+-- 
+--------------------------------------------------------------------------------
+ROUTINE log_warn(msg : STRING) FROM libind_log
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Write WARN level string and 1 integer parameter to the logging fd
+-- 
+-- [in    ]  msg          : the msg to print
+-- [in    ]  prm          : the parameter to print
+-- 
+--------------------------------------------------------------------------------
+ROUTINE log_warn_a(msg : STRING; prm : INTEGER) FROM libind_log
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Write ERROR level string to the logging fd
+-- 
+-- [in    ]  msg          : the msg to print
+-- 
+--------------------------------------------------------------------------------
+ROUTINE log_error(msg : STRING) FROM libind_log
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Write ERROR level string and 1 integer parameter to the logging fd
+-- 
+-- [in    ]  msg          : the msg to print
+-- [in    ]  prm          : the parameter to print
+-- 
+--------------------------------------------------------------------------------
+ROUTINE log_error_a(msg : STRING; prm : INTEGER) FROM libind_log
