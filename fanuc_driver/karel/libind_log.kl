@@ -43,9 +43,11 @@ PROGRAM libind_log
 -- author: G.A. vd. Hoorn (TU Delft Robotics Institute)
 -- 
 --------------------------------------------------------------------------------
-%NOLOCKGROUP
-%NOPAUSE= COMMAND + TPENABLE + ERROR
+%ALPHABETIZE
 %COMMENT = 'r2'
+%NOBUSYLAMP
+%NOLOCKGROUP
+%NOPAUSE = COMMAND + TPENABLE + ERROR
 
 
 
