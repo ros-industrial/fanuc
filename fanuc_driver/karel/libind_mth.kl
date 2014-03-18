@@ -40,9 +40,11 @@ PROGRAM libind_mth
 -- author: G.A. vd. Hoorn (TU Delft Robotics Institute)
 -- 
 --------------------------------------------------------------------------------
-%NOLOCKGROUP
-%NOPAUSE= COMMAND + TPENABLE + ERROR
+%ALPHABETIZE
 %COMMENT = 'r1'
+%NOBUSYLAMP
+%NOLOCKGROUP
+%NOPAUSE = COMMAND + TPENABLE + ERROR
 
 
 
@@ -52,7 +54,7 @@ PROGRAM libind_mth
 -- local types & constants
 -- 
 --------------------------------------------------------------------------------
-const
+CONST
 	M_PI       =  3.14159265359
 	M_1_PI     =  0.31830988618
 	M_1RAD_DEG = 57.29577951318
