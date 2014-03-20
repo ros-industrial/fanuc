@@ -14,7 +14,7 @@ For the code of the rosbuild version released into Groovy (0.1.1), see the
 [subversion repository][].
 
 
-[ROS-Industrial]: http://www.ros.org/wiki/Industrial
-[ROS wiki]: http://ros.org/wiki/fanuc
+[ROS-Industrial]: http://wiki.ros.org/Industrial
+[ROS wiki]: http://wiki.ros.org/fanuc
 [fanuc_experimental]: https://github.com/ros-industrial/fanuc_experimental
 [subversion repository]: https://swri-ros-pkg.googlecode.com/svn/tags/fanuc/fanuc-0.1.1
