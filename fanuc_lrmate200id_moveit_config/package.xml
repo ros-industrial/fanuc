@@ -1,0 +1,40 @@
+<package>
+  <name>fanuc_lrmate200id_moveit_config</name>
+  <version>0.1.0</version>
+  <description>
+    <p>
+      MoveIt package for the Fanuc LR Mate 200iD.
+    </p>
+    <p>
+      An automatically generated package with all the configuration and launch
+      files for using the Fanuc LR Mate 200iD with the MoveIt Motion Planning
+      Framework.
+    </p>
+  </description>
+  <author email="assistant@moveit.ros.org">MoveIt Setup Assistant</author>
+  <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/fanuc_lrmate200id_moveit_config</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc_experimental/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc_experimental</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>fanuc_lrmate200id_support</build_depend>
+
+  <run_depend>moveit_planners_ompl</run_depend>
+  <run_depend>moveit_ros_visualization</run_depend>
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>moveit_ros_move_group</run_depend>
+
+  <run_depend>xacro</run_depend>
+
+  <run_depend>fanuc_lrmate200id_support</run_depend>
+
+  <export>
+    <architecture_independent />
+  </export>
+</package>
