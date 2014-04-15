@@ -125,51 +125,50 @@
   </link>
   <link name="tool0"/>
   <joint name="joint_1" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0 0.245"/>
+    <origin rpy="0 0 0" xyz="0 0 0.525"/>
     <parent link="base_link"/>
     <child link="link_1"/>
     <axis xyz="0 0 1"/>
     <limit effort="0" lower="-2.9671" upper="2.9671" velocity="2.8798"/>
   </joint>
   <joint name="joint_2" type="revolute">
-    <origin rpy="0 0 0" xyz="0.15 0.18759 0.28"/>
+    <origin rpy="0 0 0" xyz="0.150 0 0"/>
     <parent link="link_1"/>
     <child link="link_2"/>
     <axis xyz="0 1 0"/>
     <limit effort="0" lower="-1.5708" upper="2.7925" velocity="2.8798"/>
   </joint>
   <joint name="joint_3" type="revolute">
-    <origin rpy="0 0 0" xyz="0 -0.18759 0.77"/>
+    <origin rpy="0 0 0" xyz="0 0 0.770"/>
     <parent link="link_2"/>
     <child link="link_3"/>
     <axis xyz="0 -1 0"/>
     <limit effort="0" lower="-2.9671" upper="5.0615" velocity="3.0543"/>
   </joint>
   <joint name="joint_4" type="revolute">
-    <origin rpy="0 0 0" xyz="0.18425 0 0.1"/>
+    <origin rpy="0 0 0" xyz="0 0 0.100"/>
     <parent link="link_3"/>
     <child link="link_4"/>
     <axis xyz="-1 0 0"/>
     <limit effort="0" lower="-3.4907" upper="3.4907" velocity="6.1087"/>
   </joint>
   <joint name="joint_5" type="revolute">
-    <origin rpy="0 0 0" xyz="0.55575 0 0"/>
+    <origin rpy="0 0 0" xyz="0.740 0 0"/>
     <parent link="link_4"/>
     <child link="link_5"/>
     <axis xyz="0 -1 0"/>
     <limit effort="0" lower="-2.4435" upper="2.4435" velocity="5.9341"/>
   </joint>
   <joint name="joint_6" type="revolute">
-    <origin rpy="0 0 0" xyz="0.1 0 0"/>
+    <origin rpy="0 0 0" xyz="0.100 0 0"/>
     <parent link="link_5"/>
     <child link="link_6"/>
     <axis xyz="-1 0 0"/>
     <limit effort="0" lower="-7.8540" upper="7.8540" velocity="9.0757"/>
   </joint>
   <joint name="joint_6-tool0" type="fixed">
+    <origin rpy="3.1415926535 -1.570796327 0" xyz="0 0 0"/>
     <parent link="link_6"/>
     <child link="tool0"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
   </joint>
 </robot>
-
