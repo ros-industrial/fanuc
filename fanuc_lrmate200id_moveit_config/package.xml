@@ -41,6 +41,7 @@
 
   <run_depend>industrial_robot_simulator</run_depend>
   <run_depend>fanuc_lrmate200id_support</run_depend>
+  <run_depend>fanuc_lrmate200id_moveit_plugins</run_depend>
 
   <export>
     <architecture_independent />
