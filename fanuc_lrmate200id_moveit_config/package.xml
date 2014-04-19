@@ -10,6 +10,12 @@
       files for using the Fanuc LR Mate 200iD with the MoveIt Motion Planning
       Framework.
     </p>
+    <p>
+      <b>NB</b>: this package currently uses the default MoveIt acceleration
+      limits (ie: 1/5th of joint velocity limits), instead of the true
+      acceleration limits for this manipulator (see
+      <a href="https://github.com/ros-industrial/fanuc/issues/49">issue 49</a>).
+    </p>
   </description>
   <author email="assistant@moveit.ros.org">MoveIt Setup Assistant</author>
   <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
