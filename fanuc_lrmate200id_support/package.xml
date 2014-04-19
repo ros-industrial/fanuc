@@ -3,7 +3,7 @@
   <version>0.1.0</version>
   <description>
     <p>
-      ROS Industrial support for the Fanuc LR Mate 200iD (and variants).
+      ROS-Industrial support for the Fanuc LR Mate 200iD (and variants).
     </p>
     <p>
       This package contains configuration data, 3D models and launch files
