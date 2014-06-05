@@ -138,5 +138,13 @@
 			<parent link="${prefix}link_5"/>
 			<child link="${prefix}tool0"/>
 		</joint>
+
+		<!-- ROS base_link to Fanuc World Coordinates transform -->
+		<link name="${prefix}base" />
+		<joint name="${prefix}base_link-base" type="fixed">
+			<origin xyz="0 0 0.440" rpy="0 0 0"/>
+			<parent link="${prefix}base_link"/>
+			<child link="${prefix}base"/>
+		</joint>
 	</xacro:macro>
 </robot>
