@@ -32,6 +32,7 @@
 
   <test_depend>roslaunch</test_depend>
 
+  <exec_depend>fanuc_lrmate200i_moveit_plugins</exec_depend>
   <exec_depend>fanuc_lrmate200i_support</exec_depend>
   <exec_depend>industrial_robot_simulator</exec_depend>
   <exec_depend>joint_state_publisher</exec_depend>
