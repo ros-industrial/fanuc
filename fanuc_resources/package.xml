@@ -19,7 +19,7 @@
   <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
   <license>BSD</license>
 
-  <url type="website">http://ros.org/wiki/fanuc_resources</url>
+  <url type="website">http://wiki.ros.org/fanuc_resources</url>
   <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
   <url type="repository">https://github.com/ros-industrial/fanuc</url>
 
