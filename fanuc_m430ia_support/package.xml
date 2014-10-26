@@ -37,7 +37,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <build_depend>roslaunch</build_depend>
+  <build_depend version_gte="1.9.55">roslaunch</build_depend>
 
   <run_depend>fanuc_resources</run_depend>
   <run_depend>fanuc_driver</run_depend>
