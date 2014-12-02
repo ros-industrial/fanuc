@@ -1,0 +1,8 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: fanuc_lrmate200ic_support
+    relative_path: urdf/lrmate200ic5l.urdf
+  SRDF:
+    relative_path: config/fanuc_lrmate200ic5l.srdf
+  CONFIG:
+    generated_timestamp: 1405585592

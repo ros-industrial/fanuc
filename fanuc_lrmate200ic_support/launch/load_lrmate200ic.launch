@@ -1,0 +1,3 @@
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find fanuc_lrmate200ic_support)/urdf/lrmate200ic.xacro'" />
+</launch>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='ASCII'?>
+<package>
+  <name>fanuc_lrmate200ic_moveit_plugins</name>
+  <version>0.2.1</version>
+  <description>
+    <p>
+      MoveIt plugins for the Fanuc LR Mate 200iC (and variants).
+    </p>
+    <p>
+      This package contains plugins for use with MoveIt and Fanuc LR Mate 200iC
+      manipulators. Plugins included support the base model (/5C, /5WP), /5H,
+      /5L (/5LC), /5F and the /5HS (using the /5H plugin). Variants in brackets
+      are supported by the plugin of the referenced model. See the Fanuc LR
+      Mate 200iC support package for information on used joint angle and
+      velocity limits.
+    </p>
+    <p>
+      Before using any of the plugins included in this package, be sure to
+      check they are correct for the particular robot model and configuration
+      you intend to use them with.
+    </p>
+  </description>
+  <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+  <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://wiki.ros.org/fanuc_lrmate200ic_moveit_plugins</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc_experimental/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc_experimental</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>liblapack-dev</build_depend>
+  <build_depend>moveit_core</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>tf_conversions</build_depend>
+
+  <run_depend>liblapack-dev</run_depend>
+  <run_depend>moveit_core</run_depend>
+  <run_depend>pluginlib</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>tf_conversions</run_depend>
+
+  <export>
+    <moveit_core plugin="${prefix}/lrmate200ic_kinematics/fanuc_lrmate200ic_manipulator_moveit_ikfast_plugin_description.xml"/>
+    <moveit_core plugin="${prefix}/lrmate200ic5f_kinematics/fanuc_lrmate200ic5f_manipulator_moveit_ikfast_plugin_description.xml"/>
+    <moveit_core plugin="${prefix}/lrmate200ic5h_kinematics/fanuc_lrmate200ic5h_manipulator_moveit_ikfast_plugin_description.xml"/>
+    <moveit_core plugin="${prefix}/lrmate200ic5l_kinematics/fanuc_lrmate200ic5l_manipulator_moveit_ikfast_plugin_description.xml"/>
+  </export>
+</package>
