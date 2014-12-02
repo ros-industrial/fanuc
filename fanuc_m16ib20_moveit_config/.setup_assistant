@@ -1,0 +1,8 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: fanuc_m16ib_support
+    relative_path: urdf/m16ib20.urdf
+  SRDF:
+    relative_path: config/fanuc_m16ib20.srdf
+  CONFIG:
+    generated_timestamp: 1397057762
