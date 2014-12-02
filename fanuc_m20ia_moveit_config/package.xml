@@ -1,0 +1,48 @@
+<package>
+  <name>fanuc_m20ia_moveit_config</name>
+  <version>0.2.0</version>
+  <description>
+    <p>
+      MoveIt package for the Fanuc M-20iA.
+    </p>
+    <p>
+      An automatically generated package with all the configuration and launch
+      files for using the Fanuc M-20iA with the MoveIt Motion Planning
+      Framework.
+    </p>
+    <p>
+      <b>NB</b>: this package currently uses the default MoveIt acceleration
+      limits (ie: 1/5th of joint velocity limits), instead of the true
+      acceleration limits for this manipulator (see
+      <a href="https://github.com/ros-industrial/fanuc/issues/49">issue 49</a>).
+    </p>
+  </description>
+  <author email="assistant@moveit.ros.org">MoveIt Setup Assistant</author>
+  <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://wiki.ros.org/fanuc_m20ia_moveit_config</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc_experimental/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc_experimental</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>moveit_fake_controller_manager</run_depend>
+  <run_depend>moveit_simple_controller_manager</run_depend>
+  <run_depend>moveit_planners_ompl</run_depend>
+  <run_depend>moveit_ros_visualization</run_depend>
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>moveit_ros_move_group</run_depend>
+
+  <run_depend>xacro</run_depend>
+
+  <run_depend>industrial_robot_simulator</run_depend>
+  <run_depend>fanuc_m20ia_support</run_depend>
+  <run_depend>fanuc_m20ia_moveit_plugins</run_depend>
+
+  <export>
+    <architecture_independent />
+  </export>
+</package>
