@@ -34,3 +34,6 @@ CATKIN_IGNORE*
 # Roboguide / Fanuc
 *.pc
 *.tp
+
+# ROS MoveIt
+default_warehouse_mongo_db/
