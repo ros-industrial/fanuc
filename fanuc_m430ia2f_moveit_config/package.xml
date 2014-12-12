@@ -1,6 +1,6 @@
 <package>
   <name>fanuc_m430ia2f_moveit_config</name>
-  <version>0.2.0</version>
+  <version>0.2.2</version>
   <description>
     <p>
       MoveIt package for the Fanuc M-430iA/2F.
