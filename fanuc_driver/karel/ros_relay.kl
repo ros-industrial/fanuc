@@ -35,7 +35,7 @@
 PROGRAM ros_relay
 --------------------------------------------------------------------------------
 -- 
--- ROS Industrial joint trajectory relay.
+-- ROS-Industrial joint trajectory relay.
 -- 
 -- Currently only supports joint trajectory point streaming.
 -- 
@@ -393,7 +393,7 @@ END check_cfg_
 
 --------------------------------------------------------------------------------
 -- 
--- Update joint positions according to contents of ROS Industrial packet.
+-- Update joint positions according to contents of ROS-Industrial packet.
 -- 
 -- This routine communicates the new joint positions to the 'Move SM' TPE 
 -- program using the configured flags, and position & integer registers.

@@ -35,7 +35,7 @@
 PROGRAM libind_rs
 --------------------------------------------------------------------------------
 -- 
--- Library routines for creating / processing ROS Industrial robot status packets
+-- Library routines for creating / processing ROS-Industrial robot status packets
 -- 
 -- 
 -- author: Shaun Edwards (Southwest Research Institute)

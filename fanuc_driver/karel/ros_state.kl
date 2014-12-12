@@ -35,7 +35,7 @@
 PROGRAM ros_state
 --------------------------------------------------------------------------------
 -- 
--- ROS Industrial state proxy.
+-- ROS-Industrial state proxy.
 -- 
 -- 
 -- Assumptions:
@@ -91,8 +91,8 @@ TYPE
 VAR
 	cfg_         IN SHADOW : rstate_cfg_t -- configuration
 
-	jnt_pkt_out_           : ind_pkt_t    -- ROS industrial joint state packet
-	rs_pkt_out_            : ind_rs_t     -- ROS industrial robot status packet
+	jnt_pkt_out_           : ind_pkt_t    -- ROS-Industrial joint state packet
+	rs_pkt_out_            : ind_rs_t     -- ROS-Industrial robot status packet
 	sock_                  : ssock_t      -- server socket instance
 	sock_fd_               : FILE         -- file descriptor associated with srvr socket
 	stat_                  : INTEGER      -- status variable

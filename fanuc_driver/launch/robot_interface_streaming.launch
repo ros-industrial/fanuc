@@ -1,7 +1,7 @@
 <launch>
 
 <!-- This launch file provides a socket-based connection to industrial robots
-     that implement the standard ROS Industrial simple_message protocol.
+     that implement the standard ROS-Industrial simple_message protocol.
      *** Motion control is implemented by STREAMING path data to the robot ***
          (for DOWNLOAD-based path-control, use a different launch file)
 

@@ -3,7 +3,7 @@
   <version>0.2.2</version>
   <description>
     <p>
-      ROS Industrial support for the Fanuc M-16iB / ARC Mate 120iB (and variants).
+      ROS-Industrial support for the Fanuc M-16iB / ARC Mate 120iB (and variants).
     </p>
     <p>
       This package contains configuration data, 3D models and launch files
