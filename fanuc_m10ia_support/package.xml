@@ -10,6 +10,10 @@
       for Fanuc M-10iA manipulators. This currently includes the base model
       only.
     </p>
+    <p><b>Specifications</b>:</p>
+    <ul>
+      <li>M-10iA - "Conventional dress-out"</li>
+    </ul>
     <p>
       Joint limits and maximum joint velocities are based on the information in
       the <em>FANUC Robot M-10iA Mechanical Unit Operator's Manual</em>
