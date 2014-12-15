@@ -11,6 +11,13 @@
       (/5C, /5WP), /5H, /5L (/5LC), /5F and the /5HS. Variants in brackets
       are supported by the files for the referenced model.
     </p>
+    <p><b>Specifications</b>:</p>
+    <ul>
+      <li>LR Mate 200iC    - "J1 - Normal Range"</li>
+      <li>LR Mate 200iC/5H - "J1 - Normal Range"</li>
+      <li>LR Mate 200iC/5L - "J1 - Normal Range"</li>
+      <li>LR Mate 200iC/5F - "J1 - Normal Range"</li>
+    </ul>
     <p>
       Joint limits and maximum joint velocities are based on the information in
       the <em>FANUC Robot LR Mate 200iC Mechanical Unit Operator's Manual</em>
