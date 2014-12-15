@@ -10,6 +10,10 @@
       for Fanuc LR Mate 200iD manipulators. This currently includes the
       base model only.
     </p>
+    <p><b>Specifications</b>:</p>
+    <ul>
+      <li>LR Mate 200iD - "J1 - Normal Range"</li>
+    </ul>
     <p>
       Joint limits and maximum joint velocities are based on the information in
       the <em>FANUC Robot LR Mate 200iD Mechanical Unit Operator's Manual</em>
