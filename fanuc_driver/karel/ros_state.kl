@@ -52,7 +52,7 @@ PROGRAM ros_state
 -- 
 --------------------------------------------------------------------------------
 %ALPHABETIZE
-%COMMENT = 'r22'
+%COMMENT = 'r23'
 %NOBUSYLAMP
 %NOLOCKGROUP
 %NOPAUSE = COMMAND + TPENABLE + ERROR
@@ -99,11 +99,14 @@ VAR
 	stat_count_            : INTEGER      -- status loop counter
 	cur_j_pos_             : JOINTPOS     -- current position of robot joints
 	sleep_time_            : INTEGER
+	shutdwn_req_           : BOOLEAN      -- program abort requested status
 
 
 CONST
 	-- 
 	LOG_PFIX     = 'RSTA '
+
+	COND_AH      =    1  -- ABORT handler id
 
 	CFG_OK       =    0  -- config ok
 	CFG_NOTDONE  =   -1  -- configuration not checked: user action required
@@ -142,6 +145,8 @@ CONST
 -- 
 --------------------------------------------------------------------------------
 ROUTINE check_cfg_(cfg : rstate_cfg_t) : INTEGER FROM ros_state
+ROUTINE install_ah_ FROM ros_state
+ROUTINE remove_ah_ FROM ros_state
 
 
 
@@ -168,6 +173,11 @@ BEGIN
 	stat_        = 0
 	stat_count_  = 0
 	sleep_time_  = ROUND(1000.0 / cfg_.loop_hz)
+	shutdwn_req_ = FALSE
+
+
+	-- initialise ABORT handler
+	install_ah_
 
 
 	-- enable log output
@@ -203,7 +213,7 @@ BEGIN
 	stat_ = ssock_dconnf(sock_)
 
 	-- 
-	WHILE (TRUE) DO
+	WHILE (NOT shutdwn_req_) DO
 
 		-- inform user
 		log_info(LOG_PFIX + 'Waiting for ROS state proxy')
@@ -224,7 +234,7 @@ BEGIN
 		log_info(LOG_PFIX + 'Connected')
 
 		-- got client, start joint_state relay loop
-		WHILE (TRUE) DO
+		WHILE (NOT shutdwn_req_) DO
 
 			-- get current joint angles
 			cur_j_pos_ = CURJPOS(0, 0)
@@ -292,9 +302,17 @@ BEGIN
 	-- outer WHILE TRUE DO
 	ENDWHILE
 
-
 exit_on_err::
 	-- nothing
+
+	-- make sure socket is closed (don t care about result)
+	stat_ = ssock_dconnf(sock_)
+
+	-- disable the ABORT handler
+	remove_ah_
+
+	-- done
+	log_info(LOG_PFIX + 'Exit')
 
 END ros_state
 
@@ -321,3 +339,49 @@ BEGIN
 	-- all ok
 	RETURN (CFG_OK)
 END check_cfg_
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Application handler for ABORT signals.
+-- 
+--------------------------------------------------------------------------------
+ROUTINE ab_hndlr_
+BEGIN
+	shutdwn_req_ = TRUE
+	CANCEL FILE sock_fd_
+END ab_hndlr_
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Installs a condition handler that catches ABORT signals to allow the
+-- application to 'gracefully' exit.
+-- 
+--------------------------------------------------------------------------------
+ROUTINE install_ah_
+BEGIN
+	CONDITION[COND_AH]: WITH $SCAN_TIME = 256
+		WHEN ABORT DO
+			NOABORT
+			ab_hndlr_
+	ENDCONDITION
+	ENABLE CONDITION[COND_AH]
+END install_ah_
+
+
+
+
+--------------------------------------------------------------------------------
+-- 
+-- Deregisters the ABORT condition handler.
+-- 
+--------------------------------------------------------------------------------
+ROUTINE remove_ah_
+BEGIN
+	PURGE CONDITION[COND_AH]
+END remove_ah_
