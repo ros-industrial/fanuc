@@ -44,7 +44,7 @@ PROGRAM libind_rs
 --------------------------------------------------------------------------------
 %NOLOCKGROUP
 %NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'r5'
+%COMMENT = 'r6'
 
 
 
@@ -200,6 +200,21 @@ END mot_poss_
 
 
 
+ROUTINE is_running_(prog_name : STRING) : BOOLEAN
+VAR
+	stat__      : INTEGER
+	task_stat__ : INTEGER
+BEGIN
+	stat__ = 0
+	task_stat__ = 0
+
+	GET_TSK_INFO(prog_name, 0, TSK_STATUS, task_stat__, '', stat__)
+	RETURN ((stat__ = 0) AND (task_stat__ = PG_RUNNING))
+END is_running_
+
+
+
+
 ROUTINE irs_update
 VAR
 	sstat__ : INTEGER
@@ -259,6 +274,12 @@ BEGIN
 	this.mtn_psble_ = TS_UNKNOWN
 	IF (mot_poss_(this, sstat__)) THEN this.mtn_psble_ = TS_TRUE;
 	ELSE                               this.mtn_psble_ = TS_FALSE; ENDIF
+
+	-- Both parts of the trajectory relay also need to be running
+	-- for motion to be possible
+	IF (NOT (is_running_('ROS_RELAY') AND is_running_('ROS'))) THEN
+		this.mtn_psble_ = TS_FALSE
+	ENDIF
 END irs_update
 
 
