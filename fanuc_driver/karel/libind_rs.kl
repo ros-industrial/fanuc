@@ -275,9 +275,8 @@ BEGIN
 	IF (mot_poss_(this, sstat__)) THEN this.mtn_psble_ = TS_TRUE;
 	ELSE                               this.mtn_psble_ = TS_FALSE; ENDIF
 
-	-- Both parts of the trajectory relay also need to be running
-	-- for motion to be possible
-	IF (NOT (is_running_('ROS_RELAY') AND is_running_('ROS'))) THEN
+	-- Also: status of the trajectory relay influences 'motion possible'
+	IF ((NOT is_running_('ROS_RELAY')) OR (NOT is_running_('ROS'))) THEN
 		this.mtn_psble_ = TS_FALSE
 	ENDIF
 END irs_update
