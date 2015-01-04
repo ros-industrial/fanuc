@@ -63,7 +63,7 @@ PROGRAM libind_mth
 -- local routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libind_mth_h
+%INCLUDE include\libind_mth_h
 
 
 

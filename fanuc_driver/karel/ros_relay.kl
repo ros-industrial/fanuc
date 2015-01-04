@@ -73,8 +73,8 @@ PROGRAM ros_relay
 -- remote types & constants
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libssock_t
-%INCLUDE libind_pkt_t
+%INCLUDE include\libssock_t
+%INCLUDE include\libind_pkt_t
 
 
 
@@ -152,10 +152,10 @@ CONST
 -- remote routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libssock_h
-%INCLUDE libind_pkt_h
-%INCLUDE libind_log_h
-%INCLUDE libind_mth_h
+%INCLUDE include\libssock_h
+%INCLUDE include\libind_pkt_h
+%INCLUDE include\libind_log_h
+%INCLUDE include\libind_mth_h
 
 
 

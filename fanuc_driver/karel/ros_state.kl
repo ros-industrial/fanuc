@@ -65,9 +65,9 @@ PROGRAM ros_state
 -- remote types & constants
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libssock_t
-%INCLUDE libind_pkt_t
-%INCLUDE libind_rs_t
+%INCLUDE include\libssock_t
+%INCLUDE include\libind_pkt_t
+%INCLUDE include\libind_rs_t
 
 
 
@@ -129,12 +129,12 @@ CONST
 -- remote routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libssock_h
-%INCLUDE libind_pkt_h
-%INCLUDE libind_hdr_h
-%INCLUDE libind_log_h
-%INCLUDE libind_mth_h
-%INCLUDE libind_rs_h
+%INCLUDE include\libssock_h
+%INCLUDE include\libind_pkt_h
+%INCLUDE include\libind_hdr_h
+%INCLUDE include\libind_log_h
+%INCLUDE include\libind_mth_h
+%INCLUDE include\libind_rs_h
 
 
 

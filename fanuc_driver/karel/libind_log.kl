@@ -87,7 +87,7 @@ CONST
 -- local routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libind_log_h
+%INCLUDE include\libind_log_h
 %INCLUDE klrdutil
 
 

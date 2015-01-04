@@ -49,7 +49,7 @@
 -- local types & constants
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libind_hdr_t
+%INCLUDE include\libind_hdr_t
 
 
 

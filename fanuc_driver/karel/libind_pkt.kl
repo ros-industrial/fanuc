@@ -58,8 +58,8 @@ PROGRAM libind_pkt
 -- local types & constants
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libind_pkt_t
-%INCLUDE ktype_sz_t
+%INCLUDE include\libind_pkt_t
+%INCLUDE include\ktype_sz_t
 
 
 
@@ -78,7 +78,7 @@ PROGRAM libind_pkt
 -- local routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libind_pkt_h
+%INCLUDE include\libind_pkt_h
 
 
 

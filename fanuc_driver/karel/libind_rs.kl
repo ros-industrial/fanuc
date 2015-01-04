@@ -55,9 +55,9 @@ PROGRAM libind_rs
 -- local types & constants
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libind_rs_t
-%INCLUDE libind_ts_t
-%INCLUDE libind_pkt_t
+%INCLUDE include\libind_rs_t
+%INCLUDE include\libind_ts_t
+%INCLUDE include\libind_pkt_t
 %INCLUDE klevkeys
 %INCLUDE kliosop
 
@@ -85,7 +85,7 @@ CONST
 -- remote routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libind_hdr_h
+%INCLUDE include\libind_hdr_h
 %INCLUDE klrdutil
 
 
@@ -96,7 +96,7 @@ CONST
 -- local routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libind_rs_h
+%INCLUDE include\libind_rs_h
 
 
 

@@ -56,7 +56,7 @@ PROGRAM libssock
 -- local types & constants
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libssock_t
+%INCLUDE include\libssock_t
 
 
 
@@ -66,7 +66,7 @@ PROGRAM libssock
 -- local routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libssock_h
+%INCLUDE include\libssock_h
 
 
 
