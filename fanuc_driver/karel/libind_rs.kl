@@ -1,6 +1,7 @@
 -- Software License Agreement (BSD License)
 --
 -- Copyright (c) 2013, Southwest Research Institute
+-- Copyright (c) 2013-2015, TU Delft Robotics Institute
 -- All rights reserved.
 --
 -- Redistribution and use in source and binary forms, with or without
@@ -43,8 +44,8 @@ PROGRAM libind_rs
 -- 
 --------------------------------------------------------------------------------
 %NOLOCKGROUP
-%NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'r6'
+%NOPAUSE = COMMAND + TPENABLE + ERROR
+%COMMENT = 'r7'
 
 
 
@@ -57,19 +58,11 @@ PROGRAM libind_rs
 %INCLUDE libind_rs_t
 %INCLUDE libind_ts_t
 %INCLUDE libind_pkt_t
+%INCLUDE klevkeys
+%INCLUDE kliosop
 
 
 CONST
-	                      -- Table 14-1, -2, Karel Reference Manual, 
-	                      --   MARRC75KR07091E Rev C
-	TP_SHIFT     =   0    -- TP LEFT/RIGHT SHIFT - TP input   signal   0
-	SO_HOLD      =   2    -- HOLD                - SOP output signal   2
-	SO_FAULT_LED =   3    -- FAULT LED           - SOP output signal   3
-	SO_TP_ENBLD  =   7    -- TP ENABLED          - SOP output signal   7
-	SI_CECR_B0   =   8    -- CE/CR Select b0     - SOP input  signal   8
-	SI_CECR_B1   =   9    -- CE/CR Select b1     - SOP input  signal   9
-
-
 	                     -- '$MOR.$safety_stat', R-J3iC Software Reference Manual, 
 	                     --   MARACSSRF03061E Rev A
 	MFS_EMGOP    =    1  -- E-Stop SOP
@@ -92,6 +85,8 @@ CONST
 -- remote routine prototypes
 -- 
 --------------------------------------------------------------------------------
+%INCLUDE libind_hdr_h
+%INCLUDE klrdutil
 
 
 
@@ -102,7 +97,6 @@ CONST
 -- 
 --------------------------------------------------------------------------------
 %INCLUDE libind_rs_h
-%INCLUDE libind_hdr_h
 
 
 
@@ -175,18 +169,18 @@ BEGIN
 	IF (this.in_error_ <> TS_FALSE) THEN RETURN (FALSE); ENDIF
 
 	-- HOLD prevents motion as well, so return
-	IF (OPOUT[SO_HOLD] = ON) THEN RETURN (FALSE); ENDIF
+	IF (OPOUT[sopo_held] = ON) THEN RETURN (FALSE); ENDIF
 
 	-- drives need to be powered for motion to be possible
 	IF (this.drv_pwd_ <> TS_TRUE) THEN RETURN (FALSE); ENDIF
 
 	-- rest depends on TP status and controller mode
-	IF (this.mode_ <> RS_M_AUTO) AND (OPOUT[SO_TP_ENBLD] = ON) THEN
+	IF (this.mode_ <> RS_M_AUTO) AND (OPOUT[sopo_tpenbl] = ON) THEN
 		-- manual mode and TP is ON, motion requires:
 		--   - no errors, HOLD not depressed, drives powered (already checked)
 		--   - deadman depressed
 		--   - shift depressed
-		RETURN (((sstat AND MFS_DEADMAN) = 0) AND (TPIN[TP_SHIFT] = ON))
+		RETURN (((sstat AND MFS_DEADMAN) = 0) AND (TPIN[ky_shift] = ON))
 	ENDIF
 
 	-- following cases are trapped by check on 'in_error_' field:
@@ -256,7 +250,7 @@ BEGIN
 	-- Table 14-2, Karel Reference Manual, MARRC75KR07091E Rev C
 	this.in_error_   = TS_FALSE
 	this.error_code_ = 0
-	IF (OPOUT[SO_FAULT_LED] = ON) THEN
+	IF (OPOUT[sopo_fault] = ON) THEN
 		-- NOTE: this is not necessarily the code of the error that caused the
 		--       robot to go into error mode, just the most recent one
 		this.in_error_ = TS_TRUE
