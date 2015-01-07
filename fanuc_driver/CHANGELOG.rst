@@ -2,6 +2,22 @@
 Changelog for package fanuc_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* promote experimental packages for M-10iA, M-16iB, M-20iA, M-430iA and LR Mate 200iC to main repository.
+* Karel driver updates:
+
+  * explicit socket close on ABORT (`#27 <https://github.com/ros-industrial/fanuc/issues/27>`_)
+  * improve use of Karel built-in routines and constants (math, IO, TP keys) (`#50 <https://github.com/ros-industrial/fanuc/issues/50>`_)
+  * update translator directives and header documentation
+  * update copyright notices and Karel library versions
+  * introduce include dir
+  * include trajectory relay program status in 'motion_possible' calculation (`#108 <https://github.com/ros-industrial/fanuc/issues/108>`_)
+  * fixup use of underscore suffixes to convey routine & variable scope
+
+* explicitly declare dependencies of roslaunch tests (`#70 <https://github.com/ros-industrial/fanuc/issues/70>`_).
+* for a complete list of changes see the `commit log for 0.3.0 <https://github.com/ros-industrial/fanuc/compare/0.2.0...0.3.0>`_
+
 0.2.0 (2014-02-19)
 ------------------
 * first Hydro release.

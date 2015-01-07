@@ -2,6 +2,12 @@
 Changelog for package fanuc_assets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* promote experimental packages for M-10iA, M-16iB, M-20iA, M-430iA and LR Mate 200iC to main repository.
+* add a shared constants xacro.
+* for a complete list of changes see the `commit log for 0.3.0 <https://github.com/ros-industrial/fanuc/compare/0.2.0...0.3.0>`_
+
 0.2.0 (2014-02-19)
 ------------------
 * first Hydro release.
