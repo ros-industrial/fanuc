@@ -174,8 +174,8 @@ BEGIN
 	-- drives need to be powered for motion to be possible
 	IF (this.drv_pwd_ <> TS_TRUE) THEN RETURN (FALSE); ENDIF
 
-	-- rest depends on TP status and controller mode
-	IF (this.mode_ <> RS_M_AUTO) AND (tp_enabled) THEN
+	-- rest depends on controller mode and TP status
+	IF (this.mode_ <> RS_M_AUTO) AND (TP_ENABLED) THEN
 		-- manual mode and TP is ON, motion requires:
 		--   - no errors, HOLD not depressed, drives powered (already checked)
 		--   - deadman depressed
