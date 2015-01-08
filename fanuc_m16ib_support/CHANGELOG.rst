@@ -2,8 +2,8 @@
 Changelog for package fanuc_m16ib_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.0 (2015-01-08)
+------------------
 * promote experimental packages for M-10iA, M-16iB, M-20iA, M-430iA and LR Mate 200iC to main repository.
 * explicitly declare dependencies of roslaunch tests (`#70 <https://github.com/ros-industrial/fanuc/issues/70>`_).
 * add 'base' link (transform to World Coordinates) (`#101 <https://github.com/ros-industrial/fanuc/issues/101>`_).

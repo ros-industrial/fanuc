@@ -1,6 +1,6 @@
 <package>
   <name>fanuc_lrmate200ic_support</name>
-  <version>0.2.2</version>
+  <version>0.3.0</version>
   <description>
     <p>
       ROS-Industrial support for the Fanuc LR Mate 200iC (and variants).

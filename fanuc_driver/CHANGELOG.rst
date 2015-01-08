@@ -2,8 +2,8 @@
 Changelog for package fanuc_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.0 (2015-01-08)
+------------------
 * promote experimental packages for M-10iA, M-16iB, M-20iA, M-430iA and LR Mate 200iC to main repository.
 * Karel driver updates:
 
