@@ -1,163 +1,172 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-	<xacro:include filename="$(find fanuc_resources)/urdf/common_materials.xacro"/>
+  <xacro:include filename="$(find fanuc_resources)/urdf/common_materials.xacro"/>
+  <xacro:include filename="$(find fanuc_resources)/urdf/common_constants.xacro"/>
 
-	<xacro:macro name="fanuc_m430ia2p" params="prefix">
-		<!-- links -->
-		<link name="${prefix}base_link">
-			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/base_link.stl"/>
-				</geometry>
-				<xacro:material_fanuc_white />
-			</visual>
-			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/collision/base_link.stl"/>
-				</geometry>
-			</collision>
-		</link>
-		<link name="${prefix}link_1">
-			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_1.stl"/>
-				</geometry>
-				<xacro:material_fanuc_white />
-			</visual>
-			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/collision/link_1.stl"/>
-				</geometry>
-			</collision>
-		</link>
-		<link name="${prefix}link_2">
-			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_2.stl"/>
-				</geometry>
-				<xacro:material_fanuc_white />
-			</visual>
-			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/collision/link_2.stl"/>
-				</geometry>
-			</collision>
-		</link>
-		<link name="${prefix}link_3">
-			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_3.stl"/>
-				</geometry>
-				<xacro:material_fanuc_white />
-			</visual>
-			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/collision/link_3.stl"/>
-				</geometry>
-			</collision>
-		</link>
-		<link name="${prefix}link_4">
-			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_4.stl"/>
-				</geometry>
-				<xacro:material_fanuc_white />
-			</visual>
-			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/collision/link_4.stl"/>
-				</geometry>
-			</collision>
-		</link>
-		<link name="${prefix}link_5">
-			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_5.stl"/>
-				</geometry>
-				<xacro:material_fanuc_white />
-			</visual>
-			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/collision/link_5.stl"/>
-				</geometry>
-			</collision>
-		</link>
-		<link name="${prefix}link_6">
-			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_6.stl"/>
-				</geometry>
-				<xacro:material_fanuc_white />
-			</visual>
-			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/collision/link_6.stl"/>
-				</geometry>
-			</collision>
-		</link>
-		<link name="${prefix}tool0" />
+  <xacro:macro name="fanuc_m430ia2p" params="prefix">
+    <!-- links -->
+    <link name="${prefix}base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/base_link.stl"/>
+        </geometry>
+        <xacro:material_fanuc_white />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/collision/base_link.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}link_1">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_1.stl"/>
+        </geometry>
+        <xacro:material_fanuc_white />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/collision/link_1.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}link_2">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_2.stl"/>
+        </geometry>
+        <xacro:material_fanuc_white />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/collision/link_2.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}link_3">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_3.stl"/>
+        </geometry>
+        <xacro:material_fanuc_white />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/collision/link_3.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}link_4">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_4.stl"/>
+        </geometry>
+        <xacro:material_fanuc_white />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/collision/link_4.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}link_5">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_5.stl"/>
+        </geometry>
+        <xacro:material_fanuc_white />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/collision/link_5.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}link_6">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_6.stl"/>
+        </geometry>
+        <xacro:material_fanuc_white />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/collision/link_6.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}tool0" />
 
-		<!-- joints -->
-		<joint name="${prefix}joint_1" type="revolute">
-			<origin xyz="0 0 0.2905" rpy="0 0 0"/>
-			<parent link="${prefix}base_link"/>
-			<child link="${prefix}link_1"/>
-			<axis xyz="0 0 1"/>
-			<limit lower="-3.14" upper="3.14" effort="0" velocity="5.24"/>
-		</joint>
-		<joint name="${prefix}joint_2" type="revolute">
-			<origin xyz="0 0.0845 0.1195" rpy="0 0 0"/>
-			<parent link="${prefix}link_1"/>
-			<child link="${prefix}link_2"/>
-			<axis xyz="0 1 0"/>
-			<limit lower="-2.01" upper="2.01" effort="0" velocity="5.59"/>
-		</joint>
-		<joint name="${prefix}joint_3" type="revolute">
-			<origin xyz="0 0 0.35" rpy="0 0 0"/>
-			<parent link="${prefix}link_2"/>
-			<child link="${prefix}link_3"/>
-			<axis xyz="0 1 0"/>
-			<limit lower="-3.49" upper="3.49" effort="0" velocity="5.93"/>
-		</joint>
-		<joint name="${prefix}joint_4" type="revolute">
-			<origin xyz="0 -0.0845 0.099" rpy="0 0 0"/>
-			<parent link="${prefix}link_3"/>
-			<child link="${prefix}link_4"/>
-			<axis xyz="0 0 1"/>
-			<limit lower="-3.32" upper="3.32" effort="0" velocity="5.24"/>
-		</joint>
-		<joint name="${prefix}joint_5" type="revolute">
-			<origin xyz="0 -0.042843 0.251" rpy="0 0 0"/>
-			<parent link="${prefix}link_4"/>
-			<child link="${prefix}link_5"/>
-			<axis xyz="0 1 0"/>
-			<limit lower="-2.62" upper="2.62" effort="0" velocity="5.24"/>
-		</joint>
-		<joint name="${prefix}joint_6" type="revolute">
-			<origin xyz="0 -0.052157 0.049" rpy="0 0 0"/>
-			<parent link="${prefix}link_5"/>
-			<child link="${prefix}link_6"/>
-			<axis xyz="0 0 1"/>
-			<limit lower="-4.71" upper="4.71" effort="0" velocity="12.57"/>
-		</joint>
-		<joint name="${prefix}joint_6-tool0" type="fixed">
-			<parent link="${prefix}link_6" />
-			<child link="${prefix}tool0" />
-			<origin xyz="0 0 0" rpy="0 0 0" />
-		</joint>
-	</xacro:macro>
+    <!-- joints -->
+    <joint name="${prefix}joint_1" type="revolute">
+      <origin xyz="0 0 0.410" rpy="0 0 0"/>
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}link_1"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-3.14" upper="3.14" effort="0" velocity="5.24"/>
+    </joint>
+    <joint name="${prefix}joint_2" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="${prefix}link_1"/>
+      <child link="${prefix}link_2"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-2.01" upper="2.01" effort="0" velocity="5.59"/>
+    </joint>
+    <joint name="${prefix}joint_3" type="revolute">
+      <origin xyz="0 0 0.350" rpy="0 0 0"/>
+      <parent link="${prefix}link_2"/>
+      <child link="${prefix}link_3"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-3.49" upper="3.49" effort="0" velocity="5.93"/>
+    </joint>
+    <joint name="${prefix}joint_4" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="${prefix}link_3"/>
+      <child link="${prefix}link_4"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-3.32" upper="3.32" effort="0" velocity="5.24"/>
+    </joint>
+    <joint name="${prefix}joint_5" type="revolute">
+      <origin xyz="0 0 0.350" rpy="0 0 0"/>
+      <parent link="${prefix}link_4"/>
+      <child link="${prefix}link_5"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-2.62" upper="2.62" effort="0" velocity="5.24"/>
+    </joint>
+    <joint name="${prefix}joint_6" type="revolute">
+      <origin xyz="0 -0.095 0.065" rpy="0 0 0"/>
+      <parent link="${prefix}link_5"/>
+      <child link="${prefix}link_6"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-4.71" upper="4.71" effort="0" velocity="12.57"/>
+    </joint>
+    <joint name="${prefix}joint_6-tool0" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${prefix}link_6" />
+      <child link="${prefix}tool0" />
+    </joint>
+
+    <!-- ROS base_link to Fanuc World Coordinates transform -->
+    <link name="${prefix}base" />
+    <joint name="${prefix}base_link-base" type="fixed">
+      <origin xyz="0 0 0.410" rpy="0 0 0"/>
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}base"/>
+    </joint>
+  </xacro:macro>
 </robot>

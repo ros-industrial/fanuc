@@ -35,7 +35,7 @@
 PROGRAM libind_hdr
 --------------------------------------------------------------------------------
 -- 
--- Library routines for creating / processing ROS Industrial header packets
+-- Library routines for creating / processing ROS-Industrial header packets
 -- 
 -- 
 -- author: Shaun Edwards (Southwest Research Institute)
@@ -54,9 +54,9 @@ PROGRAM libind_hdr
 -- local types & constants
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libind_hdr_t
-%INCLUDE libind_pkt_t
-%INCLUDE ktype_sz_t
+%INCLUDE include\libind_hdr_t
+%INCLUDE include\libind_pkt_t
+%INCLUDE include\ktype_sz_t
 
 
 
@@ -75,7 +75,7 @@ PROGRAM libind_hdr
 -- local routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libind_hdr_h
+%INCLUDE include\libind_hdr_h
 
 
 

@@ -73,7 +73,14 @@ set_target_properties(${PROJECT_NAME}_motion_streaming_interface_bswap
 
 if (CATKIN_ENABLE_TESTING)
   find_package(roslaunch REQUIRED)
-  roslaunch_add_file_check(tests/roslaunch_test.xml)
+  roslaunch_add_file_check(tests/roslaunch_test.xml
+    DEPENDENCIES
+      # not nice, but industrial_robot_client doesn't prefix its targets
+      joint_trajectory_action
+      ${PROJECT_NAME}_robot_state
+      ${PROJECT_NAME}_robot_state_bswap
+      ${PROJECT_NAME}_motion_streaming_interface
+      ${PROJECT_NAME}_motion_streaming_interface_bswap)
 endif()
 
 

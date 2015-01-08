@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='ASCII'?>
+<library path="lib/libfanuc_lrmate200ic5h_manipulator_moveit_ikfast_plugin">
+  <class name="fanuc_lrmate200ic5h_manipulator_kinematics/IKFastKinematicsPlugin" type="ikfast_kinematics_plugin::IKFastKinematicsPlugin" base_class_type="kinematics::KinematicsBase">
+    <description>IKFast61 plugin for closed-form kinematics for the Fanuc LR Mate 200iC/5H</description>
+  </class>
+</library>

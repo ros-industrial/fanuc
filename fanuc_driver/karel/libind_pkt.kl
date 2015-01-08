@@ -35,7 +35,7 @@
 PROGRAM libind_pkt
 --------------------------------------------------------------------------------
 -- 
--- Library routines for creating / processing ROS Industrial packets
+-- Library routines for creating / processing ROS-Industrial packets
 -- 
 -- Note: in its current state this library can only deserialise
 --       JOINT_POSITION (or JOINT) and JOINT_TRAJ_PT messages.
@@ -58,8 +58,8 @@ PROGRAM libind_pkt
 -- local types & constants
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libind_pkt_t
-%INCLUDE ktype_sz_t
+%INCLUDE include\libind_pkt_t
+%INCLUDE include\ktype_sz_t
 
 
 
@@ -78,7 +78,7 @@ PROGRAM libind_pkt
 -- local routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libind_pkt_h
+%INCLUDE include\libind_pkt_h
 
 
 
@@ -119,7 +119,7 @@ BEGIN
 		this.joint_data_[d__] = 0.0
 	ENDFOR
 
-	-- set up ROS industrial packet fields
+	-- set up ROS-Industrial packet fields
 	USING this DO
 		-- default to JOINT_POSITION size
 		length_     = (RI_SZ_HDR + RI_SZB_JPOS)

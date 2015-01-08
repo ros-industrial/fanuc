@@ -49,54 +49,54 @@ using industrial_utils::param::getJointNames;
 
 class Fanuc_JointRelayHandler : public JointRelayHandler
 {
-	int J23_factor_;
+  int J23_factor_;
 
 
 public:
-	Fanuc_JointRelayHandler() : JointRelayHandler(), J23_factor_(0)
-	{
-		if (ros::param::has("J23_factor"))
-		{
-			ros::param::get("J23_factor", this->J23_factor_);
-		}
-		else
-		{
-			// TODO: abort on missing parameter
-			ROS_ERROR("Joint 2-3 linkage factor parameter not supplied.");
-		}
-	}
+  Fanuc_JointRelayHandler() : JointRelayHandler(), J23_factor_(0)
+  {
+    if (ros::param::has("J23_factor"))
+    {
+      ros::param::get("J23_factor", this->J23_factor_);
+    }
+    else
+    {
+      // TODO: abort on missing parameter
+      ROS_ERROR("Joint 2-3 linkage factor parameter not supplied.");
+    }
+  }
 
 
-	virtual ~Fanuc_JointRelayHandler() {}
+  virtual ~Fanuc_JointRelayHandler() {}
 
 
-	bool transform(const std::vector<double>& pos_in, std::vector<double>* pos_out)
-	{
-		// compensate for J2-J3 coupling in Fanuc manipulator, if required
-		fanuc::utils::linkage_transform(pos_in, pos_out, J23_factor_);
-		return true;
-	}
+  bool transform(const std::vector<double>& pos_in, std::vector<double>* pos_out)
+  {
+    // compensate for J2-J3 coupling in Fanuc manipulator, if required
+    fanuc::utils::linkage_transform(pos_in, pos_out, J23_factor_);
+    return true;
+  }
 };
 
 
 int main(int argc, char** argv)
 {
-	// initialize node
-	ros::init(argc, argv, "state_interface");
+  // initialize node
+  ros::init(argc, argv, "state_interface");
 
-	// launch the default Robot State Interface connection/handlers
-	RobotStateInterface rsi;
-	rsi.init();
+  // launch the default Robot State Interface connection/handlers
+  RobotStateInterface rsi;
+  rsi.init();
 
-	// replace the generic JointRelayHandler with our Fanuc specific one as
-	// we need to correct the reported joint angles
-	Fanuc_JointRelayHandler jointHandler;
-	std::vector<std::string> joint_names = rsi.get_joint_names();
-	jointHandler.init(rsi.get_connection(), joint_names);
-	rsi.add_handler(&jointHandler);
+  // replace the generic JointRelayHandler with our Fanuc specific one as
+  // we need to correct the reported joint angles
+  Fanuc_JointRelayHandler jointHandler;
+  std::vector<std::string> joint_names = rsi.get_joint_names();
+  jointHandler.init(rsi.get_connection(), joint_names);
+  rsi.add_handler(&jointHandler);
 
-	// run the node
-	rsi.run();
+  // run the node
+  rsi.run();
 
-	return 0;
+  return 0;
 }

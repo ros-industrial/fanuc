@@ -1,0 +1,8 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: fanuc_m430ia_support
+    relative_path: urdf/m430ia2p.urdf
+  SRDF:
+    relative_path: config/fanuc_m430ia2p.srdf
+  CONFIG:
+    generated_timestamp: 1399474201

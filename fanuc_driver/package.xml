@@ -1,12 +1,12 @@
 <package>
   <name>fanuc_driver</name>
-  <version>0.2.0</version>
+  <version>0.3.0</version>
   <description>
    <p>
-     ROS Industrial nodes for interfacing with Fanuc robot controllers.
+     ROS-Industrial nodes for interfacing with Fanuc robot controllers.
    </p>
    <p>
-     This package is part of the ROS Industrial program and contains nodes 
+     This package is part of the ROS-Industrial program and contains nodes 
      for interfacing with Fanuc industrial robot controllers that support 
      the KAREL programming environment.
    </p>
@@ -15,14 +15,14 @@
   <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
   <license>BSD</license>
 
-  <url type="website">http://ros.org/wiki/fanuc_driver</url>
+  <url type="website">http://wiki.ros.org/fanuc_driver</url>
   <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
   <url type="repository">https://github.com/ros-industrial/fanuc</url>
 
   <buildtool_depend>catkin</buildtool_depend>
 
   <build_depend>industrial_robot_client</build_depend>
-  <build_depend>roslaunch</build_depend>
+  <build_depend version_gte="1.9.55">roslaunch</build_depend>
 
   <run_depend>industrial_robot_client</run_depend>
 </package>

@@ -1,0 +1,8 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: fanuc_m20ia_support
+    relative_path: urdf/m20ia10l.urdf
+  SRDF:
+    relative_path: config/fanuc_m20ia10l.srdf
+  CONFIG:
+    generated_timestamp: 1398165472

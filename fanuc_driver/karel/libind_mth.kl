@@ -1,6 +1,6 @@
 -- Software License Agreement (BSD License)
 --
--- Copyright (c) 2012, 2013, TU Delft Robotics Institute
+-- Copyright (c) 2012-2014, TU Delft Robotics Institute
 -- All rights reserved.
 --
 -- Redistribution and use in source and binary forms, with or without
@@ -40,9 +40,11 @@ PROGRAM libind_mth
 -- author: G.A. vd. Hoorn (TU Delft Robotics Institute)
 -- 
 --------------------------------------------------------------------------------
+%ALPHABETIZE
+%COMMENT = 'r2'
+%NOBUSYLAMP
 %NOLOCKGROUP
-%NOPAUSE= COMMAND + TPENABLE + ERROR
-%COMMENT = 'r1'
+%NOPAUSE = COMMAND + TPENABLE + ERROR
 
 
 
@@ -52,11 +54,6 @@ PROGRAM libind_mth
 -- local types & constants
 -- 
 --------------------------------------------------------------------------------
-const
-	M_PI       =  3.14159265359
-	M_1_PI     =  0.31830988618
-	M_1RAD_DEG = 57.29577951318
-	M_1DEG_RAD =  0.01745329252
 
 
 
@@ -66,7 +63,7 @@ const
 -- local routine prototypes
 -- 
 --------------------------------------------------------------------------------
-%INCLUDE libind_mth_h
+%INCLUDE include\libind_mth_h
 
 
 
@@ -84,7 +81,7 @@ END libind_mth
 
 ROUTINE deg_to_rad
 BEGIN
-	RETURN (r_deg * M_1DEG_RAD)
+	RETURN (r_deg * DEG_2_RAD)
 END deg_to_rad
 
 
@@ -92,7 +89,7 @@ END deg_to_rad
 
 ROUTINE rad_to_deg
 BEGIN
-	RETURN (r_rad * M_1RAD_DEG)
+	RETURN (r_rad * RAD_2_DEG)
 END rad_to_deg
 
 

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Pi, the ratio of a circle's circumference to its diameter -->
+  <xacro:property name="m_pi" value="3.1415926535" />
+  <!-- Pi divided by two -->
+  <xacro:property name="m_pi_2" value="1.570796327" />
+  <!-- Pi divided by four -->
+  <xacro:property name="m_pi_4" value="0.785398163" />
+
+</robot>

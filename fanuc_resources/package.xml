@@ -1,6 +1,6 @@
 <package>
   <name>fanuc_resources</name>
-  <version>0.2.0</version>
+  <version>0.3.0</version>
   <description>
     <p>
       Shared configuration data, 3D models and launch files for Fanuc 
@@ -9,7 +9,7 @@
     <p>
       This package contains configuration data, 3D models and launch files 
       that are shared between different Fanuc robot support packages 
-      within the ROS Industrial program.
+      within the ROS-Industrial program.
 
       This package also contains common URDF / XACRO resources used by 
       other Fanuc related packages.
@@ -19,7 +19,7 @@
   <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
   <license>BSD</license>
 
-  <url type="website">http://ros.org/wiki/fanuc_resources</url>
+  <url type="website">http://wiki.ros.org/fanuc_resources</url>
   <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
   <url type="repository">https://github.com/ros-industrial/fanuc</url>
 

@@ -60,7 +60,7 @@ namespace utils
  *   J3_out = J3_in + j23_factor * J2_in
  */
 void linkage_transform(const std::vector<double>& joints_in,
-		std::vector<double>* joints_out, double J23_factor = 0);
+    std::vector<double>* joints_out, double J23_factor = 0);
 
 /**
  * \brief Corrects for parallel linkage coupling between joints.
@@ -71,7 +71,7 @@ void linkage_transform(const std::vector<double>& joints_in,
  *   J3_out = J3_in + j23_factor * J2_in
  */
 void linkage_transform(const trajectory_msgs::JointTrajectoryPoint& pt_in,
-		trajectory_msgs::JointTrajectoryPoint* pt_out, double J23_factor = 0);
+    trajectory_msgs::JointTrajectoryPoint* pt_out, double J23_factor = 0);
 
 
 } //fanuc

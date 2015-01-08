@@ -46,48 +46,48 @@ using industrial_robot_client::joint_trajectory_streamer::JointTrajectoryStreame
 
 class Fanuc_JointTrajectoryStreamer : public JointTrajectoryStreamer
 {
-	int J23_factor_;
+  int J23_factor_;
 
 
 public:
-	Fanuc_JointTrajectoryStreamer() : JointTrajectoryStreamer(), J23_factor_(0)
-	{
-		if (ros::param::has("J23_factor"))
-		{
-			ros::param::get("J23_factor", this->J23_factor_);
-		}
-		else
-		{
-			// TODO: abort on missing parameter
-			ROS_ERROR("Joint 2-3 linkage factor parameter not supplied.");
-		}
-	}
+  Fanuc_JointTrajectoryStreamer() : JointTrajectoryStreamer(), J23_factor_(0)
+  {
+    if (ros::param::has("J23_factor"))
+    {
+      ros::param::get("J23_factor", this->J23_factor_);
+    }
+    else
+    {
+      // TODO: abort on missing parameter
+      ROS_ERROR("Joint 2-3 linkage factor parameter not supplied.");
+    }
+  }
 
 
-	virtual ~Fanuc_JointTrajectoryStreamer() {}
+  virtual ~Fanuc_JointTrajectoryStreamer() {}
 
 
-	bool transform(const trajectory_msgs::JointTrajectoryPoint& pt_in,
-			trajectory_msgs::JointTrajectoryPoint* pt_out)
-	{
-		// sending points back to the Fanuc, so invert factor
-		fanuc::utils::linkage_transform(pt_in, pt_out, -J23_factor_);
+  bool transform(const trajectory_msgs::JointTrajectoryPoint& pt_in,
+      trajectory_msgs::JointTrajectoryPoint* pt_out)
+  {
+    // sending points back to the Fanuc, so invert factor
+    fanuc::utils::linkage_transform(pt_in, pt_out, -J23_factor_);
 
-		return true;
-	}
+    return true;
+  }
 };
 
 
 int main(int argc, char** argv)
 {
-	// initialize node
-	ros::init(argc, argv, "motion_interface");
+  // initialize node
+  ros::init(argc, argv, "motion_interface");
 
-	// launch the default JointTrajectoryStreamer connection/handlers
-	Fanuc_JointTrajectoryStreamer motionInterface;
+  // launch the default JointTrajectoryStreamer connection/handlers
+  Fanuc_JointTrajectoryStreamer motionInterface;
 
-	motionInterface.init();
-	motionInterface.run();
+  motionInterface.init();
+  motionInterface.run();
 
-	return 0;
+  return 0;
 }

@@ -1,20 +1,22 @@
 # Fanuc
 
+[![Build Status](http://jenkins.ros.org/job/devel-hydro-fanuc/badge/icon)](http://jenkins.ros.org/job/devel-hydro-fanuc/)
+
 [ROS-Industrial][] Fanuc meta-package. See the [ROS wiki][] page for more 
 information.
 
-Some additional packages can be found in the [fanuc_experimental][] repository.
+The [fanuc_experimental][] repository contains additional packages.
 
 
 ## Contents
 
-Development in this repository is focused on ROS versions after Groovy, but 
-its packages can still be installed from source on a Groovy installation.
-For the code of the rosbuild version released into Groovy (0.1.1), see the 
-[subversion repository][].
+Branch naming follows the ROS distribution they are compatible with. `-devel`
+branches may be unstable. Releases are made from the distribution branches
+(`hydro`, `indigo`).
 
+Older releases may be found in the old ROS-Industrial [subversion repository][].
 
-[ROS-Industrial]: http://www.ros.org/wiki/Industrial
-[ROS wiki]: http://ros.org/wiki/fanuc
+[ROS-Industrial]: http://wiki.ros.org/Industrial
+[ROS wiki]: http://wiki.ros.org/fanuc
 [fanuc_experimental]: https://github.com/ros-industrial/fanuc_experimental
 [subversion repository]: https://swri-ros-pkg.googlecode.com/svn/tags/fanuc/fanuc-0.1.1
