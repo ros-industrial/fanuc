@@ -2,6 +2,11 @@
 Changelog for package fanuc_m16ib_moveit_plugins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* no changes.
+* for a complete list of changes see the `commit log for 0.3.1 <https://github.com/ros-industrial/fanuc/compare/0.3.0...0.3.1>`_
+
 0.3.0 (2015-01-08)
 ------------------
 * first Hydro release of this package.
