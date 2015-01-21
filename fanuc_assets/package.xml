@@ -1,6 +1,6 @@
 <package>
   <name>fanuc_assets</name>
-  <version>0.3.0</version>
+  <version>0.3.1</version>
   <description>
     <p>
       Shared configuration data, 3D models and launch files for Fanuc 

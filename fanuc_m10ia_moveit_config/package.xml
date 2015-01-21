@@ -1,6 +1,6 @@
 <package>
   <name>fanuc_m10ia_moveit_config</name>
-  <version>0.3.0</version>
+  <version>0.3.1</version>
   <description>
     <p>
       MoveIt package for the Fanuc M-10iA.
