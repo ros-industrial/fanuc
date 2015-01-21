@@ -1,6 +1,6 @@
 <package>
   <name>fanuc_m10ia_support</name>
-  <version>0.3.0</version>
+  <version>0.3.1</version>
   <description>
     <p>
       ROS-Industrial support for the Fanuc M-10iA (and variants).
