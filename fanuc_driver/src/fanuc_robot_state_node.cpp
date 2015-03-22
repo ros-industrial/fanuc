@@ -1,7 +1,7 @@
 /*
  * Software License Agreement (BSD License)
  *
- * Copyright (c) 2013, TU Delft Robotics Institute
+ * Copyright (c) 2013-2015, TU Delft Robotics Institute
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -41,6 +41,8 @@
 #include <industrial_robot_client/robot_state_interface.h>
 #include <industrial_utils/param_utils.h>
 
+#include <stdexcept>
+
 
 using industrial_robot_client::robot_state_interface::RobotStateInterface;
 using industrial_robot_client::joint_relay_handler::JointRelayHandler;
@@ -55,15 +57,13 @@ class Fanuc_JointRelayHandler : public JointRelayHandler
 public:
   Fanuc_JointRelayHandler() : JointRelayHandler(), J23_factor_(0)
   {
-    if (ros::param::has("J23_factor"))
+    if (!ros::param::has("J23_factor"))
     {
-      ros::param::get("J23_factor", this->J23_factor_);
+      ROS_FATAL("Joint 2-3 linkage factor parameter not supplied.");
+      throw std::runtime_error("Cannot find required parameter 'J23_factor' on parameter server.");
     }
-    else
-    {
-      // TODO: abort on missing parameter
-      ROS_ERROR("Joint 2-3 linkage factor parameter not supplied.");
-    }
+
+    ros::param::get("J23_factor", this->J23_factor_);
   }
 
 
