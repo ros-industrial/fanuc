@@ -1,4 +1,4 @@
-<package>
+<package format="2">
   <name>fanuc_driver</name>
   <version>0.3.2</version>
   <description>
@@ -21,8 +21,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <build_depend>industrial_robot_client</build_depend>
-  <build_depend version_gte="1.9.55">roslaunch</build_depend>
+  <depend>industrial_robot_client</depend>
 
-  <run_depend>industrial_robot_client</run_depend>
+  <test_depend version_gte="1.9.55">roslaunch</test_depend>
 </package>

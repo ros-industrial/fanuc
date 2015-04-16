@@ -1,17 +1,17 @@
-<package>
+<package format="2">
   <name>fanuc_resources</name>
   <version>0.3.2</version>
   <description>
     <p>
-      Shared configuration data, 3D models and launch files for Fanuc 
+      Shared configuration data, 3D models and launch files for Fanuc
       manipulators.
     </p>
     <p>
-      This package contains configuration data, 3D models and launch files 
-      that are shared between different Fanuc robot support packages 
+      This package contains configuration data, 3D models and launch files
+      that are shared between different Fanuc robot support packages
       within the ROS-Industrial program.
 
-      This package also contains common URDF / XACRO resources used by 
+      This package also contains common urdf / xacro resources used by
       other Fanuc related packages.
     </p>
   </description>
