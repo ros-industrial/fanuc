@@ -23,3 +23,5 @@ catkin_package(
 
 add_subdirectory(m20ia_kinematics)
 add_subdirectory(m20ia10l_kinematics)
+
+install(FILES readme.md DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
