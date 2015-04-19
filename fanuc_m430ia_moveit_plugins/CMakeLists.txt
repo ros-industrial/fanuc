@@ -23,3 +23,5 @@ catkin_package(
 
 add_subdirectory(m430ia2f_kinematics)
 add_subdirectory(m430ia2p_kinematics)
+
+install(FILES readme.md DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})

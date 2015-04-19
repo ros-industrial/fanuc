@@ -1,6 +1,6 @@
 <package>
   <name>fanuc_driver</name>
-  <version>0.3.1</version>
+  <version>0.3.2</version>
   <description>
    <p>
      ROS-Industrial nodes for interfacing with Fanuc robot controllers.

@@ -10,3 +10,5 @@ foreach(dir urdf)
   install(DIRECTORY ${dir}/
     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
 endforeach()
+
+install(FILES readme.md DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
