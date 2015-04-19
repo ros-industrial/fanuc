@@ -2,8 +2,8 @@
 Changelog for package fanuc_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.2 (2015-04-19)
+------------------
 * abort on missing J23_factor param (`#152 <https://github.com/ros-industrial/fanuc/issues/152>`_).
 * add readmes to all packages (`#153 <https://github.com/ros-industrial/fanuc/issues/153>`_).
 * for a complete list of changes see the `commit log for 0.3.2 <https://github.com/ros-industrial/fanuc/compare/0.3.1...0.3.2>`_
