@@ -2,6 +2,11 @@
 Changelog for package fanuc_lrmate200ic_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* add readmes to all packages (`#153 <https://github.com/ros-industrial/fanuc/issues/153>`_).
+* for a complete list of changes see the `commit log for 0.3.2 <https://github.com/ros-industrial/fanuc/compare/0.3.1...0.3.2>`_
+
 0.3.1 (2015-01-21)
 ------------------
 * make warehouse db location user configurable (`#142 <https://github.com/ros-industrial/fanuc/issues/142>`_).
