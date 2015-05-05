@@ -27,5 +27,18 @@
 
   <export>
     <architecture_independent />
+    <rosindex>
+      <tags>
+        <tag>urdf</tag>
+        <tag>xacro</tag>
+        <tag>colour</tag>
+        <tag>material</tag>
+        <tag>mesh</tag>
+        <tag>resources</tag>
+        <tag>fanuc</tag>
+        <tag>industrial</tag>
+        <tag>ros-industrial</tag>
+      </tags>
+    </rosindex>
   </export>
 </package>

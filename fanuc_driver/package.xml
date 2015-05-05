@@ -24,4 +24,19 @@
   <depend>industrial_robot_client</depend>
 
   <test_depend version_gte="1.9.55">roslaunch</test_depend>
+
+  <export>
+    <rosindex>
+      <tags>
+        <tag>driver</tag>
+        <tag>simple_message</tag>
+        <tag>fanuc</tag>
+        <tag>industrial</tag>
+        <tag>ros-industrial</tag>
+        <tag>KAREL</tag>
+        <tag>R-30iA</tag>
+        <tag>R-30iB</tag>
+      </tags>
+    </rosindex>
+  </export>
 </package>

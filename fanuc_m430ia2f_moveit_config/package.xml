@@ -44,5 +44,14 @@
 
   <export>
     <architecture_independent />
+    <rosindex>
+      <tags>
+        <tag>moveit</tag>
+        <tag>fanuc</tag>
+        <tag>industrial</tag>
+        <tag>ros-industrial</tag>
+        <tag>m430ia</tag>
+      </tags>
+    </rosindex>
   </export>
 </package>

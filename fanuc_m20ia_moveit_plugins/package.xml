@@ -41,5 +41,16 @@
   <export>
     <moveit_core plugin="${prefix}/m20ia_kinematics/fanuc_m20ia_manipulator_moveit_ikfast_plugin_description.xml"/>
     <moveit_core plugin="${prefix}/m20ia10l_kinematics/fanuc_m20ia10l_manipulator_moveit_ikfast_plugin_description.xml"/>
+    <rosindex>
+      <tags>
+        <tag>moveit</tag>
+        <tag>ikfast</tag>
+        <tag>kinematics</tag>
+        <tag>fanuc</tag>
+        <tag>industrial</tag>
+        <tag>ros-industrial</tag>
+        <tag>m20ia</tag>
+      </tags>
+    </rosindex>
   </export>
 </package>

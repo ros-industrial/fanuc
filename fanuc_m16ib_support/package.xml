@@ -49,5 +49,15 @@
 
   <export>
     <architecture_independent />
+    <rosindex>
+      <tags>
+        <tag>support_package</tag>
+        <tag>description</tag>
+        <tag>fanuc</tag>
+        <tag>industrial</tag>
+        <tag>ros-industrial</tag>
+        <tag>m16ib</tag>
+      </tags>
+    </rosindex>
   </export>
 </package>

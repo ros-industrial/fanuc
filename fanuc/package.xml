@@ -37,5 +37,13 @@
   <export>
     <metapackage/>
     <architecture_independent/>
+    <rosindex>
+      <tags>
+        <tag>metapackage</tag>
+        <tag>fanuc</tag>
+        <tag>industrial</tag>
+        <tag>ros-industrial</tag>
+      </tags>
+    </rosindex>
   </export>
 </package>
