@@ -12,7 +12,6 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <run_depend>fanuc_assets</run_depend>
   <run_depend>fanuc_driver</run_depend>
   <run_depend>fanuc_lrmate200ic5h_moveit_config</run_depend>
   <run_depend>fanuc_lrmate200ic5l_moveit_config</run_depend>
