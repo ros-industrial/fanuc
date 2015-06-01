@@ -11,7 +11,7 @@
         <geometry>
           <mesh filename="package://fanuc_m20ia_support/meshes/m20ia/visual/base_link.stl"/>
         </geometry>
-        <xacro:material_fanuc_grey />
+        <xacro:material_fanuc_gray28 />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>

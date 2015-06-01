@@ -11,7 +11,7 @@
         <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/base_link.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.86 0.85 0.81 1.0"/>
+        <color rgba="0.901960784314 0.901960784314 0.901960784314 1.0"/>
       </material>
     </visual>
     <collision>
@@ -28,7 +28,7 @@
         <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_1.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.86 0.85 0.81 1.0"/>
+        <color rgba="0.901960784314 0.901960784314 0.901960784314 1.0"/>
       </material>
     </visual>
     <collision>
@@ -45,7 +45,7 @@
         <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_2.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.86 0.85 0.81 1.0"/>
+        <color rgba="0.901960784314 0.901960784314 0.901960784314 1.0"/>
       </material>
     </visual>
     <collision>
@@ -62,7 +62,7 @@
         <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_3.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.86 0.85 0.81 1.0"/>
+        <color rgba="0.901960784314 0.901960784314 0.901960784314 1.0"/>
       </material>
     </visual>
     <collision>
@@ -79,7 +79,7 @@
         <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_4.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.86 0.85 0.81 1.0"/>
+        <color rgba="0.901960784314 0.901960784314 0.901960784314 1.0"/>
       </material>
     </visual>
     <collision>
@@ -96,7 +96,7 @@
         <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_5.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.86 0.85 0.81 1.0"/>
+        <color rgba="0.901960784314 0.901960784314 0.901960784314 1.0"/>
       </material>
     </visual>
     <collision>
@@ -113,7 +113,7 @@
         <mesh filename="package://fanuc_m430ia_support/meshes/m430ia2p/visual/link_6.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.86 0.85 0.81 1.0"/>
+        <color rgba="0.901960784314 0.901960784314 0.901960784314 1.0"/>
       </material>
     </visual>
     <collision>

@@ -11,7 +11,7 @@
         <mesh filename="package://fanuc_m20ia_support/meshes/m20ia/visual/base_link.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.34 0.35 0.36 1.0"/>
+        <color rgba="0.278431372549 0.278431372549 0.278431372549 1.0"/>
       </material>
     </visual>
     <collision>

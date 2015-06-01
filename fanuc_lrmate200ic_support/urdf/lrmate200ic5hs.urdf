@@ -11,7 +11,7 @@
         <mesh filename="package://fanuc_lrmate200ic_support/meshes/lrmate200ic/visual/base_link.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.15 0.15 0.15 1.0"/>
+        <color rgba="0.239215686275 0.239215686275 0.239215686275 1.0"/>
       </material>
     </visual>
     <collision>
