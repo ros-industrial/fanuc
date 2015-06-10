@@ -16,17 +16,17 @@
 -->
 
   <!-- robot_ip: IP-address of the robot's socket-messaging server -->
-  <arg name="robot_ip" />
+  <arg name="robot_ip" doc="IP of controller" />
 
   <!-- J23_factor: set to correct factor to compensate for J23 coupling:
               -1 : negative coupling (J3' = J3 - J2)
                0 : no coupling (J3' == J3)
                1 : positive coupling (J3' = J3 + J2)
   -->
-  <arg name="J23_factor" />
+  <arg name="J23_factor" doc="Compensation factor for joint 2-3 coupling (-1, 0 or 1)" />
 
   <!-- Load the byte-swapping versions of Fanuc nodes if required -->
-  <arg name="use_bswap" />
+  <arg name="use_bswap" doc="If true, driver will byte-swap all incoming and outgoing data" />
 
   <!-- copy the specified parameters to the Parameter Server, for 
        use by nodes below -->
