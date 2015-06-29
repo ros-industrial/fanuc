@@ -1,7 +1,7 @@
 moveit_setup_assistant_config:
   URDF:
     package: fanuc_lrmate200ic_support
-    relative_path: urdf/lrmate200ic5l.urdf
+    relative_path: urdf/lrmate200ic5l.xacro
   SRDF:
     relative_path: config/fanuc_lrmate200ic5l.srdf
   CONFIG:
