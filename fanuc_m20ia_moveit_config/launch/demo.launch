@@ -9,8 +9,9 @@
   <arg name="debug" default="false" />
 
   <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+  <include file="$(find fanuc_m20ia_support)/launch/load_m20ia.launch" />
   <include file="$(find fanuc_m20ia_moveit_config)/launch/planning_context.launch">
-    <arg name="load_robot_description" value="true"/>
+    <arg name="load_robot_description" value="false"/>
   </include>
 
   <!-- If needed, broadcast static tf for robot root -->

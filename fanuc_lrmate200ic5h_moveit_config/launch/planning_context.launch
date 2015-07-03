@@ -6,7 +6,7 @@
   <arg name="robot_description" default="robot_description"/>
 
   <!-- Load universal robot description format (URDF) -->
-  <include file="$(find fanuc_lrmate200ic_support)/launch/load_lrmate200ic5h.launch" />
+  <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="$(find xacro)/xacro.py '$(find fanuc_lrmate200ic_support)/urdf/lrmate200ic5h.xacro'"/>
 
   <!-- The semantic description that corresponds to the URDF -->
   <param name="$(arg robot_description)_semantic" textfile="$(find fanuc_lrmate200ic5h_moveit_config)/config/fanuc_lrmate200ic5h.srdf" />
