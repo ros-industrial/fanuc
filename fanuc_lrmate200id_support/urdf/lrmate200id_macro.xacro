@@ -10,7 +10,7 @@
         <geometry>
           <mesh filename="package://fanuc_lrmate200id_support/meshes/lrmate200id/visual/base_link.stl"/>
         </geometry>
-        <xacro:material_fanuc_black />
+        <xacro:material_fanuc_gray28 />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
