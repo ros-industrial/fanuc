@@ -36,5 +36,17 @@
 
   <export>
     <moveit_core plugin="${prefix}/lrmate200id_kinematics/fanuc_lrmate200id_manipulator_moveit_ikfast_plugin_description.xml"/>
+    <rosindex>
+      <tags>
+        <tag>moveit</tag>
+        <tag>ikfast</tag>
+        <tag>kinematics</tag>
+        <tag>fanuc</tag>
+        <tag>industrial</tag>
+        <tag>ros-industrial</tag>
+        <tag>lrmate200id</tag>
+        <tag>experimental</tag>
+      </tags>
+    </rosindex>
   </export>
 </package>
