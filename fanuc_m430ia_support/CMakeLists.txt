@@ -18,10 +18,7 @@ if (CATKIN_ENABLE_TESTING)
       fanuc_driver_motion_streaming_interface_bswap)
 endif()
 
-foreach(dir config launch meshes urdf)
-  install(
-    DIRECTORY ${dir}/
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
-endforeach()
+install(DIRECTORY config launch meshes urdf
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
 install(FILES readme.md DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
