@@ -5,4 +5,4 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/fanuc_lrmate200ic5h.srdf
   CONFIG:
-    generated_timestamp: 1397375497
+    generated_timestamp: 1432414727
