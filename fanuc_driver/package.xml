@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <package format="2">
   <name>fanuc_driver</name>
   <version>0.3.2</version>
@@ -6,8 +7,8 @@
      ROS-Industrial nodes for interfacing with Fanuc robot controllers.
    </p>
    <p>
-     This package is part of the ROS-Industrial program and contains nodes 
-     for interfacing with Fanuc industrial robot controllers that support 
+     This package is part of the ROS-Industrial program and contains nodes
+     for interfacing with Fanuc industrial robot controllers that support
      the KAREL programming environment.
    </p>
   </description>

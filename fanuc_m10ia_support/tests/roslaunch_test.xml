@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <arg name="ip_str" value="127.0.0.1" />
 

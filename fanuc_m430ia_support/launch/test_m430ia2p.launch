@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <include file="$(find fanuc_m430ia_support)/launch/load_m430ia2p.launch" />
   <param name="use_gui" value="true" />

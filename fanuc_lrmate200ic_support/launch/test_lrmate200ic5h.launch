@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <include file="$(find fanuc_lrmate200ic_support)/launch/load_lrmate200ic5h.launch" />
   <param name="use_gui" value="true" />

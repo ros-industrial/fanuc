@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <include file="$(find fanuc_m20ia_support)/launch/load_m20ia.launch" />
   <param name="use_gui" value="true" />

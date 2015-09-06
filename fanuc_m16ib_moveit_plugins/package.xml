@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='ASCII'?>
+<?xml version="1.0"?>
 <package format="2">
   <name>fanuc_m16ib_moveit_plugins</name>
   <version>0.3.2</version>
