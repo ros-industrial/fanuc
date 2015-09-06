@@ -5,4 +5,4 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/fanuc_m10ia.srdf
   CONFIG:
-    generated_timestamp: 1397055368
+    generated_timestamp: 1432404153
