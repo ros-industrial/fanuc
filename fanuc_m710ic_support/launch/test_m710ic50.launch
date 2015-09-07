@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <include file="$(find fanuc_m710ic_support)/launch/load_m710ic50.launch" />
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
