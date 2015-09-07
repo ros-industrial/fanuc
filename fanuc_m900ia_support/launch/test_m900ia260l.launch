@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <include file="$(find fanuc_m900ia_support)/launch/load_m900ia260l.launch" />
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
