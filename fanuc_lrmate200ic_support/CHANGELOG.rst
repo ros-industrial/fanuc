@@ -2,6 +2,17 @@
 Changelog for package fanuc_lrmate200ic_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* first Indigo release.
+* upgrade manifests to package format 2 (`#115 <https://github.com/ros-industrial/fanuc/issues/115>`_).
+* general cleanup of XML files (launch, manifests, roslaunch tests, xacros).
+* add ROS Index tags to package manifests (`#147 <https://github.com/ros-industrial/fanuc/issues/147>`_).
+* document launch file arguments (`#165 <https://github.com/ros-industrial/fanuc/issues/165>`_).
+* use multi-arg install rule instead of for-loop.
+* use Roboguide colours for meshes where appropriate (`#166 <https://github.com/ros-industrial/fanuc/issues/166>`_).
+* for a complete list of changes see the `commit log for 0.4.0 <https://github.com/ros-industrial/fanuc/compare/0.3.2...0.4.0>`_.
+
 0.3.2 (2015-04-19)
 ------------------
 * add readmes to all packages (`#153 <https://github.com/ros-industrial/fanuc/issues/153>`_).

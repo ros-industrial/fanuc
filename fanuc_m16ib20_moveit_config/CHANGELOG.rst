@@ -2,6 +2,18 @@
 Changelog for package fanuc_m16ib20_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* first Indigo release.
+* upgrade manifests to package format 2 (`#115 <https://github.com/ros-industrial/fanuc/issues/115>`_).
+* general cleanup of XML files (launch, manifests, roslaunch tests, xacros).
+* add ROS Index tags to package manifests (`#147 <https://github.com/ros-industrial/fanuc/issues/147>`_).
+* document launch file arguments (`#165 <https://github.com/ros-industrial/fanuc/issues/165>`_).
+* document potential poor planning perf of LBKPIECE1 in MoveIt configuration packages.
+* update MoveIt configurations for Indigo release.
+  Note: link_3 gets added to the 'disabled' set for base_link in the collision matrix.
+* for a complete list of changes see the `commit log for 0.4.0 <https://github.com/ros-industrial/fanuc/compare/0.3.2...0.4.0>`_.
+
 0.3.2 (2015-04-19)
 ------------------
 * add readmes to all packages (`#153 <https://github.com/ros-industrial/fanuc/issues/153>`_).
