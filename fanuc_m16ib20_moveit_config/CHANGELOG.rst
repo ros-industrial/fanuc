@@ -2,8 +2,8 @@
 Changelog for package fanuc_m16ib20_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.0 (2015-10-11)
+------------------
 * first Indigo release.
 * upgrade manifests to package format 2 (`#115 <https://github.com/ros-industrial/fanuc/issues/115>`_).
 * general cleanup of XML files (launch, manifests, roslaunch tests, xacros).

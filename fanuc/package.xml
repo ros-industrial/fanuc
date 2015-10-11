@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>fanuc</name>
-  <version>0.3.2</version>
+  <version>0.4.0</version>
   <description>ROS-Industrial support for Fanuc manipulators (metapackage).</description>
   <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
   <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>

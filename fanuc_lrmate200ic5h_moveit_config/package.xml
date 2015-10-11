@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>fanuc_lrmate200ic5h_moveit_config</name>
-  <version>0.3.2</version>
+  <version>0.4.0</version>
   <description>
     <p>
       MoveIt package for the Fanuc LR Mate 200iC/5H.
