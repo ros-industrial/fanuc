@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>fanuc_r1000ia_moveit_plugins</name>
+  <version>0.1.0</version>
+  <description>
+    <p>
+      MoveIt plugins for the Fanuc R-1000iA (and variants).
+    </p>
+    <p>
+      This package contains plugins for use with MoveIt and Fanuc R-1000iA
+      manipulators. Plugins included support the /80F variant. See the Fanuc
+      R-1000iA support package for information on used joint angle and
+      velocity limits.
+    </p>
+    <p>
+      Before using any of the plugins included in this package, be sure to
+      check they are correct for the particular robot model and configuration
+      you intend to use them with.
+    </p>
+  </description>
+  <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+  <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://wiki.ros.org/fanuc_r1000ia_moveit_plugins</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc_experimental/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc_experimental</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>liblapack-dev</depend>
+  <depend>moveit_core</depend>
+  <depend>pluginlib</depend>
+  <depend>roscpp</depend>
+  <depend>tf_conversions</depend>
+
+  <export>
+    <moveit_core plugin="${prefix}/r1000ia80f_kinematics/fanuc_r1000ia80f_manipulator_moveit_ikfast_plugin_description.xml"/>
+    <rosindex>
+      <tags>
+        <tag>moveit</tag>
+        <tag>ikfast</tag>
+        <tag>kinematics</tag>
+        <tag>fanuc</tag>
+        <tag>industrial</tag>
+        <tag>ros-industrial</tag>
+        <tag>r1000ia</tag>
+        <tag>experimental</tag>
+      </tags>
+    </rosindex>
+  </export>
+</package>
