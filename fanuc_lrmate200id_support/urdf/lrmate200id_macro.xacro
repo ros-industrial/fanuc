@@ -150,7 +150,7 @@
       <origin xyz="0.080 0 0" rpy="0 0 0"/>
       <parent link="${prefix}link_5"/>
       <child link="${prefix}link_6"/>
-      <axis xyz="1 0 0"/>
+      <axis xyz="-1 0 0"/>
       <limit effort="0" lower="-6.285" upper="6.285" velocity="17.45" />
     </joint>
     <joint name="${prefix}joint_6-tool0" type="fixed">
