@@ -8,8 +8,8 @@
     </p>
     <p>
       This package contains configuration data, 3D models and launch files
-      for Fanuc M-10iA manipulators. This currently includes the base model
-      only.
+      for Fanuc M-10iA manipulators. This includes the base model and the
+      /7L variant.
     </p>
     <p><b>Specifications</b>:</p>
     <ul>
