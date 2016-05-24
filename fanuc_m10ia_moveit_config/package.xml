@@ -29,6 +29,8 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
+  <test_depend>roslaunch</test_depend>
+
   <exec_depend>fanuc_m10ia_moveit_plugins</exec_depend>
   <exec_depend>fanuc_m10ia_support</exec_depend>
   <exec_depend>industrial_robot_simulator</exec_depend>
