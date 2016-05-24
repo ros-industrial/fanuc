@@ -91,11 +91,11 @@ endif()
 
 
 install(TARGETS
-  ${PROJECT_NAME}_robot_state
-  ${PROJECT_NAME}_robot_state_bswap
-
   ${PROJECT_NAME}_motion_streaming_interface
   ${PROJECT_NAME}_motion_streaming_interface_bswap
+
+  ${PROJECT_NAME}_robot_state
+  ${PROJECT_NAME}_robot_state_bswap
 
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
