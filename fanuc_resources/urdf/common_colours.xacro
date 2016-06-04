@@ -29,5 +29,6 @@
   <!-- approximations -->
   <xacro:property name="color_fanuc_black"    value="0.15 0.15 0.15 1.0" />
   <xacro:property name="color_fanuc_greyish"  value="0.75 0.75 0.75 1.0" />
+  <xacro:property name="color_fanuc_green"    value="${  0/255} ${155/255} ${ 70/255} 1.0" />
 
 </robot>

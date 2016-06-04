@@ -80,4 +80,10 @@
     </material>
   </xacro:macro>
 
+  <xacro:macro name="material_fanuc_green">
+    <material name="">
+      <color rgba="${color_fanuc_green}"/>
+    </material>
+  </xacro:macro>
+
 </robot>
