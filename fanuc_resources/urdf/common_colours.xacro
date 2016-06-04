@@ -23,6 +23,8 @@
   <xacro:property name="color_fanuc_BAB0B0"   value="${186/255} ${176/255} ${176/255} 1.0" />
   <!-- #E6E6E6 -->
   <xacro:property name="color_fanuc_E6E6E6"   value="${230/255} ${230/255} ${230/255} 1.0" />
+  <!-- #00FF73: 'collaborative green' -->
+  <xacro:property name="color_fanuc_00FF73"   value="${  0/255} ${255/255} ${115/255} 1.0" />
 
   <!-- approximations -->
   <xacro:property name="color_fanuc_black"    value="0.15 0.15 0.15 1.0" />
