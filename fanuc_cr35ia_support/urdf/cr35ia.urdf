@@ -15,6 +15,7 @@
   <!-- #FFFF00 -->
   <!-- #BAB0B0 -->
   <!-- #E6E6E6 -->
+  <!-- #00FF73: 'collaborative green' -->
   <!-- approximations -->
   <!-- Pi, the ratio of a circle's circumference to its diameter -->
   <!-- Pi divided by two -->
@@ -27,7 +28,7 @@
         <mesh filename="package://fanuc_cr35ia_support/meshes/cr35ia/visual/base_link.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.34 0.35 0.36 1.0"/>
+        <color rgba="0.278431372549 0.278431372549 0.278431372549 1.0"/>
       </material>
     </visual>
     <collision>
@@ -44,7 +45,7 @@
         <mesh filename="package://fanuc_cr35ia_support/meshes/cr35ia/visual/link_1.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.96 0.76 0.13 1.0"/>
+        <color rgba="0.0 0.607843137255 0.274509803922 1.0"/>
       </material>
     </visual>
     <collision>
@@ -61,7 +62,7 @@
         <mesh filename="package://fanuc_cr35ia_support/meshes/cr35ia/visual/link_2.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.96 0.76 0.13 1.0"/>
+        <color rgba="0.0 0.607843137255 0.274509803922 1.0"/>
       </material>
     </visual>
     <collision>
@@ -78,7 +79,7 @@
         <mesh filename="package://fanuc_cr35ia_support/meshes/cr35ia/visual/link_3.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.96 0.76 0.13 1.0"/>
+        <color rgba="0.0 0.607843137255 0.274509803922 1.0"/>
       </material>
     </visual>
     <collision>
@@ -95,7 +96,7 @@
         <mesh filename="package://fanuc_cr35ia_support/meshes/cr35ia/visual/link_4.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.96 0.76 0.13 1.0"/>
+        <color rgba="0.0 0.607843137255 0.274509803922 1.0"/>
       </material>
     </visual>
     <collision>
@@ -112,7 +113,7 @@
         <mesh filename="package://fanuc_cr35ia_support/meshes/cr35ia/visual/link_5.stl"/>
       </geometry>
       <material name="">
-        <color rgba="0.96 0.76 0.13 1.0"/>
+        <color rgba="0.86 0.85 0.81 1.0"/>
       </material>
     </visual>
     <collision>
@@ -153,6 +154,7 @@
     <parent link="link_1"/>
     <child link="link_2"/>
     <axis xyz="0 1 0"/>
+    <!-- refer to note 1 in the package manifest -->
     <limit effort="0" lower="-0.7853" upper="2.0943" velocity="3.1415"/>
   </joint>
   <joint name="joint_3" type="revolute">
@@ -160,6 +162,7 @@
     <parent link="link_2"/>
     <child link="link_3"/>
     <axis xyz="0 -1 0"/>
+    <!-- refer to note 1 in the package manifest -->
     <limit effort="0" lower="-2.1450" upper="2.3561" velocity="3.4906"/>
   </joint>
   <joint name="joint_4" type="revolute">

@@ -26,7 +26,7 @@
         <geometry>
           <mesh filename="package://fanuc_cr35ia_support/meshes/cr35ia/visual/link_1.stl"/>
         </geometry>
-        <xacro:material_fanuc_00FF73 />
+        <xacro:material_fanuc_green />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -41,7 +41,7 @@
         <geometry>
           <mesh filename="package://fanuc_cr35ia_support/meshes/cr35ia/visual/link_2.stl"/>
         </geometry>
-        <xacro:material_fanuc_00FF73 />
+        <xacro:material_fanuc_green />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -56,7 +56,7 @@
         <geometry>
           <mesh filename="package://fanuc_cr35ia_support/meshes/cr35ia/visual/link_3.stl"/>
         </geometry>
-        <xacro:material_fanuc_00FF73 />
+        <xacro:material_fanuc_green />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -71,7 +71,7 @@
         <geometry>
           <mesh filename="package://fanuc_cr35ia_support/meshes/cr35ia/visual/link_4.stl"/>
         </geometry>
-        <xacro:material_fanuc_00FF73 />
+        <xacro:material_fanuc_green />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -86,7 +86,7 @@
         <geometry>
           <mesh filename="package://fanuc_cr35ia_support/meshes/cr35ia/visual/link_5.stl"/>
         </geometry>
-        <xacro:material_fanuc_00FF73 />
+        <xacro:material_fanuc_white />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
