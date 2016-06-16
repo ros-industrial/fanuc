@@ -5,7 +5,7 @@
 This package is part of the [ROS-Industrial][] program. See the main
 [fanuc_experimental][] page on the ROS wiki for more information on usage.
 
-## Known issues - poor planning performance
+## Known issues
 
 Please see the [known issues][] page on the ROS wiki.
 
