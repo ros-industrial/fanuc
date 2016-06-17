@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <launch>
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find fanuc_cr35ia_support)/urdf/cr35ia.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find fanuc_cr35ia_support)/urdf/cr35ia.xacro'" />
 </launch>
