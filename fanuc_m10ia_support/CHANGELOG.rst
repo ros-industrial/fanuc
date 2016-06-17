@@ -2,6 +2,13 @@
 Changelog for package fanuc_m10ia_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* use ``xacro`` instead of ``xacro.py`` (`#195 <https://github.com/ros-industrial/fanuc/issues/195>`_).
+* remove roslaunch test dependencies (`#185 <https://github.com/ros-industrial/fanuc/issues/185>`_).
+* add support for the M-10iA/7L variant (contributors: Jeremy Zoss (SwRI))
+* for a complete list of changes see the `commit log for 0.4.1 <https://github.com/ros-industrial/fanuc/compare/0.4.0...0.4.1>`_.
+
 0.4.0 (2015-10-11)
 ------------------
 * first Indigo release.
