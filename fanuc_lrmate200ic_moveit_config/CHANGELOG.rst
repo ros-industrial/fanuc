@@ -2,8 +2,8 @@
 Changelog for package fanuc_lrmate200ic_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.1 (2016-06-17)
+------------------
 * make RRTConnect the default planner (`#179 <https://github.com/ros-industrial/fanuc/issues/179>`_).
 * update package manifests with missing dependencies (found with roslaunch tests).
 * add basic roslaunch tests (`#104 <https://github.com/ros-industrial/fanuc/issues/104>`_).

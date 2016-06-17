@@ -2,8 +2,8 @@
 Changelog for package fanuc_m430ia_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.1 (2016-06-17)
+------------------
 * use ``xacro`` instead of ``xacro.py`` (`#195 <https://github.com/ros-industrial/fanuc/issues/195>`_).
 * remove roslaunch test dependencies (`#185 <https://github.com/ros-industrial/fanuc/issues/185>`_).
 * for a complete list of changes see the `commit log for 0.4.1 <https://github.com/ros-industrial/fanuc/compare/0.4.0...0.4.1>`_.

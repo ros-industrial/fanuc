@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>fanuc_resources</name>
-  <version>0.4.0</version>
+  <version>0.4.1</version>
   <description>
     <p>
       Shared configuration data, 3D models and launch files for Fanuc
