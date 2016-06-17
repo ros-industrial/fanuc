@@ -73,23 +73,29 @@ set_target_properties(${PROJECT_NAME}_motion_streaming_interface_bswap
 
 if (CATKIN_ENABLE_TESTING)
   find_package(roslaunch REQUIRED)
+
+  set(rl_test_deps
+    ${PROJECT_NAME}_robot_state
+    ${PROJECT_NAME}_robot_state_bswap
+    ${PROJECT_NAME}_motion_streaming_interface
+    ${PROJECT_NAME}_motion_streaming_interface_bswap)
+
+  if (TARGET joint_trajectory_action)
+    # not nice, but industrial_robot_client doesn't prefix its targets
+    list(APPEND rl_test_deps joint_trajectory_action)
+  endif()
+
   roslaunch_add_file_check(tests/roslaunch_test.xml
-    DEPENDENCIES
-      # not nice, but industrial_robot_client doesn't prefix its targets
-      joint_trajectory_action
-      ${PROJECT_NAME}_robot_state
-      ${PROJECT_NAME}_robot_state_bswap
-      ${PROJECT_NAME}_motion_streaming_interface
-      ${PROJECT_NAME}_motion_streaming_interface_bswap)
+    DEPENDENCIES ${rl_test_deps})
 endif()
 
 
 install(TARGETS
-  ${PROJECT_NAME}_robot_state
-  ${PROJECT_NAME}_robot_state_bswap
-
   ${PROJECT_NAME}_motion_streaming_interface
   ${PROJECT_NAME}_motion_streaming_interface_bswap
+
+  ${PROJECT_NAME}_robot_state
+  ${PROJECT_NAME}_robot_state_bswap
 
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

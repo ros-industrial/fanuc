@@ -62,6 +62,12 @@
     </material>
   </xacro:macro>
 
+  <xacro:macro name="material_fanuc_00FF73">
+    <material name="">
+      <color rgba="${color_fanuc_00FF73}"/>
+    </material>
+  </xacro:macro>
+
   <xacro:macro name="material_fanuc_black">
     <material name="">
       <color rgba="${color_fanuc_black}"/>
@@ -71,6 +77,12 @@
   <xacro:macro name="material_fanuc_greyish">
     <material name="">
       <color rgba="${color_fanuc_greyish}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_green">
+    <material name="">
+      <color rgba="${color_fanuc_green}"/>
     </material>
   </xacro:macro>
 

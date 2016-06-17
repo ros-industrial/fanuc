@@ -1,19 +1,20 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>fanuc_m10ia_support</name>
-  <version>0.4.0</version>
+  <version>0.4.1</version>
   <description>
     <p>
       ROS-Industrial support for the Fanuc M-10iA (and variants).
     </p>
     <p>
       This package contains configuration data, 3D models and launch files
-      for Fanuc M-10iA manipulators. This currently includes the base model
-      only.
+      for Fanuc M-10iA manipulators. This includes the base model and the
+      /7L variant.
     </p>
     <p><b>Specifications</b>:</p>
     <ul>
       <li>M-10iA - "Conventional dress-out"</li>
+      <li>M-10iA/7L - "Conventional dress-out"</li>
     </ul>
     <p>
       Joint limits and maximum joint velocities are based on the information in

@@ -1,8 +1,8 @@
 # Fanuc
 
-[![Build Status](http://jenkins.ros.org/job/devel-hydro-fanuc/badge/icon)](http://jenkins.ros.org/job/devel-hydro-fanuc/)
+[![Build Status](http://build.ros.org/job/Idev__fanuc__ubuntu_trusty_amd64/badge/icon)](http://build.ros.org/job/Idev__fanuc__ubuntu_trusty_amd64)
 
-[ROS-Industrial][] Fanuc meta-package. See the [ROS wiki][] page for more 
+[ROS-Industrial][] Fanuc meta-package. See the [ROS wiki][] page for more
 information.
 
 The [fanuc_experimental][] repository contains additional packages.

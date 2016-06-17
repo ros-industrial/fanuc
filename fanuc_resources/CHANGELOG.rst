@@ -2,6 +2,11 @@
 Changelog for package fanuc_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.4.1 (2016-06-17)
+------------------
+* add approximation of Fanuc green (colour for collaborative robot series).
+* for a complete list of changes see the `commit log for 0.4.1 <https://github.com/ros-industrial/fanuc/compare/0.4.0...0.4.1>`_.
+
 0.4.0 (2015-10-11)
 ------------------
 * first Indigo release.
