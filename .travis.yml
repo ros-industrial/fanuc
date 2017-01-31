@@ -8,6 +8,8 @@ compiler:
 notifications:
   email:
     on_failure: always
+    recipients:
+     - g.a.vanderhoorn@tudelft.nl
 
 env:
   matrix:
@@ -22,4 +24,4 @@ install:
   - git clone https://github.com/ros-industrial/industrial_ci.git .ci_config
 
 script:
-  - source .ci_config/travis.sh
+  - .ci_config/travis.sh
