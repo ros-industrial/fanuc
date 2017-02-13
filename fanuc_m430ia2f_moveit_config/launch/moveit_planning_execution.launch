@@ -21,8 +21,9 @@
   <arg name="db_path" default="$(find fanuc_m430ia2f_moveit_config)/default_warehouse_mongo_db" doc="Path to database files" />
 
   <!-- load the robot_description parameter before launching ROS-I nodes -->
-  <include file="$(find fanuc_m430ia2f_moveit_config)/launch/planning_context.launch" >
-    <arg name="load_robot_description" value="true" />
+  <include file="$(find fanuc_m430ia_support)/launch/load_m430ia2f.launch" />
+  <include file="$(find fanuc_m430ia2f_moveit_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="false" />
   </include>
 
   <!-- run the robot simulator and action interface nodes -->
