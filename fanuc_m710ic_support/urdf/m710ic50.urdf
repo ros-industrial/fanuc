@@ -163,7 +163,7 @@
     <origin rpy="0 0 0" xyz="0.175 0 0"/>
     <parent link="link_5"/>
     <child link="link_6"/>
-    <axis xyz="1 0 0"/>
+    <axis xyz="-1 0 0"/>
     <limit effort="0" lower="-6.2831" upper="6.2831" velocity="6.1959"/>
   </joint>
   <joint name="joint_6-tool0" type="fixed">
@@ -171,6 +171,7 @@
     <parent link="link_6"/>
     <child link="tool0"/>
   </joint>
+  <!-- ROS base_link to Fanuc World Coordinates transform -->
   <link name="base"/>
   <joint name="base_link-base" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0.565"/>
@@ -178,4 +179,3 @@
     <child link="base"/>
   </joint>
 </robot>
-
