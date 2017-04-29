@@ -1,7 +1,7 @@
 moveit_setup_assistant_config:
   URDF:
     package: fanuc_m20ia_support
-    relative_path: urdf/m20ia10l.urdf
+    relative_path: urdf/m20ia10l.xacro
   SRDF:
     relative_path: config/fanuc_m20ia10l.srdf
   CONFIG:
