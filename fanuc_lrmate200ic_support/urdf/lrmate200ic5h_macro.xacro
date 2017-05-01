@@ -132,7 +132,7 @@
       <limit effort="0" lower="-6.285" upper="6.285" velocity="12.5664" />
     </joint>
     <joint name="${prefix}joint_5-tool0" type="fixed">
-      <origin xyz="0 0 0" rpy="${m_pi} ${-m_pi_2} 0" />
+      <origin xyz="0 0 0" rpy="${pi} ${-pi/2.0} 0" />
       <parent link="${prefix}link_5" />
       <child link="${prefix}tool0" />
     </joint>
