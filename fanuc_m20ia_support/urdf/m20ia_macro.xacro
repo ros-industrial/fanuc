@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find fanuc_resources)/urdf/common_materials.xacro"/>
-  <xacro:include filename="$(find fanuc_resources)/urdf/common_constants.xacro"/>
 
   <xacro:macro name="fanuc_m20ia" params="prefix">
     <!-- links -->
