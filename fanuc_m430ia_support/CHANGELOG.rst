@@ -2,8 +2,8 @@
 Changelog for package fanuc_m430ia_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.2 (2017-05-22)
+------------------
 * add 'flange' frame: attachment point for EEF xacro models (`#213 <https://github.com/ros-industrial/fanuc/pull/213>`_).
 * support: we use xacro pi now, so remove unneeded include.
   As of 7d1457fd5a905229da533381a9f1c9e0264f7860 we don't use our own 'pi'

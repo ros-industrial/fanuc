@@ -2,8 +2,8 @@
 Changelog for package fanuc_m16ib_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.2 (2017-05-22)
+------------------
 * add 'flange' frame: attachment point for EEF xacro models (`#213 <https://github.com/ros-industrial/fanuc/pull/213>`_).
 * use Jade+ xacro 'pi' constant instead of our own.
 * remove redundant urdfs, consumers should use xacro macros or top-level xacros.

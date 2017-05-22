@@ -2,8 +2,8 @@
 Changelog for package fanuc_lrmate200ic5h_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.2 (2017-05-22)
+------------------
 * push trajectory execution parameters down into namespace (`#211 <https://github.com/ros-industrial/fanuc/issues/211>`_).
 * switch to Jade+ xacro processing.
 * load top-level xacros instead of urdfs (`#169 <https://github.com/ros-industrial/fanuc/issues/169>`_).

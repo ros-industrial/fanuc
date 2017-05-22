@@ -2,8 +2,8 @@
 Changelog for package fanuc_m430ia_moveit_plugins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.2 (2017-05-22)
+------------------
 * add XML schema processing instruction (`#200 <https://github.com/ros-industrial/fanuc/issues/200>`_).
 * for a complete list of changes see the `commit log for 0.4.2 <https://github.com/ros-industrial/fanuc/compare/0.4.1...0.4.2>`_.
 
