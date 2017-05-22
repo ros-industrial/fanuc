@@ -2,6 +2,14 @@
 Changelog for package fanuc_m430ia2f_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* push trajectory execution parameters down into namespace (`#211 <https://github.com/ros-industrial/fanuc/issues/211>`_).
+* switch to Jade+ xacro processing.
+* load top-level xacros instead of urdfs (`#169 <https://github.com/ros-industrial/fanuc/issues/169>`_).
+* add XML schema processing instruction (`#200 <https://github.com/ros-industrial/fanuc/issues/200>`_).
+* for a complete list of changes see the `commit log for 0.4.2 <https://github.com/ros-industrial/fanuc/compare/0.4.1...0.4.2>`_.
+
 0.4.1 (2016-06-17)
 ------------------
 * make RRTConnect the default planner (`#179 <https://github.com/ros-industrial/fanuc/issues/179>`_).

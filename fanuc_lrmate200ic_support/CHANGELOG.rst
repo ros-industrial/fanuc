@@ -2,6 +2,15 @@
 Changelog for package fanuc_lrmate200ic_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* add 'flange' frame: attachment point for EEF xacro models (`#213 <https://github.com/ros-industrial/fanuc/pull/213>`_).
+* use Jade+ xacro 'pi' constant instead of our own.
+* remove redundant urdfs, consumers should use xacro macros or top-level xacros.
+* add XML schema processing instruction (`#200 <https://github.com/ros-industrial/fanuc/issues/200>`_).
+* migrate to in-order processing of xacros (supported on Indigo and up).
+* for a complete list of changes see the `commit log for 0.4.2 <https://github.com/ros-industrial/fanuc/compare/0.4.1...0.4.2>`_.
+
 0.4.1 (2016-06-17)
 ------------------
 * use ``xacro`` instead of ``xacro.py`` (`#195 <https://github.com/ros-industrial/fanuc/issues/195>`_).

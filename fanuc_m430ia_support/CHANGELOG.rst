@@ -2,6 +2,17 @@
 Changelog for package fanuc_m430ia_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* add 'flange' frame: attachment point for EEF xacro models (`#213 <https://github.com/ros-industrial/fanuc/pull/213>`_).
+* support: we use xacro pi now, so remove unneeded include.
+  As of 7d1457fd5a905229da533381a9f1c9e0264f7860 we don't use our own 'pi'
+  anymore, so the constants xacro is no longer needed.
+* remove redundant urdfs, consumers should use xacro macros or top-level xacros.
+* add XML schema processing instruction (`#200 <https://github.com/ros-industrial/fanuc/issues/200>`_).
+* migrate to in-order processing of xacros (supported on Indigo and up).
+* for a complete list of changes see the `commit log for 0.4.2 <https://github.com/ros-industrial/fanuc/compare/0.4.1...0.4.2>`_.
+
 0.4.1 (2016-06-17)
 ------------------
 * use ``xacro`` instead of ``xacro.py`` (`#195 <https://github.com/ros-industrial/fanuc/issues/195>`_).
