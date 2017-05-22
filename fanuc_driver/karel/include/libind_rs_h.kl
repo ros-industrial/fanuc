@@ -72,18 +72,6 @@ ROUTINE irs_reset(this : ind_rs_t) FROM libind_rs
 
 --------------------------------------------------------------------------------
 -- 
--- Returns true if robot is in motion
--- 
--- [return    ]      : TRUE if in motion
--- 
---------------------------------------------------------------------------------
-ROUTINE irs_in_mtn: BOOLEAN FROM libind_rs
-
-
-
-
---------------------------------------------------------------------------------
--- 
 -- Update the message with current robot status
 -- 
 -- [in    ]  this    : the message to update

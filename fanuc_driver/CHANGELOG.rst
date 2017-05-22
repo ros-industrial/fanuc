@@ -2,6 +2,14 @@
 Changelog for package fanuc_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.4.2 (2017-05-22)
+------------------
+* add readme to explain that low-level launch files should probably not be used directly.
+* increase default Karel loop rate to 42 Hz (ref: `#203 <https://github.com/ros-industrial/fanuc/issues/203>`_).
+* minor: remove 'irs_in_mtn' prototype from Karel library.
+* add XML schema processing instruction (`#200 <https://github.com/ros-industrial/fanuc/issues/200>`_).
+* for a complete list of changes see the `commit log for 0.4.2 <https://github.com/ros-industrial/fanuc/compare/0.4.1...0.4.2>`_.
+
 0.4.1 (2016-06-17)
 ------------------
 * minor: sort install targets in build scripts.

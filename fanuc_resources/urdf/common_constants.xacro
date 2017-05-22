@@ -1,6 +1,15 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
+
+  <!-- The 'pi' constant in this file is DEPRECATED. Use the '(math.)pi'
+       constant supported by Indigo/Jade/Kinetic xacro instead.
+
+       This file is kept for bw-compatibility, but will be removed in
+       Kinetic.
+  -->
+
+
   <!-- Pi, the ratio of a circle's circumference to its diameter -->
   <xacro:property name="m_pi" value="3.1415926535" />
   <!-- Pi divided by two -->

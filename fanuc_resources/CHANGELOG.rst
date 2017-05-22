@@ -2,6 +2,12 @@
 Changelog for package fanuc_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.4.2 (2017-05-22)
+------------------
+* deprecate 'common_constants' utility xacro.
+* add XML schema processing instruction (`#200 <https://github.com/ros-industrial/fanuc/issues/200>`_).
+* for a complete list of changes see the `commit log for 0.4.2 <https://github.com/ros-industrial/fanuc/compare/0.4.1...0.4.2>`_.
+
 0.4.1 (2016-06-17)
 ------------------
 * add approximation of Fanuc green (colour for collaborative robot series).

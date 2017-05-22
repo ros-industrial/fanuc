@@ -118,7 +118,12 @@ CONST
 	-- Configuration defaults
 	STATE_TAG    =    3  -- Server tag
 	STATE_TCP_P  = RI_TCP_STATE
-	LOOP_HZ      =   40  -- Main loop freq (Hz)
+	LOOP_HZ      =   42  -- Main loop freq (Hz).
+	                     -- Note: we configure 42 Hz here, as due to ITP-bound
+	                     --       scheduling, anything below this (or actually
+	                     --       below 41.67 Hz) will result in an effective
+	                     --       frequency of 27 (for 12ms ITPs) or 31 Hz
+	                     --       (for 8ms ITPs). See also issue 203 on GH.
 	STAT_LP_CNT  =   10  -- Main loop divider for robot_status
 
 

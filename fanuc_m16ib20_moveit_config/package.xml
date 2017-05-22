@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
   <name>fanuc_m16ib20_moveit_config</name>
-  <version>0.4.1</version>
+  <version>0.4.2</version>
   <description>
     <p>
       MoveIt package for the Fanuc M-16iB/20.

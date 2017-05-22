@@ -134,7 +134,15 @@ CONST
 	MOVE_SPEED   =   20  -- speed to use with ros_movesm (percentage of maximum)
 	MOVE_CNT     =   50  -- CNT value to use with ros_movesm
 
-	LOOP_HZ      =   40  -- Hz
+	LOOP_HZ      =   42  -- Main loop freq (Hz).
+	                     -- Note: we configure 42 Hz here, as due to ITP-bound
+	                     --       scheduling, anything below this (or actually
+	                     --       below 41.67 Hz) will result in an effective
+	                     --       frequency of 27 (for 12ms ITPs) or 31 Hz
+	                     --       (for 8ms ITPs). See also issue 203 on GH.
+	                     -- Note: this is less of a problem in this particular
+	                     --       task, as trajectory segments are typically
+	                     --       much longer (in time) than the ITP.
 
 	-- ros_movesm interface defaults:
 	MOVE_PREG    =    1  -- position register for current point
