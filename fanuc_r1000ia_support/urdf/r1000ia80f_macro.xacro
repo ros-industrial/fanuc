@@ -3,7 +3,7 @@
   <xacro:include filename="$(find fanuc_resources)/urdf/common_materials.xacro"/>
 
   <xacro:macro name="fanuc_r1000ia80f" params="prefix">
-    <!-- links -->
+    <!-- links: main serial chain -->
     <link name="${prefix}base_link">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -109,9 +109,8 @@
         </geometry>
       </collision>
     </link>
-    <link name="${prefix}tool0"/>
 
-    <!-- joints -->
+    <!-- joints: main serial chain -->
     <joint name="${prefix}joint_1" type="revolute">
       <origin xyz="0 0 0.450" rpy="0 0 0"/>
       <parent link="${prefix}base_link"/>
@@ -154,18 +153,29 @@
       <axis xyz="-1 0 0"/>
       <limit lower="-6.2831" upper="6.2831" effort="0" velocity="6.1086"/>
     </joint>
-    <joint name="${prefix}joint_6-tool0" type="fixed">
-      <origin xyz="0 0 0" rpy="${pi} ${-pi/2.0} 0" />
-      <parent link="${prefix}link_6"/>
-      <child link="${prefix}tool0"/>
-    </joint>
 
-    <!-- ROS base_link to Fanuc World Coordinates transform -->
+    <!-- ROS-Industrial 'base' frame: base_link to Fanuc World Coordinates transform -->
     <link name="${prefix}base" />
     <joint name="${prefix}base_link-base" type="fixed">
       <origin xyz="0 0 0.450" rpy="0 0 0"/>
       <parent link="${prefix}base_link"/>
       <child link="${prefix}base"/>
+    </joint>
+
+    <!-- ROS-Industrial 'flange' frame: attachment point for EEF models -->
+    <link name="${prefix}flange" />
+    <joint name="${prefix}joint_6-flange" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${prefix}link_6" />
+      <child link="${prefix}flange" />
+    </joint>
+
+    <!-- ROS-Industrial 'tool0' frame: all-zeros tool frame -->
+    <link name="${prefix}tool0" />
+    <joint name="${prefix}link_6-tool0" type="fixed">
+      <origin xyz="0 0 0" rpy="${pi} ${-pi/2.0} 0" />
+      <parent link="${prefix}link_6" />
+      <child link="${prefix}tool0" />
     </joint>
   </xacro:macro>
 </robot>
