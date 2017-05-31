@@ -8,6 +8,11 @@ find_package(catkin REQUIRED COMPONENTS
   tf_conversions
 )
 
+# enable C++11 if needed for MoveIt on Kinetic
+if (moveit_core_VERSION VERSION_GREATER "0.9.0")
+  add_definitions(-std=c++11)
+endif()
+
 include_directories(${catkin_INCLUDE_DIRS})
 
 find_package(LAPACK REQUIRED)
