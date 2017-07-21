@@ -72,7 +72,7 @@ CONST
 	MFS_ROT      =   16  -- Over Travel
 	MFS_HBK      =   32  -- Hand Broken
 	MFS_EMGEX    =   64  -- External E-Stop
-	MFS_PPABN    =  128  -- ?
+	MFS_PPABN    =  128  -- Pressure Abnormal
 	MFS_BLTBREAK =  256  -- Belt Broken
 	MFS_ENABLE   =  512  -- TP Enable
 	MFS_FALM     = 1024  -- Alarm?
