@@ -1,8 +1,7 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find fanuc_resources)/urdf/common_materials.xacro"/>
-
-  <xacro:macro name="fanuc_cr7ial" params="prefix">
+  <xacro:macro name="fanuc_cr7ia" params="prefix">
     <!-- links: main serial chain -->
     <link name="${prefix}base_link">
       <visual>
@@ -38,14 +37,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://fanuc_cr7ia_support/meshes/cr7ial/visual/link_2.stl"/>
+          <mesh filename="package://fanuc_cr7ia_support/meshes/cr7ia/visual/link_2.stl"/>
         </geometry>
         <xacro:material_fanuc_green />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://fanuc_cr7ia_support/meshes/cr7ial/collision/link_2.stl"/>
+          <mesh filename="package://fanuc_cr7ia_support/meshes/cr7ia/collision/link_2.stl"/>
         </geometry>
       </collision>
     </link>
@@ -68,14 +67,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://fanuc_cr7ia_support/meshes/cr7ial/visual/link_4.stl"/>
+          <mesh filename="package://fanuc_cr7ia_support/meshes/cr7ia/visual/link_4.stl"/>
         </geometry>
         <xacro:material_fanuc_green />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://fanuc_cr7ia_support/meshes/cr7ial/collision/link_4.stl"/>
+          <mesh filename="package://fanuc_cr7ia_support/meshes/cr7ia/collision/link_4.stl"/>
         </geometry>
       </collision>
     </link>
@@ -126,11 +125,11 @@
       <limit effort="0" lower="-1.15192" upper="1.74533" velocity="5.4105" />
     </joint>
     <joint name="${prefix}joint_3" type="revolute">
-      <origin xyz="0 0 0.440" rpy="0 0 0" />
+      <origin xyz="0 0 0.330" rpy="0 0 0" />
       <parent link="${prefix}link_2" />
       <child link="${prefix}link_3" />
       <axis xyz="0 -1 0" />
-      <limit effort="0" lower="-0.802851" upper="3.10669" velocity="7.1558" />
+      <limit effort="0" lower="-0.7504911" upper="3.10669" velocity="7.1558" />
     </joint>
     <joint name="${prefix}joint_4" type="revolute">
       <origin xyz="0 0 0.035" rpy="0 0 0"/>
@@ -140,7 +139,7 @@
       <limit effort="0" lower="-3.3161" upper="3.3161" velocity="9.5993" />
     </joint>
     <joint name="${prefix}joint_5" type="revolute">
-      <origin xyz="0.420 0 0" rpy="0 0 0"/>
+      <origin xyz="0.335 0 0" rpy="0 0 0"/>
       <parent link="${prefix}link_4"/>
       <child link="${prefix}link_5"/>
       <axis xyz="0 -1 0"/>

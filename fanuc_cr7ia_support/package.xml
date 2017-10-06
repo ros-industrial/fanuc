@@ -9,11 +9,12 @@
     </p>
     <p>
       This package contains configuration data, 3D models and launch files
-      for Fanuc CR-7iA manipulators. This currently includes the /L model
-      only.
+      for Fanuc CR-7iA manipulators. This currently includes the base and
+      /L model.
     </p>
     <p><b>Specifications</b>:</p>
     <ul>
+      <li>CR-7iA - Normal Range</li>
       <li>CR-7iA/L - Normal Range</li>
     </ul>
     <p>
