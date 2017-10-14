@@ -2,8 +2,8 @@
 Changelog for package fanuc_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.3 (2017-10-14)
+------------------
 * no changes.
 * for a complete list of changes see the `commit log for 0.4.3 <https://github.com/ros-industrial/fanuc/compare/0.4.2...0.4.3>`_.
 

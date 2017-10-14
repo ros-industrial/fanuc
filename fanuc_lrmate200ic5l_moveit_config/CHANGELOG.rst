@@ -2,8 +2,8 @@
 Changelog for package fanuc_lrmate200ic5l_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.3 (2017-10-14)
+------------------
 * enable use of Jade+ xacro when loading MoveIt configuration packages. (`#217 <https://github.com/ros-industrial/fanuc/issues/217>`_).
 * for a complete list of changes see the `commit log for 0.4.3 <https://github.com/ros-industrial/fanuc/compare/0.4.2...0.4.3>`_.
 

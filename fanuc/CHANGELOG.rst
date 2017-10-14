@@ -2,8 +2,8 @@
 Changelog for package fanuc
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.3 (2017-10-14)
+------------------
 * promote experimental packages for M-6iB to main repository.
 
 0.4.2 (2017-05-22)
