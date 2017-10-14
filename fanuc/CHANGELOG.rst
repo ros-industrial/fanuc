@@ -2,6 +2,10 @@
 Changelog for package fanuc
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* promote experimental packages for M-6iB to main repository.
+
 0.4.2 (2017-05-22)
 ------------------
 * add XML schema processing instruction (`#200 <https://github.com/ros-industrial/fanuc/issues/200>`_).

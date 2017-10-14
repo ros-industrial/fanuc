@@ -2,6 +2,11 @@
 Changelog for package fanuc_m20ia_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* no changes.
+* for a complete list of changes see the `commit log for 0.4.3 <https://github.com/ros-industrial/fanuc/compare/0.4.2...0.4.3>`_.
+
 0.4.2 (2017-05-22)
 ------------------
 * add 'flange' frame: attachment point for EEF xacro models (`#213 <https://github.com/ros-industrial/fanuc/pull/213>`_).
