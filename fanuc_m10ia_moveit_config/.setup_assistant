@@ -2,6 +2,7 @@ moveit_setup_assistant_config:
   URDF:
     package: fanuc_m10ia_support
     relative_path: urdf/m10ia.xacro
+    use_jade_xacro: true
   SRDF:
     relative_path: config/fanuc_m10ia.srdf
   CONFIG:

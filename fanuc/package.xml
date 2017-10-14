@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
   <name>fanuc</name>
-  <version>0.4.2</version>
+  <version>0.4.3</version>
   <description>ROS-Industrial support for Fanuc manipulators (metapackage).</description>
   <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
   <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
@@ -34,6 +34,9 @@
   <exec_depend>fanuc_m430ia2p_moveit_config</exec_depend>
   <exec_depend>fanuc_m430ia_moveit_plugins</exec_depend>
   <exec_depend>fanuc_m430ia_support</exec_depend>
+  <exec_depend>fanuc_m6ib_moveit_config</exec_depend>
+  <exec_depend>fanuc_m6ib_moveit_plugins</exec_depend>
+  <exec_depend>fanuc_m6ib_support</exec_depend>
   <exec_depend>fanuc_resources</exec_depend>
 
   <export>

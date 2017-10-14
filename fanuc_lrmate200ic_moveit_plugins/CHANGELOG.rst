@@ -2,6 +2,11 @@
 Changelog for package fanuc_lrmate200ic_moveit_plugins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.4.3 (2017-10-14)
+------------------
+* enable C++11 for MoveIt on Kinetic (`#199 <https://github.com/ros-industrial/fanuc/issues/199>`_).
+* for a complete list of changes see the `commit log for 0.4.3 <https://github.com/ros-industrial/fanuc/compare/0.4.2...0.4.3>`_.
+
 0.4.2 (2017-05-22)
 ------------------
 * add XML schema processing instruction (`#200 <https://github.com/ros-industrial/fanuc/issues/200>`_).

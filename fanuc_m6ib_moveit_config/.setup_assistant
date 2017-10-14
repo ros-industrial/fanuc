@@ -1,0 +1,9 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: fanuc_m6ib_support
+    relative_path: urdf/m6ib.xacro
+    use_jade_xacro: true
+  SRDF:
+    relative_path: config/fanuc_m6ib.srdf
+  CONFIG:
+    generated_timestamp: 1445511585
