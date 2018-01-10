@@ -62,5 +62,8 @@
         <tag>support_package</tag>
       </tags>
     </rosindex>
+    <ros_industrial>
+      <support_level value="community" />
+    </ros_industrial>
   </export>
 </package>
