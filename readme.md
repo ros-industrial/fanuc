@@ -2,6 +2,9 @@
 
 [![Build Status](http://build.ros.org/job/Idev__fanuc__ubuntu_trusty_amd64/badge/icon)](http://build.ros.org/job/Idev__fanuc__ubuntu_trusty_amd64)
 
+[![support level: community](http://img.shields.io/badge/support%20level-community-lightgray.png)](http://rosindustrial.org/news/2016/10/7/better-supporting-a-growing-ros-industrial-software-platform)
+
+
 [ROS-Industrial][] Fanuc meta-package. See the [ROS wiki][] page for more information.
 
 The [fanuc_experimental][] repository contains additional packages.
