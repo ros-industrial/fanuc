@@ -15,6 +15,10 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <exec_depend>fanuc_driver</exec_depend>
+  <exec_depend>fanuc_lrmate200ib3l_moveit_config</exec_depend>
+  <exec_depend>fanuc_lrmate200ib_moveit_config</exec_depend>
+  <exec_depend>fanuc_lrmate200ib_moveit_plugins</exec_depend>
+  <exec_depend>fanuc_lrmate200ib_support</exec_depend>
   <exec_depend>fanuc_lrmate200ic5h_moveit_config</exec_depend>
   <exec_depend>fanuc_lrmate200ic5l_moveit_config</exec_depend>
   <exec_depend>fanuc_lrmate200ic_moveit_config</exec_depend>
