@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
   <name>fanuc_lrmate200ib_support</name>
-  <version>0.1.0</version>
+  <version>0.4.3</version>
   <description>
     <p>
       ROS-Industrial support for the Fanuc LR Mate 200iB (and variants).
@@ -34,8 +34,8 @@
   <license>BSD</license>
 
   <url type="website">http://ros.org/wiki/fanuc_lrmate200ib_support</url>
-  <url type="bugtracker">https://github.com/ros-industrial/fanuc_experimental/issues</url>
-  <url type="repository">https://github.com/ros-industrial/fanuc_experimental</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc</url>
 
   <buildtool_depend>catkin</buildtool_depend>
 
@@ -58,7 +58,6 @@
         <tag>industrial</tag>
         <tag>ros-industrial</tag>
         <tag>lrmate200ib</tag>
-        <tag>experimental</tag>
       </tags>
     </rosindex>
     <ros_industrial>
