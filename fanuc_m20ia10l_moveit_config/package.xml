@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
   <name>fanuc_m20ia10l_moveit_config</name>
-  <version>0.4.3</version>
+  <version>0.4.4</version>
   <description>
     <p>
       MoveIt package for the Fanuc M-20iA/10L.
@@ -58,5 +58,8 @@
         <tag>m20ia</tag>
       </tags>
     </rosindex>
+    <ros_industrial>
+      <support_level value="community" />
+    </ros_industrial>
   </export>
 </package>
