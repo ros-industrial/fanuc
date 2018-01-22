@@ -2,8 +2,8 @@
 Changelog for package fanuc
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.4 (2018-01-22)
+------------------
 * promote experimental packages for LR Mate 200iB to main repository.
 * add custom manifest tags to make package support level explicit.
 * for a complete list of changes see the `commit log for 0.4.4 <https://github.com/ros-industrial/fanuc/compare/0.4.3...0.4.4>`_.
