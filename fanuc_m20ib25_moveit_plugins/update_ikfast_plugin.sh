@@ -1,0 +1,1 @@
+rosrun moveit_kinematics create_ikfast_moveit_plugin.py fanuc_m20ib25 manipulator fanuc_m20ib25_moveit_plugins /home/as/Mikado/src/fanuc_experimental/fanuc_m20ib25_moveit_plugins/src/fanuc_m20ib25_manipulator_ikfast_solver.cpp
