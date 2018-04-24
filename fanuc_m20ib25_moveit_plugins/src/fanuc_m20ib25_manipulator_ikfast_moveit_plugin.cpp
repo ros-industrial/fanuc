@@ -213,7 +213,7 @@ public:
    * @return True if a valid set of solutions was found, false otherwise.
    */
   bool getPositionIK(const std::vector<geometry_msgs::Pose>& ik_poses, const std::vector<double>& ik_seed_state,
-                     std::vector<std::vector<double>>& solutions, kinematics::KinematicsResult& result,
+                     std::vector<std::vector<double> >& solutions, kinematics::KinematicsResult& result,
                      const kinematics::KinematicsQueryOptions& options) const;
 
   /**
@@ -847,7 +847,7 @@ bool IKFastKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose& ik_pose
     ROS_DEBUG_STREAM_NAMED("ikfast", "No need to search since no free params/redundant joints");
 
     std::vector<geometry_msgs::Pose> ik_poses(1, ik_pose);
-    std::vector<std::vector<double>> solutions;
+    std::vector<std::vector<double> > solutions;
     kinematics::KinematicsResult kinematic_result;
     // Find all IK solution within joint limits
     if (!getPositionIK(ik_poses, ik_seed_state, solutions, kinematic_result, options))
@@ -1173,7 +1173,7 @@ bool IKFastKinematicsPlugin::getPositionIK(const geometry_msgs::Pose& ik_pose, c
 
 bool IKFastKinematicsPlugin::getPositionIK(const std::vector<geometry_msgs::Pose>& ik_poses,
                                            const std::vector<double>& ik_seed_state,
-                                           std::vector<std::vector<double>>& solutions,
+                                           std::vector<std::vector<double> >& solutions,
                                            kinematics::KinematicsResult& result,
                                            const kinematics::KinematicsQueryOptions& options) const
 {
@@ -1211,7 +1211,7 @@ bool IKFastKinematicsPlugin::getPositionIK(const std::vector<geometry_msgs::Pose
   tf::poseMsgToKDL(ik_poses[0], frame);
 
   // solving ik
-  std::vector<IkSolutionList<IkReal>> solution_set;
+  std::vector<IkSolutionList<IkReal> > solution_set;
   IkSolutionList<IkReal> ik_solutions;
   std::vector<double> vfree;
   int numsol = 0;
