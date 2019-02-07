@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.12)
-project(fanuc_m20ib25_moveit_plugins)
+project(fanuc_m20ib_moveit_plugins)
 
 find_package(catkin REQUIRED COMPONENTS
   moveit_core
