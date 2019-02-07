@@ -43,7 +43,7 @@
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- Other tools can request additional information be placed here -->
-    <moveit_core plugin="${prefix}/fanuc_m20ib25_manipulator_moveit_ikfast_plugin_description.xml"/>
+    <moveit_core plugin="${prefix}/m20ib25_kinematics/fanuc_m20ib25_manipulator_moveit_ikfast_plugin_description.xml"/>
   </export>
   <build_depend>moveit_core</build_depend>
   <build_depend>liblapack-dev</build_depend>

@@ -15,6 +15,8 @@ endif()
 
 include_directories(${catkin_INCLUDE_DIRS})
 
+find_package(LAPACK REQUIRED)
+
 catkin_package(
   LIBRARIES
   CATKIN_DEPENDS
@@ -24,20 +26,6 @@ catkin_package(
     tf_conversions
 )
 
-include_directories(include)
+add_subdirectory(m20ib25_kinematics)
 
-set(IKFAST_LIBRARY_NAME fanuc_m20ib25_manipulator_moveit_ikfast_plugin)
-
-find_package(LAPACK REQUIRED)
-
-add_library(${IKFAST_LIBRARY_NAME} src/fanuc_m20ib25_manipulator_ikfast_moveit_plugin.cpp)
-target_link_libraries(${IKFAST_LIBRARY_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${LAPACK_LIBRARIES})
-
-install(TARGETS ${IKFAST_LIBRARY_NAME} LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
-
-install(
-  FILES
-  fanuc_m20ib25_manipulator_moveit_ikfast_plugin_description.xml
-  DESTINATION
-  ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
+install(FILES readme.md DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
