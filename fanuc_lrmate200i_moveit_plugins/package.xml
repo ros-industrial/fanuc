@@ -24,8 +24,8 @@
   <license>BSD</license>
 
   <url type="website">http://wiki.ros.org/fanuc_lrmate200i_moveit_plugins</url>
-  <url type="bugtracker">https://github.com/ros-industrial/fanuc_experimental/issues</url>
-  <url type="repository">https://github.com/ros-industrial/fanuc_experimental</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc/issues</url>
 
   <buildtool_depend>catkin</buildtool_depend>
 
@@ -46,7 +46,6 @@
         <tag>industrial</tag>
         <tag>ros-industrial</tag>
         <tag>lrmate200ib</tag>
-        <tag>experimental</tag>
       </tags>
     </rosindex>
     <ros_industrial>
