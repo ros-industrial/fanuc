@@ -19,8 +19,8 @@
   <license>BSD</license>
 
   <url type="website">http://wiki.ros.org/fanuc_cr7ia_moveit_config</url>
-  <url type="bugtracker">https://github.com/ros-industrial/fanuc_experimental/issues</url>
-  <url type="repository">https://github.com/ros-industrial/fanuc_experimental</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc</url>
 
   <buildtool_depend>catkin</buildtool_depend>
 
@@ -49,7 +49,6 @@
         <tag>industrial</tag>
         <tag>ros-industrial</tag>
         <tag>cr7ia</tag>
-        <tag>experimental</tag>
       </tags>
     </rosindex>
     <ros_industrial>

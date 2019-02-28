@@ -35,8 +35,8 @@
   <license>BSD</license>
 
   <url type="website">http://wiki.ros.org/fanuc_cr7ia_support</url>
-  <url type="bugtracker">https://github.com/ros-industrial/fanuc_experimental/issues</url>
-  <url type="repository">https://github.com/ros-industrial/fanuc_experimental</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc</url>
 
   <buildtool_depend>catkin</buildtool_depend>
 
@@ -55,7 +55,6 @@
       <tags>
         <tag>cr7ia</tag>
         <tag>description</tag>
-        <tag>experimental</tag>
         <tag>fanuc</tag>
         <tag>industrial</tag>
         <tag>ros-industrial</tag>
