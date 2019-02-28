@@ -46,8 +46,8 @@
   <license>BSD</license>
 
   <url type="website">http://wiki.ros.org/fanuc_m900ib_support</url>
-  <url type="bugtracker">https://github.com/ros-industrial/fanuc_experimental/issues</url>
-  <url type="repository">https://github.com/ros-industrial/fanuc_experimental</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc</url>
 
   <buildtool_depend>catkin</buildtool_depend>
 
@@ -65,7 +65,6 @@
     <rosindex>
       <tags>
         <tag>description</tag>
-        <tag>experimental</tag>
         <tag>fanuc</tag>
         <tag>industrial</tag>
         <tag>m900ib</tag>
