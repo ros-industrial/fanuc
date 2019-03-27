@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<robot name="fanuc_m900ia260l" xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find fanuc_m900ia_support)/urdf/m900ia260l_macro.xacro"/>
+  <xacro:fanuc_m900ia260l prefix=""/>
+</robot>
