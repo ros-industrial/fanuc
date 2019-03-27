@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="ip_str" value="127.0.0.1" />
+
+  <group ns="load_cr7ia__">
+    <include file="$(find fanuc_cr7ia_support)/launch/load_cr7ia.launch"/>
+  </group>
+
+  <group ns="test_cr7ia__">
+    <include file="$(find fanuc_cr7ia_support)/launch/test_cr7ia.launch"/>
+  </group>
+
+  <group ns="robot_interface_streaming_cr7ia__">
+    <include file="$(find fanuc_cr7ia_support)/launch/robot_interface_streaming_cr7ia.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+    </include>
+  </group>
+
+  <group ns="robot_state_visualize_cr7ia__">
+    <include file="$(find fanuc_cr7ia_support)/launch/robot_state_visualize_cr7ia.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+    </include>
+  </group>
+
+
+  <!-- without bswap -->
+  <group ns="robot_interface_streaming_cr7ia_f__">
+    <include file="$(find fanuc_cr7ia_support)/launch/robot_interface_streaming_cr7ia.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+      <arg name="use_bswap" value="false" />
+    </include>
+  </group>
+
+  <group ns="robot_state_visualize_cr7ia_f__">
+    <include file="$(find fanuc_cr7ia_support)/launch/robot_state_visualize_cr7ia.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+      <arg name="use_bswap" value="false" />
+    </include>
+  </group>
+</launch>
