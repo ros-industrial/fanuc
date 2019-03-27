@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<robot name="fanuc_lrmate200i" xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find fanuc_lrmate200i_support)/urdf/lrmate200i_macro.xacro"/>
+  <xacro:fanuc_lrmate200i prefix=""/>
+</robot>
