@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
   <name>fanuc_r1000ia80f_moveit_config</name>
-  <version>0.1.0</version>
+  <version>0.4.4</version>
   <description>
     <p>
       MoveIt package for the Fanuc R-1000iA/80F.
