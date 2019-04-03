@@ -14,6 +14,10 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
+  <exec_depend>fanuc_cr35ia_support</exec_depend>
+  <exec_depend>fanuc_cr7ial_moveit_config</exec_depend>
+  <exec_depend>fanuc_cr7ia_moveit_config</exec_depend>
+  <exec_depend>fanuc_cr7ia_support</exec_depend>
   <exec_depend>fanuc_driver</exec_depend>
   <exec_depend>fanuc_lrmate200ib3l_moveit_config</exec_depend>
   <exec_depend>fanuc_lrmate200ib_moveit_config</exec_depend>
@@ -24,6 +28,9 @@
   <exec_depend>fanuc_lrmate200ic_moveit_config</exec_depend>
   <exec_depend>fanuc_lrmate200ic_moveit_plugins</exec_depend>
   <exec_depend>fanuc_lrmate200ic_support</exec_depend>
+  <exec_depend>fanuc_lrmate200i_moveit_config</exec_depend>
+  <exec_depend>fanuc_lrmate200i_moveit_plugins</exec_depend>
+  <exec_depend>fanuc_lrmate200i_support</exec_depend>
   <exec_depend>fanuc_m10ia_moveit_config</exec_depend>
   <exec_depend>fanuc_m10ia_moveit_plugins</exec_depend>
   <exec_depend>fanuc_m10ia_support</exec_depend>
@@ -41,6 +48,12 @@
   <exec_depend>fanuc_m6ib_moveit_config</exec_depend>
   <exec_depend>fanuc_m6ib_moveit_plugins</exec_depend>
   <exec_depend>fanuc_m6ib_support</exec_depend>
+  <exec_depend>fanuc_m710ic_support</exec_depend>
+  <exec_depend>fanuc_m900ia_support</exec_depend>
+  <exec_depend>fanuc_m900ib_support</exec_depend>
+  <exec_depend>fanuc_r1000ia80f_moveit_config</exec_depend>
+  <exec_depend>fanuc_r1000ia_moveit_plugins</exec_depend>
+  <exec_depend>fanuc_r1000ia_support</exec_depend>
   <exec_depend>fanuc_resources</exec_depend>
 
   <export>
