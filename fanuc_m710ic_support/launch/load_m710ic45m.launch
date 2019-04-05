@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find fanuc_m710ic_support)/urdf/m710ic45m.xacro'" />
+</launch>
