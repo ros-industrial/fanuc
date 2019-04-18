@@ -18,8 +18,9 @@ git:
 env:
   global:
     - CCACHE_DIR=$HOME/.ccache
+    - ROS_REPO=ros
   matrix:
-    - ROS_DISTRO="indigo" ROS_REPO=ros
+    - ROS_DISTRO="indigo"
     - ROS_DISTRO="indigo" ROS_REPO=ros-shadow-fixed
 
 install:
