@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: fanuc_m6ib_support
+    relative_path: urdf/m6ib6s.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/fanuc_m6ib6s.srdf
+  CONFIG:
+    author_name: Joao Santos
+    author_email: santos.martins.joao@ua.pt
+    generated_timestamp: 1552325439
