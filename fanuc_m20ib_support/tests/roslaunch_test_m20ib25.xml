@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="ip_str" value="127.0.0.1" />
+
+  <group ns="load_m20ib25__">
+    <include file="$(find fanuc_m20ib_support)/launch/load_m20ib25.launch"/>
+  </group>
+
+  <group ns="test_m20ib25__">
+    <include file="$(find fanuc_m20ib_support)/launch/test_m20ib25.launch"/>
+  </group>
+
+  <group ns="robot_interface_streaming_m20ib25__">
+    <include file="$(find fanuc_m20ib_support)/launch/robot_interface_streaming_m20ib25.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+    </include>
+  </group>
+
+  <group ns="robot_state_visualize_m20ib25__">
+    <include file="$(find fanuc_m20ib_support)/launch/robot_state_visualize_m20ib25.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+    </include>
+  </group>
+
+
+  <!-- without bswap -->
+  <group ns="robot_interface_streaming_m20ib25_f__">
+    <include file="$(find fanuc_m20ib_support)/launch/robot_interface_streaming_m20ib25.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+      <arg name="use_bswap" value="false" />
+    </include>
+  </group>
+
+  <group ns="robot_state_visualize_m20ib25_f__">
+    <include file="$(find fanuc_m20ib_support)/launch/robot_state_visualize_m20ib25.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+      <arg name="use_bswap" value="false" />
+    </include>
+  </group>
+</launch>
