@@ -72,6 +72,12 @@ Refer to [Working With ROS-Industrial Robot Support Packages][] for information 
 Refer to the [tutorials][] for information on installation and configuration of the controller-specific software components.
 
 
+## Disclaimer
+
+The author of these packages is not affiliated with FANUC Corporation in any way.
+All trademarks and registered trademarks are property of their respective owners, and company, product and service names mentioned in this readme or appearing in source code or other artefacts in this repository are used for identification purposes only.
+Use of these names does not imply endorsement by FANUC Corporation.
+
 
 
 [ROS-Industrial]: http://wiki.ros.org/Industrial
