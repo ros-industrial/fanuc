@@ -172,6 +172,11 @@
 
     <!-- ROS-Industrial 'tool0' frame: all-zeros tool frame -->
     <link name="${prefix}tool0" />
+    <!-- Note: instead of 'flange', we use 'link_6' as parent of this frame
+               as it already has the correct orientation and location for
+               'tool0'. Using 'flange' here would require additional rotations
+               to undo the rotation introduced by 'joint_6-flange'.
+     -->
     <joint name="${prefix}link_6-tool0" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0" />
       <parent link="${prefix}link_6" />
