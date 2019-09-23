@@ -2,6 +2,11 @@
 Changelog for package fanuc_m430ia2f_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* disable db tests for now (`#269 <https://github.com/ros-industrial/fanuc/pull/269>`_).
+* for a complete list of changes see the `commit log for 0.5.0 <https://github.com/ros-industrial/fanuc/compare/0.4.4...0.5.0>`_.
+
 0.4.4 (2018-01-22)
 ------------------
 * add custom manifest tags to make package support level explicit.

@@ -2,6 +2,11 @@
 Changelog for package fanuc_m6ib_moveit_plugins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* make IKFast plugins compatible with Melodic (`#262 <https://github.com/ros-industrial/fanuc/pull/262>`_).
+* contributors: Simon Schmeisser
+
 0.4.4 (2018-01-22)
 ------------------
 * add custom manifest tags to make package support level explicit.
