@@ -41,6 +41,9 @@
   <exec_depend>fanuc_m20ia_moveit_config</exec_depend>
   <exec_depend>fanuc_m20ia_moveit_plugins</exec_depend>
   <exec_depend>fanuc_m20ia_support</exec_depend>
+  <exec_depend>fanuc_m20ib25_moveit_config</exec_depend>
+  <exec_depend>fanuc_m20ib_moveit_plugins</exec_depend>
+  <exec_depend>fanuc_m20ib_support</exec_depend>
   <exec_depend>fanuc_m430ia2f_moveit_config</exec_depend>
   <exec_depend>fanuc_m430ia2p_moveit_config</exec_depend>
   <exec_depend>fanuc_m430ia_moveit_plugins</exec_depend>
