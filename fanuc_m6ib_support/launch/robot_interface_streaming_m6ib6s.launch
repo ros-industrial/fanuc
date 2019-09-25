@@ -2,7 +2,7 @@
 <!--
   Manipulator specific version of 'robot_interface_streaming.launch'.
 
-  Defaults provided for M-6iB:
+  Defaults provided for M-6iB/6S:
    - J23_factor = 1
    - use_bswap = true
    - 6 joints
