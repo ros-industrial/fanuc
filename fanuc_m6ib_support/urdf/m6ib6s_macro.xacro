@@ -8,14 +8,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib6s/visual/base_link.stl"/>
+          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib/visual/base_link.stl"/>
         </geometry>
         <xacro:material_fanuc_grey />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib6s/collision/base_link.stl"/>
+          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib/collision/base_link.stl"/>
         </geometry>
       </collision>
     </link>
@@ -23,14 +23,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib6s/visual/link_1.stl"/>
+          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib/visual/link_1.stl"/>
         </geometry>
         <xacro:material_fanuc_yellow />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib6s/collision/link_1.stl"/>
+          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib/collision/link_1.stl"/>
         </geometry>
       </collision>
     </link>
@@ -53,14 +53,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib6s/visual/link_3.stl"/>
+          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib/visual/link_3.stl"/>
         </geometry>
         <xacro:material_fanuc_yellow />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib6s/collision/link_3.stl"/>
+          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib/collision/link_3.stl"/>
         </geometry>
       </collision>
     </link>
@@ -83,14 +83,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib6s/visual/link_5.stl"/>
+          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib/visual/link_5.stl"/>
         </geometry>
         <xacro:material_fanuc_yellow />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib6s/collision/link_5.stl"/>
+          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib/collision/link_5.stl"/>
         </geometry>
       </collision>
     </link>
@@ -98,14 +98,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib6s/visual/link_6.stl"/>
+          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib/visual/link_6.stl"/>
         </geometry>
         <xacro:material_fanuc_black />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib6s/collision/link_6.stl"/>
+          <mesh filename="package://fanuc_m6ib_support/meshes/m6ib/collision/link_6.stl"/>
         </geometry>
       </collision>
     </link>
