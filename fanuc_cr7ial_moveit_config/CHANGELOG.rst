@@ -2,8 +2,8 @@
 Changelog for package fanuc_cr7ial_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.0 (2019-09-25)
+------------------
 * first release of this package.
 * harmonise pkg version numbers (`#260 <https://github.com/ros-industrial/fanuc/issues/260>`_).
 * migrate CR-7iA support and moveit pkgs from experimental repository (`#257 <https://github.com/ros-industrial/fanuc/pull/257>`_).

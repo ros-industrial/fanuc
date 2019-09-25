@@ -2,8 +2,8 @@
 Changelog for package fanuc_m20ib_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.0 (2019-09-25)
+------------------
 * first release of this package.
 * make ``flange`` parent of ``tool0`` (`#271 <https://github.com/ros-industrial/fanuc/issues/271>`_).
 * migrate M-20iB support and moveit pkgs from experimental repository (`#253 <https://github.com/ros-industrial/fanuc/pull/253>`_).

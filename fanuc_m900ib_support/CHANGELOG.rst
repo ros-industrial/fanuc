@@ -2,8 +2,8 @@
 Changelog for package fanuc_m900ib_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.0 (2019-09-25)
+------------------
 * first release of this package.
 * make ``flange`` parent of ``tool0`` (`#271 <https://github.com/ros-industrial/fanuc/issues/271>`_).
 * harmonise pkg version numbers (`#260 <https://github.com/ros-industrial/fanuc/issues/260>`_).

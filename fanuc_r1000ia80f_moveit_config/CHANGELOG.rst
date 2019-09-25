@@ -2,8 +2,8 @@
 Changelog for package fanuc_r1000ia80f_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.0 (2019-09-25)
+------------------
 * first release of this package.
 * disable db tests for now (`#269 <https://github.com/ros-industrial/fanuc/pull/269>`_).
 * harmonise pkg version numbers (`#260 <https://github.com/ros-industrial/fanuc/issues/260>`_).

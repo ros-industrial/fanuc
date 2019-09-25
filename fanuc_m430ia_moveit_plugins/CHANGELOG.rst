@@ -2,8 +2,8 @@
 Changelog for package fanuc_m430ia_moveit_plugins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.0 (2019-09-25)
+------------------
 * make IKFast plugins compatible with Melodic (`#262 <https://github.com/ros-industrial/fanuc/pull/262>`_).
 * contributors: Simon Schmeisser
 

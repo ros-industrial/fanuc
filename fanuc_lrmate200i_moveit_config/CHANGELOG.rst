@@ -2,8 +2,8 @@
 Changelog for package fanuc_lrmate200i_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.0 (2019-09-25)
+------------------
 * first release of this package.
 * harmonise pkg version numbers (`#260 <https://github.com/ros-industrial/fanuc/issues/260>`_).
 * migrate LR Mate 200i support, moveit and plugin pkgs from experimental repository (`#250 <https://github.com/ros-industrial/fanuc/pull/250>`_).

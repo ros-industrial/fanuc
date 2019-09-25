@@ -2,8 +2,8 @@
 Changelog for package fanuc_m20ib_moveit_plugins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.0 (2019-09-25)
+------------------
 * first release of this package.
 * make IKFast plugins compatible with Melodic (`#262 <https://github.com/ros-industrial/fanuc/pull/262>`_).
 * harmonise pkg version numbers (`#260 <https://github.com/ros-industrial/fanuc/issues/260>`_).

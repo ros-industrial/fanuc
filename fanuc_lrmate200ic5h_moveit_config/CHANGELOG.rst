@@ -2,8 +2,8 @@
 Changelog for package fanuc_lrmate200ic5h_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.0 (2019-09-25)
+------------------
 * disable db tests for now (`#269 <https://github.com/ros-industrial/fanuc/pull/269>`_).
 * for a complete list of changes see the `commit log for 0.5.0 <https://github.com/ros-industrial/fanuc/compare/0.4.4...0.5.0>`_.
 
