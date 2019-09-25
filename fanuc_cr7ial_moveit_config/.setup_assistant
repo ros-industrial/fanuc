@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: fanuc_cr7ia_support
+    relative_path: urdf/cr7ial.xacro
+    use_jade_xacro: true
+  SRDF:
+    relative_path: config/fanuc_cr7ial.srdf
+  CONFIG:
+    author_name: Dave Niewinski
+    author_email: dniewinski@clearpathrobotics.com
+    generated_timestamp: 1500558446

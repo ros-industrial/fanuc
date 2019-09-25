@@ -1,0 +1,9 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: fanuc_r1000ia_support
+    relative_path: urdf/r1000ia80f.xacro
+    use_jade_xacro: true
+  SRDF:
+    relative_path: config/fanuc_r1000ia80f.srdf
+  CONFIG:
+    generated_timestamp: 1445441001

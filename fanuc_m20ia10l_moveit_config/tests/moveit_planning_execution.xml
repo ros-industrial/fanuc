@@ -9,7 +9,7 @@
     </include>
   </group>
 
-  <group ns="with_db">
+  <group ns="with_db" if="false">
     <include file="$(find fanuc_m20ia10l_moveit_config)/launch/moveit_planning_execution.launch">
       <arg name="sim" value="false" />
       <arg name="robot_ip" value="$(arg ip_str)" />

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro">
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
   <xacro:include filename="$(find fanuc_resources)/urdf/common_materials.xacro"/>
 
   <xacro:macro name="fanuc_m20ia10l" params="prefix">
@@ -174,7 +174,7 @@
     <link name="${prefix}tool0" />
     <joint name="${prefix}link_6-tool0" type="fixed">
       <origin xyz="0 0 0" rpy="${pi} ${-pi/2.0} 0" />
-      <parent link="${prefix}link_6" />
+      <parent link="${prefix}flange" />
       <child link="${prefix}tool0" />
     </joint>
   </xacro:macro>

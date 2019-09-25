@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro">
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
 
   <!-- RAL 1021: Rape yellow -->
   <xacro:property name="color_fanuc_yellow"   value="0.96 0.76 0.13 1.0" />
