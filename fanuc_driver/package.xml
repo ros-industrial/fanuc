@@ -25,7 +25,7 @@
 
   <depend>industrial_robot_client</depend>
 
-  <test_depend version_gte="1.9.55">roslaunch</test_depend>
+  <test_depend>roslaunch</test_depend>
 
   <export>
     <rosindex>
