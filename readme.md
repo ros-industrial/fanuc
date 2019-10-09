@@ -42,12 +42,14 @@ These instructions build the `indigo-devel` branch on a ROS Kinetic system:
 $ cd $HOME/catkin_ws
 
 # retrieve the latest development version of fanuc. If you'd rather
-# use the latest released version, replace 'indigo-devel' with 'indigo'
+# use the latest released version, replace 'indigo-devel' with 'kinetic'
 $ git clone -b indigo-devel https://github.com/ros-industrial/fanuc.git src/fanuc
 
 # check build dependencies. Note: this may install additional packages,
 # depending on the software installed on the machine
 $ rosdep update
+
+# be sure to change 'kinetic' to whichever ROS release you are using
 $ rosdep install --from-paths src/ --ignore-src --rosdistro kinetic
 
 # build the workspace (using catkin_tools)
