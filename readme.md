@@ -21,6 +21,31 @@ Branch naming follows the ROS distribution they are compatible with. `-devel` br
 Older releases may be found in the Github mirror of the old ROS-Industrial [subversion repository][].
 
 
+## Installation
+
+Binary packages are available for ROS Kinetic, but not all packages have been released.
+
+The following packages have been released (as of 2019-10-09):
+
+ - `fanuc_driver`
+ - `fanuc_resources`
+ - all support packages (ie: `fanuc_*_support`)
+
+They can be installed using `apt` (on Ubuntu and Debian).
+
+The other packages (MoveIt configurations and plugins) can be built from sources (see the *Building* section below).
+
+### Example
+
+To install `fanuc_m10ia_support` on Ubuntu Xenial for ROS Kinetic (after having followed the normal ROS Kinetic installation tutorial):
+
+```
+sudo apt install ros-kinetic-fanuc-m10ia-support
+```
+
+This would install `ros-kinetic-fanuc-resources` and `ros-kinetic-fanuc-driver` as well (and all their dependencies).
+
+
 ## Building
 
 ### On newer (or older) versions of ROS
