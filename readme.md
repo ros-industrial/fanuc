@@ -2,6 +2,7 @@
 
 [![Build Status: ROS buildfarm](http://build.ros.org/job/Kdev__fanuc__ubuntu_xenial_amd64/badge/icon)](http://build.ros.org/job/Kdev__fanuc__ubuntu_xenial_amd64)
 [![Build Status: Travis CI](https://travis-ci.org/ros-industrial/fanuc.svg?branch=indigo-devel)](https://travis-ci.org/ros-industrial/fanuc)
+[![Github Issues](https://img.shields.io/github/issues/ros-industrial/fanuc.svg)](http://github.com/ros-industrial/fanuc/issues)
 
 [![license - apache 2.0](https://img.shields.io/:license-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
 [![license - bsd 3 clause](https://img.shields.io/:license-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
