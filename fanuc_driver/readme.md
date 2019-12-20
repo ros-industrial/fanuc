@@ -21,6 +21,15 @@ The current implementation (with a single point buffer and a minimum TP program 
 This driver is therefore better suited to pick-and-place type of applications (ie: discrete motions in which the goal positions are more important than the path itself) and less for applications that require accurate control over all aspects of the motion at all times (ie: continuous applications in which the path itself is as-important or more important than the final destination).
 
 
+## Limitations
+
+The main limitation of this driver is in how it overrides joint velocities requested by ROS to a hard-coded value.
+
+Users interested in using commanded joint velocity could take a look at [fanuc_driver_exp][], but certain limitations remain.
+Refer to the readme of that package for information on performance and features.
+
+
 
 [ROS-Industrial]: http://wiki.ros.org/Industrial
 [fanuc]: http://wiki.ros.org/fanuc
+[fanuc_driver_exp]: https://github.com/gavanderhoorn/fanuc_driver_exp
