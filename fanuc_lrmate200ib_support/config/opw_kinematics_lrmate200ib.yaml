@@ -1,0 +1,10 @@
+kinematics_solver_geometric_parameters:
+    a1: 0.15
+    a2: -0.075
+    b: 0.0
+    c1: 0.35
+    c2: 0.25
+    c3: 0.290
+    c4: 0.08
+kinematics_solver_joint_offsets: [0.0, 0.0, -1.5707963267948966, 0.0, 0.0, 3.14159265359]
+kinematics_solver_joint_sign_corrections: [1, 1, -1, -1, -1, -1]
