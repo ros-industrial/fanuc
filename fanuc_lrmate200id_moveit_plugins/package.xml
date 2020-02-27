@@ -9,9 +9,9 @@
     </p>
     <p>
       This package contains plugins for use with MoveIt and Fanuc LR Mate 200iD
-      manipulators. Plugins included support the base model. See the Fanuc
-      LR Mate 200iD support package for information on used joint angle and
-      velocity limits.
+      manipulators. Plugins included support the base model and the /7L. See
+      the Fanuc LR Mate 200iD support package for information on used joint
+      angle and velocity limits.
     </p>
     <p>
       Before using any of the plugins included in this package, be sure to
@@ -37,6 +37,7 @@
 
   <export>
     <moveit_core plugin="${prefix}/lrmate200id_kinematics/fanuc_lrmate200id_manipulator_moveit_ikfast_plugin_description.xml"/>
+    <moveit_core plugin="${prefix}/lrmate200id7l_kinematics/fanuc_lrmate200id7l_manipulator_moveit_ikfast_plugin_description.xml"/>
     <rosindex>
       <tags>
         <tag>moveit</tag>
