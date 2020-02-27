@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: fanuc_lrmate200id_support
+    relative_path: urdf/lrmate200id7l.xacro
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/fanuc_lrmate200id7l.srdf
+  CONFIG:
+    author_name: Fetullah Atas
+    author_email: fetulahatas1@gmail.com
+    generated_timestamp: 1568890283
