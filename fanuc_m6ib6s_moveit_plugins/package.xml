@@ -46,15 +46,13 @@
     <moveit_core plugin="${prefix}/fanuc_m6ib6s_manipulator_moveit_ikfast_plugin_description.xml"/>
   </export>
   <build_depend>moveit_core</build_depend>
-  <build_depend>tf2_kdl</build_depend>
-  <build_depend>pluginlib</build_depend>
-  <build_depend>eigen_conversions</build_depend>
-  <build_depend>tf2_eigen</build_depend>
   <build_depend>liblapack-dev</build_depend>
   <build_depend>roscpp</build_depend>
+  <build_depend>tf_conversions</build_depend>
+  <build_depend>pluginlib</build_depend>
   <exec_depend>moveit_core</exec_depend>
-  <exec_depend>pluginlib</exec_depend>
   <exec_depend>liblapack-dev</exec_depend>
   <exec_depend>roscpp</exec_depend>
-  <exec_depend>eigen_conversions</exec_depend>
+  <exec_depend>tf_conversions</exec_depend>
+  <exec_depend>pluginlib</exec_depend>
 </package>
