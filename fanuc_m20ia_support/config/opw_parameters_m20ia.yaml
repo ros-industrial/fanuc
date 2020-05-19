@@ -4,7 +4,7 @@
 # of the Inverse Kinematics Problem of Industrial Serial Manipulators with an
 # Ortho-parallel Basis and a Spherical Wrist" by Mathias Brandstötter, Arthur
 # Angerer, and Michael Hofbaur (Proceedings of the Austrian Robotics Workshop
-# 2014.22-23 May, 2014, Linz, Austria).
+# 2014, 22-23 May, 2014, Linz, Austria).
 #
 # The moveit_opw_kinematics_plugin package provides such a solver.
 #
