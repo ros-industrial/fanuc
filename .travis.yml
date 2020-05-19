@@ -1,12 +1,6 @@
-sudo: required
-dist: trusty
 language: generic
-
-notifications:
-  email:
-    on_failure: always
-    recipients:
-     - g.a.vanderhoorn@tudelft.nl
+services:
+  - docker
 
 cache:
   directories:
@@ -17,6 +11,7 @@ git:
 
 env:
   global:
+    - CATKIN_LINT=true
     - CCACHE_DIR=$HOME/.ccache
     - ROS_REPO=ros
   matrix:
@@ -26,7 +21,7 @@ env:
     - ROS_DISTRO="melodic" ROS_REPO=ros-shadow-fixed
 
 install:
-  - git clone --quiet --depth=1 https://github.com/ros-industrial/industrial_ci.git .ci_config
+  - git clone --quiet --depth=1 -b master https://github.com/ros-industrial/industrial_ci.git .ci_config
 
 script:
   - .ci_config/travis.sh
