@@ -6,6 +6,8 @@
 # Angerer, and Michael Hofbaur (Proceedings of the Austrian Robotics Workshop
 # 2014.22-23 May, 2014, Linz, Austria).
 #
+# The moveit_opw_kinematics_plugin package provides such a solver.
+#
 kinematics_solver_geometric_parameters:
   a1: 0.15
   a2: -0.10
