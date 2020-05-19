@@ -8,7 +8,7 @@
 #
 # The moveit_opw_kinematics_plugin package provides such a solver.
 #
-kinematics_solver_geometric_parameters:
+opw_kinematics_geometric_parameters:
   a1: 0.15
   a2: -0.0750
   b: 0.0
@@ -16,5 +16,5 @@ kinematics_solver_geometric_parameters:
   c2: 0.25
   c3: 0.450
   c4: 0.080
-kinematics_solver_joint_offsets: [0.0, 0.0, -1.57079632679, 0.0, 0.0, 3.14159265359]
-kinematics_solver_joint_sign_corrections: [1, 1, -1, -1, -1, -1]
+opw_kinematics_joint_offsets: [0.0, 0.0, -1.57079632679, 0.0, 0.0, 3.14159265359]
+opw_kinematics_joint_sign_corrections: [1, 1, -1, -1, -1, -1]
