@@ -15,12 +15,15 @@
     <p><b>Specifications</b>:</p>
     <ul>
       <li>LR Mate 200iD - "J1 - Normal Range"</li>
+      <li>LR Mate 200iD/4S - "J1 - Normal Range"</li>
       <li>LR Mate 200iD/7L - "J1 - Normal Range"</li>
     </ul>
     <p>
       Joint limits and maximum joint velocities are based on the information in
       the <em>FANUC Robot LR Mate 200iD Mechanical Unit Operator's Manual</em>
-      version <em>B-83494EN/03</em>. All urdfs are based on the default motion
+      version <em>B-83494EN/03</em> and the
+      <em>FANUC Robot LR Mate 200iD/4S/4SH/4SC Mechanical Unit Operator's Manual</em>
+      version <em>B-83574EN/03</em>. All urdfs are based on the default motion
       and joint velocity limits, unless noted otherwise (ie: no support for
       high speed joints, extended / limited motion ranges or other options).
     </p>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+  Manipulator specific version of the state visualizer.
+
+  Defaults provided for LR Mate 200iD/4S:
+   - J23_factor = 1
+   - use_bswap = true
+   - 6 joints
+
+  Usage:
+    robot_state_visualize_lrmate200id4s.launch robot_ip:=<value>
+-->
+<launch>
+  <arg name="robot_ip" doc="IP of controller" />
+  <arg name="J23_factor" default="1" doc="Compensation factor for joint 2-3 coupling (-1, 0 or 1)" />
+  <arg name="use_bswap" default="true" doc="If true, robot driver will byte-swap all incoming and outgoing data" />
+
+  <rosparam command="load" file="$(find fanuc_lrmate200id_support)/config/joint_names_lrmate200id4s.yaml" />
+
+  <include file="$(find fanuc_driver)/launch/robot_state.launch">
+    <arg name="robot_ip"   value="$(arg robot_ip)" />
+    <arg name="J23_factor" value="$(arg J23_factor)" />
+    <arg name="use_bswap"  value="$(arg use_bswap)" />
+  </include>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" 
+    type="robot_state_publisher" />
+
+  <include file="$(find fanuc_lrmate200id_support)/launch/load_lrmate200id4s.launch" />
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find industrial_robot_client)/config/robot_state_visualize.rviz" required="true" />
+</launch>
