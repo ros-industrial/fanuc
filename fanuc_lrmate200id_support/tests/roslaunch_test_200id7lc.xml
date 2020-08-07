@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="ip_str" value="127.0.0.1" />
+
+  <group ns="load_lrmate200id7lc__">
+    <include file="$(find fanuc_lrmate200id_support)/launch/load_lrmate200id7lc.launch"/>
+  </group>
+
+  <group ns="test_lrmate200id7lc__">
+    <include file="$(find fanuc_lrmate200id_support)/launch/test_lrmate200id7lc.launch"/>
+  </group>
+
+  <group ns="robot_interface_streaming_lrmate200id7lc__">
+    <include file="$(find fanuc_lrmate200id_support)/launch/robot_interface_streaming_lrmate200id7lc.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+    </include>
+  </group>
+
+  <group ns="robot_state_visualize_lrmate200id7lc__">
+    <include file="$(find fanuc_lrmate200id_support)/launch/robot_state_visualize_lrmate200id7lc.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+    </include>
+  </group>
+
+
+  <!-- without bswap -->
+  <group ns="robot_interface_streaming_lrmate200id7lc_f__">
+    <include file="$(find fanuc_lrmate200id_support)/launch/robot_interface_streaming_lrmate200id7lc.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+      <arg name="use_bswap" value="false" />
+    </include>
+  </group>
+
+  <group ns="robot_state_visualize_lrmate200id7lc_f__">
+    <include file="$(find fanuc_lrmate200id_support)/launch/robot_state_visualize_lrmate200id7lc.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+      <arg name="use_bswap" value="false" />
+    </include>
+  </group>
+</launch>
