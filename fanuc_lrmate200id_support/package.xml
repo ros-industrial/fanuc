@@ -9,8 +9,10 @@
     </p>
     <p>
       This package contains configuration data, 3D models and launch files
-      for Fanuc LR Mate 200iD manipulators. This currently includes the
-      base model and the /7L.
+      for Fanuc LR Mate 200iD manipulators. This includes the base
+      model (/7C, /7WP), /7H, /7L, /7LC and the /4S, /4SC and /4SH.
+      The variants in parentheses are supported by the files for the variant
+      immediately preceeding the parentheses.
     </p>
     <p><b>Specifications</b>:</p>
     <ul>
