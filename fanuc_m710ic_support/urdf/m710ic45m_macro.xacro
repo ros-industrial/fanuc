@@ -117,42 +117,42 @@
       <parent link="${prefix}base_link" />
       <child link="${prefix}link_1" />
       <axis xyz="0 0 1" />
-      <limit effort="0" lower="-3.1415" upper="3.1415" velocity="3.0543" />
+      <limit effort="0" lower="${radians(-180)}" upper="${radians(180)}" velocity="${radians(180)}" />
     </joint>
     <joint name="${prefix}joint_2" type="revolute">
       <origin xyz="0.150 0 0" rpy="0 0 0"/>
       <parent link="${prefix}link_1" />
       <child link="${prefix}link_2" />
       <axis xyz="0 1 0" />
-      <limit effort="0" lower="-1.5707" upper="2.3561" velocity="3.0543" />
+      <limit effort="0" lower="${radians(-90)}" upper="${radians(135)}" velocity="${radians(180)}" />
     </joint>
     <joint name="${prefix}joint_3" type="revolute">
       <origin xyz="0 0 1.150" rpy="0 0 0"/>
       <parent link="${prefix}link_2" />
       <child link="${prefix}link_3" />
       <axis xyz="0 -1 0" />
-      <limit effort="0" lower="-2.7925" upper="4.8869" velocity="3.0543" />
+      <limit effort="0" lower="${radians(-160)}" upper="${radians(280)}" velocity="${radians(180)}" />
     </joint>
     <joint name="${prefix}joint_4" type="revolute">
       <origin xyz="0 0 0.170" rpy="0 0 0"/>
       <parent link="${prefix}link_3"/>
       <child link="${prefix}link_4"/>
       <axis xyz="-1 0 0"/>
-      <limit effort="0" lower="-6.2830" upper="6.2830" velocity="4.3633" />
+      <limit effort="0" lower="${radians(-400)}" upper="${radians(400)}" velocity="${radians(250)}" />
     </joint>
     <joint name="${prefix}joint_5" type="revolute">
       <origin xyz="1.295 0 0" rpy="0 0 0"/>
       <parent link="${prefix}link_4"/>
       <child link="${prefix}link_5"/>
       <axis xyz="0 -1 0"/>
-      <limit effort="0" lower="-2.1816" upper="2.1816" velocity="4.3633" />
+      <limit effort="0" lower="${radians(-125)}" upper="${radians(125)}" velocity="${radians(250)}" />
     </joint>
     <joint name="${prefix}joint_6" type="revolute">
       <origin xyz="0.175 0 0" rpy="0 0 0"/>
       <parent link="${prefix}link_5"/>
       <child link="${prefix}link_6"/>
       <axis xyz="-1 0 0"/>
-      <limit effort="0" lower="-6.2831" upper="6.2831" velocity="6.1959" />
+      <limit effort="0" lower="${radians(-400)}" upper="${radians(400)}" velocity="${radians(360)}" />
     </joint>
 
     <!-- ROS-Industrial 'base' frame: base_link to Fanuc World Coordinates transform -->
