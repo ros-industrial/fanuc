@@ -12,6 +12,10 @@
      for interfacing with Fanuc industrial robot controllers that support
      the KAREL programming environment.
    </p>
+   <p>
+     Refer to the readme of this package for a note on the performance of
+     the driver.
+   </p>
   </description>
   <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
   <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
