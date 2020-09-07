@@ -3,85 +3,85 @@
   <xacro:include filename="$(find fanuc_resources)/urdf/common_colours.xacro"/>
 
   <xacro:macro name="material_fanuc_yellow">
-    <material name="">
+    <material name="material_fanuc_yellow">
       <color rgba="${color_fanuc_yellow}"/>
     </material>
   </xacro:macro>
 
   <xacro:macro name="material_fanuc_white">
-    <material name="">
+    <material name="material_fanuc_white">
       <color rgba="${color_fanuc_white}"/>
     </material>
   </xacro:macro>
 
   <xacro:macro name="material_fanuc_grey">
-    <material name="">
+    <material name="material_fanuc_grey">
       <color rgba="${color_fanuc_grey}"/>
     </material>
   </xacro:macro>
 
   <xacro:macro name="material_fanuc_gray24">
-    <material name="">
+    <material name="material_fanuc_gray24">
       <color rgba="${color_fanuc_gray24}"/>
     </material>
   </xacro:macro>
 
   <xacro:macro name="material_fanuc_gray28">
-    <material name="">
+    <material name="material_fanuc_gray28">
       <color rgba="${color_fanuc_gray28}"/>
     </material>
   </xacro:macro>
 
   <xacro:macro name="material_fanuc_gray31">
-    <material name="">
+    <material name="material_fanuc_gray31">
       <color rgba="${color_fanuc_gray31}"/>
     </material>
   </xacro:macro>
 
   <xacro:macro name="material_fanuc_gray40">
-    <material name="">
+    <material name="material_fanuc_gray40">
       <color rgba="${color_fanuc_gray40}"/>
     </material>
   </xacro:macro>
 
   <xacro:macro name="material_fanuc_yellow1">
-    <material name="">
+    <material name="material_fanuc_yellow1">
       <color rgba="${color_fanuc_yellow1}"/>
     </material>
   </xacro:macro>
 
   <xacro:macro name="material_fanuc_BAB0B0">
-    <material name="">
+    <material name="material_fanuc_BAB0B0">
       <color rgba="${color_fanuc_BAB0B0}"/>
     </material>
   </xacro:macro>
 
   <xacro:macro name="material_fanuc_E6E6E6">
-    <material name="">
+    <material name="material_fanuc_E6E6E6">
       <color rgba="${color_fanuc_E6E6E6}"/>
     </material>
   </xacro:macro>
 
   <xacro:macro name="material_fanuc_00FF73">
-    <material name="">
+    <material name="material_fanuc_00FF73">
       <color rgba="${color_fanuc_00FF73}"/>
     </material>
   </xacro:macro>
 
   <xacro:macro name="material_fanuc_black">
-    <material name="">
+    <material name="material_fanuc_black">
       <color rgba="${color_fanuc_black}"/>
     </material>
   </xacro:macro>
 
   <xacro:macro name="material_fanuc_greyish">
-    <material name="">
+    <material name="material_fanuc_greyish">
       <color rgba="${color_fanuc_greyish}"/>
     </material>
   </xacro:macro>
 
   <xacro:macro name="material_fanuc_green">
-    <material name="">
+    <material name="material_fanuc_green">
       <color rgba="${color_fanuc_green}"/>
     </material>
   </xacro:macro>
