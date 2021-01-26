@@ -1,7 +1,8 @@
 # Fanuc
 
 [![Build Status: ROS buildfarm](http://build.ros.org/job/Kdev__fanuc__ubuntu_xenial_amd64/badge/icon)](http://build.ros.org/job/Kdev__fanuc__ubuntu_xenial_amd64)
-[![Build Status: Travis CI](https://travis-ci.com/ros-industrial/fanuc.svg?branch=indigo-devel)](https://travis-ci.com/ros-industrial/fanuc)
+[![Build Status: Ubuntu Xenial (Actions)](https://github.com/ros-industrial/fanuc/workflows/CI%20-%20Ubuntu%20Xenial/badge.svg?branch=indigo-devel)](https://github.com/ros-industrial/fanuc/actions?query=workflow%3A%22CI+-+Ubuntu+Xenial%22)
+[![Build Status: Ubuntu Bionic (Actions)](https://github.com/ros-industrial/fanuc/workflows/CI%20-%20Ubuntu%20Bionic/badge.svg?branch=indigo-devel)](https://github.com/ros-industrial/fanuc/actions?query=workflow%3A%22CI+-+Ubuntu+Bionic%22)
 [![Github Issues](https://img.shields.io/github/issues/ros-industrial/fanuc.svg)](http://github.com/ros-industrial/fanuc/issues)
 
 [![license - apache 2.0](https://img.shields.io/:license-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
