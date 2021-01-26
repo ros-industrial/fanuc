@@ -36,6 +36,11 @@
   <depend>tf_conversions</depend>
 
   <export>
+    <deprecated>
+      All IKFast MoveIt plugins are deprecated and will be removed from future
+      releases. Where possible, they will be replaced with OPW Kinematics-based
+      plugins.
+    </deprecated>
     <moveit_core plugin="${prefix}/lrmate200i_kinematics/fanuc_lrmate200i_manipulator_moveit_ikfast_plugin_description.xml"/>
     <rosindex>
       <tags>
