@@ -23,6 +23,16 @@ Branch naming follows the ROS distribution they are compatible with. `-devel` br
 Older releases may be found in the Github mirror of the old ROS-Industrial [subversion repository][].
 
 
+## Status
+
+The packages in this repository are *community supported*.
+This means they do not get support from the OEM, nor from the ROS-Industrial consortia directly (see also the `support level` badge at the top of this page).
+
+Maintenance and development is on a best-effort basis and depends on volunteers.
+
+FANUC does not support ROS.
+
+
 ## Installation
 
 Binary packages are available for ROS Kinetic, but not all packages have been released.
