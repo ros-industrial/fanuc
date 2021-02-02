@@ -9,11 +9,13 @@
     </p>
     <p>
       This package contains configuration data, 3D models and launch files
-      for Fanuc R-2000iC manipulators. This includes the /165F variant only.
+      for Fanuc R-2000iC manipulators. This includes the /165F and /270F
+      variants.
     </p>
     <p><b>Specifications</b>:</p>
     <ul>
       <li>R-2000iC/165F - "Conventional dress-out"</li>
+      <li>R-2000iC/270F - "Conventional dress-out"</li>
     </ul>
     <p>
       Joint limits and maximum joint velocities are based on the information in
@@ -29,6 +31,7 @@
     </p>
   </description>
   <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+  <author>Haris Suwignyo (Alten Nederland): 270F</author>
   <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
   <license>BSD</license>
 
