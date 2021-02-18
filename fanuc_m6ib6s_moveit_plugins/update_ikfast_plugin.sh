@@ -1,0 +1,1 @@
+rosrun moveit_kinematics create_ikfast_moveit_plugin.py fanuc_m6ib6s manipulator fanuc_m6ib6s_moveit_plugins /home/joao/catkin_ws/src/fanuc_m6ib6s_moveit_plugins/src/fanuc_m6ib6s_manipulator_ikfast_solver.cpp
