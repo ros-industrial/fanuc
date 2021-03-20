@@ -36,9 +36,14 @@
       in this package, be sure to check they are correct for the particular
       robot model and configuration you intend to use them with.
     </p>
+    <p><b>Contributors</b>:</p>
+    <p>
+      This support package has received contributions from: Timo Birnkraut and
+      Simon Schmeisser (125L), Didier Quirin (210F) and Haris Suwignyo (Alten
+      Nederland) (270F).
+    </p>
   </description>
   <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
-  <author>Haris Suwignyo (Alten Nederland): 270F</author>
   <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
   <license>BSD</license>
 
