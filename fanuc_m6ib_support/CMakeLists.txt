@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 
 project(fanuc_m6ib_support)
 
@@ -8,7 +8,8 @@ catkin_package()
 
 if (CATKIN_ENABLE_TESTING)
   find_package(roslaunch REQUIRED)
-  roslaunch_add_file_check(tests/roslaunch_test.xml)
+  roslaunch_add_file_check(tests/roslaunch_test_m6ib.xml)
+  roslaunch_add_file_check(tests/roslaunch_test_m6ib6s.xml)
 endif()
 
 install(DIRECTORY config launch meshes urdf

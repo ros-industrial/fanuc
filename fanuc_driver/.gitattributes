@@ -1,0 +1,3 @@
+# LS and Karel source files must have CRLF (ie: Windows) line-endings.
+#*.kl text eol=crlf
+#*.ls text eol=crlf

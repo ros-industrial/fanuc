@@ -2,6 +2,18 @@
 Changelog for package fanuc_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.5.1 (2021-04-02)
+------------------
+* bump min CMake version (`#309 <https://github.com/ros-industrial/fanuc/issues/309>`_).
+* mark all IKFast plugins as deprecated (`#302 <https://github.com/ros-industrial/fanuc/issues/302>`_).
+* disable gitattributes temporarily (`#299 <https://github.com/ros-industrial/fanuc/issues/299>`_).
+* add note to readme about performance (`#295 <https://github.com/ros-industrial/fanuc/issues/295>`_).
+* point to manifest for info on package contents (`#292 <https://github.com/ros-industrial/fanuc/issues/292>`_).
+* add note to readme about limitations (`#283 <https://github.com/ros-industrial/fanuc/issues/283>`_).
+* add comments to movesm TP program (`#280 <https://github.com/ros-industrial/fanuc/issues/280>`_).
+* remove roslaunch version requirements as they're no longer needed (`#278 <https://github.com/ros-industrial/fanuc/issues/278>`_).
+* for a complete list of changes see the `commit log for 0.5.1 <https://github.com/ros-industrial/fanuc/compare/0.5.0...0.5.1>`_.
+
 0.5.0 (2019-09-25)
 ------------------
 * no changes.

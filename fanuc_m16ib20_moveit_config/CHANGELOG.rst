@@ -2,6 +2,12 @@
 Changelog for package fanuc_m16ib20_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.5.1 (2021-04-02)
+------------------
+* bump min CMake version (`#309 <https://github.com/ros-industrial/fanuc/issues/309>`_).
+* point to manifest for info on package contents (`#292 <https://github.com/ros-industrial/fanuc/issues/292>`_).
+* for a complete list of changes see the `commit log for 0.5.1 <https://github.com/ros-industrial/fanuc/compare/0.5.0...0.5.1>`_.
+
 0.5.0 (2019-09-25)
 ------------------
 * disable db tests for now (`#269 <https://github.com/ros-industrial/fanuc/pull/269>`_).

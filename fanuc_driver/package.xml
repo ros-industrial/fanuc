@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
   <name>fanuc_driver</name>
-  <version>0.5.0</version>
+  <version>0.5.1</version>
   <description>
    <p>
      ROS-Industrial nodes for interfacing with Fanuc robot controllers.
@@ -11,6 +11,10 @@
      This package is part of the ROS-Industrial program and contains nodes
      for interfacing with Fanuc industrial robot controllers that support
      the KAREL programming environment.
+   </p>
+   <p>
+     Refer to the readme of this package for a note on the performance of
+     the driver.
    </p>
   </description>
   <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
@@ -25,7 +29,7 @@
 
   <depend>industrial_robot_client</depend>
 
-  <test_depend version_gte="1.9.55">roslaunch</test_depend>
+  <test_depend>roslaunch</test_depend>
 
   <export>
     <rosindex>

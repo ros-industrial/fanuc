@@ -2,6 +2,11 @@
 Changelog for package fanuc
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.5.1 (2021-04-02)
+------------------
+* bump min CMake version (`#309 <https://github.com/ros-industrial/fanuc/issues/309>`_).
+* for a complete list of changes see the `commit log for 0.5.1 <https://github.com/ros-industrial/fanuc/compare/0.5.0...0.5.1>`_.
+
 0.5.0 (2019-09-25)
 ------------------
 * meta: add migrated packages (`#261 <https://github.com/ros-industrial/fanuc/issues/261>`_, `#274 <https://github.com/ros-industrial/fanuc/issues/274>`_).

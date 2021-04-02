@@ -5,6 +5,10 @@
 This package is part of the [ROS-Industrial][] program. See the main
 [fanuc][] page on the ROS wiki for more information on usage.
 
+## Contents
+
+See `package.xml` for information about the contents of this package.
+
 ## Known issues
 
 Please see the [known issues][] page on the ROS wiki.

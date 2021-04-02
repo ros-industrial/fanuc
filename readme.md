@@ -1,12 +1,14 @@
 # Fanuc
 
 [![Build Status: ROS buildfarm](http://build.ros.org/job/Kdev__fanuc__ubuntu_xenial_amd64/badge/icon)](http://build.ros.org/job/Kdev__fanuc__ubuntu_xenial_amd64)
-[![Build Status: Travis CI](https://travis-ci.org/ros-industrial/fanuc.svg?branch=indigo-devel)](https://travis-ci.org/ros-industrial/fanuc)
+[![Build Status: Ubuntu Xenial (Actions)](https://github.com/ros-industrial/fanuc/workflows/CI%20-%20Ubuntu%20Xenial/badge.svg?branch=indigo-devel)](https://github.com/ros-industrial/fanuc/actions?query=workflow%3A%22CI+-+Ubuntu+Xenial%22)
+[![Build Status: Ubuntu Bionic (Actions)](https://github.com/ros-industrial/fanuc/workflows/CI%20-%20Ubuntu%20Bionic/badge.svg?branch=indigo-devel)](https://github.com/ros-industrial/fanuc/actions?query=workflow%3A%22CI+-+Ubuntu+Bionic%22)
+[![Github Issues](https://img.shields.io/github/issues/ros-industrial/fanuc.svg)](http://github.com/ros-industrial/fanuc/issues)
 
 [![license - apache 2.0](https://img.shields.io/:license-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
 [![license - bsd 3 clause](https://img.shields.io/:license-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
-[![support level: community](https://img.shields.io/badge/support%20level-community-lightgray.png)](http://rosindustrial.org/news/2016/10/7/better-supporting-a-growing-ros-industrial-software-platform)
+[![support level: community](https://img.shields.io/badge/support%20level-community-lightgray.svg)](http://rosindustrial.org/news/2016/10/7/better-supporting-a-growing-ros-industrial-software-platform)
 
 
 [ROS-Industrial][] Fanuc meta-package. See the [ROS wiki][] page for more information.
@@ -16,16 +18,51 @@ The [fanuc_experimental][] repository contains additional packages.
 
 ## Contents
 
-Branch naming follows the ROS distribution they are compatible with. `-devel` branches may be unstable. Releases are made from the distribution branches (`hydro`, `indigo`).
+Branch naming follows the ROS distribution they are compatible with. `-devel` branches may be unstable. Releases are made from the distribution branches (`hydro`, `indigo`, `kinetic`).
 
 Older releases may be found in the Github mirror of the old ROS-Industrial [subversion repository][].
+
+
+## Status
+
+The packages in this repository are *community supported*.
+This means they do not get support from the OEM, nor from the ROS-Industrial consortia directly (see also the `support level` badge at the top of this page).
+
+Maintenance and development is on a best-effort basis and depends on volunteers.
+
+FANUC does not support ROS.
+
+
+## Installation
+
+Binary packages are available for ROS Kinetic, but not all packages have been released.
+
+The following packages have been released (as of 2019-10-09):
+
+ - `fanuc_driver`
+ - `fanuc_resources`
+ - all support packages (ie: `fanuc_*_support`)
+
+They can be installed using `apt` (on Ubuntu and Debian).
+
+The other packages (MoveIt configurations and plugins) can be built from sources (see the *Building* section below).
+
+### Example
+
+To install `fanuc_m10ia_support` on Ubuntu Xenial for ROS Kinetic (after having followed the normal ROS Kinetic installation tutorial):
+
+```
+sudo apt install ros-kinetic-fanuc-m10ia-support
+```
+
+This would install `ros-kinetic-fanuc-resources` and `ros-kinetic-fanuc-driver` as well (and all their dependencies).
 
 
 ## Building
 
 ### On newer (or older) versions of ROS
 
-Building the packages on newer (or older) versions of ROS is in most cases possible and supported. For example: building the packages in this repository on a Ubuntu Xenial/ROS Kinetic system is supported. This will require creating a Catkin workspace, cloning this repository, installing all required dependencies and finally building the workspace.
+Building the packages on newer (or older) versions of ROS is in most cases possible and supported. For example: building the packages in this repository on Ubuntu Xenial/ROS Kinetic or Ubuntu Bionic/ROS Melodic systems is supported. This will require creating a Catkin workspace, cloning this repository, installing all required dependencies and finally building the workspace.
 
 ### Catkin tools
 
@@ -42,12 +79,14 @@ These instructions build the `indigo-devel` branch on a ROS Kinetic system:
 $ cd $HOME/catkin_ws
 
 # retrieve the latest development version of fanuc. If you'd rather
-# use the latest released version, replace 'indigo-devel' with 'indigo'
+# use the latest released version, replace 'indigo-devel' with 'kinetic'
 $ git clone -b indigo-devel https://github.com/ros-industrial/fanuc.git src/fanuc
 
 # check build dependencies. Note: this may install additional packages,
 # depending on the software installed on the machine
 $ rosdep update
+
+# be sure to change 'kinetic' to whichever ROS release you are using
 $ rosdep install --from-paths src/ --ignore-src --rosdistro kinetic
 
 # build the workspace (using catkin_tools)
