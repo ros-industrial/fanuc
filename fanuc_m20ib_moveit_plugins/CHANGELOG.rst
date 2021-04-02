@@ -2,6 +2,13 @@
 Changelog for package fanuc_m20ib_moveit_plugins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* bump min CMake version (`#309 <https://github.com/ros-industrial/fanuc/issues/309>`_).
+* point to manifest for info on package contents (`#292 <https://github.com/ros-industrial/fanuc/issues/292>`_).
+* mark all IKFast plugins as deprecated (`#302 <https://github.com/ros-industrial/fanuc/issues/302>`_).
+* for a complete list of changes see the `commit log for 0.5.1 <https://github.com/ros-industrial/fanuc/compare/0.5.0...0.5.1>`_.
+
 0.5.0 (2019-09-25)
 ------------------
 * first release of this package.
