@@ -2,8 +2,8 @@
 Changelog for package fanuc_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.1 (2021-04-02)
+------------------
 * bump min CMake version (`#309 <https://github.com/ros-industrial/fanuc/issues/309>`_).
 * mark all IKFast plugins as deprecated (`#302 <https://github.com/ros-industrial/fanuc/issues/302>`_).
 * disable gitattributes temporarily (`#299 <https://github.com/ros-industrial/fanuc/issues/299>`_).

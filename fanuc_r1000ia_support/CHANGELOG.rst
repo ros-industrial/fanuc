@@ -2,8 +2,8 @@
 Changelog for package fanuc_r1000ia_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.1 (2021-04-02)
+------------------
 * bump min CMake version (`#309 <https://github.com/ros-industrial/fanuc/issues/309>`_).
 * correct missing dependency on ``industrial_robot_client`` (RViz cfg) (`#306 <https://github.com/ros-industrial/fanuc/issues/306>`_).
 * point to manifest for info on package contents (`#292 <https://github.com/ros-industrial/fanuc/issues/292>`_).

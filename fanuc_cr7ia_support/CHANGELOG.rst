@@ -2,8 +2,8 @@
 Changelog for package fanuc_cr7ia_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.1 (2021-04-02)
+------------------
 * correct joint limits (`#310 <https://github.com/ros-industrial/fanuc/issues/310>`_).
 * add note on correctness of joint limits (collaborative controller).
 * bump min CMake version (`#309 <https://github.com/ros-industrial/fanuc/issues/309>`_).

@@ -2,8 +2,8 @@
 Changelog for package fanuc_m10ia_moveit_plugins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.1 (2021-04-02)
+------------------
 * bump min CMake version (`#309 <https://github.com/ros-industrial/fanuc/issues/309>`_).
 * point to manifest for info on package contents (`#292 <https://github.com/ros-industrial/fanuc/issues/292>`_).
 * mark all IKFast plugins as deprecated (`#302 <https://github.com/ros-industrial/fanuc/issues/302>`_).

@@ -2,8 +2,8 @@
 Changelog for package fanuc_m6ib6s_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.1 (2021-04-02)
+------------------
 * first release of this package.
 * bump min CMake version (`#309 <https://github.com/ros-industrial/fanuc/issues/309>`_).
 * point to manifest for info on package contents (`#292 <https://github.com/ros-industrial/fanuc/issues/292>`_).
