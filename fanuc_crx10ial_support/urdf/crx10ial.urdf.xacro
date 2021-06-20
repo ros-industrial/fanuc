@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="crx10ial">
+  <link
+    name="link_base">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanuc_crx10ial_support/meshes/link_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanuc_crx10ial_support/meshes/link_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link_1">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963268 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanuc_crx10ial_support/meshes/link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963268 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanuc_crx10ial_support/meshes/link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_1"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5707963268 0 0" />
+    <parent
+      link="link_base" />
+    <child
+      link="link_1" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="link_2">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="-1.5707963268 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanuc_crx10ial_support/meshes/link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="-1.5707963268 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanuc_crx10ial_support/meshes/link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_2"
+    type="continuous">
+    <origin
+      xyz="0 -0.159 -0.0749953390526379"
+      rpy="3.14159265359 0 0" />
+    <parent
+      link="link_1" />
+    <child
+      link="link_2" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="link_3">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.5707963268 1.5707963268" />
+      <geometry>
+        <mesh
+          filename="package://fanuc_crx10ial_support/meshes/link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.5707963268 1.5707963268" />
+      <geometry>
+        <mesh
+          filename="package://fanuc_crx10ial_support/meshes/link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_3"
+    type="continuous">
+    <origin
+      xyz="0 0.70999996924741 0.000194265063992456"
+      rpy="0 -1.5707963268 0" />
+    <parent
+      link="link_2" />
+    <child
+      link="link_3" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="link_4">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="-1.5707963268 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanuc_crx10ial_support/meshes/link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanuc_crx10ial_support/meshes/link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_4"
+    type="continuous">
+    <origin
+      xyz="-0.0750453390606975 0 -0.153"
+      rpy="0 1.5707963268 0" />
+    <parent
+      link="link_3" />
+    <child
+      link="link_4" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="link_5">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="-1.5707963268 1.5707963268 0" />
+      <geometry>
+        <mesh
+          filename="package://fanuc_crx10ial_support/meshes/link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="-1.5707963268 1.5707963268 0" />
+      <geometry>
+        <mesh
+          filename="package://fanuc_crx10ial_support/meshes/link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_5"
+    type="continuous">
+    <origin
+      xyz="0.386 0 0.0639871901605984"
+      rpy="0 -1.5707963268 0" />
+    <parent
+      link="link_4" />
+    <child
+      link="link_5" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="link_6">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 -1.5707963268 0" />
+      <geometry>
+        <mesh
+          filename="package://fanuc_crx10ial_support/meshes/link_6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+       xyz="0 0 0"
+        rpy="0 -1.5707963268 0" />
+      <geometry>
+        <mesh
+          filename="package://fanuc_crx10ial_support/meshes/link_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_6"
+    type="continuous">
+    <origin
+      xyz="0.0850128098394016 0 -0.0995000000000001"
+      rpy="0 3.14159265359 0" />
+    <parent
+      link="link_5" />
+    <child
+      link="link_6" />
+    <axis
+      xyz="0 0 -1" />
+
+  </joint>
+   <joint name="ee_fixed_joint" type="fixed">
+      <parent link="link_6" />
+      <child link = "ee_link" />
+      <origin xyz="0 0.0 0.0595" rpy="0.0 0.0 0.0" />
+    </joint>
+    <link name="ee_link">
+      <collision>
+        <geometry>
+          <box size="0.01 0.01 0.01"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0.01"/>
+      </collision>
+    </link>
+</robot>
