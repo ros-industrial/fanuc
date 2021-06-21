@@ -6,6 +6,6 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/crx10ial.srdf
   CONFIG:
-    author_name: Peter Kani
-    author_email: peter.kani@vention.cc
+    author_name: Zedderrs
+    author_email: p.kaniostos@gmail.com
     generated_timestamp: 1623878022
