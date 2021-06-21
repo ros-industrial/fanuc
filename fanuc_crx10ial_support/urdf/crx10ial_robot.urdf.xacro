@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro"
+       name="crx10ial" >
+
+  <!-- common stuff -->
+
+  <!-- crx10ial -->
+  <xacro:include filename="$(find fanuc_crx10ial_support)/urdf/crx10ial.urdf.xacro" />
+
+  <link name="world" />
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "link_base" />
+    <origin xyz="0.0 0.0 0.329" rpy="0.0 0.0 0.0" />
+  </joint>
+
+</robot>
