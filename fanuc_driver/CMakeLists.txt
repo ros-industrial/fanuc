@@ -9,10 +9,6 @@ catkin_package(
   CATKIN_DEPENDS industrial_robot_client
 )
 
-# these nodes run on the host computer, so use Linux sockets for
-# simple_message sockets
-add_definitions(-DLINUXSOCKETS=1)
-
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
@@ -30,6 +26,10 @@ target_link_libraries(${PROJECT_NAME}_robot_state
 set_target_properties(${PROJECT_NAME}_robot_state
   PROPERTIES OUTPUT_NAME robot_state
   PREFIX "")
+target_compile_definitions(
+  ${PROJECT_NAME}_robot_state
+  PRIVATE
+  ${industrial_robot_client_DEFINITIONS})
 
 
 # byte-swapping Fanuc specific robot state node
@@ -43,6 +43,10 @@ target_link_libraries(${PROJECT_NAME}_robot_state_bswap
 set_target_properties(${PROJECT_NAME}_robot_state_bswap
   PROPERTIES OUTPUT_NAME robot_state_bswap
   PREFIX "")
+target_compile_definitions(
+  ${PROJECT_NAME}_robot_state_bswap
+  PRIVATE
+  ${industrial_robot_client_bswap_DEFINITIONS})
 
 
 # non-swapping Fanuc specific motion streaming interface
@@ -56,6 +60,10 @@ target_link_libraries(${PROJECT_NAME}_motion_streaming_interface
 set_target_properties(${PROJECT_NAME}_motion_streaming_interface
   PROPERTIES OUTPUT_NAME motion_streaming_interface
   PREFIX "")
+target_compile_definitions(
+  ${PROJECT_NAME}_motion_streaming_interface
+  PRIVATE
+  ${industrial_robot_client_DEFINITIONS})
 
 
 # byte-swapping Fanuc specific motion streaming interface
@@ -69,6 +77,10 @@ target_link_libraries(${PROJECT_NAME}_motion_streaming_interface_bswap
 set_target_properties(${PROJECT_NAME}_motion_streaming_interface_bswap
   PROPERTIES OUTPUT_NAME motion_streaming_interface_bswap
   PREFIX "")
+target_compile_definitions(
+  ${PROJECT_NAME}_motion_streaming_interface_bswap
+  PRIVATE
+  ${industrial_robot_client_bswap_DEFINITIONS})
 
 
 if (CATKIN_ENABLE_TESTING)
