@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>fanuc_lrmate200id_moveit_config</name>
+  <version>0.5.1</version>
+  <description>
+    <p>
+      MoveIt package for the Fanuc LR Mate 200iD.
+    </p>
+    <p>
+      An automatically generated package with all the configuration and launch
+      files for using the Fanuc LR Mate 200iD with the MoveIt Motion Planning
+      Framework.
+    </p>
+    <p>
+      <b>NB</b>: this package currently uses the default MoveIt acceleration
+      limits (ie: 1/5th of joint velocity limits), instead of the true
+      acceleration limits for this manipulator (see
+      <a href="https://github.com/ros-industrial/fanuc/issues/49">issue 49</a>).
+    </p>
+  </description>
+  <author email="assistant@moveit.ros.org">MoveIt Setup Assistant</author>
+  <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://wiki.ros.org/fanuc_lrmate200id_moveit_config</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <test_depend>roslaunch</test_depend>
+
+  <exec_depend>fanuc_lrmate200id_moveit_plugins</exec_depend>
+  <exec_depend>fanuc_lrmate200id_support</exec_depend>
+  <exec_depend>industrial_robot_simulator</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>moveit_fake_controller_manager</exec_depend>
+  <exec_depend>moveit_planners_ompl</exec_depend>
+  <exec_depend>moveit_ros_move_group</exec_depend>
+  <exec_depend>moveit_ros_visualization</exec_depend>
+  <exec_depend>moveit_ros_warehouse</exec_depend>
+  <exec_depend>moveit_simple_controller_manager</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz</exec_depend>
+  <exec_depend>warehouse_ros</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <export>
+    <architecture_independent />
+    <rosindex>
+      <tags>
+        <tag>moveit</tag>
+        <tag>fanuc</tag>
+        <tag>industrial</tag>
+        <tag>ros-industrial</tag>
+        <tag>lrmate200id</tag>
+      </tags>
+    </rosindex>
+    <ros_industrial>
+      <support_level value="community" />
+    </ros_industrial>
+  </export>
+</package>

@@ -1,0 +1,9 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: fanuc_lrmate200id_support
+    relative_path: urdf/lrmate200id.xacro
+    use_jade_xacro: true
+  SRDF:
+    relative_path: config/fanuc_lrmate200id.srdf
+  CONFIG:
+    generated_timestamp: 1445587097

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>fanuc_lrmate200id_moveit_plugins</name>
+  <version>0.5.1</version>
+  <description>
+    <p>
+      MoveIt plugins for the Fanuc LR Mate 200iD (and variants).
+    </p>
+    <p>
+      This package contains plugins for use with MoveIt and Fanuc LR Mate 200iD
+      manipulators. Plugins included support the base model and the /7L. See
+      the Fanuc LR Mate 200iD support package for information on used joint
+      angle and velocity limits.
+    </p>
+    <p>
+      Before using any of the plugins included in this package, be sure to
+      check they are correct for the particular robot model and configuration
+      you intend to use them with.
+    </p>
+  </description>
+  <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+  <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://wiki.ros.org/fanuc_lrmate200id_moveit_plugins</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>liblapack-dev</depend>
+  <depend>moveit_core</depend>
+  <depend>pluginlib</depend>
+  <depend>roscpp</depend>
+  <depend>tf_conversions</depend>
+
+  <export>
+    <deprecated>
+      All IKFast MoveIt plugins are deprecated and will be removed from future
+      releases. Where possible, they will be replaced with OPW Kinematics-based
+      plugins.
+    </deprecated>
+    <moveit_core plugin="${prefix}/lrmate200id_kinematics/fanuc_lrmate200id_manipulator_moveit_ikfast_plugin_description.xml"/>
+    <moveit_core plugin="${prefix}/lrmate200id7l_kinematics/fanuc_lrmate200id7l_manipulator_moveit_ikfast_plugin_description.xml"/>
+    <rosindex>
+      <tags>
+        <tag>moveit</tag>
+        <tag>ikfast</tag>
+        <tag>kinematics</tag>
+        <tag>fanuc</tag>
+        <tag>industrial</tag>
+        <tag>ros-industrial</tag>
+        <tag>lrmate200id</tag>
+      </tags>
+    </rosindex>
+    <ros_industrial>
+      <support_level value="community" />
+    </ros_industrial>
+  </export>
+</package>

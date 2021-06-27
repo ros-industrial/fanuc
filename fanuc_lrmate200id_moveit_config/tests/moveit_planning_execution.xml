@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="ip_str" value="127.0.0.1" />
+
+  <group>
+    <include file="$(find fanuc_lrmate200id_moveit_config)/launch/moveit_planning_execution.launch">
+      <arg name="sim" value="false" />
+      <arg name="robot_ip" value="$(arg ip_str)" />
+    </include>
+  </group>
+
+  <group ns="with_db" if="false">
+    <include file="$(find fanuc_lrmate200id_moveit_config)/launch/moveit_planning_execution.launch">
+      <arg name="sim" value="false" />
+      <arg name="robot_ip" value="$(arg ip_str)" />
+      <arg name="db" value="true" />
+    </include>
+  </group>
+</launch>
