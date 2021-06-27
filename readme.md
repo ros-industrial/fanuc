@@ -21,6 +21,12 @@ Branch naming follows the ROS distribution they are compatible with. `-devel` br
 
 Older releases may be found in the Github mirror of the old ROS-Industrial [subversion repository][].
 
+### MoveIt configurations
+
+All provided MoveIt configurations were moved to the [moveit_cfgs](/moveit_cfgs) subdirectory in [#322][].
+These packages can be used as-if they were still located in the root of the repository.
+Catkin will still be able to locate them.
+
 
 ## Status
 
@@ -122,6 +128,7 @@ Use of these names does not imply endorsement by FANUC Corporation.
 [ROS wiki]: http://wiki.ros.org/fanuc
 [fanuc_experimental]: https://github.com/ros-industrial/fanuc_experimental
 [subversion repository]: https://github.com/ros-industrial/swri-ros-pkg
+[#322]: https://github.com/ros-industrial/fanuc/pull/322
 [Catkin workspace]: http://wiki.ros.org/catkin/Tutorials/create_a_workspace
 [catkin]: http://wiki.ros.org/catkin
 [catkin_tools]: https://catkin-tools.readthedocs.io/en/latest
