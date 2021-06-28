@@ -28,6 +28,10 @@
   <exec_depend>fanuc_lrmate200ic_moveit_config</exec_depend>
   <exec_depend>fanuc_lrmate200ic_moveit_plugins</exec_depend>
   <exec_depend>fanuc_lrmate200ic_support</exec_depend>
+  <exec_depend>fanuc_lrmate200id7l_moveit_config</exec_depend>
+  <exec_depend>fanuc_lrmate200id_moveit_config</exec_depend>
+  <exec_depend>fanuc_lrmate200id_moveit_plugins</exec_depend>
+  <exec_depend>fanuc_lrmate200id_support</exec_depend>
   <exec_depend>fanuc_lrmate200i_moveit_config</exec_depend>
   <exec_depend>fanuc_lrmate200i_moveit_plugins</exec_depend>
   <exec_depend>fanuc_lrmate200i_support</exec_depend>
