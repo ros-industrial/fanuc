@@ -24,6 +24,7 @@ jobs:
       CCACHE_DIR: "${{ github.workspace }}/.ccache"
       CATKIN_LINT: "true"
       CATKIN_LINT_ARGS: --ignore launch_depend
+      UPSTREAM_WORKSPACE: 'github:ros-industrial/industrial_core#melodic'
 
     steps:
       - name: Fetch repository
