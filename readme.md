@@ -42,6 +42,8 @@ FANUC does not support ROS.
 
 Binary packages are available for ROS Kinetic, but not all packages have been released.
 
+For installation on newer ROS versions, refer to the *Building* section below.
+
 The following packages have been released (as of 2019-10-09):
 
  - `fanuc_driver`
@@ -67,7 +69,7 @@ This would install `ros-kinetic-fanuc-resources` and `ros-kinetic-fanuc-driver` 
 
 ### On newer (or older) versions of ROS
 
-Building the packages on newer (or older) versions of ROS is in most cases possible and supported. For example: building the packages in this repository on Ubuntu Xenial/ROS Kinetic or Ubuntu Bionic/ROS Melodic systems is supported. This will require creating a Catkin workspace, cloning this repository, installing all required dependencies and finally building the workspace.
+Building the packages on newer (or older) versions of ROS is in most cases possible and supported. For example: building the packages in this repository on Ubuntu Bionic/ROS Melodic or Ubuntu Focal/ROS Noetic systems is supported. This will require creating a Catkin workspace, cloning this repository, installing all required dependencies and finally building the workspace.
 
 ### Catkin tools
 
@@ -77,22 +79,23 @@ It is recommended to use [catkin_tools][] instead of the default [catkin][] when
 
 The following instructions assume that a [Catkin workspace][] has been created at `$HOME/catkin_ws` and that the *source space* is at `$HOME/catkin_ws/src`. Update paths appropriately if they are different on the build machine.
 
-These instructions build the `indigo-devel` branch on a ROS Kinetic system:
+These instructions build the `melodic-devel` branch on a ROS Melodic system:
 
 ```bash
 # change to the root of the Catkin workspace
 $ cd $HOME/catkin_ws
 
 # retrieve the latest development version of fanuc. If you'd rather
-# use the latest released version, replace 'indigo-devel' with 'kinetic'
-$ git clone -b indigo-devel https://github.com/ros-industrial/fanuc.git src/fanuc
+# use the latest released version, replace 'melodic-devel' with 'kinetic'
+# NOTE: 'melodic-devel' is compatible with ROS Noetic. 'kinetic' may not be
+$ git clone -b melodic-devel https://github.com/ros-industrial/fanuc.git src/fanuc
 
 # check build dependencies. Note: this may install additional packages,
 # depending on the software installed on the machine
 $ rosdep update
 
-# be sure to change 'kinetic' to whichever ROS release you are using
-$ rosdep install --from-paths src/ --ignore-src --rosdistro kinetic
+# be sure to change 'melodic' to whichever ROS release you are using
+$ rosdep install --from-paths src/ --ignore-src --rosdistro melodic
 
 # build the workspace (using catkin_tools)
 $ catkin build
