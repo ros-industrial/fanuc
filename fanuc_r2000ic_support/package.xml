@@ -9,8 +9,8 @@
     </p>
     <p>
       This package contains configuration data, 3D models and launch files
-      for Fanuc R-2000iC manipulators. This includes the /125L, /165F, /210F
-      and /270F variants.
+      for Fanuc R-2000iC manipulators. This includes the /125L, /165F, /210F,
+      /210L and /270F variants.
     </p>
     <p>
       <b>Note</b>: for use with current ROS packages, the /210F is identical
@@ -22,6 +22,7 @@
       <li>R-2000iC/125L - "Conventional dress-out"</li>
       <li>R-2000iC/165F - "Conventional dress-out"</li>
       <li>R-2000iC/210F - "Conventional dress-out"</li>
+      <li>R-2000iC/210L - "Conventional dress-out"</li>
       <li>R-2000iC/270F - "Conventional dress-out"</li>
     </ul>
     <p>
@@ -39,8 +40,8 @@
     <p><b>Contributors</b>:</p>
     <p>
       This support package has received contributions from: Timo Birnkraut and
-      Simon Schmeisser (125L), Didier Quirin (210F) and Haris Suwignyo (Alten
-      Nederland) (270F).
+      Simon Schmeisser (125L), Didier Quirin (210F), Haris Suwignyo (Alten
+      Nederland) (270F) and Ademola Oridate (Wilder Systems) (210L).
     </p>
   </description>
   <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
