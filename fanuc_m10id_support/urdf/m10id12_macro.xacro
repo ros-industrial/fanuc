@@ -5,7 +5,7 @@
   <xacro:macro name="fanuc_m10id12" params="prefix">
     <!-- links: main serial chain -->
     <link name="${prefix}base_link">
-      <!-- <visual>
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://fanuc_m10id_support/meshes/m10id12/visual/base_link.stl"/>
@@ -17,10 +17,10 @@
         <geometry>
           <mesh filename="package://fanuc_m10id_support/meshes/m10id12/collision/base_link.stl"/>
         </geometry>
-      </collision> -->
+      </collision>
     </link>
     <link name="${prefix}link_1">
-      <!-- <visual>
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://fanuc_m10id_support/meshes/m10id12/visual/link_1.stl"/>
@@ -32,10 +32,10 @@
         <geometry>
           <mesh filename="package://fanuc_m10id_support/meshes/m10id12/collision/link_1.stl"/>
         </geometry>
-      </collision> -->
+      </collision>
     </link>
     <link name="${prefix}link_2">
-      <!-- <visual>
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://fanuc_m10id_support/meshes/m10id12/visual/link_2.stl"/>
@@ -47,10 +47,10 @@
         <geometry>
           <mesh filename="package://fanuc_m10id_support/meshes/m10id12/collision/link_2.stl"/>
         </geometry>
-      </collision> -->
+      </collision>
     </link>
     <link name="${prefix}link_3">
-      <!-- <visual>
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://fanuc_m10id_support/meshes/m10id12/visual/link_3.stl"/>
@@ -62,10 +62,10 @@
         <geometry>
           <mesh filename="package://fanuc_m10id_support/meshes/m10id12/collision/link_3.stl"/>
         </geometry>
-      </collision> -->
+      </collision>
     </link>
     <link name="${prefix}link_4">
-      <!-- <visual>
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://fanuc_m10id_support/meshes/m10id12/visual/link_4.stl"/>
@@ -77,10 +77,10 @@
         <geometry>
           <mesh filename="package://fanuc_m10id_support/meshes/m10id12/collision/link_4.stl"/>
         </geometry>
-      </collision> -->
+      </collision>
     </link>
     <link name="${prefix}link_5">
-      <!-- <visual>
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://fanuc_m10id_support/meshes/m10id12/visual/link_5.stl"/>
@@ -92,10 +92,10 @@
         <geometry>
           <mesh filename="package://fanuc_m10id_support/meshes/m10id12/collision/link_5.stl"/>
         </geometry>
-      </collision> -->
+      </collision>
     </link>
     <link name="${prefix}link_6">
-      <!-- <visual>
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://fanuc_m10id_support/meshes/m10id12/visual/link_6.stl"/>
@@ -107,20 +107,20 @@
         <geometry>
           <mesh filename="package://fanuc_m10id_support/meshes/m10id12/collision/link_6.stl"/>
         </geometry>
-      </collision> -->
+      </collision>
     </link>
 
 <!--//TODO: Verify ranges are correct-->
     <!-- joints: main serial chain -->
     <joint name="${prefix}joint_1" type="revolute">
-      <origin xyz="0 0 0.450" rpy="0 0 0"/>
+      <origin xyz="0 0 0.3035" rpy="0 0 0"/>
       <parent link="${prefix}base_link"/>
       <child link="${prefix}link_1"/>
       <axis xyz="0 0 1"/>
       <limit lower="-2.967" upper="2.967" effort="0" velocity="4.53"/>
     </joint>
     <joint name="${prefix}joint_2" type="revolute">
-      <origin xyz="0.075 0 0" rpy="0 0 0"/>
+      <origin xyz="0.075 0 0.1465" rpy="0 0 0"/>
       <parent link="${prefix}link_1"/>
       <child link="${prefix}link_2"/>
       <axis xyz="0 1 0"/>
@@ -134,21 +134,21 @@
       <limit lower="-3.14" upper="4.66" effort="0" velocity="4.53"/>
     </joint>
     <joint name="${prefix}joint_4" type="revolute">
-      <origin xyz="0 0 0.195" rpy="0 0 0"/>
+      <origin xyz="0.2555 0 0.195" rpy="0 0 0"/>
       <parent link="${prefix}link_3"/>
       <child link="${prefix}link_4"/>
       <axis xyz="-1 0 0"/>
       <limit lower="-3.31" upper="3.31" effort="0" velocity="7.50"/>
     </joint>
     <joint name="${prefix}joint_5" type="revolute">
-      <origin xyz="0.700 0 0" rpy="0 0 0"/>
+      <origin xyz="0.4445 -0.0572 0" rpy="0 0 0"/>
       <parent link="${prefix}link_4"/>
       <child link="${prefix}link_5"/>
       <axis xyz="0 -1 0"/>
       <limit lower="-3.14" upper="3.14" effort="0" velocity="7.85"/>
     </joint>
     <joint name="${prefix}joint_6" type="revolute">
-      <origin xyz="0.075 0 0" rpy="0 0 0"/>
+      <origin xyz="0.075 0.0572 0" rpy="0 0 0"/>
       <parent link="${prefix}link_5"/>
       <child link="${prefix}link_6"/>
       <axis xyz="-1 0 0"/>
