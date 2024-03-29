@@ -34,7 +34,7 @@ This means they do not get support from the OEM, nor from the ROS-Industrial con
 
 Maintenance and development is on a best-effort basis and depends on volunteers.
 
-FANUC does not support ROS.
+If you are looking for official support, ask your local Fanuc branch office for their version of the ROS 1 fanuc driver.
 
 
 ## Installation
