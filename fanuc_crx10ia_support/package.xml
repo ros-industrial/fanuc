@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
   <name>fanuc_crx10ia_support</name>
-  <version>0.1.0</version>
+  <version>0.5.1</version>
   <description>
     <p>
       ROS-Industrial support for the Fanuc CRX-10iA (and variants).
@@ -58,7 +58,6 @@
         <tag>industrial</tag>
         <tag>ros-industrial</tag>
         <tag>support_package</tag>
-        <tag>experimental</tag>
       </tags>
     </rosindex>
     <ros_industrial>
