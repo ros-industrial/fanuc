@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="ip_str" value="127.0.0.1" />
+
+  <group ns="load_r2000ic165f__">
+    <include file="$(find fanuc_r2000ic_support)/launch/load_r2000ic165f.launch"/>
+  </group>
+
+  <group ns="test_r2000ic165f__">
+    <include file="$(find fanuc_r2000ic_support)/launch/test_r2000ic165f.launch"/>
+  </group>
+
+  <group ns="robot_interface_streaming_r2000ic165f__">
+    <include file="$(find fanuc_r2000ic_support)/launch/robot_interface_streaming_r2000ic165f.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+    </include>
+  </group>
+
+  <group ns="robot_state_visualize_r2000ic165f__">
+    <include file="$(find fanuc_r2000ic_support)/launch/robot_state_visualize_r2000ic165f.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+    </include>
+  </group>
+
+
+  <!-- without bswap -->
+  <group ns="robot_interface_streaming_r2000ic165f_f__">
+    <include file="$(find fanuc_r2000ic_support)/launch/robot_interface_streaming_r2000ic165f.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+      <arg name="use_bswap" value="false" />
+    </include>
+  </group>
+
+  <group ns="robot_state_visualize_r2000ic165f_f__">
+    <include file="$(find fanuc_r2000ic_support)/launch/robot_state_visualize_r2000ic165f.launch">
+      <arg name="robot_ip" value="$(arg ip_str)" />
+      <arg name="use_bswap" value="false" />
+    </include>
+  </group>
+</launch>

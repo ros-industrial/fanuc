@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>fanuc_r2000ic_support</name>
+  <version>0.5.1</version>
+  <description>
+    <p>
+      ROS-Industrial support for the Fanuc R-2000iC (and variants).
+    </p>
+    <p>
+      This package contains configuration data, 3D models and launch files
+      for Fanuc R-2000iC manipulators. This includes the /125L, /165F, /210F,
+      /210L and /270F variants.
+    </p>
+    <p>
+      <b>Note</b>: for use with current ROS packages, the /210F is identical
+      to the /165F and reuses the meshes, kinematic structure and the OPW
+      parameters of the /165. Only the joint limits are different.
+    </p>
+    <p><b>Specifications</b>:</p>
+    <ul>
+      <li>R-2000iC/125L - "Conventional dress-out"</li>
+      <li>R-2000iC/165F - "Conventional dress-out"</li>
+      <li>R-2000iC/210F - "Conventional dress-out"</li>
+      <li>R-2000iC/210L - "Conventional dress-out"</li>
+      <li>R-2000iC/270F - "Conventional dress-out"</li>
+    </ul>
+    <p>
+      Joint limits and maximum joint velocities are based on the information in
+      the <em>FANUC Robot R-2000iC Mechanical Unit Operator's Manual</em>
+      version <em>B-83644EN/01</em>. All urdfs are based on the default motion
+      and joint velocity limits, unless noted otherwise (ie: no support for
+      high speed joints, extended / limited motion ranges or other options).
+    </p>
+    <p>
+      Before using any of the configuration files and / or meshes included
+      in this package, be sure to check they are correct for the particular
+      robot model and configuration you intend to use them with.
+    </p>
+    <p><b>Contributors</b>:</p>
+    <p>
+      This support package has received contributions from: Timo Birnkraut and
+      Simon Schmeisser (125L), Didier Quirin (210F), Haris Suwignyo (Alten
+      Nederland) (270F) and Ademola Oridate (Wilder Systems) (210L).
+    </p>
+  </description>
+  <author>G.A. vd. Hoorn (TU Delft Robotics Institute)</author>
+  <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://wiki.ros.org/fanuc_r2000ic_support</url>
+  <url type="bugtracker">https://github.com/ros-industrial/fanuc/issues</url>
+  <url type="repository">https://github.com/ros-industrial/fanuc</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <test_depend>roslaunch</test_depend>
+
+  <exec_depend>fanuc_driver</exec_depend>
+  <exec_depend>fanuc_resources</exec_depend>
+  <exec_depend>industrial_robot_client</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <export>
+    <architecture_independent />
+    <rosindex>
+      <tags>
+        <tag>support_package</tag>
+        <tag>description</tag>
+        <tag>fanuc</tag>
+        <tag>industrial</tag>
+        <tag>ros-industrial</tag>
+        <tag>r2000ic</tag>
+      </tags>
+    </rosindex>
+    <ros_industrial>
+      <support_level value="community" />
+    </ros_industrial>
+  </export>
+</package>
