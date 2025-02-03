@@ -18,6 +18,7 @@
   <exec_depend>fanuc_cr7ia_moveit_config</exec_depend>
   <exec_depend>fanuc_cr7ia_support</exec_depend>
   <exec_depend>fanuc_cr7ial_moveit_config</exec_depend>
+  <exec_depend>fanuc_crx10ia_support</exec_depend>
   <exec_depend>fanuc_driver</exec_depend>
   <exec_depend>fanuc_lrmate200i_moveit_config</exec_depend>
   <exec_depend>fanuc_lrmate200i_moveit_plugins</exec_depend>
@@ -61,6 +62,8 @@
   <exec_depend>fanuc_r1000ia80f_moveit_config</exec_depend>
   <exec_depend>fanuc_r1000ia_moveit_plugins</exec_depend>
   <exec_depend>fanuc_r1000ia_support</exec_depend>
+  <exec_depend>fanuc_r2000ib_support</exec_depend>
+  <exec_depend>fanuc_r2000ic_support</exec_depend>
   <exec_depend>fanuc_resources</exec_depend>
 
   <export>
