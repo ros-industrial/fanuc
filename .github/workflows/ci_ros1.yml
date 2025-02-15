@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ros_distro: [ melodic ]
+        ros_distro: [ noetic ]
         ros_repo: [ main, testing ]
 
     env:
