@@ -1,4 +1,4 @@
-name: CI - Ubuntu Bionic
+name: CI - ROS 1
 
 on:
   # direct pushes to protected branches are not supported
@@ -11,8 +11,8 @@ on:
 
 jobs:
   industrial_ci:
-    name: ROS Melodic (${{ matrix.ros_repo }})
-    runs-on: ubuntu-20.04
+    name: ${{ matrix.ros_distro }}, ${{ matrix.ros_repo }}
+    runs-on: ubuntu-22.04
 
     strategy:
       fail-fast: false
@@ -28,10 +28,10 @@ jobs:
 
     steps:
       - name: Fetch repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: ccache cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ env.CCACHE_DIR }}
           # we always want the ccache cache to be persisted, as we cannot easily
