@@ -2,8 +2,8 @@
 Changelog for package fanuc
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.0 (2025-02-15)
+------------------
 * promote experimental packages for CRX-10iA, R-2000iB and R-2000iC to main repository.
 * add migrated LR Mate 200iD package (`#323 <https://github.com/ros-industrial/fanuc/issues/323>`_).
 * for a complete list of changes see the `commit log for 0.6.0 <https://github.com/ros-industrial/fanuc/compare/0.5.1...0.6.0>`_.

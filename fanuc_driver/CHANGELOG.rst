@@ -2,8 +2,8 @@
 Changelog for package fanuc_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.0 (2025-02-15)
+------------------
 * use ``target_compile_defs`` from ``industrial_core`` (`#324 <https://github.com/ros-industrial/fanuc/issues/324>`_).
 * for a complete list of changes see the `commit log for 0.6.0 <https://github.com/ros-industrial/fanuc/compare/0.5.1...0.6.0>`_.
 
