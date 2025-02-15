@@ -1,6 +1,6 @@
 # Fanuc
 
-[![Build Status: CI - ROS 1](https://github.com/ros-industrial/fanuc/actions/workflows/ci_ros1.yml/badge.svg?branch=melodic-devel)](https://github.com/ros-industrial/fanuc/actions/workflows/ci_ros1.yml)
+[![Build Status: CI - ROS 1](https://github.com/ros-industrial/fanuc/actions/workflows/ci_ros1.yml/badge.svg?branch=noetic-devel)](https://github.com/ros-industrial/fanuc/actions/workflows/ci_ros1.yml)
 [![Github Issues](https://img.shields.io/github/issues/ros-industrial/fanuc.svg)](http://github.com/ros-industrial/fanuc/issues)
 
 [![license - apache 2.0](https://img.shields.io/:license-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -16,7 +16,7 @@ The [fanuc_experimental][] repository contains additional packages.
 
 ## Contents
 
-Branch naming follows the ROS distribution they are compatible with. `-devel` branches may be unstable. Releases are made from the distribution branches (`hydro`, `indigo`, `kinetic`).
+Branch naming follows the ROS distribution they are compatible with. `-devel` branches may be unstable. Releases are made from the distribution branches (`hydro`, `indigo`, `kinetic` and 'noetic').
 
 Older releases may be found in the Github mirror of the old ROS-Industrial [subversion repository][].
 
@@ -68,7 +68,7 @@ This would install `ros-kinetic-fanuc-resources` and `ros-kinetic-fanuc-driver` 
 
 ### On newer (or older) versions of ROS
 
-Building the packages on newer (or older) versions of ROS is in most cases possible and supported. For example: building the packages in this repository on Ubuntu Bionic/ROS Melodic or Ubuntu Focal/ROS Noetic systems is supported. This will require creating a Catkin workspace, cloning this repository, installing all required dependencies and finally building the workspace.
+Building the packages on newer (or older) versions of ROS is in most cases possible and supported. For example: building the packages in this repository on Ubuntu Focal/ROS Noetic systems is supported. This will require creating a Catkin workspace, cloning this repository, installing all required dependencies and finally building the workspace.
 
 ### Catkin tools
 
@@ -78,23 +78,23 @@ It is recommended to use [catkin_tools][] instead of the default [catkin][] when
 
 The following instructions assume that a [Catkin workspace][] has been created at `$HOME/catkin_ws` and that the *source space* is at `$HOME/catkin_ws/src`. Update paths appropriately if they are different on the build machine.
 
-These instructions build the `melodic-devel` branch on a ROS Melodic system:
+These instructions build the `noetic-devel` branch on a ROS Noetic system:
 
 ```bash
 # change to the root of the Catkin workspace
 $ cd $HOME/catkin_ws
 
 # retrieve the latest development version of fanuc. If you'd rather
-# use the latest released version, replace 'melodic-devel' with 'kinetic'
-# NOTE: 'melodic-devel' is compatible with ROS Noetic. 'kinetic' may not be
-$ git clone -b melodic-devel https://github.com/ros-industrial/fanuc.git src/fanuc
+# use the latest released version, replace 'noetic-devel' with 'kinetic'
+# NOTE: 'noetic-devel' is compatible with ROS Noetic. 'kinetic' may not be
+$ git clone -b noetic-devel https://github.com/ros-industrial/fanuc.git src/fanuc
 
 # check build dependencies. Note: this may install additional packages,
 # depending on the software installed on the machine
 $ rosdep update
 
-# be sure to change 'melodic' to whichever ROS release you are using
-$ rosdep install --from-paths src/ --ignore-src --rosdistro melodic
+# be sure to change 'noetic' to whichever ROS release you are using
+$ rosdep install --from-paths src/ --ignore-src --rosdistro noetic
 
 # build the workspace (using catkin_tools)
 $ catkin build
