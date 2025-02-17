@@ -16,7 +16,7 @@ The [fanuc_experimental][] repository contains additional packages.
 
 ## Contents
 
-Branch naming follows the ROS distribution they are compatible with. `-devel` branches may be unstable. Releases are made from the distribution branches (`hydro`, `indigo`, `kinetic` and 'noetic').
+Branch naming follows the ROS distribution they are compatible with. `-devel` branches may be unstable. Releases are made from the distribution branches (`hydro`, `indigo`, `kinetic` and `noetic`).
 
 Older releases may be found in the Github mirror of the old ROS-Industrial [subversion repository][].
 
@@ -85,8 +85,9 @@ These instructions build the `noetic-devel` branch on a ROS Noetic system:
 $ cd $HOME/catkin_ws
 
 # retrieve the latest development version of fanuc. If you'd rather
-# use the latest released version, replace 'noetic-devel' with 'kinetic'
-# NOTE: 'noetic-devel' is compatible with ROS Noetic. 'kinetic' may not be
+# use the latest released version, replace 'noetic-devel' with 'noetic'
+# NOTE: 'noetic-devel' is compatible with ROS Noetic. Use the correct branch
+# for the OS + ROS version you're building these packages for
 $ git clone -b noetic-devel https://github.com/ros-industrial/fanuc.git src/fanuc
 
 # check build dependencies. Note: this may install additional packages,
