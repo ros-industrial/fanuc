@@ -39,29 +39,29 @@ If you are looking for official support, ask your local Fanuc branch office for 
 
 ## Installation
 
-Binary packages are available for ROS Kinetic, but not all packages have been released.
+Binary packages are available for ROS Noetic, but not all packages have been released.
 
-For installation on newer ROS versions, refer to the *Building* section below.
+For building (unreleased) packages on older or newer ROS 1 versions, refer to the *Building* section below.
 
-The following packages have been released (as of 2019-10-09):
+The following packages have been released (as of 2025-02-19):
 
  - `fanuc_driver`
  - `fanuc_resources`
  - all support packages (ie: `fanuc_*_support`)
 
-They can be installed using `apt` (on Ubuntu and Debian).
+They can be installed using `apt` (on Ubuntu).
 
 The other packages (MoveIt configurations and plugins) can be built from sources (see the *Building* section below).
 
 ### Example
 
-To install `fanuc_m10ia_support` on Ubuntu Xenial for ROS Kinetic (after having followed the normal ROS Kinetic installation tutorial):
+To install `fanuc_m10ia_support` on Ubuntu Focal for ROS Noetic (after having followed the normal ROS Noetic installation tutorial):
 
 ```
-sudo apt install ros-kinetic-fanuc-m10ia-support
+sudo apt install ros-noetic-fanuc-m10ia-support
 ```
 
-This would install `ros-kinetic-fanuc-resources` and `ros-kinetic-fanuc-driver` as well (and all their dependencies).
+This would install `ros-noetic-fanuc-resources` and `ros-noetic-fanuc-driver` as well (and all their dependencies).
 
 
 ## Building
